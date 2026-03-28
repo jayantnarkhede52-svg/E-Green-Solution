@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Calculator | Egreen Solution</title>
+    <meta name="description"
+        content="Calculate your potential solar savings and system size requirement with Egreen Solution's Solar Calculator.">
+    <link rel="stylesheet" href="css/style.css?v=4.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Egreen Solution Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="calculator.html" style="color: var(--accent) !important;">Calculator</a></li>
+                <li><a href="contact.html" class="btn-contact">Contact Us</a></li>
+            </ul>
+
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+            <div class="mobile-menu" id="mobile-menu">
+                <ul class="mobile-nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="calculator.html">Calculator</a></li>
+                    <li><a href="contact.html" class="btn-contact-mobile">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header" style="min-height: 40vh;">
+        <div class="container">
+            <h1 class="animate-reveal">Solar Savings Calculator</h1>
+            <p class="animate-reveal">Estimate your ideal system size and potential savings in Mumbai & Pune.</p>
+        </div>
+    </header>
+
+    <section id="calculator-section" style="padding: 100px 0; background-color: #f8f9fa;">
+        <div class="container">
+            <div class="wizard-container shadow">
+                <!-- Progress Header -->
+                <div class="wizard-header">
+                    <div class="step-indicator active" id="step1-dot">
+                        <span class="step-number">1</span>
+                        <span class="step-text">Usage</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step-indicator" id="step2-dot">
+                        <span class="step-number">2</span>
+                        <span class="step-text">Results</span>
+                    </div>
+                </div>
+
+                <!-- Step 1: Input -->
+                <div class="wizard-step active" id="calc-step-1">
+                    <h2 class="form-title">Calculate Your Solar Savings</h2>
+                    <p class="form-subtitle">Enter your details for a precise rooftop solar estimate.</p>
+                    
+                    <div class="form-grid">
+                        <div class="form-group calc-group box-style">
+                            <label for="monthlyBillRange"><i class="fas fa-file-invoice-dollar"></i> Average Monthly Bill (₹)</label>
+                            <div class="range-wrapper">
+                                <input type="range" id="monthlyBillRange" min="1000" max="50000" step="500" value="5000">
+                                <div class="input-with-symbol">
+                                    <span>₹</span>
+                                    <input type="number" id="monthlyBill" value="5000" min="1000" max="100000">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group calc-group box-style">
+                            <label for="unitRate"><i class="fas fa-bolt"></i> Electricity Rate (₹ / unit)</label>
+                            <p class="field-hint">Mumbai Average: ₹9 - ₹12</p>
+                            <div class="input-with-symbol">
+                                <span>₹</span>
+                                <input type="number" id="unitRate" value="10" min="5" max="25" step="0.5">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wizard-footer">
+                        <button class="btn-primary" id="btn-show-results">Calculate Savings <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Results -->
+                <div class="wizard-step" id="calc-step-2">
+                    <h2 class="form-title">Your Solar Potential</h2>
+                    <p class="form-subtitle">Based on your consumption of ₹ <span id="summary-bill">5000</span>/month.</p>
+
+                    <div class="results-dashboard">
+                        <div class="dashboard-main">
+                            <div class="main-stat">
+                                <span class="label">Monthly Savings</span>
+                                <span class="value highlight-text">₹ <span id="resMonthlySavings">4,500</span></span>
+                                <span class="hint">(90% of your bill)</span>
+                            </div>
+                        </div>
+
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <i class="fas fa-solar-panel"></i>
+                                <span class="label">System Size</span>
+                                <span class="value"><span id="resSystemSize">4.2</span> kW</span>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-expand-arrows-alt"></i>
+                                <span class="label">Roof Area</span>
+                                <span class="value"><span id="resSpace">417</span> sq.ft</span>
+                            </div>
+                            <div class="stat-card standout">
+                                <i class="fas fa-hand-holding-dollar"></i>
+                                <span class="label">Total System Cost</span>
+                                <span class="value">₹ <span id="resSystemCost">2,29,167</span></span>
+                                <span class="hint">*Before MNRE Subsidy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wizard-footer">
+                        <button class="btn-secondary" id="btn-back-to-input"><i class="fas fa-arrow-left"></i> Edit Usage</button>
+                        <a href="contact.html" class="btn-primary highlight shadow-lg">Book Free Inspection <i class="fas fa-calendar-check"></i></a>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 25px;">
+                        <p style="font-size: 14px; opacity: 0.7;">Ready for the actual numbers? <br> Get a 100% accurate energy audit by our professionals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: #1a1a1a; color: #fff; padding: 80px 0;">
+        <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px;">
+            <div style="flex: 1; min-width: 250px;">
+                <a href="#" class="logo" style="margin-bottom: 20px; display: block;">
+                    <img src="assets/logo.png" alt="Egreen Solution Logo" style="height: 50px;">
+                </a>
+                <p style="opacity: 1;">Energy for future. Your premier solar installation partner in Maharashtra.</p>
+            </div>
+            <div style="flex: 1; min-width: 250px;">
+                <h3 style="margin-bottom: 20px;">Quick Links</h3>
+                <ul style="list-style: none; opacity: 1; line-height: 2;">
+                    <li><a href="services.html" style="color: #fff; text-decoration: none;">Our Services</a></li>
+                    <li><a href="about.html" style="color: #fff; text-decoration: none;">About Us</a></li>
+                    <li><a href="calculator.html" style="color: var(--accent); text-decoration: none;">Solar Calculator</a></li>
+                    <li><a href="contact.html" style="color: #fff; text-decoration: none;">Contact Us</a></li>
+                </ul>
+            </div>
+            <div style="flex: 1; min-width: 250px;">
+                <h3 style="margin-bottom: 20px;">Contact Info</h3>
+                <ul style="list-style: none; opacity: 1; line-height: 2;">
+                    <li><i class="fas fa-phone"></i> <a href="tel:+917249187969" style="color: #fff; text-decoration: none; font-weight: bold;">+91 7249187969</a> / 7030096824</li>
+                    <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/917249187969" style="color: #fff; text-decoration: none; font-weight: bold;">WhatsApp Us</a></li>
+                    <li><i class="fas fa-envelope"></i> egreensolution1@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 60px; opacity: 0.9; border-top: 1px solid #333; padding-top: 30px;">
+            &copy; 2026 Egreen Solution. All Rights Reserved.
+        </div>
+    </footer>
+
+    <div class="fab-container">
+        <!-- Live Chat Support Button -->
+        <a href="javascript:void(0)" class="fab chat" id="chat-btn" title="Chat with us">
+            <i class="fas fa-comments"></i>
+        </a>
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/917249187969?text=Hi, I'm interested in Egreen Solution Solar services."
+            class="fab whatsapp" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <!-- Call Button -->
+        <a href="tel:+917249187969" class="fab call" title="Call us">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- Live Chat Widget (Simple & Reliable) -->
+    <div class="chat-widget" id="chat-widget">
+        <div class="chat-header">
+            <div>
+                <h4 style="margin: 0; font-size: 16px;">💬 Egreen Support</h4>
+                <p style="margin: 4px 0 0 0; font-size: 12px; opacity: 0.9;">Online • Instant replies</p>
+            </div>
+            <button class="chat-close" id="chat-close">&times;</button>
+        </div>
+        
+        <div class="chat-messages" id="chat-messages">
+            <div class="chat-message bot-message">
+                <p>Hi there! 👋 Welcome to Egreen Solution. How can I help you today?</p>
+            </div>
+        </div>
+
+        <div class="chat-questions" id="chat-questions">
+            <button class="question-btn" data-question="cost">💰 How much does it cost?</button>
+            <button class="question-btn" data-question="savings">📊 How much can I save?</button>
+            <button class="question-btn" data-question="subsidy">🎁 Are there subsidies?</button>
+            <button class="question-btn" data-question="installation">⏱️ How long for install?</button>
+        </div>
+
+        <div class="chat-footer">
+            <a href="https://wa.me/917249187969?text=Hi, I'd like to know more about your solar solutions" target="_blank" rel="noopener noreferrer" class="chat-contact-btn">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="tel:+917249187969" class="chat-contact-btn">
+                <i class="fas fa-phone"></i> Call
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+</body>
+
+</html>
