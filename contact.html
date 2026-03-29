@@ -10,11 +10,28 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
     <!-- Critical Assets Preload -->
-    <link rel="preload" href="assets/logo.png" as="image">
-    <link rel="preload" href="assets/hero-bg.png" as="image">
+    <link rel="preload" href="assets/logo.png" as="image" fetchpriority="high">
+    <link rel="preload" href="assets/hero-bg.png" as="image" fetchpriority="high">
     
-    <link rel="stylesheet" href="css/style.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Critical CSS Inlined -->
+    <style>
+        :root { --primary: #2e7d32; --accent: #fbc02d; --text-dark: #1a1a1a; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Outfit', sans-serif; font-size: 19px; line-height: 1.8; color: var(--text-dark); background: #f8f9fa; }
+        .container { max-width: 1260px; margin: 0 auto; padding: 0 32px; }
+        nav.scrolled { background: rgba(255, 255, 255, 0.98) !important; backdrop-filter: blur(12px); padding: 14px 0; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); }
+        nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; display: flex; align-items: center; }
+        .logo img { height: 60px; width: auto; display: block; }
+        .page-header { min-height: 52vh; padding-top: 170px; padding-bottom: 70px; background: linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.72)), url('assets/hero-bg.png') no-repeat center center / cover; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-align: center; }
+        .page-header h1 { font-size: 58px; margin-bottom: 18px; font-weight: 800; }
+    </style>
+
+    <link rel="stylesheet" href="css/style.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="css/style.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
 </head>
 <body>
     <nav id="navbar" class="scrolled">

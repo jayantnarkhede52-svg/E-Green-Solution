@@ -10,11 +10,29 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
     <!-- Critical Assets Preload -->
-    <link rel="preload" href="assets/logo.png" as="image">
-    <link rel="preload" href="assets/hero-bg.png" as="image">
+    <link rel="preload" href="assets/logo.png" as="image" fetchpriority="high">
+    <link rel="preload" href="assets/hero-bg.png" as="image" fetchpriority="high">
     
-    <link rel="stylesheet" href="css/style.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Critical CSS Inlined -->
+    <style>
+        :root { --primary: #2e7d32; --accent: #fbc02d; --text-dark: #1a1a1a; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Outfit', sans-serif; font-size: 19px; line-height: 1.8; color: var(--text-dark); background: #f8f9fa; }
+        .container { max-width: 1260px; margin: 0 auto; padding: 0 32px; }
+        nav.scrolled { background: rgba(255, 255, 255, 0.98) !important; backdrop-filter: blur(12px); padding: 14px 0; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); }
+        nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; display: flex; align-items: center; }
+        .logo img { height: 60px; width: auto; display: block; }
+        .page-header { min-height: 52vh; padding-top: 170px; padding-bottom: 70px; background: linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.72)), url('assets/hero-bg.png') no-repeat center center / cover; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-align: center; }
+        .page-header h1 { font-size: 58px; margin-bottom: 18px; font-weight: 800; }
+        .btn-primary { background: linear-gradient(135deg, #fbc02d 0%, #f9a825 100%); color: var(--text-dark); padding: 12px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; }
+    </style>
+
+    <link rel="stylesheet" href="css/style.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="css/style.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
 </head>
 <body>
     <nav id="navbar" class="scrolled">
@@ -97,7 +115,7 @@
                 </div>
                 <!-- Project 2 -->
                 <div class="project-card">
-                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0007.jpg" alt="Solar Installation">
+                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0007.jpg" alt="Industrial Solar Installation" loading="lazy" decoding="async" width="400" height="300">
                     <div class="project-overlay">
                         <h3>140KW Industrial Site</h3>
                         <p>Bhagwati Industries, Palus</p>
@@ -105,7 +123,7 @@
                 </div>
                 <!-- Project 3 -->
                 <div class="project-card">
-                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0009.jpg" alt="Solar Installation">
+                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0009.jpg" alt="Commercial Solar Installation" loading="lazy" decoding="async" width="400" height="300">
                     <div class="project-overlay">
                         <h3>120KW Rooftop System</h3>
                         <p>Modern Engineering Works</p>
@@ -113,7 +131,7 @@
                 </div>
                 <!-- Project 4 -->
                 <div class="project-card">
-                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0010.jpg" alt="Solar Installation">
+                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0010.jpg" alt="Rooftop Solar System" loading="lazy" decoding="async" width="400" height="300">
                     <div class="project-overlay">
                         <h3>60KW On-Grid Plant</h3>
                         <p>Kotling Industries, MIDC Bhosari</p>
@@ -121,7 +139,7 @@
                 </div>
                 <!-- Project 5 -->
                 <div class="project-card">
-                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0011.jpg" alt="Solar Installation">
+                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0011.jpg" alt="On-Grid Solar Solution" loading="lazy" decoding="async" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Solar Water Heater</h3>
                         <p>Ceratech City, Katraj</p>
@@ -129,7 +147,7 @@
                 </div>
                 <!-- Project 6 -->
                 <div class="project-card">
-                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0012.jpg" alt="Solar Installation">
+                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0012.jpg" alt="Large Scale Solar Power Plant" loading="lazy" decoding="async" width="400" height="300">
                     <div class="project-overlay">
                         <h3>35KW Residential Site</h3>
                         <p>Arya Residency, Vadgaon</p>
@@ -137,7 +155,7 @@
                 </div>
                 <!-- Project 7 -->
                 <div class="project-card">
-                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0013.jpg" alt="Solar Installation">
+                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0013.jpg" alt="Solar Water Heater Installation" loading="lazy" decoding="async" width="400" height="300">
                     <div class="project-overlay">
                         <h3>35KW Multi-Storey</h3>
                         <p>Raj Metal Industries, Katraj</p>
@@ -145,7 +163,7 @@
                 </div>
                 <!-- Project 8 -->
                 <div class="project-card">
-                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0014.jpg" alt="Solar Installation">
+                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0014.jpg" alt="Industrial Solar Rooftop" loading="lazy" decoding="async" width="400" height="300">
                     <div class="project-overlay">
                         <h3>30KW Solar Solution</h3>
                         <p>Betulnut Resort, Diveghar</p>
@@ -153,7 +171,7 @@
                 </div>
                 <!-- Project 9 -->
                 <div class="project-card">
-                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0015.jpg" alt="Solar Installation">
+                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0015.jpg" alt="Residential Solar Plant" loading="lazy" decoding="async" width="400" height="300">
                     <div class="project-overlay">
                         <h3>30KW Rooftop Plant</h3>
                         <p>Rudra Hotel, Karve Nagar</p>
@@ -185,7 +203,7 @@
                 </div>
                 <!-- Project 13 -->
                 <div class="project-card">
-                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0024.jpg" alt="Solar Installation">
+                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0024.jpg" alt="Solar Installation" loading="lazy" decoding="async" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Solar Installation</h3>
                         <p>Site #13 - Pune/Mumbai</p>
@@ -193,7 +211,7 @@
                 </div>
                 <!-- Project 14 -->
                 <div class="project-card">
-                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0026.jpg" alt="Solar Installation">
+                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0026.jpg" alt="Solar Installation" loading="lazy" decoding="async" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Solar Installation</h3>
                         <p>Site #14 - Pune/Mumbai</p>
@@ -201,7 +219,7 @@
                 </div>
                 <!-- Project 15 -->
                 <div class="project-card">
-                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0029.jpg" alt="Solar Installation">
+                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0029.jpg" alt="Solar Installation" loading="lazy" decoding="async" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Solar Installation</h3>
                         <p>Site #15 - Pune/Mumbai</p>
@@ -209,7 +227,7 @@
                 </div>
                 <!-- Project 16 -->
                 <div class="project-card">
-                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0030.jpg" alt="Solar Installation">
+                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0030.jpg" alt="Solar Installation" loading="lazy" decoding="async" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Solar Installation</h3>
                         <p>Site #16 - Pune/Mumbai</p>
@@ -217,7 +235,7 @@
                 </div>
                 <!-- Project 17 -->
                 <div class="project-card">
-                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0031.jpg" alt="Solar Installation">
+                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0031.jpg" alt="Solar Installation" loading="lazy" decoding="async" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Solar Installation</h3>
                         <p>Site #17 - Pune/Mumbai</p>
@@ -225,7 +243,7 @@
                 </div>
                 <!-- Project 18 -->
                 <div class="project-card">
-                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0033.jpg" alt="Solar Installation">
+                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0033.jpg" alt="Solar Installation" loading="lazy" decoding="async" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Solar Installation</h3>
                         <p>Site #18 - Pune/Mumbai</p>
@@ -233,7 +251,7 @@
                 </div>
                 <!-- Project 19 -->
                 <div class="project-card">
-                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0034.jpg" alt="Solar Installation">
+                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0034.jpg" alt="Solar Installation" loading="lazy" decoding="async" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Solar Installation</h3>
                         <p>Site #19 - Pune/Mumbai</p>
@@ -241,7 +259,7 @@
                 </div>
                 <!-- Project 20 -->
                 <div class="project-card">
-                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0035.jpg" alt="Solar Installation">
+                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0035.jpg" alt="Solar Installation" loading="lazy" decoding="async" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Solar Installation</h3>
                         <p>Site #20 - Pune/Mumbai</p>
@@ -249,7 +267,7 @@
                 </div>
                 <!-- Project 21 -->
                 <div class="project-card">
-                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0036.jpg" alt="Solar Installation">
+                    <img src="assets/E green projects/E green projects/IMG-20260326-WA0036.jpg" alt="Solar Installation" loading="lazy" decoding="async" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Solar Installation</h3>
                         <p>Site #21 - Pune/Mumbai</p>

@@ -56,14 +56,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Mouse Parallax Effect for Hero (Desktop Only)
+    // Mouse Parallax Effect for Hero (Desktop Only) - Throttled for performance
     const isMobile = window.innerWidth <= 768;
     const heroCard = document.querySelector('.hero-content-wrapper');
     if (heroCard && !isMobile) {
+        let ticking = false;
         document.addEventListener('mousemove', (e) => {
-            const xAxis = (window.innerWidth / 2 - e.pageX) / 45;
-            const yAxis = (window.innerHeight / 2 - e.pageY) / 45;
-            heroCard.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const xAxis = (window.innerWidth / 2 - e.pageX) / 45;
+                    const yAxis = (window.innerHeight / 2 - e.pageY) / 45;
+                    heroCard.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+                    ticking = false;
+                });
+                ticking = true;
+            }
         });
 
         document.addEventListener('mouseleave', () => {
@@ -76,13 +83,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Sticky Navbar
+    // Sticky Navbar - Throttled
     const navbar = document.getElementById('navbar');
+    let lastScrollY = window.scrollY;
+    let scrollTicking = false;
+
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+        if (!scrollTicking) {
+            window.requestAnimationFrame(() => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                scrollTicking = false;
+            });
+            scrollTicking = true;
         }
     });
 
@@ -261,7 +277,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 icon.style.transform = 'rotate(0deg)';
             } else {
                 faqAnswer.style.display = 'block';
-                faqAnswer.style.maxHeight = faqAnswer.scrollHeight + 'px';
+                // Use a slight timeout to ensure display: block is processed before reading scrollHeight
+                // to minimize layout thrashing if possible, or just accept the single read.
+                const height = faqAnswer.scrollHeight;
+                faqAnswer.style.maxHeight = height + 'px';
                 button.style.background = 'rgba(46, 125, 50, 0.08)';
                 icon.style.transform = 'rotate(180deg)';
             }
