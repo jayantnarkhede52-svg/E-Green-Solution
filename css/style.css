@@ -76,6 +76,8 @@ nav .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: none; /* Fluid layout to match hero */
+    padding: 0 8%; /* Matches hero and stats-bar alignment */
 }
 
 .logo {
@@ -195,9 +197,9 @@ body:not(.home) nav .nav-links a {
     background: url('../assets/hero-bg.png') no-repeat center center / cover;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-start; /* Aligns to left for desktop */
     position: relative;
-    padding-left: 8%;
+    padding-left: 8%; /* Matches the stats-bar alignment */
     overflow: hidden;
 }
 
@@ -218,8 +220,11 @@ body:not(.home) nav .nav-links a {
     width: 850px;
     max-width: 90%;
     padding: 0;
-    text-align: left;
+    text-align: left; /* Desktop: Left aligned */
     color: white;
+    background: transparent; /* No box on desktop */
+    border: none;
+    box-shadow: none;
     transform-style: preserve-3d;
     perspective: 1000px;
 }
@@ -1488,6 +1493,43 @@ body:not(.home) nav .hamburger span {
 
 /* === RESPONSIVE === */
 @media (max-width: 1024px) {
+    /* Shrink Cards on Mobile */
+    .services-grid {
+        gap: 20px;
+    }
+
+    .service-card {
+        padding: 30px 20px;
+        border-radius: 24px;
+    }
+
+    .service-card i {
+        font-size: 38px !important;
+        margin-bottom: 12px !important;
+    }
+
+    .service-card h3 {
+        font-size: 22px;
+        margin: 10px 0;
+    }
+
+    .why-card {
+        padding: 25px 20px;
+        border-radius: 20px;
+    }
+
+    .why-card i {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    .project-grid {
+        gap: 15px;
+    }
+
+    .project-card {
+        aspect-ratio: 16/9; /* Flatter cards consume less vertical space */
+    }
     .contact-grid {
         grid-template-columns: 1fr;
         margin-top: 40px;
@@ -1519,7 +1561,7 @@ body:not(.home) nav .hamburger span {
 
 @media (max-width: 768px) {
     body {
-        font-size: 17px;
+        font-size: 19px; /* Preserving premium text size on mobile per request */
     }
 
     .nav-links {
@@ -1531,41 +1573,103 @@ body:not(.home) nav .hamburger span {
         display: flex;
     }
 
+    .hero-container {
+        display: flex;
+        flex-direction: column;
+        background: #f8f9fa;
+    }
+
     .hero {
         justify-content: center;
         padding-left: 0;
         text-align: center;
-        padding-top: 80px;
-        min-height: 90vh;
+        padding-top: 40px;
+        min-height: 65vh; /* Shorter hero so content is visible */
+        display: flex;
+        flex-direction: column;
     }
 
     .hero::before {
-        background: rgba(0, 0, 0, 0.65);
+        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)); /* Even lighter for clearer image */
     }
 
     .hero-content-wrapper {
         width: 100%;
-        padding: 40px 20px;
-        text-align: center;
-        border-left: none;
-        border-top: 4px solid var(--accent);
+        max-width: 88%; /* Tighter rectangle */
+        margin: 0 auto 0; /* Lowered from -60px */
+        padding: 35px 25px;
+        background: rgba(0, 0, 0, 0.45); /* Darker Glass for text visibility */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
         border-radius: 30px;
-        background: rgba(0, 0, 0, 0.3);
-        transform: none !important;
-        perspective: none;
-    }
-
-    .hero-content-wrapper:hover {
-        transform: none !important;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.3);
     }
 
     .hero h1 {
-        font-size: 32px;
+        font-size: 26px !important; /* Smaller text per request */
+        margin-bottom: 15px;
+        line-height: 1.25;
+        text-shadow: none; /* Cleaner in the glass box */
     }
 
     .hero p {
-        font-size: 18px;
-        margin: 0 auto 35px;
+        font-size: 18px; /* Slightly smaller but readable */
+        margin-bottom: 25px;
+        opacity: 0.9;
+    }
+
+    .hero-tagline {
+        font-size: 13px !important;
+        letter-spacing: 4px !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* High Contrast Stats Bar for Mobile */
+    .stats-bar {
+        background: #ffffff !important; /* Solid white for absolute contrast */
+        position: relative;
+        bottom: auto;
+        left: auto;
+        width: 92%;
+        margin: 20px auto 40px;
+        padding: 25px 15px;
+        gap: 15px;
+        display: grid !important; 
+        grid-template-columns: 1fr 1fr; /* 2x2 grid */
+        border-radius: 24px;
+        opacity: 1 !important;
+        transform: none !important;
+        z-index: 100;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.08); /* Soft shadow on white bg */
+    }
+
+    .stat-item {
+        gap: 12px;
+        justify-content: flex-start;
+        padding-left: 10px;
+    }
+
+    .stat-icon {
+        font-size: 20px;
+        color: var(--primary);
+    }
+
+    .stat-number {
+        font-size: 19px !important;
+        color: var(--primary) !important; /* Force primary green for visibility */
+        font-weight: 800;
+        display: block;
+    }
+
+    .stat-label {
+        font-size: 9px !important;
+        color: #555 !important; /* Dark grey for label */
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        display: block;
+        margin-top: 2px;
     }
 
     .hero-btns {
@@ -1576,21 +1680,6 @@ body:not(.home) nav .hamburger span {
     .btn-primary {
         width: 100%;
         padding: 14px 20px !important;
-    }
-
-    .stats-bar {
-        flex-direction: column;
-        gap: 20px;
-        padding: 30px;
-        margin-top: 40px;
-        width: 100% !important;
-        bottom: auto !important;
-        left: auto !important;
-        position: relative !important;
-    }
-
-    .stat-item {
-        text-align: center;
     }
 
     .page-header h1 {
