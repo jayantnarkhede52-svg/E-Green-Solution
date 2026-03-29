@@ -1396,6 +1396,41 @@ body:not(.home) nav .hamburger span {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.why-card {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-10px);
+}
+
+.why-icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto 20px;
+    font-size: 32px;
+    color: #ffffff;
+    line-height: 0 !important;
+    overflow: hidden; /* Extra safety */
+}
+
+.why-icon-circle i {
+    display: block !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    color: #ffffff !important;
+    transform: translateY(1px); /* Small visual correction for FA vertical balancing */
+}
+
 .stat-card.standout {
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid var(--accent);
