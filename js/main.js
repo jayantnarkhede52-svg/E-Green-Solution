@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
     if (!prefersReducedMotion) {
-        tl.to(".hero-tagline", { opacity: 1, y: 0, duration: 1, delay: 0.5 })
-          .to(".hero h1", { opacity: 1, y: 0, duration: 1 }, "-=0.7")
-          .to(".hero-btns", { opacity: 1, y: 0, duration: 1 }, "-=0.7")
+        tl.from(".hero-tagline", { opacity: 0, y: 30, duration: 1, delay: 0.5 })
+          .from(".hero-container h1", { opacity: 0, y: 30, duration: 1 }, "-=0.7")
+          .from(".hero-btns", { opacity: 0, y: 30, duration: 1 }, "-=0.7")
           .to(".stats-bar", { opacity: 1, y: 0, duration: 1 }, "-=0.5")
           .from(".stat-item", { 
               opacity: 0, 
