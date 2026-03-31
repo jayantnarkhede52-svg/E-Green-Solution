@@ -46,12 +46,12 @@
         nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; display: flex; align-items: center; padding: 22px 0; }
         nav .container { display: flex; justify-content: space-between; align-items: center; max-width: none; width: 100%; padding: 0 8%; }
         .logo img { height: 60px; width: auto; display: block; }
-        .page-header { min-height: 40vh; padding-top: 170px; padding-bottom: 70px; background: #1b5e20; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; color: #fff; text-align: left; padding-left: 8%; }
+        .page-header { min-height: 40vh; padding-top: 170px; padding-bottom: 70px; background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('assets/about_hero_bg.png') no-repeat center center / cover !important; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-align: center; }
         .page-header h1 { font-size: 58px; margin-bottom: 18px; font-weight: 800; }
         .btn-primary { background: linear-gradient(135deg, #fbc02d 0%, #f9a825 100%); color: var(--text-dark); padding: 12px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; }
         @media (max-width: 768px) {
-            .page-header { min-height: 40vh; padding: 120px 20px 60px; align-items: center; text-align: center; padding-left: 20px; }
-            .page-header h1 { font-size: 32px; background: rgba(0,0,0,0.45); backdrop-filter: blur(10px); padding: 20px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); width: 90%; }
+            .page-header { min-height: 35vh; padding: 130px 20px 60px !important; display: flex !important; flex-direction: column !important; align-items: center !important; text-align: center !important; }
+            .page-header h1 { font-size: 34px !important; background: rgba(0,0,0,0.45); backdrop-filter: blur(10px); padding: 20px !important; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15); width: 95% !important; margin: 0 auto !important; white-space: normal !important; line-height: 1.2 !important; }
         }
     </style>
 
@@ -106,10 +106,11 @@
             <div class="about-section">
                 <div class="about-text">
                     <span class="hero-tagline">Our Story</span>
-                    <h2>A Vision for a Greener Tomorrow</h2>
-                    <p>At **Egreen Solution**, we believe that the future of energy is overhead, not underground. Founded with a commitment to making renewable energy accessible, we have grown into one of the most trusted solar installation partners in **Pune and Mumbai**.</p>
-                    <p>Our journey began with a simple goal: to reduce the carbon footprint of Maharashtra while helping families and businesses save significantly on electricity costs. Today, we stand proud with **500+ successful installations**, ranging from small residential rooftops to massive industrial solar farms.</p>
+                    <h2>The Vision: Powering Maharashtra's Solar Revolution</h2>
+                    <p>At Egreen Solution, we believe that the true future of energy is not hidden deep underground in finite reserves, but rather shines brightly overhead every single day. We are not just a solar installation company; we are catalysts for a cleaner, more sustainable Maharashtra. Founded with a single-minded commitment to making renewable energy accessible to everyone—from a single household in the heart of Pune to massive industrial conglomerates in Mumbai’s outskirts—we have grown into one of the region's most trusted solar energy partners.</p>
                     
+                    <p>Our journey began over a decade ago with a simple, yet powerful goal: to reduce the carbon footprint of our local communities while helping families and businesses regain control over their skyrocketing electricity costs. What started as a small team motivated by environmental passion has evolved into a powerhouse of engineering and innovation. Today, Egreen Solution stands proud with a portfolio of over 500+ successful installations. These projects span the entire spectrum of solar technology, including sleek residential rooftop systems, high-efficiency commercial arrays, and massive industrial solar farms that power the very engines of our state’s economy.</p>
+
                     <div class="milestone-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px;">
                         <div class="milestone-box">
                             <h3>500+</h3>
@@ -122,12 +123,29 @@
                     </div>
                 </div>
                 <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Solar Panels Installation" width="600" height="400" loading="lazy">
+                    <img src="assets/egreen_team_maharashtra.png" alt="Egreen Solar Engineering Team Pune" width="600" height="400" loading="lazy" style="border-radius: 32px; box-shadow: var(--card-shadow);">
                     <div class="floating-badge">
                         <i class="fas fa-certificate"></i>
                         <span>ISO Certified <br> Quality</span>
                     </div>
                 </div>
+            </div>
+
+            <div style="margin-top: 80px; display: flex; gap: 60px; align-items: center; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 300px;">
+                    <img src="assets/egreen_industrial_pune.png" alt="Large Scale Industrial Solar Pune" width="600" height="400" loading="lazy" style="border-radius: 32px; box-shadow: var(--card-shadow);">
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="font-size: 28px; color: var(--primary); margin-bottom: 20px;">The Egreen Standard of Excellence</h3>
+                    <p style="font-size: 18px; line-height: 1.8; margin-bottom: 20px;">We don't settle for average. Every system designed by Egreen Solution is a testament to our "No Compromise" engineering philosophy. We strictly utilize Tier-1 solar modules and high-performance inverters from global leaders to ensure that every kilowatt-hour of energy generated is done so with maximum efficiency. Our team of certified solar engineers conducts meticulous site audits, evaluating every factor from roof structural integrity to micro-shading patterns, ensuring that we don't just install panels, but rather build an energy asset that lasts for 25 years or more.</p>
+                    <p style="font-size: 18px; line-height: 1.8;">We understand that transitioning to solar can feel like a complex journey. That’s why we’ve built our reputation on complete transparency and hand-holding through every step. From the initial feasibility study and customized system design to the often-daunting world of government subsidies and net-metering applications, Egreen Solution handles it all. We are one of the few providers in Maharashtra that offers a truly turnkey solution, allowing our clients to focus on their lives and businesses while we manage the transition to energy independence.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 80px; text-align: center; max-width: 900px; margin-left: auto; margin-right: auto;">
+                <h3 style="font-size: 28px; color: var(--primary); margin-bottom: 20px;">Empowering Industries and Enhancing Lives</h3>
+                <p style="font-size: 18px; line-height: 1.8; margin-bottom: 25px;">Our impact is felt most strongly in the industrial hubs of MIDC and beyond. By implementing large-scale EPC (Engineering, Procurement, and Construction) solar projects, we help factories and warehouses turn their idle roof space into productive assets. These systems don't just help the environment; they dramatically lower operational overheads, giving our industrial clients a competitive edge in the global market.</p>
+                <p style="font-size: 18px; line-height: 1.8; margin-bottom: 25px;">Simultaneously, we remain deeply rooted in our residential mission, bringing the same level of industrial-grade precision to homes across Pune and Mumbai, helping families save up to 90% on their summer electricity bills. At Egreen Solution, our success is measured not just by the megawatts we install, but by the tons of CO2 we prevent from entering our atmosphere and the millions of rupees we save our clients. Join us in our mission to light up every roof in Maharashtra with the power of the sun. Together, we are building a legacy of clean energy that will benefit generations to come.</p>
             </div>
         </div>
     </section>

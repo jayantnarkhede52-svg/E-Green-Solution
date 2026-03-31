@@ -243,15 +243,31 @@ body:not(.home) nav .nav-links a {
 }
 
 .hero-container .hero-tagline {
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 1), 0 0 15px rgba(0, 0, 0, 0.6);
-    -webkit-text-stroke: 0.8px rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 32px;
+    border-radius: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    -webkit-text-stroke: 0;
+    margin-bottom: 25px;
 }
 
 /* HIGH CONTRAST TAGLINE FOR LIGHT BACKGROUNDS (Sections) */
-section .hero-tagline, 
-.page-header .hero-tagline {
+section .hero-tagline {
     color: #e65100; /* Deep Orange: Excellent contrast on white/light grey */
-    text-shadow: none !important; /* Cleaner look on light background */
+    text-shadow: none !important;
+}
+
+.page-header .hero-tagline {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 32px;
+    border-radius: 50px;
+    color: var(--accent) !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
+    margin-bottom: 25px;
     -webkit-text-stroke: 0 !important;
     opacity: 1 !important; /* Ensure visibility if GSAP isn't triggering */
 }
@@ -287,8 +303,9 @@ section .hero-tagline,
 .stats-bar {
     position: absolute;
     bottom: 50px;
-    left: 8%;
-    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
     border-radius: 24px;
     padding: 25px 45px;
     display: flex;
@@ -1643,6 +1660,20 @@ body:not(.home) nav .hamburger span {
         margin-bottom: 25px !important;
         text-shadow: 2px 2px 6px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,0.8) !important;
         -webkit-text-stroke: 1.2px rgba(0,0,0,0.7);
+    }
+
+    /* Subpage Headers */
+    .page-header {
+        align-items: center !important;
+        text-align: center !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+    .page-header h1 {
+        font-size: clamp(28px, 5vw, 36px) !important;
+        margin: 0 auto !important;
+        width: 100% !important;
     }
 
     .hero-container .hero-tagline {
