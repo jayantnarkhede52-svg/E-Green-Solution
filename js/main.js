@@ -152,18 +152,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const grids = document.querySelectorAll('.services-grid, .project-grid, .why-us-grid');
     grids.forEach(grid => {
         if (!prefersReducedMotion && grid.children.length > 0) {
-            gsap.from(grid.children, {
-                scrollTrigger: {
-                    trigger: grid,
-                    start: "top 85%",
-                    toggleActions: "play none none none"
-                },
-                y: 50,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.15,
-                ease: "power2.out"
-            });
+            gsap.fromTo(grid.children, 
+                { y: 50, opacity: 0 },
+                {
+                    scrollTrigger: {
+                        trigger: grid,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    },
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    stagger: 0.15,
+                    ease: "power2.out",
+                    clearProps: "all"
+                }
+            );
         }
     });
 
@@ -171,17 +175,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const revealElements = document.querySelectorAll('.section-header, .about-section, .service-row');
     revealElements.forEach(el => {
         if (!prefersReducedMotion) {
-            gsap.from(el, {
-                scrollTrigger: {
-                    trigger: el,
-                    start: "top 85%",
-                    toggleActions: "play none none none"
-                },
-                y: 40,
-                opacity: 0,
-                duration: 1,
-                ease: "power2.out"
-            });
+            gsap.fromTo(el, 
+                { y: 40, opacity: 0 },
+                {
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    },
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    ease: "power2.out",
+                    clearProps: "all"
+                }
+            );
         }
     });
 
