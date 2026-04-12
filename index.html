@@ -134,6 +134,9 @@
 
     <link rel="stylesheet" href="css/style.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Supabase & EmailJS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <noscript>
         <link rel="stylesheet" href="css/style.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -696,7 +699,66 @@
     <!-- Scripts with defer for performance -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-    <script src="js/main.min.js" defer></script>
+    <script src="js/supabase-config.js"></script>
+    <script>
+    // Initialize EmailJS
+    (function() {
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+    })();
+
+    // Handle Quick Quote Form Submission
+    document.addEventListener('DOMContentLoaded', () => {
+        const quoteForm = document.querySelector('.quick-quote-form');
+        if (quoteForm) {
+            quoteForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const submitBtn = quoteForm.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn.innerHTML;
+                
+                // Show loading state
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+                
+                const formData = new FormData(quoteForm);
+                const leadData = {
+                    full_name: formData.get('name'),
+                    phone: formData.get('phone'),
+                    city: formData.get('location'),
+                    // Combine other fields into the message
+                    message: `Requirement: ${formData.get('requirement')} | Monthly Bill: ₹${formData.get('monthly_bill')}`,
+                    status: 'New'
+                };
+
+                try {
+                    // 1. Save to Supabase
+                    const { error: dbError } = await _supabase
+                        .from('leads')
+                        .insert([leadData]);
+
+                    if (dbError) throw dbError;
+
+                    // 2. Send Email Notification via EmailJS
+                    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+                        fullName: leadData.full_name,
+                        phone: leadData.phone,
+                        city: leadData.city,
+                        message: leadData.message
+                    });
+
+                    // Success!
+                    alert('Thank you! Your quote request has been received. Our experts will call you soon.');
+                    quoteForm.reset();
+                } catch (err) {
+                    console.error('Error during quote submission:', err);
+                    alert('Oops! Something went wrong. Please try again or call us directly.');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                }
+            });
+        }
+    });
+    </script>
 </body>
 
 </html>
