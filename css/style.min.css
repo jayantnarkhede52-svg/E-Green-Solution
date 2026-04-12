@@ -10,9 +10,9 @@
     --text-light: #ffffff;
     --glass-bg: rgba(255, 255, 255, 0.08);
     --glass-border: rgba(255, 255, 255, 0.15);
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-    --card-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-    --section-pad: 110px;
+    --glass-shadow: 0 12px 32px 0 rgba(0, 0, 0, 0.12);
+    --card-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+    --section-pad: clamp(60px, 8vw, 110px);
 }
 
 * {
@@ -27,8 +27,7 @@ html {
 
 body {
     font-family: 'Outfit', sans-serif;
-    font-size: 19px;
-    /* INCREASED base font */
+    font-size: clamp(16px, 1.2vw, 19px);
     line-height: 1.8;
     color: var(--text-dark);
     overflow-x: hidden;
@@ -129,7 +128,12 @@ body:not(.home) nav .logo {
 
 nav.scrolled .nav-links a,
 body:not(.home) nav .nav-links a {
-    color: #333 !important;
+    color: var(--text-dark) !important;
+}
+
+nav.scrolled .hamburger span,
+body:not(.home) nav .hamburger span {
+    background: var(--text-dark) !important;
 }
 
 .nav-links a:hover {
@@ -260,7 +264,7 @@ section .hero-tagline {
 }
 
 .page-header .hero-tagline {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 8px 32px;

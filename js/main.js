@@ -148,8 +148,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Section Reveals (GSAP ScrollTrigger)
-    const revealElements = document.querySelectorAll('.service-card, .section-header, .about-section, .project-card');
+    // Staggered Grid Reveals (GSAP ScrollTrigger)
+    const grids = document.querySelectorAll('.services-grid, .project-grid, .why-us-grid');
+    grids.forEach(grid => {
+        if (!prefersReducedMotion && grid.children.length > 0) {
+            gsap.from(grid.children, {
+                scrollTrigger: {
+                    trigger: grid,
+                    start: "top 85%",
+                    toggleActions: "play none none none"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: "power2.out"
+            });
+        }
+    });
+
+    // General Section Reveals
+    const revealElements = document.querySelectorAll('.section-header, .about-section, .service-row');
     revealElements.forEach(el => {
         if (!prefersReducedMotion) {
             gsap.from(el, {
@@ -158,10 +177,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     start: "top 85%",
                     toggleActions: "play none none none"
                 },
-                y: 50,
+                y: 40,
                 opacity: 0,
                 duration: 1,
-                ease: "power3.out"
+                ease: "power2.out"
             });
         }
     });
