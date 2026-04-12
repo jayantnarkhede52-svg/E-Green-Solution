@@ -129,7 +129,12 @@ body:not(.home) nav .logo {
 
 nav.scrolled .nav-links a,
 body:not(.home) nav .nav-links a {
-    color: #333 !important;
+    color: var(--text-dark) !important;
+}
+
+nav.scrolled .hamburger span,
+body:not(.home) nav .hamburger span {
+    background: var(--text-dark) !important;
 }
 
 .nav-links a:hover {

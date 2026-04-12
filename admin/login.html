@@ -115,9 +115,10 @@
 
         <main>
             <div class="stats">
-                <div class="stat-card">
+                <div class="stat-card" style="position: relative;">
                     <h3>Total Leads</h3>
                     <p id="stat-total">0</p>
+                    <button onclick="clearAllLeads()" style="position: absolute; top: 15px; right: 15px; background: rgba(255,82,82,0.1); border: 1px solid var(--danger); color: var(--danger); padding: 4px 10px; border-radius: 6px; font-size: 11px; cursor: pointer;">Clear All</button>
                 </div>
                 <div class="stat-card">
                     <h3>New Leads</h3>
@@ -250,6 +251,24 @@
 
             if (error) alert('Error deleting lead');
             else fetchLeads();
+        }
+
+        async function clearAllLeads() {
+            if (!confirm('⚠️ DANGER: This will PERMANENTLY delete ALL leads from the database. Are you sure?')) return;
+            if (!confirm('FINAL CONFIRMATION: This cannot be undone. Delete everything?')) return;
+
+            const { error } = await _supabase
+                .from('leads')
+                .delete()
+                .neq('id', 0); // Deletes all rows where ID is not 0
+
+            if (error) {
+                console.error('Error clearing database:', error);
+                alert('Error clearing leads: ' + error.message);
+            } else {
+                alert('Database cleared successfully!');
+                fetchLeads();
+            }
         }
     </script>
 </body>
