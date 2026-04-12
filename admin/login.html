@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard | Egreen Solution</title>
-    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="icon" type="image/png" href="/assets/logo.png">
     
     <!-- Supabase JS -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -87,7 +87,7 @@
     <!-- Login Overlay -->
     <div id="login-overlay">
         <div class="login-card">
-            <img src="assets/logo.png" style="height: 50px; margin-bottom: 20px;">
+            <img src="/assets/logo.png" style="height: 50px; margin-bottom: 20px;">
             <h2>Admin Login</h2>
             <input type="password" id="admin-pass" placeholder="Enter Admin Password">
             <button onclick="checkAuth()">Access Dashboard</button>
@@ -97,7 +97,7 @@
 
     <div id="dashboard" style="display: none;">
         <header>
-            <div class="logo"><img src="assets/logo.png" alt="Egreen Solution"></div>
+            <div class="logo"><img src="/assets/logo.png" alt="Egreen Solution"></div>
             <div>
                 <span id="user-display" style="margin-right: 20px; color: var(--text-dim);">Admin Portal</span>
                 <button class="logout-btn" onclick="logout()">Logout</button>
@@ -142,7 +142,7 @@
         </main>
     </div>
 
-    <script src="js/supabase-config.js"></script>
+    <script src="/js/supabase-config.js"></script>
     <script>
         // Use the password you provided
         const ADMIN_HASH = "Egreensolution@2026"; 
