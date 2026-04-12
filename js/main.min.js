@@ -310,4 +310,22 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initial check
         calculateSolar();
     }
+
+    // --- FIX FOR LAZY LOADED IMAGES SHIFTING LAYOUT ---
+    // Ensure GSAP ScrollTrigger recalculates trigger positions after images load
+    window.addEventListener('load', () => {
+        ScrollTrigger.refresh();
+    });
+
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    lazyImages.forEach(img => {
+        if (img.complete) {
+            ScrollTrigger.refresh();
+        } else {
+            img.addEventListener('load', () => {
+                ScrollTrigger.refresh();
+            });
+        }
+    });
+
 });
