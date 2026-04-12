@@ -6,21 +6,21 @@
     <title>Contact Us | Egreen Solution Solar Pune & Mumbai</title>
     <!-- Advanced SEO -->
     <meta name="keywords" content="Solar Panel Installation Pune, Solar Company Mumbai, Residential Solar, Commercial Solar, Rooftop Solar, Solar Water Heaters">
-    <link rel="canonical" href="https://egreensolution.com/contact.html">
+    <link rel="canonical" href="https://egreensolution.in/contact.html">
     
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://egreensolution.com/contact.html">
+    <meta property="og:url" content="https://egreensolution.in/contact.html">
     <meta property="og:title" content="Egreen Solution | Energy for Future | Solar Installation Pune & Mumbai">
     <meta property="og:description" content="Egreen Solution provides premium solar panel installation services in Pune and Mumbai.">
-    <meta property="og:image" content="https://egreensolution.com/assets/logo.png">
+    <meta property="og:image" content="https://egreensolution.in/assets/logo.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://egreensolution.com/contact.html">
+    <meta property="twitter:url" content="https://egreensolution.in/contact.html">
     <meta property="twitter:title" content="Egreen Solution | Energy for Future">
     <meta property="twitter:description" content="Premium solar panel installation services in Pune and Mumbai.">
-    <meta property="twitter:image" content="https://egreensolution.com/assets/logo.png">
+    <meta property="twitter:image" content="https://egreensolution.in/assets/logo.png">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="assets/logo.png">
@@ -56,6 +56,9 @@
 
     <link rel="stylesheet" href="css/style.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Supabase & EmailJS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <noscript>
         <link rel="stylesheet" href="css/style.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -107,15 +110,15 @@
                     <form id="solar-form">
                         <div class="form-group">
                             <label>Full Name</label>
-                            <input type="text" placeholder="Your Name" required>
+                            <input type="text" name="fullName" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
                             <label>Phone Number</label>
-                            <input type="tel" placeholder="Your mobile number" required>
+                            <input type="tel" name="phone" placeholder="Your mobile number" required>
                         </div>
                         <div class="form-group">
                             <label>City</label>
-                            <select required>
+                            <select name="city" required>
                                 <option value="">Select City</option>
                                 <option value="Pune">Pune</option>
                                 <option value="Mumbai">Mumbai</option>
@@ -124,7 +127,7 @@
                         </div>
                         <div class="form-group">
                             <label>Message</label>
-                            <textarea rows="4" placeholder="Tell us about your requirements..."></textarea>
+                            <textarea name="message" rows="4" placeholder="Tell us about your requirements..."></textarea>
                         </div>
                         <button type="submit" class="submit-btn shadow">Request Free Consultation</button>
                     </form>
@@ -240,6 +243,67 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="js/supabase-config.js" defer></script>
     <script src="js/main.min.js" defer></script>
+    
+    <script>
+    // Initialize EmailJS
+    (function() {
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+    })();
+
+    // Handle Form Submission
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('solar-form');
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const submitBtn = form.querySelector('.submit-btn');
+                const originalBtnText = submitBtn.innerText;
+                
+                // Show loading state
+                submitBtn.disabled = true;
+                submitBtn.innerText = 'Sending...';
+                
+                const formData = new FormData(form);
+                const leadData = {
+                    full_name: formData.get('fullName'),
+                    phone: formData.get('phone'),
+                    city: formData.get('city'),
+                    message: formData.get('message'),
+                    status: 'New'
+                };
+
+                try {
+                    // 1. Save to Supabase
+                    const { error: dbError } = await _supabase
+                        .from('leads')
+                        .insert([leadData]);
+
+                    if (dbError) throw dbError;
+
+                    // 2. Send Email Notification via EmailJS
+                    // Note: These keys (fullName, phone, etc.) must match your template {{key}}
+                    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+                        fullName: leadData.full_name,
+                        phone: leadData.phone,
+                        city: leadData.city,
+                        message: leadData.message
+                    });
+
+                    // Success!
+                    alert('Thank you! Your request has been submitted successfully and our team has been notified.');
+                    form.reset();
+                } catch (err) {
+                    console.error('Error during submission:', err);
+                    alert('Oops! Something went wrong. Please try again or call us directly.');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = originalBtnText;
+                }
+            });
+        }
+    });
+    </script>
 </body>
 </html>
