@@ -333,6 +333,22 @@ document.addEventListener('DOMContentLoaded', () => {
             img.addEventListener('load', () => {
                 ScrollTrigger.refresh();
             });
+    });
+    
+    // Email Obfuscation Helper
+    const emailPlaceholders = document.querySelectorAll('.email-obfuscated');
+    emailPlaceholders.forEach(placeholder => {
+        const user = 'egreensolution1';
+        const domain = 'gmail.com';
+        const email = user + '@' + domain;
+        
+        if (placeholder.tagName === 'A') {
+            placeholder.href = 'mailto:' + email;
+            if (placeholder.innerText.trim() === '') {
+                placeholder.innerText = email;
+            }
+        } else {
+            placeholder.innerText = email;
         }
     });
 

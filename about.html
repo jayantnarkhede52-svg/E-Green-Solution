@@ -12,7 +12,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Egreen Solution | Best Solar Installers in Pune</title>
+    <title>About Egreen Solution | Best Solar Panel Installers in Pune & Mumbai</title>
     <meta name="description" content="Learn why we are a trusted solar provider in Maharashtra. We've completed 500+ projects for homes and industries in Pune and Mumbai.">
     <!-- Advanced SEO -->
     <meta name="keywords" content="solar company Pune Maharashtra, trusted solar installers Pune, rooftop solar, water heating solutions">
@@ -33,9 +33,28 @@
     <meta property="twitter:image" content="https://egreensolution.in/assets/logo.png">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon.png">
     <link rel="apple-touch-icon" href="/assets/logo.png">
+
+    <!-- Schema.org for Breadcrumbs -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://egreensolution.in/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About Us",
+        "item": "https://egreensolution.in/about"
+      }]
+    }
+    </script>
 
     <!-- Performance: Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,7 +74,7 @@
         nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; display: flex; align-items: center; padding: 22px 0; }
         nav .container { display: flex; justify-content: space-between; align-items: center; max-width: none; width: 100%; padding: 0 8%; }
         .logo img { height: 60px; width: auto; display: block; }
-        .page-header { min-height: 40vh; padding-top: 170px; padding-bottom: 70px; background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('assets/about_hero_bg.png') no-repeat center center / cover !important; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-align: center; }
+        .page-header { min-height: 40vh; padding-top: 170px; padding-bottom: 70px; background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('/assets/about_hero_bg.png') no-repeat center center / cover !important; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-align: center; }
         .page-header h1 { font-size: 58px; margin-bottom: 18px; font-weight: 800; }
         .btn-primary { background: linear-gradient(135deg, #fbc02d 0%, #f9a825 100%); color: var(--text-dark); padding: 12px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; }
         @media (max-width: 768px) {
@@ -72,10 +91,10 @@
     </noscript>
 </head>
 <body class="about-page">
-    <nav id="navbar" class="scrolled">
-        <div class="container">
-            <a href="/" class="logo">
-                <img src="/assets/logo.png" alt="Egreen Solution Logo" width="180" height="60" decoding="async">
+    <nav id="navbar" aria-label="Main Navigation Menu">
+        <div class="container nav-container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <a href="/" class="logo" aria-label="Egreen Solution Home">
+                <img src="/assets/logo.png" alt="Egreen Solution - Solar Company Pune" width="180" height="60" decoding="async">
             </a>
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
@@ -240,18 +259,13 @@
         <div class="container">
             <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 60px;">
                 <div style="flex: 1.5; min-width: 300px;">
-                    <a href="#" class="logo" style="margin-bottom: 20px; display: block;">
-                    <img src="/assets/logo.png" alt="Egreen Solution Logo" style="height: 50px;" decoding="async" loading="lazy" width="150" height="50">
+                    <a href="/" class="logo" style="margin-bottom: 20px; display: block;" aria-label="Egreen Solution Home">
+                    <img src="/assets/logo.png" alt="Egreen Solution - Top Solar Company in Maharashtra" style="height: 50px;" decoding="async" loading="lazy" width="150" height="50">
                 </a>
                     <p style="opacity: 0.8; line-height: 1.8; margin-bottom: 30px;">Egreen Solution is a premier solar energy company based in Pune & Mumbai, dedicated to providing high-efficiency renewable energy solutions for residential, commercial, and industrial sectors.</p>
                     <div style="margin-top: 25px;">
                         <span style="display: block; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; color: var(--accent);">Visitor Count</span>
                         <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fegreensolution.in&countColor=%232e7d32&bgColor=%231a1a1a&label=VISUAL+COUNT" alt="Website Visitor Counter" loading="lazy">
-                    </div>
-                    <div style="display: flex; gap: 20px; font-size: 20px; margin-top: 20px;">
-                        <a href="#" style="color: #fff; opacity: 0.6;"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" style="color: #fff; opacity: 0.6;"><i class="fab fa-instagram"></i></a>
-                        <a href="#" style="color: #fff; opacity: 0.6;"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div style="flex: 1; min-width: 200px;">
@@ -268,8 +282,16 @@
                     <ul style="list-style: none; line-height: 2.5; opacity: 0.8;">
                         <li><i class="fas fa-phone" style="color: var(--accent); margin-right: 12px;"></i> <a href="tel:+917249187969" style="color: #fff; text-decoration: none; font-weight: 700;">+91 7249187969</a></li>
                         <li><i class="fab fa-whatsapp" style="color: var(--accent); margin-right: 12px;"></i> <a href="https://wa.me/917249187969" style="color: #fff; text-decoration: none; font-weight: 700;">WhatsApp Us</a></li>
-                        <li><i class="fas fa-envelope" style="color: var(--accent); margin-right: 12px;"></i> egreensolution1@gmail.com</li>
-                        <li><i class="fas fa-map-marker-alt" style="color: var(--accent); margin-right: 12px;"></i> Pune & Mumbai, Maharashtra</li>
+                        <li><i class="fas fa-envelope" style="color: var(--accent); margin-right: 12px;"></i> <a href="#" class="email-obfuscated"></a></li>
+                        <li><i class="fas fa-map-marker-alt" style="color: var(--accent); margin-right: 12px;"></i> Pune & Mumbai</li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 230px;">
+                    <h3 style="margin-bottom: 25px; font-size: 22px;">Service Areas</h3>
+                    <ul style="list-style: none; line-height: 2.3; opacity: 0.8; font-size: 16px;">
+                        <li><i class="fas fa-check" style="color: var(--accent);"></i> Baner & Hinjewadi</li>
+                        <li><i class="fas fa-check" style="color: var(--accent);"></i> Chakan MIDC & PCMC</li>
+                        <li><i class="fas fa-check" style="color: var(--accent);"></i> Hadapsar & Wakad</li>
                     </ul>
                 </div>
             </div>

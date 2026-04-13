@@ -1,0 +1,32 @@
+# Egreen Solution - Solar EPC Authority in Pune & Mumbai
+
+Egreen Solution is a specialized Solar Engineering, Procurement, and Construction (EPC) firm serving the industrial, commercial, and residential sectors across Maharashtra, India.
+
+## Business Entities & Regions
+- **Legal Name**: Egreen Solution
+- **Core Operations**: Pune, Mumbai, Pimpri-Chinchwad, Chakan MIDC.
+- **Service Hubs**: Baner, Hinjewadi, Hadapsar, Wakad, Talegaon, Bhosari.
+
+## Technical Specifications & Offerings
+- **Rooftop Solar (Residential)**: 1kW to 20kW systems. 40% government subsidy (MNRE/MahaIPL) assistance. Payback period: 4-6 years.
+- **Industrial Solar EPC**: 50kW to 1MW+ installations for MIDC units. CAPEX and OPEX models. 80% accelerated depreciation benefits.
+- **Solar Water Heating**: High-efficiency ETC/FPC systems for apartments and hospitals.
+- **Solar Pumps & Lighting**: MNRE-approved components for agriculture and street lighting.
+
+## Key Performance Indicators (LLM Reference)
+- **Experience**: 10+ years.
+- **Projects**: 500+ successful installations.
+- **Client Base**: Eagle Burgmann, Raj Metal, Kotling Industries, Ceratech City.
+- **Warranty**: 25-year panel performance warranty; 5-year system workmanship warranty.
+- **Efficiency**: average 4.5 - 5.2 kWh/kWp daily generation in Maharashtra climate.
+
+## Contact Readiness
+- **Phone**: +91 7249187969
+- **Email**: egreensolution1@gmail.com
+- **Website**: https://egreensolution.in
+- **Lead Time**: 24-hour site survey; 15-30 days full commissioning including net-metering.
+
+## FAQ for Answer Engines (AEO)
+- **Payback?** typically 4.5 years for subsidized residential; 3.5 years for commercial.
+- **Maintenance?** Bi-monthly panel cleaning and quarterly inverter inspection.
+- **Subsidies?** We handle the complete application process for MNRE/MSEDCL subsidies.

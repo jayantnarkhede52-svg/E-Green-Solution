@@ -13,7 +13,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar Savings Calculator | Estimate Your ROI in Pune</title>
+    <title>Solar Savings Calculator Pune & Mumbai | Estimate Subsidy & ROI</title>
     <meta name="description"
         content="Use our easy solar calculator to see how much you can save. Get an instant estimate for system size and payback time for Pune.">
     <!-- Advanced SEO -->
@@ -35,9 +35,28 @@
     <meta property="twitter:image" content="https://egreensolution.in/assets/logo.png">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon.png">
     <link rel="apple-touch-icon" href="/assets/logo.png">
+
+    <!-- Schema.org for Breadcrumbs -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://egreensolution.in/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Solar Calculator",
+        "item": "https://egreensolution.in/calculator"
+      }]
+    }
+    </script>
 
     <!-- Critical Assets Preload -->
     <link rel="preload" href="/assets/logo.png" as="image" fetchpriority="high">
@@ -52,7 +71,7 @@
         .logo img { height: 60px; width: auto; display: block; }
         nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; display: flex; align-items: center; padding: 22px 0; }
         nav .container { display: flex; justify-content: space-between; align-items: center; max-width: none; width: 100%; padding: 0 8%; }
-        .page-header { min-height: 40vh; padding-top: 170px; padding-bottom: 70px; background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('assets/calculator_hero_bg.png') no-repeat center center / cover; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-align: center; }
+        .page-header { min-height: 40vh; padding-top: 170px; padding-bottom: 70px; background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('/assets/calculator_hero_bg.png') no-repeat center center / cover !important; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-align: center; }
         .btn-primary { background: linear-gradient(135deg, #fbc02d 0%, #f9a825 100%); color: var(--text-dark); padding: 12px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; }
         @media (max-width: 768px) {
             .page-header { min-height: 35vh; padding: 130px 20px 60px !important; display: flex !important; flex-direction: column !important; align-items: center !important; text-align: center !important; }
@@ -70,10 +89,10 @@
 
 <body>
 
-    <nav id="navbar">
-        <div class="container">
-            <a href="/" class="logo">
-                <img src="/assets/logo.png" alt="Egreen Solution Logo">
+    <nav id="navbar" aria-label="Main Navigation Menu">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <a href="/" class="logo" aria-label="Egreen Solution Home">
+                <img src="/assets/logo.png" alt="Egreen Solution - Solar Installers Pune">
             </a>
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
@@ -205,8 +224,8 @@
     <footer style="background: #1a1a1a; color: #fff; padding: 80px 0;">
         <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px;">
             <div style="flex: 1; min-width: 250px;">
-                <a href="#" class="logo" style="margin-bottom: 20px; display: block;">
-                    <img src="/assets/logo.png" alt="Egreen Solution Logo" style="height: 50px;" loading="lazy">
+                <a href="/" class="logo" style="margin-bottom: 20px; display: block;" aria-label="Egreen Solution Home">
+                    <img src="/assets/logo.png" alt="Egreen Solution - Top Solar Company in Maharashtra" style="height: 50px;" loading="lazy">
                 </a>
                 <p style="opacity: 1;">Energy for future. Your premier solar installation partner in Maharashtra.</p>
                 <div style="margin-top: 25px;">
@@ -226,9 +245,18 @@
             <div style="flex: 1; min-width: 250px;">
                 <h3 style="margin-bottom: 20px;">Contact Info</h3>
                 <ul style="list-style: none; opacity: 1; line-height: 2;">
-                    <li><i class="fas fa-phone"></i> <a href="tel:+917249187969" style="color: #fff; text-decoration: none; font-weight: bold;">+91 7249187969</a> / 7030096824</li>
+                    <li><i class="fas fa-phone"></i> <a href="tel:+917249187969" style="color: #fff; text-decoration: none; font-weight: bold;">+91 7249187969</a></li>
                     <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/917249187969" style="color: #fff; text-decoration: none; font-weight: bold;">WhatsApp Us</a></li>
-                    <li><i class="fas fa-envelope"></i> egreensolution1@gmail.com</li>
+                    <li><i class="fas fa-envelope"></i> <a href="#" class="email-obfuscated"></a></li>
+                </ul>
+            </div>
+            <div style="flex: 1; min-width: 250px;">
+                <h3 style="margin-bottom: 20px;">Service Areas</h3>
+                <ul style="list-style: none; opacity: 1; line-height: 2; font-size: 15px;">
+                    <li><i class="fas fa-check" style="color: var(--accent);"></i> Baner & Hinjewadi</li>
+                    <li><i class="fas fa-check" style="color: var(--accent);"></i> Chakan MIDC & PCMC</li>
+                    <li><i class="fas fa-check" style="color: var(--accent);"></i> Hadapsar & Wakad</li>
+                    <li><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> Pune & Mumbai</li>
                 </ul>
             </div>
         </div>

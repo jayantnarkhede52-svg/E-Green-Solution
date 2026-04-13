@@ -12,7 +12,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar Panel Installation Pune | Top Solar Services</title>
+    <title>Solar Panel Installation Pune | Top Rooftop Solar Services</title>
     <meta name="description" content="Top residential and commercial solar installations in Pune. Get 24/7 power, government subsidies, and zero-cost site surveys. Save today!">
     <!-- Advanced SEO -->
     <meta name="keywords" content="solar panel installation Pune, rooftop solar installation Pune, residential solar, commercial solar">
@@ -33,9 +33,73 @@
     <meta property="twitter:image" content="https://egreensolution.in/assets/logo.png">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon.png">
     <link rel="apple-touch-icon" href="/assets/logo.png">
+    
+    <!-- Schema.org for Breadcrumbs -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://egreensolution.in/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://egreensolution.in/services"
+      }]
+    }
+    </script>
+
+    <!-- Schema.org for Services -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Solar Panel Installation",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Egreen Solution",
+        "image": "https://egreensolution.in/assets/logo.png",
+        "telephone": "+917249187969"
+      },
+      "areaServed": [
+        "Pune", "Mumbai", "Baner", "Hinjewadi", "Chakan", "Hadapsar", "Wakad", "Pimpri Chinchwad"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Solar Energy Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Residential Rooftop Solar"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Commercial & Industrial Solar EPC"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Solar Water Heating Solutions"
+            }
+          }
+        ]
+      }
+    }
+    </script>
 
     <!-- Performance: Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,8 +119,9 @@
         nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; display: flex; align-items: center; padding: 22px 0; }
         nav .container { display: flex; justify-content: space-between; align-items: center; max-width: none; width: 100%; padding: 0 8%; }
         .logo img { height: 60px; width: auto; display: block; }
-        .page-header { min-height: 40vh; padding-top: 170px; padding-bottom: 70px; background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('assets/services_hero_bg.png') no-repeat center center / cover !important; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-align: center; }
+        .page-header { min-height: 40vh; padding-top: 170px; padding-bottom: 70px; background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('/assets/services_hero_bg.png') no-repeat center center / cover !important; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-align: center; }
         .page-header h1 { font-size: 58px; margin-bottom: 18px; font-weight: 800; }
+        .page-header p { font-size: 22px; opacity: 0.9; max-width: 800px; margin-bottom: 30px; }
         .btn-primary { background: linear-gradient(135deg, #fbc02d 0%, #f9a825 100%); color: var(--text-dark); padding: 12px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; }
         @media (max-width: 768px) {
             .page-header { min-height: 35vh; padding: 130px 20px 60px !important; display: flex !important; flex-direction: column !important; align-items: center !important; text-align: center !important; }
@@ -117,17 +182,17 @@
     <!-- ============================================================
          SECTION 1 — Residential Solar
     ============================================================ -->
-    <section style="background: #fff;">
+    <section id="residential-solar-section" style="background: #fff;" aria-labelledby="residential-title">
         <div class="container">
             <div class="services-detail-grid">
 
                 <!-- Row 1 — Residential -->
-                <div class="service-row">
+                <div class="service-row" id="residential-solar">
                     <div class="service-info">
                         <span class="hero-tagline">For Homes & Societies</span>
-                        <p>Your rooftop is a great source of free energy. Egreen Solution installs high-quality solar systems for homes in Pune and Mumbai. Whether you live in a bungalow or a flat, we have the right solar plan for you.</p>
-                        <p>Our panels turn sunlight into power for your AC, fridge, and lights. Any extra power goes back to the grid. This makes your meter run backwards and saves you lots of money.</p>
-                        <ul>
+                        <h2 id="residential-title">Residential Solar in Pune</h2>
+                        <p>Your rooftop is a great source of free energy. Egreen Solution installs high-quality solar systems for homes in Pune and Mumbai. Whether you live in a bungalow in <strong>Wakad</strong> or a flat in <strong>Baner</strong>, we have the right solar plan for you.</p>
+                        <p>Our panels turn sunlight into power for your AC, fridge, and lights. Any extra power goes back to the grid. This makes your meter run backwards and saves you lots of money.</p>                        <ul>
                             <li><i class="fas fa-check-circle"></i> Reduce electricity bills by up to 90%</li>
                             <li><i class="fas fa-check-circle"></i> 25-year performance warranty on panels</li>
                             <li><i class="fas fa-check-circle"></i> Eligible for MNRE subsidy up to ₹78,000</li>
@@ -141,12 +206,12 @@
                 </div>
 
                 <!-- Row 2 — Commercial -->
-                <div class="service-row">
+                <div class="service-row" id="commercial-solar">
                     <div class="service-info">
                         <span class="hero-tagline">For Businesses & Offices</span>
+                        <h2>Commercial Solar Solutions</h2>
                         <p>Electricity is a big cost for most businesses. Egreen Solution builds solar plants that cut your energy bills from Day 1. We serve offices, hospitals, schools, and malls in Pune and Mumbai.</p>
-                        <p>Most commercial systems pay for themselves in just 3-4 years. After that, your power is basically free. You can also save up to 40% on taxes in the first year with special government rules.</p>
-                        <ul>
+                        <p>Most commercial systems pay for themselves in just 3-4 years. After that, your power is basically free. You can also save up to 40% on taxes in the first year with special government rules.</p>                        <ul>
                             <li><i class="fas fa-check-circle"></i> ROI within 3–4 years</li>
                             <li><i class="fas fa-check-circle"></i> 40% accelerated depreciation benefit</li>
                             <li><i class="fas fa-check-circle"></i> Net-metering for Adani & Tata Power consumers</li>
@@ -160,20 +225,19 @@
                 </div>
 
                 <!-- CTA Banner between rows -->
-                <div class="cta-banner" style="margin: 60px 0;">
-                    <h3 style="font-size: 26px; color: var(--primary); margin-bottom: 10px;">Unsure about your solar capacity?</h3>
-                    <p style="font-size: 17px; margin-bottom: 25px;">Use our Solar Savings Calculator to get a quick estimate based on your Mumbai/Pune electricity rates.</p>
+                <div class="cta-banner margin-v-60 p-40 bg-light-green border-radius-24 text-center">
+                    <h3 class="text-primary margin-b-10">Unsure about your solar capacity?</h3>
+                    <p class="font-size-17 margin-b-25">Use our Solar Savings Calculator to get a quick estimate based on your Mumbai/Pune electricity rates.</p>
                     <a href="/calculator" class="btn-primary shimmer-effect">Try Solar Calculator <i class="fas fa-calculator"></i></a>
                 </div>
 
                 <!-- Row 3 — Industrial -->
-                <div class="service-row">
+                <div class="service-row" id="industrial-solar">
                     <div class="service-info">
                         <span class="hero-tagline">For Factories & Warehouses</span>
-                        <h2>Industrial Solar EPC</h2>
-                        <p>Large industrial facilities consume enormous amounts of power. Egreen Solution's industrial-grade solar installations are engineered for maximum energy output, reliability, and safety. We work with factories, MIDC units, logistics hubs, and large-scale manufacturing plants across the Pune–Mumbai industrial corridor.</p>
-                        <p>Our end-to-end EPC (Engineering, Procurement & Construction) services cover detailed load analysis, structural design for heavy-duty mounting systems, high-capacity inverter selection, grid-synchronisation, and full compliance with CEIG and MSEDCL regulations. We install Tier-1 monocrystalline PERC panels that deliver outstanding performance even in India's high-temperature conditions.</p>
-                        <ul>
+                        <h2>Industrial Solar EPC in MIDC</h2>
+                        <p>Large industrial facilities consume enormous amounts of power. Egreen Solution's industrial-grade solar installations are engineered for maximum energy output, reliability, and safety. We work with factories, <strong>Chakan MIDC units</strong>, logistics hubs, and large-scale manufacturing plants across the Pune–Mumbai industrial corridor.</p>
+                        <p>Our end-to-end EPC (Engineering, Procurement & Construction) services cover detailed load analysis, structural design for heavy-duty mounting systems, high-capacity inverter selection, grid-synchronisation, and full compliance with CEIG and MSEDCL regulations. We install Tier-1 monocrystalline PERC panels that deliver outstanding performance even in India's high-temperature conditions.</p>                        <ul>
                             <li><i class="fas fa-check-circle"></i> Systems from 100 kW to 5 MW capacity</li>
                             <li><i class="fas fa-check-circle"></i> Tier-1 monocrystalline PERC panels</li>
                             <li><i class="fas fa-check-circle"></i> CEIG & MSEDCL compliance guaranteed</li>
@@ -250,7 +314,7 @@
     <!-- ============================================================
          SECTION 2 — Why Choose Us
     ============================================================ -->
-    <section style="background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 100%);">
+    <section class="bg-gradient-light-green">
         <div class="container">
             <div class="section-header">
                 <span class="hero-tagline">Our Promise</span>
@@ -295,38 +359,38 @@
     <!-- ============================================================
          SECTION 3 — Process
     ============================================================ -->
-    <section style="background: #fff;">
+    <section class="bg-white">
         <div class="container">
             <div class="section-header">
                 <span class="hero-tagline">How We Work</span>
                 <h2>Our Simple 5-Step Process</h2>
                 <p>From your first call to lights powered by the sun — we make going solar effortless.</p>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 40px;">
-                <div style="text-align: center; padding: 40px 24px; background: #f8f9fa; border-radius: 28px;">
-                    <div style="width: 64px; height: 64px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 800; margin: 0 auto 20px;">1</div>
-                    <h4 style="font-size: 20px; margin-bottom: 10px; font-weight: 700;">Free Site Survey</h4>
-                    <p style="font-size: 16px; color: #666;">We visit your property, assess rooftop area, orientation, shadow impact, and monthly consumption.</p>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="step-number">1</div>
+                    <h4>Free Site Survey</h4>
+                    <p>We visit your property, assess rooftop area, orientation, shadow impact, and monthly consumption.</p>
                 </div>
-                <div style="text-align: center; padding: 40px 24px; background: #f8f9fa; border-radius: 28px;">
-                    <div style="width: 64px; height: 64px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 800; margin: 0 auto 20px;">2</div>
-                    <h4 style="font-size: 20px; margin-bottom: 10px; font-weight: 700;">Custom Design</h4>
-                    <p style="font-size: 16px; color: #666;">Our engineers design a system optimised for maximum generation at your specific location.</p>
+                <div class="process-card">
+                    <div class="step-number">2</div>
+                    <h4>Custom Design</h4>
+                    <p>Our engineers design a system optimised for maximum generation at your specific location.</p>
                 </div>
-                <div style="text-align: center; padding: 40px 24px; background: #f8f9fa; border-radius: 28px;">
-                    <div style="width: 64px; height: 64px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 800; margin: 0 auto 20px;">3</div>
-                    <h4 style="font-size: 20px; margin-bottom: 10px; font-weight: 700;">Subsidy Approval</h4>
-                    <p style="font-size: 16px; color: #666;">We submit MNRE & MSEDCL applications on your behalf and track approvals until completion.</p>
+                <div class="process-card">
+                    <div class="step-number">3</div>
+                    <h4>Subsidy Approval</h4>
+                    <p>We submit MNRE & MSEDCL applications on your behalf and track approvals until completion.</p>
                 </div>
-                <div style="text-align: center; padding: 40px 24px; background: #f8f9fa; border-radius: 28px;">
-                    <div style="width: 64px; height: 64px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 800; margin: 0 auto 20px;">4</div>
-                    <h4 style="font-size: 20px; margin-bottom: 10px; font-weight: 700;">Professional Install</h4>
-                    <p style="font-size: 16px; color: #666;">Certified electricians complete the installation within 1–3 days with zero disruption to your property.</p>
+                <div class="process-card">
+                    <div class="step-number">4</div>
+                    <h4>Professional Install</h4>
+                    <p>Certified electricians complete the installation within 1–3 days with zero disruption to your property.</p>
                 </div>
-                <div style="text-align: center; padding: 40px 24px; background: #f8f9fa; border-radius: 28px;">
-                    <div style="width: 64px; height: 64px; background: var(--accent); color: var(--text-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 800; margin: 0 auto 20px;">5</div>
-                    <h4 style="font-size: 20px; margin-bottom: 10px; font-weight: 700;">Enjoy & Monitor</h4>
-                    <p style="font-size: 16px; color: #666;">Your system goes live. Track live generation via our mobile app and watch your electricity bill drop.</p>
+                <div class="process-card">
+                    <div class="step-number accent">5</div>
+                    <h4>Enjoy & Monitor</h4>
+                    <p>Your system goes live. Track live generation via our mobile app and watch your electricity bill drop.</p>
                 </div>
             </div>
         </div>
@@ -335,22 +399,21 @@
     <!-- ============================================================
          CTA Banner
     ============================================================ -->
-    <section style="background: var(--primary); padding: 80px 0;">
-        <div class="container" style="text-align: center; color: white;">
-            <h2 style="font-size: 42px; font-weight: 800; margin-bottom: 18px;">Ready to Switch to Solar?</h2>
-            <p style="font-size: 21px; opacity: 0.9; max-width: 680px; margin: 0 auto 42px;">Join 100+ satisfied customers across Pune and Mumbai. Get your free quote today — no commitment required.</p>
-            <a href="/contact" class="btn-primary" style="background: var(--accent); color: var(--text-dark);">Get a Free Quote <i class="fas fa-arrow-right"></i></a>
+    <section class="bg-primary section-padding-80">
+        <div class="container text-center text-white">
+            <h2 class="font-size-42 font-weight-800 margin-b-18">Ready to Switch to Solar?</h2>
+            <p class="font-size-21 opacity-0-9 max-width-680 margin-auto margin-b-42">Join 100+ satisfied customers across Pune and Mumbai. Get your free quote today — no commitment required.</p>
+            <a href="/contact" class="btn-primary bg-accent text-dark">Get a Free Quote <i class="fas fa-arrow-right"></i></a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer style="background: #111; color: #fff; padding: 80px 0 40px;">
-        <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 50px;">
-            <div style="flex: 1.5; min-width: 260px;">
-                <a href="#" class="logo" style="margin-bottom: 20px; display: block;">
-                    <img src="/assets/logo.png" alt="Egreen Solution Logo" style="height: 50px;" decoding="async" loading="lazy" width="150" height="50">
+    <footer class="section-padding bg-dark text-white">
+        <div class="container flex-footer">
+            <div class="footer-col-1-5">
+                <a href="#" class="logo margin-b-20 display-block">
+                    <img src="/assets/logo.png" alt="Egreen Solution Logo" class="h-50" decoding="async" loading="lazy" width="150" height="50">
                 </a>
-                <p style="opacity: 1; font-size: 17px; line-height: 1.8;">Energy for future. Your premier solar panel installation partner across Pune and Mumbai, Maharashtra.</p>
                 <div style="margin-top: 25px;">
                     <span style="display: block; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; color: var(--accent);">Visitor Count</span>
                     <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fegreensolution.in&countColor=%232e7d32&bgColor=%231a1a1a&label=VISUAL+COUNT" alt="Website Visitor Counter" loading="lazy">
@@ -372,8 +435,17 @@
                 <ul style="list-style: none; line-height: 2.5; opacity: 1; font-size: 17px;">
                     <li><i class="fas fa-phone" style="color: var(--accent); margin-right: 10px;"></i> <a href="tel:+917249187969" style="color: #fff; text-decoration: none; font-weight: bold;">+91 7249187969</a></li>
                     <li><i class="fab fa-whatsapp" style="color: var(--accent); margin-right: 10px;"></i> <a href="https://wa.me/917249187969" style="color: #fff; text-decoration: none; font-weight: bold;">WhatsApp Us</a></li>
-                    <li><i class="fas fa-envelope" style="color: var(--accent); margin-right: 10px;"></i> egreensolution1@gmail.com</li>
-                    <li><i class="fas fa-map-marker-alt" style="color: var(--accent); margin-right: 10px;"></i> Pune & Mumbai, Maharashtra</li>
+                    <li><i class="fas fa-envelope" style="color: var(--accent); margin-right: 10px;"></i> <a href="#" class="email-obfuscated"></a></li>
+                    <li><i class="fas fa-map-marker-alt" style="color: var(--accent); margin-right: 10px;"></i> Pune & Mumbai</li>
+                </ul>
+            </div>
+            <div style="flex: 1; min-width: 200px;">
+                <h4 style="font-size: 20px; margin-bottom: 18px; font-weight: 700;">Service Areas</h4>
+                <ul style="list-style: none; line-height: 2.3; opacity: 1; font-size: 16px;">
+                    <li><i class="fas fa-check" style="color: var(--accent);"></i> Baner & Hinjewadi</li>
+                    <li><i class="fas fa-check" style="color: var(--accent);"></i> Chakan MIDC & PCMC</li>
+                    <li><i class="fas fa-check" style="color: var(--accent);"></i> Hadapsar & Wakad</li>
+                    <li><i class="fas fa-check" style="color: var(--accent);"></i> Mumbai Regions</li>
                 </ul>
             </div>
         </div>
