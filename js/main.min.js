@@ -333,6 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
             img.addEventListener('load', () => {
                 ScrollTrigger.refresh();
             });
+        }
     });
     
     // Email Obfuscation Helper
