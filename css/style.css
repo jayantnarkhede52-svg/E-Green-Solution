@@ -1592,6 +1592,50 @@ body:not(.home) nav .hamburger span {
     margin: 40px 0;
 }
 
+/* === FOOTER === */
+.bg-primary-gradient {
+    background: linear-gradient(135deg, #1a1a1a 0%, #111111 100%);
+    color: #ffffff;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.footer-grid h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.footer-grid ul {
+    list-style: none;
+    line-height: 2.3;
+    font-size: 16px;
+}
+
+.footer-grid a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-grid a:hover {
+    color: var(--accent);
+}
+
+/* === MISSING UTILITY CLASSES === */
+.text-primary {
+    color: var(--primary);
+}
+
+.bg-light-gradient {
+    background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 1024px) {
     /* Shrink Cards on Mobile */
