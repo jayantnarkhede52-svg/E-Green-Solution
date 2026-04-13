@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Hero Animations
+    // Hero Animations - MOTION DISABLED AS REQUESTED
+    /* 
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-
     if (!prefersReducedMotion) {
         tl.from(".hero-tagline", { opacity: 0, y: 30, duration: 1, delay: 0.5 })
           .from(".hero-container h1", { opacity: 0, y: 30, duration: 1 }, "-=0.7")
@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
               duration: 0.8 
           }, "-=0.5");
     }
+    */
+    // Ensure stats bar is visible since timeline is disabled
+    gsap.set(".stats-bar", { opacity: 1, y: 0 });
 
     // Number Counter Animation
     const stats = document.querySelectorAll('.stat-number');
@@ -56,7 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Mouse Parallax Effect for Hero (Desktop Only) - Throttled for performance
+    // Mouse Parallax Effect - DISABLED AS REQUESTED
+    /*
     const isMobile = window.innerWidth <= 768;
     const heroCard = document.querySelector('.hero-content-wrapper');
     if (heroCard && !isMobile) {
@@ -72,16 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 ticking = true;
             }
         });
-
-        document.addEventListener('mouseleave', () => {
-            heroCard.style.transform = `rotateY(0deg) rotateX(0deg)`;
-            heroCard.style.transition = 'all 0.5s ease';
-        });
-
-        document.addEventListener('mouseenter', () => {
-             heroCard.style.transition = 'none';
-        });
+        // ... rest of parallax listeners
     }
+    */
 
     // Sticky Navbar - Throttled
     const navbar = document.getElementById('navbar');

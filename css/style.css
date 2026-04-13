@@ -271,8 +271,6 @@ body:not(.home) nav .hamburger span {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transform-style: preserve-3d;
-    perspective: 1000px;
 }
 
 .hero-tagline {
@@ -1594,37 +1592,76 @@ body:not(.home) nav .hamburger span {
 
 /* === FOOTER === */
 .bg-primary-gradient {
-    background: linear-gradient(135deg, #1a1a1a 0%, #111111 100%);
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
     color: #ffffff;
+    border-top: 4px solid var(--accent);
 }
 
 .footer-grid {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 50px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.2fr 1fr;
+    gap: 40px;
+    align-items: start;
 }
 
-.footer-grid h3 {
-    font-size: 20px;
-    margin-bottom: 20px;
-    font-weight: 700;
+.footer-col h3 {
+    font-size: 22px;
+    margin-bottom: 25px;
+    font-weight: 800;
+    color: var(--accent);
+    position: relative;
+    padding-bottom: 10px;
 }
 
-.footer-grid ul {
+.footer-col h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+.footer-col ul {
     list-style: none;
-    line-height: 2.3;
+    line-height: 2.5;
     font-size: 16px;
+    padding: 0;
 }
 
-.footer-grid a {
+.footer-col li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-col li i {
+    color: var(--accent);
+    width: 20px;
+    text-align: center;
+}
+
+.footer-col a {
     color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.footer-grid a:hover {
+.footer-col a:hover {
     color: var(--accent);
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 70px;
+    padding: 30px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0.7;
+    font-size: 15px;
 }
 
 /* === MISSING UTILITY CLASSES === */
