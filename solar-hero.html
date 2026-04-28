@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SolarX — Premium Solar</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold: #F5A623;
+    --gold-light: #FFD57E;
+    --gold-dim: #C47D10;
+    --bg: #08090D;
+    --surface: #0E1018;
+    --text: #F0EEE8;
+    --muted: #7A7870;
+    --badge-bg: rgba(255,255,255,0.05);
+    --badge-border: rgba(255,255,255,0.1);
+  }
+
+  html, body {
+    width: 100%; height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Sora', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Radial ambient glow behind panel */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 55% at 62% 52%, rgba(245,166,35,0.13) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(100,140,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* subtle noise texture */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-size: 200px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ── LAYOUT ── */
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 80px;
+    align-items: center;
+    max-width: 1280px;
+    width: 100%;
+    padding: 0 60px;
+  }
+
+  /* ── LEFT COPY ── */
+  .hero-copy { user-select: none; }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.2s forwards;
+  }
+  .eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px; height: 1px;
+    background: var(--gold);
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 6vw, 96px);
+    line-height: 0.92;
+    letter-spacing: 0.01em;
+    color: var(--text);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.35s forwards;
+  }
+  h1 span {
+    color: var(--gold);
+    -webkit-text-stroke: 0px;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--muted);
+    max-width: 400px;
+    margin-bottom: 44px;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.5s forwards;
+  }
+
+  .cta-group {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.65s forwards;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: #08090D;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    border: none;
+    cursor: pointer;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+  .btn-ghost:hover { color: var(--text); }
+  .btn-ghost svg { transition: transform 0.2s; }
+  .btn-ghost:hover svg { transform: translateX(4px); }
+
+  /* ── RIGHT — 3D PANEL STAGE ── */
+  .panel-stage {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 560px;
+    opacity: 0;
+    animation: fadeIn 1s 0.5s forwards;
+  }
+
+  /* The tilting container */
+  .tilt-wrapper {
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1200px;
+    cursor: crosshair;
+  }
+
+  .panel-card {
+    position: relative;
+    width: 380px;
+    height: 420px;
+    transform-style: preserve-3d;
+    transition: transform 0.08s linear;
+    will-change: transform;
+  }
+
+  /* ── SOLAR PANEL SVG FACE ── */
+  .panel-face {
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow:
+      0 40px 100px rgba(0,0,0,0.7),
+      0 0 0 1px rgba(255,255,255,0.07),
+      inset 0 0 0 1px rgba(255,255,255,0.05);
+  }
+
+  .panel-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* Dynamic specular highlight that moves with mouse */
+  .specular {
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    background: radial-gradient(ellipse 60% 50% at 30% 30%, rgba(255,255,255,0.18) 0%, transparent 65%);
+    pointer-events: none;
+    mix-blend-mode: screen;
+    transition: background 0.1s;
+  }
+
+  /* Edge chamfer / rim light */
+  .rim {
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    box-shadow:
+      inset 1px 1px 0 rgba(255,255,255,0.12),
+      inset -1px -1px 0 rgba(0,0,0,0.5);
+    pointer-events: none;
+  }
+
+  /* Panel frame border */
+  .panel-frame {
+    position: absolute;
+    inset: -6px;
+    border-radius: 8px;
+    background: linear-gradient(145deg, #2a2e3a, #1a1c22);
+    z-index: -1;
+    box-shadow:
+      0 50px 120px rgba(0,0,0,0.8),
+      0 0 0 1px rgba(255,255,255,0.04);
+  }
+  .panel-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 50%);
+  }
+
+  /* Floor shadow */
+  .panel-shadow {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+    height: 40px;
+    background: radial-gradient(ellipse, rgba(0,0,0,0.6) 0%, transparent 70%);
+    filter: blur(16px);
+    pointer-events: none;
+    z-index: -2;
+    transition: transform 0.1s;
+  }
+
+  /* ── FLOATING BADGES ── */
+  .badge {
+    position: absolute;
+    background: rgba(14,16,24,0.85);
+    border: 1px solid var(--badge-border);
+    backdrop-filter: blur(12px);
+    border-radius: 14px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    animation: badgePop 0.6s cubic-bezier(0.34,1.56,0.64,1) forwards;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.04);
+    user-select: none;
+  }
+
+  .badge-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .badge-label { font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2px; }
+  .badge-value { font-size: 18px; font-weight: 700; color: var(--text); line-height: 1; }
+  .badge-unit { font-size: 11px; color: var(--muted); font-weight: 400; }
+
+  /* Badge positions */
+  .badge-efficiency {
+    top: 30px; right: -130px;
+    animation-delay: 0.9s;
+    --float-y: -8px;
+    animation: badgePop 0.6s 0.9s cubic-bezier(0.34,1.56,0.64,1) forwards, badgeFloat 4s 1.5s ease-in-out infinite;
+  }
+  .badge-output {
+    bottom: 100px; right: -110px;
+    animation-delay: 1.1s;
+    --float-y: -10px;
+    animation: badgePop 0.6s 1.1s cubic-bezier(0.34,1.56,0.64,1) forwards, badgeFloat 5s 1.7s ease-in-out infinite;
+  }
+  .badge-co2 {
+    bottom: 20px; left: -120px;
+    animation-delay: 1.3s;
+    --float-y: -6px;
+    animation: badgePop 0.6s 1.3s cubic-bezier(0.34,1.56,0.64,1) forwards, badgeFloat 4.5s 1.9s ease-in-out infinite;
+  }
+  .badge-temp {
+    top: 120px; left: -110px;
+    animation-delay: 1.0s;
+    --float-y: -9px;
+    animation: badgePop 0.6s 1.0s cubic-bezier(0.34,1.56,0.64,1) forwards, badgeFloat 5.5s 1.6s ease-in-out infinite;
+  }
+
+  /* connector lines from badge to panel */
+  .connector {
+    position: absolute;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(245,166,35,0.3), transparent);
+    transform-origin: top center;
+    pointer-events: none;
+  }
+
+  /* Glow dot on panel where connector touches */
+  .glow-dot {
+    position: absolute;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 8px 3px rgba(245,166,35,0.5);
+    animation: dotPulse 2s ease-in-out infinite;
+  }
+
+  /* Live watt counter */
+  .live-counter {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    opacity: 0;
+    animation: fadeUp 0.7s 1.4s forwards;
+  }
+  .live-watt {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+    text-shadow: 0 0 40px rgba(245,166,35,0.4);
+  }
+  .live-label {
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding-bottom: 8px;
+  }
+  .live-pulse {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #4ADE80;
+    box-shadow: 0 0 8px rgba(74,222,128,0.7);
+    margin-bottom: 8px;
+    animation: livePulse 1.2s ease-in-out infinite;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes badgePop {
+    from { opacity: 0; transform: scale(0.7); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes badgeFloat {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(var(--float-y, -8px)); }
+  }
+  @keyframes dotPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.4; transform: scale(0.7); }
+  }
+  @keyframes livePulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(74,222,128,0.7); }
+    50%       { opacity: 0.6; box-shadow: 0 0 20px rgba(74,222,128,0.4); }
+  }
+
+  /* ── HORIZONTAL STATS BAR ── */
+  .stats-bar {
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+    right: 60px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.7s 1.6s forwards;
+    z-index: 2;
+  }
+  .stat-item { display: flex; flex-direction: column; gap: 4px; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--text);
+    letter-spacing: 0.02em;
+  }
+  .stat-desc { font-size: 11px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+  .stat-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.08); flex-shrink: 0; }
+
+  /* ── SCANLINE GRID BG ── */
+  .grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: radial-gradient(ellipse 80% 80% at 60% 50%, black 0%, transparent 75%);
+  }
+</style>
+</head>
+<body>
+
+<section class="hero" id="hero">
+  <div class="grid-bg"></div>
+
+  <div class="hero-inner">
+
+    <!-- LEFT COPY -->
+    <div class="hero-copy">
+      <div class="eyebrow">Next-Gen Solar Technology</div>
+      <h1>POWER<br/>THE <span>SUN</span><br/>WITHIN</h1>
+      <p class="hero-desc">
+        Engineered for peak performance. Our monocrystalline panels deliver
+        up to 23.4% efficiency — the highest in residential solar, beautifully designed.
+      </p>
+      <div class="cta-group">
+        <button class="btn-primary">Get a Free Quote</button>
+        <button class="btn-ghost">
+          Watch Demo
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8H13M13 8L8 3M13 8L8 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="panel-stage" id="stage">
+
+      <!-- Live watt display -->
+      <div class="live-counter">
+        <div class="live-pulse"></div>
+        <div class="live-watt" id="wattCounter">4,280</div>
+        <div class="live-label">W Live Output</div>
+      </div>
+
+      <!-- Tilt wrapper -->
+      <div class="tilt-wrapper" id="tiltWrapper">
+        <div class="panel-card" id="panelCard">
+
+          <!-- Aluminum frame -->
+          <div class="panel-frame"></div>
+
+          <!-- Solar panel face -->
+          <div class="panel-face">
+            <svg class="panel-svg" viewBox="0 0 380 420" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <!-- Cell base gradient -->
+                <linearGradient id="cellGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%"   stop-color="#1a2744"/>
+                  <stop offset="40%"  stop-color="#0f1929"/>
+                  <stop offset="100%" stop-color="#08111e"/>
+                </linearGradient>
+                <!-- Panel body -->
+                <linearGradient id="panelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%"   stop-color="#111826"/>
+                  <stop offset="100%" stop-color="#070d14"/>
+                </linearGradient>
+                <!-- Gold bus bar -->
+                <linearGradient id="busGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%"   stop-color="#c8a44a"/>
+                  <stop offset="50%"  stop-color="#f5c842"/>
+                  <stop offset="100%" stop-color="#a07830"/>
+                </linearGradient>
+                <!-- Iridescent cell sheen -->
+                <linearGradient id="sheenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%"   stop-color="#1e3a5f" stop-opacity="0.8"/>
+                  <stop offset="30%"  stop-color="#162d50" stop-opacity="0.4"/>
+                  <stop offset="60%"  stop-color="#1a4060" stop-opacity="0.6"/>
+                  <stop offset="100%" stop-color="#0e1e35" stop-opacity="0.9"/>
+                </linearGradient>
+                <filter id="cellShadow">
+                  <feDropShadow dx="0" dy="1" stdDeviation="1" flood-opacity="0.5"/>
+                </filter>
+              </defs>
+
+              <!-- Panel background -->
+              <rect width="380" height="420" fill="url(#panelGrad)"/>
+
+              <!-- Grid of solar cells: 6 columns × 10 rows -->
+              <g id="cells">
+                <!-- Cells rendered by JS below; fallback static rects here -->
+              </g>
+
+              <!-- Vertical bus bars (every cell column edge) -->
+              <!-- Rendered via JS -->
+
+              <!-- Panel edge detail lines -->
+              <line x1="0" y1="0" x2="380" y2="0" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+              <line x1="0" y1="0" x2="0" y2="420" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+            </svg>
+
+            <!-- Specular highlight layer -->
+            <div class="specular" id="specular"></div>
+            <div class="rim"></div>
+          </div>
+
+          <!-- Shadow underneath -->
+          <div class="panel-shadow" id="panelShadow"></div>
+
+          <!-- Floating badges -->
+          <div class="badge badge-efficiency">
+            <div class="badge-icon" style="background: rgba(245,166,35,0.15);">⚡</div>
+            <div>
+              <div class="badge-label">Efficiency</div>
+              <div class="badge-value">23.4<span class="badge-unit">%</span></div>
+            </div>
+          </div>
+
+          <div class="badge badge-output">
+            <div class="badge-icon" style="background: rgba(96,165,250,0.15);">🔋</div>
+            <div>
+              <div class="badge-label">Max Output</div>
+              <div class="badge-value">580<span class="badge-unit">W</span></div>
+            </div>
+          </div>
+
+          <div class="badge badge-co2">
+            <div class="badge-icon" style="background: rgba(74,222,128,0.15);">🌿</div>
+            <div>
+              <div class="badge-label">CO₂ Saved</div>
+              <div class="badge-value">1.2<span class="badge-unit">t/yr</span></div>
+            </div>
+          </div>
+
+          <div class="badge badge-temp">
+            <div class="badge-icon" style="background: rgba(249,115,22,0.15);">🌡</div>
+            <div>
+              <div class="badge-label">Temp Coeff.</div>
+              <div class="badge-value">−0.29<span class="badge-unit">%/°C</span></div>
+            </div>
+          </div>
+
+        </div><!-- /panel-card -->
+      </div><!-- /tilt-wrapper -->
+
+    </div><!-- /panel-stage -->
+  </div><!-- /hero-inner -->
+
+  <!-- Bottom stats bar -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num">25 YR</div>
+      <div class="stat-desc">Performance Warranty</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">IP68</div>
+      <div class="stat-desc">Weather Rating</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">6,000+</div>
+      <div class="stat-desc">Installations</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">98.2%</div>
+      <div class="stat-desc">Customer Satisfaction</div>
+    </div>
+  </div>
+
+</section>
+
+<script>
+/* ── Draw solar cells into SVG ── */
+(function () {
+  const svg = document.querySelector('.panel-svg');
+  const ns = 'http://www.w3.org/2000/svg';
+
+  const cols = 6, rows = 10;
+  const padX = 16, padY = 14;
+  const gapX = 4, gapY = 4;
+  const totalW = 380 - padX * 2;
+  const totalH = 420 - padY * 2;
+  const cellW = (totalW - gapX * (cols - 1)) / cols;
+  const cellH = (totalH - gapY * (rows - 1)) / rows;
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const x = padX + c * (cellW + gapX);
+      const y = padY + r * (cellH + gapY);
+
+      // Cell body
+      const cell = document.createElementNS(ns, 'rect');
+      cell.setAttribute('x', x);
+      cell.setAttribute('y', y);
+      cell.setAttribute('width', cellW);
+      cell.setAttribute('height', cellH);
+      cell.setAttribute('rx', '1.5');
+      cell.setAttribute('fill', 'url(#cellGrad)');
+      svg.appendChild(cell);
+
+      // Iridescent sheen overlay per cell
+      const sheen = document.createElementNS(ns, 'rect');
+      sheen.setAttribute('x', x);
+      sheen.setAttribute('y', y);
+      sheen.setAttribute('width', cellW);
+      sheen.setAttribute('height', cellH);
+      sheen.setAttribute('rx', '1.5');
+      sheen.setAttribute('fill', 'url(#sheenGrad)');
+      sheen.setAttribute('opacity', (0.3 + Math.random() * 0.25).toFixed(2));
+      svg.appendChild(sheen);
+
+      // Horizontal bus bars (2 per cell)
+      for (let b = 1; b <= 2; b++) {
+        const bar = document.createElementNS(ns, 'rect');
+        const by = y + (cellH / 3) * b;
+        bar.setAttribute('x', x + 2);
+        bar.setAttribute('y', by - 0.5);
+        bar.setAttribute('width', cellW - 4);
+        bar.setAttribute('height', '1');
+        bar.setAttribute('fill', 'url(#busGrad)');
+        bar.setAttribute('opacity', '0.7');
+        svg.appendChild(bar);
+      }
+
+      // Vertical finger lines (5 per cell)
+      for (let f = 1; f <= 5; f++) {
+        const line = document.createElementNS(ns, 'rect');
+        const fx = x + (cellW / 6) * f;
+        line.setAttribute('x', fx - 0.3);
+        line.setAttribute('y', y + 2);
+        line.setAttribute('width', '0.6');
+        line.setAttribute('height', cellH - 4);
+        line.setAttribute('fill', 'url(#busGrad)');
+        line.setAttribute('opacity', '0.35');
+        svg.appendChild(line);
+      }
+    }
+  }
+
+  // Vertical main bus bars between columns
+  for (let c = 0; c <= cols; c++) {
+    const bx = padX + c * (cellW + gapX) - (c > 0 && c < cols ? gapX / 2 : 0);
+    if (c === 0 || c === cols) continue;
+    const vbar = document.createElementNS(ns, 'rect');
+    vbar.setAttribute('x', bx - 1);
+    vbar.setAttribute('y', padY);
+    vbar.setAttribute('width', '2');
+    vbar.setAttribute('height', totalH);
+    vbar.setAttribute('fill', 'url(#busGrad)');
+    vbar.setAttribute('opacity', '0.5');
+    svg.appendChild(vbar);
+  }
+})();
+
+/* ── Mouse-tracking 3D tilt ── */
+const card = document.getElementById('panelCard');
+const stage = document.getElementById('stage');
+const specular = document.getElementById('specular');
+const shadow = document.getElementById('panelShadow');
+
+let currentX = 0, currentY = 0;
+let targetX = 0, targetY = 0;
+let rafId;
+
+const MAX_TILT = 22; // degrees
+
+function lerp(a, b, t) { return a + (b - a) * t; }
+
+stage.addEventListener('mousemove', (e) => {
+  const rect = stage.getBoundingClientRect();
+  const cx = rect.left + rect.width / 2;
+  const cy = rect.top + rect.height / 2;
+  const mx = e.clientX - cx;
+  const my = e.clientY - cy;
+
+  // Normalize −1..1
+  const nx = mx / (rect.width / 2);
+  const ny = my / (rect.height / 2);
+
+  targetX = -ny * MAX_TILT;   // rotateX (tilt up/down)
+  targetY =  nx * MAX_TILT;   // rotateY (tilt left/right)
+
+  // Move specular opposite to tilt direction
+  const sx = 50 - nx * 30;
+  const sy = 50 - ny * 30;
+  specular.style.background = `radial-gradient(ellipse 55% 50% at ${sx}% ${sy}%, rgba(255,255,255,0.22) 0%, transparent 65%)`;
+});
+
+stage.addEventListener('mouseleave', () => {
+  targetX = 0;
+  targetY = 0;
+  specular.style.background = 'radial-gradient(ellipse 55% 50% at 30% 30%, rgba(255,255,255,0.12) 0%, transparent 65%)';
+});
+
+function animate() {
+  currentX = lerp(currentX, targetX, 0.1);
+  currentY = lerp(currentY, targetY, 0.1);
+
+  card.style.transform = `perspective(1200px) rotateX(${currentX}deg) rotateY(${currentY}deg) scale3d(1.02,1.02,1.02)`;
+
+  // Shadow moves opposite
+  const shadowX = currentY * 1.5;
+  const shadowY = Math.abs(currentX) * 0.8;
+  shadow.style.transform = `translateX(calc(-50% + ${shadowX}px)) scaleX(${1 - Math.abs(currentY) / 80})`;
+
+  rafId = requestAnimationFrame(animate);
+}
+animate();
+
+/* ── Live watt counter animation ── */
+const wattEl = document.getElementById('wattCounter');
+let base = 4280;
+function tickWatt() {
+  const delta = (Math.random() - 0.48) * 12;
+  base = Math.max(4100, Math.min(4450, base + delta));
+  wattEl.textContent = Math.round(base).toLocaleString();
+  setTimeout(tickWatt, 600 + Math.random() * 600);
+}
+setTimeout(tickWatt, 2000);
+
+</script>
+</body>
+</html>

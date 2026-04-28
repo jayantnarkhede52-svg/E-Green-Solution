@@ -1,3 +1,63 @@
+// ── MOBILE MENU TOGGLE (standalone, no dependencies) ──
+if (!window.__menuInitialized) {
+window.__menuInitialized = true;
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (hamburger && mobileMenu) {
+        // Move menu to body root to avoid nav stacking context issues
+        document.body.appendChild(mobileMenu);
+
+        // Create close button inside menu
+        const closeBtn = document.createElement('button');
+        closeBtn.innerHTML = '&times;';
+        closeBtn.className = 'mobile-menu-close';
+        closeBtn.setAttribute('aria-label', 'Close Menu');
+        closeBtn.style.cssText = 'position:absolute;top:24px;right:24px;background:none;border:none;font-size:36px;color:#333;cursor:pointer;z-index:10003;padding:8px;line-height:1;';
+        mobileMenu.appendChild(closeBtn);
+
+        function closeMenu() {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function openMenu() {
+            hamburger.classList.add('active');
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (mobileMenu.classList.contains('active')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+
+        // Close button
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeMenu();
+        });
+
+        // Close menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Close on resize to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) closeMenu();
+        });
+
+    }
+});
+} // end guard
+
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -99,36 +159,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Hamburger Menu Toggle
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    if (hamburger && mobileMenu) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-        });
 
-        // Close mobile menu when a link is clicked
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
 
-        // Close mobile menu on window resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                hamburger.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-    }
 
     // Smooth Scroll for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -261,30 +293,63 @@ document.addEventListener('DOMContentLoaded', () => {
         const resSpace = document.getElementById('resSpace');
         const resMonthlySavings = document.getElementById('resMonthlySavings');
         const resSystemCost = document.getElementById('resSystemCost');
+        const resNetCost = document.getElementById('resNetCost'); // New element
         const summaryBill = document.getElementById('summary-bill');
 
         function calculateSolar() {
             let bill = parseFloat(monthlyBillInput.value) || 0;
             let rate = parseFloat(unitRateInput.value) || 10;
             
-            // Formula for Capacity (for technical transparency, though savings is fixed at 90%)
+            // Formula for Capacity
             let dailyUnitsRequired = bill / (rate * 30);
             let capacityKw = dailyUnitsRequired / 4; 
-            if(capacityKw < 1 && bill > 0) capacityKw = 1;
             
-            // Logic update: Savings are exactly 90% of the bill as requested
+            // Tiered Pricing based on provided image
+            const priceMap = [
+                { kw: 3, price: 195000 },
+                { kw: 5, price: 275000 },
+                { kw: 6, price: 325000 },
+                { kw: 7, price: 350000 },
+                { kw: 8, price: 375000 },
+                { kw: 10, price: 425000 }
+            ];
+
+            // Default to 3kW if too low
+            if (capacityKw < 3) capacityKw = 3;
+
+            let systemCost = 0;
+            // Find the closest higher tier or interpolate
+            if (capacityKw <= 3) {
+                systemCost = 195000;
+                capacityKw = 3;
+            } else if (capacityKw >= 10) {
+                systemCost = 425000 + (Math.round(capacityKw) - 10) * 37500;
+                capacityKw = Math.round(capacityKw);
+            } else {
+                // Find tier
+                for (let i = 0; i < priceMap.length - 1; i++) {
+                    if (capacityKw >= priceMap[i].kw && capacityKw <= priceMap[i+1].kw) {
+                        // Linear interpolation between tiers
+                        let ratio = (capacityKw - priceMap[i].kw) / (priceMap[i+1].kw - priceMap[i].kw);
+                        systemCost = priceMap[i].price + ratio * (priceMap[i+1].price - priceMap[i].price);
+                        break;
+                    }
+                }
+            }
+            
             let monthlySavings = Math.round(bill * 0.9);
+            let subsidy = 78000;
+            let netInvestment = systemCost - subsidy;
             
-            let systemSize = capacityKw.toFixed(1);
-            let spaceRequired = Math.round(capacityKw * 100); 
-            let cost = Math.round(capacityKw * 52000); // Updated to ₹52,000/kW as requested
+            let spaceRequired = Math.round(capacityKw * 80); // ~80-100 sqft per kW
 
             // Update UI
-            resSystemSize.innerText = systemSize;
-            resSpace.innerText = spaceRequired;
-            resMonthlySavings.innerText = monthlySavings.toLocaleString('en-IN');
-            resSystemCost.innerText = cost.toLocaleString('en-IN');
-            summaryBill.innerText = bill.toLocaleString('en-IN');
+            if (resSystemSize) resSystemSize.innerText = capacityKw.toFixed(1);
+            if (resSpace) resSpace.innerText = spaceRequired;
+            if (resMonthlySavings) resMonthlySavings.innerText = monthlySavings.toLocaleString('en-IN');
+            if (resSystemCost) resSystemCost.innerText = Math.round(systemCost).toLocaleString('en-IN');
+            if (resNetCost) resNetCost.innerText = Math.round(netInvestment).toLocaleString('en-IN');
+            if (summaryBill) summaryBill.innerText = bill.toLocaleString('en-IN');
         }
 
         // Navigation logic
@@ -349,6 +414,162 @@ document.addEventListener('DOMContentLoaded', () => {
             placeholder.innerText = email;
         }
     });
+
+    // --- PREMIUM SOLAR HERO LOGIC (SolarX) ---
+    const initSolarXHero = () => {
+        const svg = document.querySelector('.panel-svg');
+        if (!svg) return;
+        const ns = 'http://www.w3.org/2000/svg';
+
+        const cols = 6, rows = 10;
+        const padX = 16, padY = 14;
+        const gapX = 4, gapY = 4;
+        const totalW = 380 - padX * 2;
+        const totalH = 420 - padY * 2;
+        const cellW = (totalW - gapX * (cols - 1)) / cols;
+        const cellH = (totalH - gapY * (rows - 1)) / rows;
+
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols; c++) {
+                const x = padX + c * (cellW + gapX);
+                const y = padY + r * (cellH + gapY);
+
+                // Cell body
+                const cell = document.createElementNS(ns, 'rect');
+                cell.setAttribute('x', x);
+                cell.setAttribute('y', y);
+                cell.setAttribute('width', cellW);
+                cell.setAttribute('height', cellH);
+                cell.setAttribute('rx', '1.5');
+                cell.setAttribute('fill', 'url(#cellGrad)');
+                svg.appendChild(cell);
+
+                // Iridescent sheen overlay per cell
+                const sheen = document.createElementNS(ns, 'rect');
+                sheen.setAttribute('x', x);
+                sheen.setAttribute('y', y);
+                sheen.setAttribute('width', cellW);
+                sheen.setAttribute('height', cellH);
+                sheen.setAttribute('rx', '1.5');
+                sheen.setAttribute('fill', 'url(#sheenGrad)');
+                sheen.setAttribute('opacity', (0.3 + Math.random() * 0.25).toFixed(2));
+                svg.appendChild(sheen);
+
+                // Horizontal bus bars (2 per cell)
+                for (let b = 1; b <= 2; b++) {
+                    const bar = document.createElementNS(ns, 'rect');
+                    const by = y + (cellH / 3) * b;
+                    bar.setAttribute('x', x + 2);
+                    bar.setAttribute('y', by - 0.5);
+                    bar.setAttribute('width', cellW - 4);
+                    bar.setAttribute('height', '1');
+                    bar.setAttribute('fill', 'url(#busGrad)');
+                    bar.setAttribute('opacity', '0.7');
+                    svg.appendChild(bar);
+                }
+
+                // Vertical finger lines (5 per cell)
+                for (let f = 1; f <= 5; f++) {
+                    const line = document.createElementNS(ns, 'rect');
+                    const fx = x + (cellW / 6) * f;
+                    line.setAttribute('x', fx - 0.3);
+                    line.setAttribute('y', y + 2);
+                    line.setAttribute('width', '0.6');
+                    line.setAttribute('height', cellH - 4);
+                    line.setAttribute('fill', 'url(#busGrad)');
+                    line.setAttribute('opacity', '0.35');
+                    svg.appendChild(line);
+                }
+            }
+        }
+
+        // Vertical main bus bars between columns
+        for (let c = 0; c <= cols; c++) {
+            const bx = padX + c * (cellW + gapX) - (c > 0 && c < cols ? gapX / 2 : 0);
+            if (c === 0 || c === cols) continue;
+            const vbar = document.createElementNS(ns, 'rect');
+            vbar.setAttribute('x', bx - 1);
+            vbar.setAttribute('y', padY);
+            vbar.setAttribute('width', '2');
+            vbar.setAttribute('height', totalH);
+            vbar.setAttribute('fill', 'url(#busGrad)');
+            vbar.setAttribute('opacity', '0.5');
+            svg.appendChild(vbar);
+        }
+
+        /* ── Mouse-tracking 3D tilt ── */
+        const card = document.getElementById('panelCard');
+        const stage = document.getElementById('stage');
+        const specular = document.getElementById('specular');
+        const shadow = document.getElementById('panelShadow');
+
+        let currentX = 0, currentY = 0;
+        let targetX = 0, targetY = 0;
+
+        const MAX_TILT = 22; // degrees
+        function lerp(a, b, t) { return a + (b - a) * t; }
+
+        stage.addEventListener('mousemove', (e) => {
+            const rect = stage.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            const mx = e.clientX - cx;
+            const my = e.clientY - cy;
+
+            // Normalize −1..1
+            const nx = mx / (rect.width / 2);
+            const ny = my / (rect.height / 2);
+
+            targetX = -ny * MAX_TILT;   // rotateX (tilt up/down)
+            targetY = nx * MAX_TILT;   // rotateY (tilt left/right)
+
+            // Move specular opposite to tilt direction
+            if (specular) {
+                const sx = 50 - nx * 30;
+                const sy = 50 - ny * 30;
+                specular.style.background = `radial-gradient(ellipse 55% 50% at ${sx}% ${sy}%, rgba(255,255,255,0.22) 0%, transparent 65%)`;
+            }
+        });
+
+        stage.addEventListener('mouseleave', () => {
+            targetX = 0;
+            targetY = 0;
+            if (specular) {
+                specular.style.background = 'radial-gradient(ellipse 55% 50% at 30% 30%, rgba(255,255,255,0.12) 0%, transparent 65%)';
+            }
+        });
+
+        function animate() {
+            currentX = lerp(currentX, targetX, 0.1);
+            currentY = lerp(currentY, targetY, 0.1);
+
+            if (card) {
+                card.style.transform = `perspective(1200px) rotateX(${currentX}deg) rotateY(${currentY}deg) scale3d(1.02,1.02,1.02)`;
+            }
+
+            // Shadow moves opposite
+            if (shadow) {
+                const shadowX = currentY * 1.5;
+                shadow.style.transform = `translateX(calc(-50% + ${shadowX}px)) scaleX(${1 - Math.abs(currentY) / 80})`;
+            }
+
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        /* ── Live watt counter animation ── */
+        const wattEl = document.getElementById('wattCounter');
+        let base = 4280;
+        function tickWatt() {
+            const delta = (Math.random() - 0.48) * 12;
+            base = Math.max(4100, Math.min(4450, base + delta));
+            if (wattEl) wattEl.textContent = Math.round(base).toLocaleString();
+            setTimeout(tickWatt, 600 + Math.random() * 600);
+        }
+        setTimeout(tickWatt, 2000);
+    };
+
+    initSolarXHero();
 
 });
 
