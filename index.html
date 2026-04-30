@@ -637,6 +637,119 @@
         mask-image: radial-gradient(ellipse 80% 80% at 60% 50%, black 0%, transparent 75%);
       }
 
+      /* ── MOBILE HERO RESPONSIVE ── */
+      @media (max-width: 768px) {
+        .hero {
+          min-height: auto !important;
+          padding: 110px 0 40px !important;
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: center !important;
+        }
+
+        .hero-inner {
+          grid-template-columns: 1fr !important;
+          gap: 0 !important;
+          padding: 0 24px !important;
+          text-align: center !important;
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: center !important;
+        }
+
+        .hero-copy {
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: center !important;
+          text-align: center !important;
+          width: 100% !important;
+        }
+
+        .eyebrow {
+          justify-content: center !important;
+          margin-bottom: 16px !important;
+          font-size: 10px !important;
+        }
+
+        h1.hero-title {
+          font-size: clamp(38px, 11vw, 52px) !important;
+          line-height: 0.95 !important;
+          margin-bottom: 20px !important;
+          text-align: center !important;
+        }
+
+        .hero-desc {
+          max-width: 100% !important;
+          margin-bottom: 28px !important;
+          text-align: center !important;
+          font-size: 14px !important;
+          line-height: 1.7 !important;
+        }
+
+        .cta-group {
+          flex-direction: column !important;
+          gap: 14px !important;
+          width: 100% !important;
+          align-items: center !important;
+        }
+
+        .btn-primary-hero {
+          width: 100% !important;
+          max-width: 280px !important;
+          text-align: center !important;
+          justify-content: center !important;
+          display: flex !important;
+          padding: 16px 28px !important;
+        }
+
+        .btn-ghost-hero {
+          justify-content: center !important;
+        }
+
+        /* Hide 3D panel on mobile */
+        .panel-stage {
+          display: none !important;
+        }
+
+        /* Stats bar: flow below hero copy */
+        .stats-bar {
+          position: relative !important;
+          bottom: auto !important;
+          left: auto !important;
+          right: auto !important;
+          flex-direction: row !important;
+          justify-content: center !important;
+          gap: 20px !important;
+          padding: 24px 20px !important;
+          margin: 28px 24px 0 !important;
+          background: rgba(255,255,255,0.04) !important;
+          border-radius: 16px !important;
+          border: 1px solid rgba(255,255,255,0.08) !important;
+          width: calc(100% - 48px) !important;
+          opacity: 1 !important;
+          animation: none !important;
+        }
+
+        .stat-item {
+          align-items: center !important;
+          text-align: center !important;
+        }
+
+        .stat-num {
+          font-size: 20px !important;
+        }
+
+        .stat-desc {
+          font-size: 9px !important;
+        }
+
+        .stat-divider {
+          height: 28px !important;
+        }
+
+        .grid-bg {
+          display: none !important;
+        }
       }
     </style>
 </head>
@@ -941,7 +1054,7 @@
                     </ul>
                 </div>
                 <div class="quote-form-container" style="flex: 1; min-width: 280px; max-width: 100%; background: #f8f9fa; padding: 35px; border-radius: 24px; border: 1px solid #eee;">
-                    <form class="quick-quote-form" action="https://formsubmit.co/egreensolution1@gmail.com" method="POST">
+                    <form id="quick-quote-form" class="quick-quote-form" action="https://formsubmit.co/egreensolution1@gmail.com" method="POST">
                         <input type="hidden" name="_subject" value="New Quick Quote Request from Website">
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
@@ -1770,6 +1883,51 @@
         }
     });
     </script>
+    <!-- Supabase Integration -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-config.js" defer></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('quick-quote-form');
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn.innerHTML;
+                
+                // Show loading state
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+                
+                const formData = new FormData(form);
+                const leadData = {
+                    full_name: formData.get('name'),
+                    phone: formData.get('phone'),
+                    city: formData.get('location'),
+                    message: `Requirement: ${formData.get('requirement')}, Monthly Bill: ₹${formData.get('monthly_bill')}`,
+                    status: 'New'
+                };
+
+                try {
+                    // 1. Save to Supabase (Priority for Admin Panel)
+                    if (typeof _supabase !== 'undefined') {
+                        await _supabase.from('leads').insert([leadData]);
+                        console.log('Lead synced to Admin Panel');
+                    }
+                    
+                    // 2. Submit to FormSubmit (Standard POST behavior)
+                    form.submit(); 
+                    
+                } catch (err) {
+                    console.error('Submission sync error:', err);
+                    // Fallback: Submit anyway so the user doesn't get stuck
+                    form.submit();
+                }
+            });
+        }
+    });
+    </script>
+
     <!-- Solar Hero Scripts -->
     <script>
     /* ── Draw solar cells into SVG ── */
