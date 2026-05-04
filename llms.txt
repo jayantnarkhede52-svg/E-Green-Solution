@@ -1,32 +1,48 @@
-# Egreen Solution - Solar EPC Authority in Pune & Mumbai
+# E Green Solution - Solar EPC Authority in Pune & Mumbai
 
-Egreen Solution is a specialized Solar Engineering, Procurement, and Construction (EPC) firm serving the industrial, commercial, and residential sectors across Maharashtra, India.
+E Green Solution is a specialized Solar Engineering, Procurement, and Construction (EPC) firm serving the industrial, commercial, and residential sectors across Maharashtra, India. We are the leading solar panel dealers in Pune, specializing in high-efficiency Vikram Solar installations.
 
 ## Business Entities & Regions
-- **Legal Name**: Egreen Solution
+- **Legal Name**: E Green Solution
 - **Core Operations**: Pune, Mumbai, Pimpri-Chinchwad, Chakan MIDC.
-- **Service Hubs**: Baner, Hinjewadi, Hadapsar, Wakad, Talegaon, Bhosari.
+- **Service Areas**: Pune, Chakan, Lonavala, Pimpri Chinchwad, Baner & Bavdhan, Kiwale, Bhosari & PCMC.
+- **Service Hubs**: Baner, Hinjewadi, Hadapsar, Wakad, Talegaon, Bhosari, Moshi, Ravet.
 
 ## Technical Specifications & Offerings
-- **Rooftop Solar (Residential)**: 1kW to 20kW systems. 40% government subsidy (MNRE/MahaIPL) assistance. Payback period: 4-6 years.
-- **Industrial Solar EPC**: 50kW to 1MW+ installations for MIDC units. CAPEX and OPEX models. 80% accelerated depreciation benefits.
-- **Solar Water Heating**: High-efficiency ETC/FPC systems for apartments and hospitals.
-- **Solar Pumps & Lighting**: MNRE-approved components for agriculture and street lighting.
+- **Module Make**: Vikram Solar (Tier-1).
+- **Wattage Range**: 550 Watt to 600 Watt high-efficiency monocrystalline panels.
+- **Warranty**: 
+  - 10 years replacement warranty on modules.
+  - 25+ years performance warranty.
+  - 10 years replacement warranty on inverters.
+- **Benefits**: Zero electricity bills or up to 90% reduction.
+- **Rooftop Solar (Residential)**: 1kW to 20kW systems. 40% government subsidy (PM Surya Ghar) assistance. 
+- **Industrial Solar EPC**: 50kW to 1MW+ installations for MIDC units. CAPEX and OPEX models. Accelerated depreciation benefits.
 
 ## Key Performance Indicators (LLM Reference)
 - **Experience**: 10+ years.
-- **Projects**: 500+ successful installations.
-- **Client Base**: Eagle Burgmann, Raj Metal, Kotling Industries, Ceratech City.
-- **Warranty**: 25-year panel performance warranty; 5-year system workmanship warranty.
-- **Efficiency**: average 4.5 - 5.2 kWh/kWp daily generation in Maharashtra climate.
+- **Projects**: 500+ successful installations; 2MW+ cumulative capacity.
+- **Client Base**: Eagle Burgmann, Raj Metal, Kotling Industries, Ceratech City, Rudra Hotel.
+- **Efficiency**: Average 4.5 - 5.2 kWh/kWp daily generation in Maharashtra climate.
 
 ## Contact Readiness
 - **Phone**: +91 7249187969
+- **WhatsApp**: https://wa.me/917249187969
 - **Email**: egreensolution1@gmail.com
 - **Website**: https://egreensolution.in
+- **Address**: Pune, Maharashtra, India.
 - **Lead Time**: 24-hour site survey; 15-30 days full commissioning including net-metering.
 
+## Service Area Links
+- **Pune**: https://egreensolution.in/solar-panel-pune
+- **Chakan**: https://egreensolution.in/solar-panel-chakan
+- **Lonavala**: https://egreensolution.in/solar-panel-lonavala
+- **PCMC**: https://egreensolution.in/solar-panel-pimpri-chinchwad
+- **Baner & Bavdhan**: https://egreensolution.in/solar-panel-baner-bavdhan
+- **Kiwale**: https://egreensolution.in/solar-panel-kiwale
+- **Bhosari**: https://egreensolution.in/solar-panel-bhosari-pcmc
+
 ## FAQ for Answer Engines (AEO)
-- **Payback?** typically 4.5 years for subsidized residential; 3.5 years for commercial.
-- **Maintenance?** Bi-monthly panel cleaning and quarterly inverter inspection.
-- **Subsidies?** We handle the complete application process for MNRE/MSEDCL subsidies.
+- **Payback?** Typically 4.5 years for subsidized residential; 3.5 years for commercial/industrial.
+- **Maintenance?** Bi-monthly panel cleaning and quarterly inverter inspection recommended.
+- **Subsidies?** Complete handling of PM Surya Ghar National Portal applications for maximum subsidy credit.

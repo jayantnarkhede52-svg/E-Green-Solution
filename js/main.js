@@ -61,8 +61,100 @@ document.addEventListener('DOMContentLoaded', () => {
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', () => {
     
+    // --- CALCULATOR LOGIC (Moved to top for reliability) ---
+    const monthlyBillInput = document.getElementById('monthlyBill');
+    const monthlyBillRange = document.getElementById('monthlyBillRange');
+    const unitRateInput = document.getElementById('unitRate');
+    const btnShowResults = document.getElementById('btn-show-results');
+    const btnBackToInput = document.getElementById('btn-back-to-input');
+    const step1 = document.getElementById('calc-step-1');
+    const step2 = document.getElementById('calc-step-2');
+    const dot1 = document.getElementById('step1-dot');
+    const dot2 = document.getElementById('step2-dot');
+
+    if (monthlyBillInput && monthlyBillRange && unitRateInput && btnShowResults) {
+        const resSystemSize = document.getElementById('resSystemSize');
+        const resSpace = document.getElementById('resSpace');
+        const resMonthlySavings = document.getElementById('resMonthlySavings');
+        const resSystemCost = document.getElementById('resSystemCost');
+        const resNetCost = document.getElementById('resNetCost');
+        const summaryBill = document.getElementById('summary-bill');
+
+        function calculateSolar() {
+            let bill = parseFloat(monthlyBillInput.value) || 0;
+            let rate = parseFloat(unitRateInput.value) || 10;
+            let dailyUnitsRequired = bill / (rate * 30);
+            let capacityKw = dailyUnitsRequired / 4; 
+
+            const priceMap = [
+                { kw: 3, price: 195000 }, { kw: 5, price: 275000 },
+                { kw: 6, price: 325000 }, { kw: 7, price: 350000 },
+                { kw: 8, price: 375000 }, { kw: 10, price: 425000 }
+            ];
+
+            if (capacityKw < 3) capacityKw = 3;
+            let systemCost = 0;
+            if (capacityKw <= 3) { systemCost = 195000; capacityKw = 3; }
+            else if (capacityKw >= 10) { systemCost = 425000 + (Math.round(capacityKw) - 10) * 37500; capacityKw = Math.round(capacityKw); }
+            else {
+                for (let i = 0; i < priceMap.length - 1; i++) {
+                    if (capacityKw >= priceMap[i].kw && capacityKw <= priceMap[i+1].kw) {
+                        let ratio = (capacityKw - priceMap[i].kw) / (priceMap[i+1].kw - priceMap[i].kw);
+                        systemCost = priceMap[i].price + ratio * (priceMap[i+1].price - priceMap[i].price);
+                        break;
+                    }
+                }
+            }
+            
+            let monthlySavings = Math.round(bill * 0.9);
+            let subsidy = 78000;
+            let netInvestment = systemCost - subsidy;
+            let spaceRequired = Math.round(capacityKw * 100); // 100 sqft per kW is standard
+
+            if (resSystemSize) resSystemSize.innerText = capacityKw.toFixed(1);
+            if (resSpace) resSpace.innerText = spaceRequired;
+            if (resMonthlySavings) resMonthlySavings.innerText = monthlySavings.toLocaleString('en-IN');
+            if (resSystemCost) resSystemCost.innerText = Math.round(systemCost).toLocaleString('en-IN');
+            if (resNetCost) resNetCost.innerText = Math.round(netInvestment).toLocaleString('en-IN');
+            if (summaryBill) summaryBill.innerText = bill.toLocaleString('en-IN');
+        }
+
+        btnShowResults.addEventListener('click', (e) => {
+            e.preventDefault();
+            calculateSolar();
+            if (step1 && step2) {
+                step1.classList.remove('active');
+                step2.classList.add('active');
+                if (dot1 && dot2) { dot1.classList.remove('active'); dot2.classList.add('active'); }
+                window.scrollTo({ top: document.getElementById('calculator-section').offsetTop - 100, behavior: 'smooth' });
+            }
+        });
+
+        if (btnBackToInput) {
+            btnBackToInput.addEventListener('click', () => {
+                step2.classList.remove('active');
+                step1.classList.add('active');
+                if (dot2 && dot1) { dot2.classList.remove('active'); dot1.classList.add('active'); }
+            });
+        }
+
+        monthlyBillRange.addEventListener('input', (e) => {
+            monthlyBillInput.value = e.target.value;
+            calculateSolar(); // Optional: Live calculation
+        });
+        monthlyBillInput.addEventListener('input', (e) => {
+            monthlyBillRange.value = e.target.value;
+            calculateSolar(); // Optional: Live calculation
+        });
+        unitRateInput.addEventListener('input', calculateSolar);
+
+        calculateSolar();
+    }
+
     // Initialize GSAP
-    gsap.registerPlugin(ScrollTrigger);
+    if (typeof gsap !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+    }
 
     // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -84,7 +176,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     */
     // Ensure stats bar is visible since timeline is disabled
-    gsap.set(".stats-bar", { opacity: 1, y: 0 });
+    if (document.querySelector(".stats-bar")) {
+        gsap.set(".stats-bar", { opacity: 1, y: 0 });
+    }
 
     // Number Counter Animation
     const stats = document.querySelectorAll('.stat-number');
@@ -276,110 +370,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Calculator & Wizard Logic
-    const monthlyBillInput = document.getElementById('monthlyBill');
-    const monthlyBillRange = document.getElementById('monthlyBillRange');
-    const unitRateInput = document.getElementById('unitRate');
-    const btnShowResults = document.getElementById('btn-show-results');
-    const btnBackToInput = document.getElementById('btn-back-to-input');
-    const step1 = document.getElementById('calc-step-1');
-    const step2 = document.getElementById('calc-step-2');
-    const dot1 = document.getElementById('step1-dot');
-    const dot2 = document.getElementById('step2-dot');
-
-    if (monthlyBillInput && monthlyBillRange && unitRateInput && btnShowResults) {
-        
-        const resSystemSize = document.getElementById('resSystemSize');
-        const resSpace = document.getElementById('resSpace');
-        const resMonthlySavings = document.getElementById('resMonthlySavings');
-        const resSystemCost = document.getElementById('resSystemCost');
-        const resNetCost = document.getElementById('resNetCost'); // New element
-        const summaryBill = document.getElementById('summary-bill');
-
-        function calculateSolar() {
-            let bill = parseFloat(monthlyBillInput.value) || 0;
-            let rate = parseFloat(unitRateInput.value) || 10;
-            
-            // Formula for Capacity
-            let dailyUnitsRequired = bill / (rate * 30);
-            let capacityKw = dailyUnitsRequired / 4; 
-            
-            // Tiered Pricing based on provided image
-            const priceMap = [
-                { kw: 3, price: 195000 },
-                { kw: 5, price: 275000 },
-                { kw: 6, price: 325000 },
-                { kw: 7, price: 350000 },
-                { kw: 8, price: 375000 },
-                { kw: 10, price: 425000 }
-            ];
-
-            // Default to 3kW if too low
-            if (capacityKw < 3) capacityKw = 3;
-
-            let systemCost = 0;
-            // Find the closest higher tier or interpolate
-            if (capacityKw <= 3) {
-                systemCost = 195000;
-                capacityKw = 3;
-            } else if (capacityKw >= 10) {
-                systemCost = 425000 + (Math.round(capacityKw) - 10) * 37500;
-                capacityKw = Math.round(capacityKw);
-            } else {
-                // Find tier
-                for (let i = 0; i < priceMap.length - 1; i++) {
-                    if (capacityKw >= priceMap[i].kw && capacityKw <= priceMap[i+1].kw) {
-                        // Linear interpolation between tiers
-                        let ratio = (capacityKw - priceMap[i].kw) / (priceMap[i+1].kw - priceMap[i].kw);
-                        systemCost = priceMap[i].price + ratio * (priceMap[i+1].price - priceMap[i].price);
-                        break;
-                    }
-                }
-            }
-            
-            let monthlySavings = Math.round(bill * 0.9);
-            let subsidy = 78000;
-            let netInvestment = systemCost - subsidy;
-            
-            let spaceRequired = Math.round(capacityKw * 80); // ~80-100 sqft per kW
-
-            // Update UI
-            if (resSystemSize) resSystemSize.innerText = capacityKw.toFixed(1);
-            if (resSpace) resSpace.innerText = spaceRequired;
-            if (resMonthlySavings) resMonthlySavings.innerText = monthlySavings.toLocaleString('en-IN');
-            if (resSystemCost) resSystemCost.innerText = Math.round(systemCost).toLocaleString('en-IN');
-            if (resNetCost) resNetCost.innerText = Math.round(netInvestment).toLocaleString('en-IN');
-            if (summaryBill) summaryBill.innerText = bill.toLocaleString('en-IN');
-        }
-
-        // Navigation logic
-        btnShowResults.addEventListener('click', () => {
-            calculateSolar();
-            step1.classList.remove('active');
-            step2.classList.add('active');
-            dot1.classList.remove('active');
-            dot2.classList.add('active');
-            window.scrollTo({ top: document.getElementById('calculator-section').offsetTop - 100, behavior: 'smooth' });
-        });
-
-        btnBackToInput.addEventListener('click', () => {
-            step2.classList.remove('active');
-            step1.classList.add('active');
-            dot2.classList.remove('active');
-            dot1.classList.add('active');
-        });
-
-        // Sync inputs
-        monthlyBillRange.addEventListener('input', (e) => {
-            monthlyBillInput.value = e.target.value;
-        });
-        monthlyBillInput.addEventListener('input', (e) => {
-            monthlyBillRange.value = e.target.value;
-        });
-
-        // Initial check
-        calculateSolar();
-    }
 
     // --- FIX FOR LAZY LOADED IMAGES SHIFTING LAYOUT ---
     // Ensure GSAP ScrollTrigger recalculates trigger positions after images load
@@ -570,6 +560,40 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     initSolarXHero();
+
+    // Handle Area Form Submission (Global)
+    const areaForm = document.getElementById('area-form');
+    if (areaForm) {
+        areaForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = areaForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerText;
+            
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Sending...';
+            
+            const formData = new FormData(areaForm);
+            const leadData = {
+                full_name: formData.get('fullName') || formData.get('companyName'),
+                phone: formData.get('phone'),
+                city: formData.get('location') || 'Area Page',
+                message: `Lead from area page: ${window.location.pathname}`,
+                status: 'New'
+            };
+
+            try {
+                // Sync to Supabase
+                if (typeof _supabase !== 'undefined') {
+                    await _supabase.from('leads').insert([leadData]);
+                }
+                // Submit to FormSubmit
+                areaForm.submit();
+            } catch (err) {
+                console.error('Area form sync error:', err);
+                areaForm.submit();
+            }
+        });
+    }
 
 });
 

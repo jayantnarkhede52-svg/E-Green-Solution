@@ -7,6 +7,7 @@
     --accent: #F5A623; /* Solar Gold */
     --accent-light: #FFD57E;
     --accent-dim: #C47D10;
+    --accent-gradient: linear-gradient(135deg, #F5A623 0%, #FFD57E 100%);
     --bg-dark: #08090D;
     --surface: #0E1018;
     --text-dark: #1a1a1a;
@@ -221,10 +222,50 @@ body:not(.home) nav .hamburger span {
 .margin-b-42 { margin-bottom: 42px; }
 .section-padding { padding: 80px 0; }
 
+/* === RESPONSIVE UTILITIES === */
+.responsive-grid-2 {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.responsive-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.mobile-stack {
+    display: flex;
+    gap: 20px;
+}
+
+@media (max-width: 992px) {
+    .responsive-grid-2, .responsive-grid-3 {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+    .mobile-stack {
+        flex-direction: column !important;
+    }
+}
+
+.sticky-desktop {
+    position: sticky;
+    top: 120px;
+}
+
+@media (max-width: 992px) {
+    .sticky-desktop {
+        position: static !important;
+    }
+}
+
 /* === FOOTER STYLES === */
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1.2fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1.2fr;
     gap: 40px;
     align-items: start;
 }
@@ -1289,7 +1330,7 @@ body:not(.home) nav .hamburger span {
     height: 100vh;
     height: 100dvh;
     background: #ffffff;
-    z-index: 10001;
+    z-index: 10005;
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -1458,6 +1499,11 @@ body:not(.home) nav .hamburger span {
     display: flex;
     gap: 10px;
     animation: messageSlideIn 0.3s ease;
+}
+
+/* === MOBILE BOTTOM NAVIGATION (Hidden on Desktop) === */
+.mobile-bottom-nav {
+    display: none;
 }
 
 @keyframes messageSlideIn {
@@ -1961,7 +2007,7 @@ body:not(.home) nav .hamburger span {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1.2fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1.2fr;
     gap: 40px;
     align-items: start;
 }
@@ -2197,6 +2243,16 @@ body:not(.home) nav .hamburger span {
     }
     .footer-col h3::after { left: 50%; transform: translateX(-50%); }
     .footer-col ul li { justify-content: center; }
+    
+    .visitor-counter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .visitor-counter img {
+        margin: 0 auto;
+    }
 
     /* â”€â”€ GRIDS â”€â”€ */
     .services-grid, .why-us-grid, .project-grid, .success-grid,
@@ -2300,10 +2356,198 @@ body:not(.home) nav .hamburger span {
     /* â”€â”€ OVERFLOW â”€â”€ */
     body, html { overflow-x: hidden !important; }
 
-    /* â”€â”€ QUOTE â”€â”€ */
+    /* —— MOBILE BOTTOM NAVIGATION —— */
+    .mobile-bottom-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: auto !important; /* MUST override global nav top:0 */
+        height: 70px;
+        background: #ffffff;
+        box-shadow: 0 -5px 25px rgba(0,0,0,0.15);
+        z-index: 10002; /* Above everything except mobile menu */
+        justify-content: space-around;
+        align-items: center;
+        padding: 0;
+        border-radius: 20px 20px 0 0;
+        border-top: 1px solid rgba(0,0,0,0.05);
+    }
+    .bottom-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: #666;
+        font-size: 11px;
+        font-weight: 700;
+        gap: 5px;
+        transition: 0.3s;
+    }
+    .bottom-nav-item i {
+        font-size: 20px;
+    }
+    .bottom-nav-item.active {
+        color: var(--primary);
+    }
+    .bottom-nav-item:active {
+        transform: scale(0.9);
+    }
+
+    /* Adjust FABs to not overlap bottom nav */
+    .fab-container {
+        bottom: 90px !important;
+        right: 20px !important;
+    }
+    .fab-container .fab {
+        width: 55px !important;
+        height: 55px !important;
+        font-size: 24px !important;
+    }
+
+    /* —— CALCULATOR FIXES —— */
+    .form-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    .box-style {
+        padding: 24px 20px !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .box-style label {
+        justify-content: center !important;
+        width: 100% !important;
+        font-size: 17px !important;
+    }
+    .input-with-symbol {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        margin-top: 15px !important;
+    }
+    .input-with-symbol span {
+        font-size: 20px !important;
+        font-weight: 700 !important;
+        color: var(--primary) !important;
+    }
+    .input-with-symbol input {
+        max-width: 150px !important;
+        text-align: center !important;
+        font-size: 20px !important;
+        font-weight: 700 !important;
+    }
+    .range-wrapper {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .range-wrapper input[type="range"] {
+        width: 100% !important;
+        margin: 15px 0 !important;
+    }
+    .field-hint {
+        text-align: center !important;
+        width: 100% !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* —— QUOTE —— */
     .quote-wrapper { padding: 24px 16px !important; gap: 20px !important; flex-direction: column !important; }
     .quote-form-container { padding: 20px 15px !important; width: 100% !important; }
     .quote-text h2 { font-size: 24px !important; }
+
+    /* —— HORIZONTAL SCROLL UTILITY —— */
+    .mobile-horizontal-scroll {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        gap: 16px !important;
+        padding-bottom: 20px !important;
+        scroll-behavior: smooth !important;
+        -webkit-overflow-scrolling: touch !important;
+        margin: 0 -20px !important; /* Negative margin to bleed to edges */
+        padding: 0 20px 20px !important;
+    }
+    .mobile-horizontal-scroll > div {
+        flex: 0 0 88% !important; /* Show 88% of card so next is visible */
+        min-width: 280px !important;
+        scroll-snap-align: center !important;
+    }
+    .mobile-horizontal-scroll::-webkit-scrollbar {
+        display: none; /* Hide scrollbar for cleaner look */
+    }
+
+    /* —— HOTSPOT FIXES —— */
+    .hotspot {
+        animation: pulse-glow 2s infinite !important; /* Use shadow-only pulse on mobile */
+        transform: none !important; /* MUST REMOVE TRANSFORM for position:fixed child to work relative to viewport */
+    }
+    
+    @keyframes pulse-glow {
+        0% { box-shadow: 0 0 0 0 rgba(255, 0, 60, 0.7), 0 0 15px #ff003c; }
+        70% { box-shadow: 0 0 0 15px rgba(255, 0, 60, 0), 0 0 25px rgba(255, 0, 60, 0.5); }
+        100% { box-shadow: 0 0 0 0 rgba(255, 0, 60, 0), 0 0 15px #ff003c; }
+    }
+
+    .hotspot-content {
+        width: 320px !important;
+        max-width: 90vw !important;
+        left: 50% !important;
+        bottom: 40px !important;
+        top: auto !important;
+        transform: translateX(-50%) translateY(20px) !important;
+        position: fixed !important; 
+        z-index: 999999 !important;
+        border-radius: 20px !important;
+        box-shadow: 0 10px 50px rgba(0,0,0,0.3) !important;
+        padding: 25px !important;
+        background: white !important;
+        border: 1px solid #eee !important;
+    }
+    .hotspot:hover .hotspot-content {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateX(-50%) translateY(0) !important;
+    }
+    .explorer-container {
+        padding: 10px !important;
+        border-radius: 20px !important;
+    }
+
+    /* —— SOLAR GUIDE OVERRIDES —— */
+    .step-number {
+        font-size: 32px !important;
+        margin-bottom: 0 !important;
+        color: var(--primary) !important;
+        opacity: 0.8 !important;
+        position: static !important;
+    }
+    .step-card {
+        padding: 25px 20px !important;
+        border-radius: 18px !important;
+    }
+    .roi-box {
+        padding: 25px 20px !important;
+        border-radius: 20px !important;
+    }
+    .infographic-item i {
+        font-size: 30px !important;
+    }
+
+    /* —— BUTTON FIXES —— */
+    .btn-primary, .btn-primary-hero, .cta-button, .submit-btn {
+        clip-path: none !important;
+        border-radius: 12px !important;
+        width: 100% !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
 }
 
 /* =============================================

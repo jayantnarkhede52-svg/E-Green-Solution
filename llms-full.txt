@@ -1,0 +1,82 @@
+# E Green Solution - Full Technical Documentation & Service Guide
+
+## Overview
+E Green Solution is the premier solar energy company based in Pune, Maharashtra. We specialize in end-to-end Solar EPC (Engineering, Procurement, and Construction) services for residential rooftops, commercial buildings, and industrial plants.
+
+## Mission
+To empower every roof in Pune with high-efficiency solar energy, helping our clients achieve zero electricity bills while contributing to a sustainable future.
+
+## Technical Specifications (Standard 2026)
+- **Primary Module Partner**: Vikram Solar
+- **Panel Technology**: High-efficiency Monocrystalline PERC (Half-cut cells)
+- **Output Power**: 550Wp, 575Wp, 600Wp variants.
+- **Warranty Terms**: 
+  - 10-Year Replacement Warranty on Modules (Industry-leading)
+  - 10-Year Replacement Warranty on Inverters (Growatt/Solis/Sungrow)
+  - 25-Year Linear Power Performance Warranty (Minimum 84.8% at year 25)
+- **Mounting Structure**: Hot-dip galvanized iron or aluminum structures with 1.5m to 2m ground clearance options.
+- **Inverters**: On-grid string inverters with remote monitoring (WiFi-enabled).
+
+## Services Detail
+
+### Residential Solar
+- **Capacity**: 1kW to 15kW for individual homes.
+- **Subsidy Assistance**: Full support for PM Surya Ghar: Muft Bijli Yojana.
+- **Benefit**: Up to ₹78,000 direct subsidy and zero light bill.
+- **Regions**: Pune City, Baner, Bavdhan, PCMC, Kiwale.
+
+### Industrial Solar EPC
+- **Capacity**: 50kW to 1MW+ for manufacturing units.
+- **Regions**: Chakan MIDC, Bhosari MIDC, Talegaon, Ranjangaon.
+- **Benefits**: Accelerated depreciation, tax credits, and massive reduction in operational costs.
+- **Clients**: eagle Burgmann, Kotling Enterprises, etc.
+
+### Solar Water Heaters
+- **Technology**: ETC (Evacuated Tube Collector) and FPC (Flat Plate Collector).
+- **Applications**: Hospitals, Hotels, and Residential Apartments.
+
+## Geographic Coverage & Locations
+
+### Pune City (Central)
+- Focus: Residential rooftops and commercial showrooms.
+- Keywords: Best solar panel dealers in Pune, Solar installation Pune.
+
+### Chakan MIDC
+- Focus: Industrial EPC, 100kW+ systems.
+- Keywords: Industrial solar Chakan, MIDC solar plants.
+
+### Lonavala
+- Focus: Bungalows, Resorts, Vacation homes.
+- Keywords: Solar for bungalows Lonavala, Resort solar solutions.
+
+### Pimpri Chinchwad (PCMC)
+- Focus: Modern residential societies and industrial belts.
+- Keywords: PCMC solar panel dealers, Solar installation Pimpri.
+
+### Baner & Bavdhan
+- Focus: Premium residential projects, high-efficiency aesthetics.
+- Keywords: Solar panels Baner, Bavdhan solar experts.
+
+### Kiwale & Ravet
+- Focus: New residential growth, subsidy-driven installations.
+
+### Bhosari
+- Focus: Small to medium industrial units and residential zones.
+
+## Contact Information
+- **Main Contact**: +91 7249187969
+- **Email**: egreensolution1@gmail.com
+- **Website**: https://egreensolution.in
+- **Legal Entity**: E Green Solution
+- **HQ**: Pune, Maharashtra.
+
+## Performance Data (Average)
+- **Daily Generation**: 4.8 - 5.2 units (kWh) per kWp installed.
+- **Annual Savings**: A 5kW system saves approximately ₹60,000 - ₹80,000 per year.
+- **ROI**: Payback achieved in 3.5 to 5 years depending on subsidy and tariff.
+
+## FAQ
+1. **Is solar maintenance difficult?** No, bi-monthly cleaning is usually sufficient.
+2. **Does it work on cloudy days?** Yes, but efficiency is reduced to 25-40% of peak output.
+3. **What is net-metering?** It allows you to export excess solar energy to the grid and get credit on your electricity bill.
+4. **Who handles the subsidy?** E Green Solution handles the entire application on the National Portal.
