@@ -3,6 +3,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/pimpri-chinchwad",
+      "destination": "/solar-panel-pimpri-chinchwad",
+      "permanent": true
+    },
+    {
       "source": "/areas/:slug+",
       "destination": "/areas",
       "permanent": true

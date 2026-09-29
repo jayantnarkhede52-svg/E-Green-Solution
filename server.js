@@ -61,6 +61,13 @@ function resolveFile(pathname) {
 const server = http.createServer((req, res) => {
     const parsedUrl = url.parse(req.url);
 
+    // 301 Redirect for duplicate PCMC page to canonical /solar-panel-pimpri-chinchwad
+    if (parsedUrl.pathname === '/pimpri-chinchwad' || parsedUrl.pathname === '/pimpri-chinchwad.html') {
+        res.writeHead(301, { 'Location': '/solar-panel-pimpri-chinchwad' });
+        res.end();
+        return;
+    }
+
     // 301 Redirect for legacy /areas/* paths to /areas hub
     if (parsedUrl.pathname.startsWith('/areas/')) {
         res.writeHead(301, { 'Location': '/areas' });

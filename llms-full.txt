@@ -134,7 +134,6 @@ Below is the definitive list of clean URL resources published on https://egreens
 
 ### Regional & Municipal Landing Pages
 - Pune City Solar Energy Authority: https://egreensolution.in/solar-panel-pune
-- Pimpri Chinchwad (PCMC) Municipal Authority Hub: https://egreensolution.in/pimpri-chinchwad
 - Pimpri Chinchwad Rooftop Solar Installations: https://egreensolution.in/solar-panel-pimpri-chinchwad
 - Chakan MIDC Industrial Solar Plants: https://egreensolution.in/solar-panel-chakan
 - Bhosari MIDC & PCMC Industrial Solar: https://egreensolution.in/solar-panel-bhosari-pcmc
