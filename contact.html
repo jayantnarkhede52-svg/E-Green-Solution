@@ -476,13 +476,10 @@
     <script src="/js/main.js" defer></script>
     
     <script>
-    // Initialize EmailJS
-    (function() {
-        emailjs.init(EMAILJS_PUBLIC_KEY);
-    })();
-
     // Handle Form Submission
     document.addEventListener('DOMContentLoaded', () => {
+        const emailReady = typeof emailjs !== 'undefined' && typeof EMAILJS_PUBLIC_KEY !== 'undefined';
+        if (emailReady) emailjs.init(EMAILJS_PUBLIC_KEY);
         const form = document.getElementById('solar-form');
         if (form) {
             form.addEventListener('submit', async (e) => {

@@ -3152,6 +3152,267 @@ body:not(.home) nav .hamburger span {
     padding-top: 10px !important;
 }
 
+/* === MOBILE NAVIGATION & LAYOUT POLISH ===
+   Shared overrides kept here so every static page receives the same phone UX. */
+@media (max-width: 768px) {
+    :root {
+        --mobile-nav-height: 76px;
+    }
+
+    html {
+        scroll-padding-top: 78px;
+    }
+
+    body {
+        padding-bottom: calc(var(--mobile-nav-height) + env(safe-area-inset-bottom)) !important;
+        font-size: 16px !important;
+    }
+
+    body.mobile-menu-open {
+        overscroll-behavior: none;
+    }
+
+    #navbar {
+        min-height: 68px;
+        padding: 9px 0 !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        box-shadow: 0 3px 18px rgba(15, 23, 42, 0.12) !important;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+    }
+
+    #navbar .container,
+    nav .container {
+        min-height: 50px;
+        padding: 0 18px !important;
+    }
+
+    #navbar .logo img,
+    nav.scrolled .logo img,
+    body:not(.home) nav .logo img {
+        height: 46px !important;
+    }
+
+    #navbar .hamburger {
+        width: 48px;
+        height: 48px;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        border-radius: 12px;
+        background: #f1f5f9;
+        outline: none;
+    }
+
+    #navbar .hamburger span,
+    nav.scrolled .hamburger span,
+    body:not(.home) nav .hamburger span {
+        width: 23px;
+        height: 2px;
+        background: #17351d !important;
+    }
+
+    #navbar .hamburger:focus-visible,
+    .mobile-menu a:focus-visible,
+    .mobile-menu button:focus-visible,
+    .bottom-nav-item:focus-visible {
+        outline: 3px solid rgba(245, 166, 35, 0.9);
+        outline-offset: 3px;
+    }
+
+    .mobile-menu {
+        display: flex !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateX(100%);
+        transition: transform 0.28s ease, opacity 0.2s ease, visibility 0s linear 0.28s;
+        padding: max(82px, calc(env(safe-area-inset-top) + 70px)) 18px 32px !important;
+        background: rgba(255, 255, 255, 0.99) !important;
+        box-shadow: -16px 0 36px rgba(15, 23, 42, 0.18);
+        overscroll-behavior: contain;
+    }
+
+    .mobile-menu::before {
+        content: 'Menu';
+        color: #17351d;
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin: 0 12px 16px;
+    }
+
+    .mobile-menu.active {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 0s;
+    }
+
+    .mobile-menu-close {
+        position: absolute;
+        top: max(14px, env(safe-area-inset-top));
+        right: 18px;
+        width: 48px;
+        height: 48px;
+        border: 1px solid #dbe4ec;
+        border-radius: 50%;
+        background: #f8fafc;
+        color: #17351d;
+        cursor: pointer;
+        font-size: 30px;
+        line-height: 1;
+        z-index: 1;
+    }
+
+    .mobile-nav-links {
+        width: 100% !important;
+        max-width: 520px !important;
+        margin: 0 auto;
+        padding: 0 !important;
+        gap: 6px !important;
+        text-align: left !important;
+    }
+
+    .mobile-nav-links > li > a,
+    .mobile-dropdown-header a {
+        min-height: 48px;
+        display: flex !important;
+        align-items: center;
+        padding: 12px 14px !important;
+        border-radius: 12px;
+        color: #1e293b !important;
+        font-size: 16px !important;
+        font-weight: 700 !important;
+    }
+
+    .mobile-nav-links > li > a[aria-current='page'],
+    .mobile-dropdown-header a[aria-current='page'] {
+        background: #eaf7ec;
+        color: #176b2b !important;
+        box-shadow: inset 3px 0 0 #2e7d32;
+    }
+
+    .mobile-dropdown-header {
+        min-height: 48px;
+        padding: 0 !important;
+        background: #f8fafc;
+        border: 1px solid #e5edf3;
+    }
+
+    .mobile-dropdown-toggle {
+        min-width: 48px;
+        min-height: 48px;
+        padding: 12px !important;
+        color: #176b2b !important;
+    }
+
+    .mobile-submenu {
+        gap: 3px !important;
+        margin: 6px 0 10px !important;
+        padding: 7px !important;
+        background: #f8fafc !important;
+        border-color: #e5edf3 !important;
+    }
+
+    .mobile-submenu li a {
+        min-height: 44px;
+        font-size: 14px !important;
+        line-height: 1.35 !important;
+        padding: 10px 11px !important;
+    }
+
+    .btn-contact-mobile {
+        min-height: 50px !important;
+        justify-content: center !important;
+        margin-top: 10px !important;
+        box-shadow: 0 8px 18px rgba(46, 125, 50, 0.22);
+    }
+
+    .mobile-bottom-nav {
+        display: flex !important;
+        position: fixed !important;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: auto !important;
+        height: calc(var(--mobile-nav-height) + env(safe-area-inset-bottom)) !important;
+        padding: 7px 8px max(7px, env(safe-area-inset-bottom)) !important;
+        border-radius: 18px 18px 0 0 !important;
+        box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.13) !important;
+    }
+
+    .bottom-nav-item {
+        min-width: 58px;
+        min-height: 56px;
+        flex: 1;
+        justify-content: center;
+        border-radius: 12px;
+        font-size: 10px !important;
+        line-height: 1.1;
+        color: #64748b !important;
+    }
+
+    .bottom-nav-item i {
+        font-size: 19px !important;
+    }
+
+    .bottom-nav-item.active {
+        color: #176b2b !important;
+        background: #eaf7ec;
+    }
+
+    .fab-container {
+        bottom: calc(var(--mobile-nav-height) + 20px + env(safe-area-inset-bottom)) !important;
+    }
+
+    .container {
+        width: 100%;
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+    }
+
+    section {
+        padding: 46px 0 !important;
+    }
+
+    .page-header {
+        min-height: 250px !important;
+        padding: 104px 18px 44px !important;
+    }
+
+    .page-header h1,
+    .hero-split-title {
+        overflow-wrap: anywhere;
+    }
+
+    input,
+    select,
+    textarea,
+    button {
+        font-size: 16px !important;
+    }
+
+    input,
+    select,
+    textarea,
+    iframe,
+    table {
+        max-width: 100%;
+    }
+
+    .form-row-2col,
+    .form-grid,
+    .contact-grid,
+    .responsive-grid-2,
+    .responsive-grid-3 {
+        min-width: 0;
+    }
+}
+
 
 /* ==========================================================================
    ENHANCED SPLIT HERO SECTION WITH TOP CONTACT FORM & CRO ACCENTS

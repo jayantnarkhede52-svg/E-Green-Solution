@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /solar-hero.html
 
 Sitemap: https://egreensolution.in/sitemap.xml

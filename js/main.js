@@ -14,19 +14,29 @@ document.addEventListener('DOMContentLoaded', () => {
         closeBtn.innerHTML = '&times;';
         closeBtn.className = 'mobile-menu-close';
         closeBtn.setAttribute('aria-label', 'Close Menu');
-        closeBtn.style.cssText = 'position:absolute;top:24px;right:24px;background:none;border:none;font-size:36px;color:#333;cursor:pointer;z-index:10003;padding:8px;line-height:1;';
         mobileMenu.appendChild(closeBtn);
+
+        const focusableMenuItems = () => mobileMenu.querySelectorAll('a[href], button:not([disabled])');
+        mobileMenu.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
+            toggle.setAttribute('aria-expanded', 'false');
+        });
 
         function closeMenu() {
             hamburger.classList.remove('active');
             mobileMenu.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
             document.body.style.overflow = '';
+            document.body.classList.remove('mobile-menu-open');
+            hamburger.focus();
         }
 
         function openMenu() {
             hamburger.classList.add('active');
             mobileMenu.classList.add('active');
+            hamburger.setAttribute('aria-expanded', 'true');
             document.body.style.overflow = 'hidden';
+            document.body.classList.add('mobile-menu-open');
+            closeBtn.focus();
         }
 
         
@@ -38,7 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.stopPropagation();
                 const dropdownItem = toggleBtn.closest('.mobile-dropdown-item');
                 if (dropdownItem) {
-                    dropdownItem.classList.toggle('open');
+                    const isOpen = dropdownItem.classList.toggle('open');
+                    toggleBtn.setAttribute('aria-expanded', String(isOpen));
                 }
             }
         });
@@ -58,6 +69,32 @@ document.addEventListener('DOMContentLoaded', () => {
             closeMenu();
         });
 
+        hamburger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                hamburger.click();
+            }
+        });
+
+        mobileMenu.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMenu();
+                return;
+            }
+            if (e.key !== 'Tab') return;
+            const items = [...focusableMenuItems()];
+            if (!items.length) return;
+            const first = items[0];
+            const last = items[items.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        });
+
         // Close menu when a link is clicked
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', closeMenu);
@@ -68,12 +105,29 @@ document.addEventListener('DOMContentLoaded', () => {
             if (window.innerWidth > 768) closeMenu();
         });
 
+        const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+        mobileMenu.querySelectorAll('a[href^="/"]').forEach(link => {
+            const linkPath = new URL(link.href, window.location.origin).pathname.replace(/\/$/, '') || '/';
+            if (linkPath === currentPath) link.setAttribute('aria-current', 'page');
+        });
+
     }
 });
 } // end guard
 
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', () => {
+    const isMobile = window.innerWidth <= 768;
+
+    // Keep the persistent mobile tab bar truthful on every page.
+    const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+    document.querySelectorAll('.bottom-nav-item[href^="/"]').forEach(link => {
+        const linkPath = new URL(link.href, window.location.origin).pathname.replace(/\/$/, '') || '/';
+        const isCurrent = linkPath === currentPath;
+        link.classList.toggle('active', isCurrent);
+        if (isCurrent) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+    });
     
     // --- CALCULATOR LOGIC (Moved to top for reliability) ---
     const monthlyBillInput = document.getElementById('monthlyBill');
@@ -165,8 +219,9 @@ document.addEventListener('DOMContentLoaded', () => {
         calculateSolar();
     }
 
-    // Initialize GSAP
-    if (typeof gsap !== 'undefined') {
+    // Enhancements must never block the page when a third-party animation CDN is unavailable.
+    const animationsReady = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+    if (animationsReady) {
         gsap.registerPlugin(ScrollTrigger);
     }
 
@@ -190,13 +245,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     */
     // Ensure stats bar is visible since timeline is disabled
-    if (document.querySelector(".stats-bar")) {
+    if (animationsReady && document.querySelector(".stats-bar")) {
         gsap.set(".stats-bar", { opacity: 1, y: 0 });
     }
 
     // Number Counter Animation
     const stats = document.querySelectorAll('.stat-number');
     stats.forEach(stat => {
+        if (!animationsReady) return;
         const target = parseInt(stat.getAttribute('data-target'));
         const originalText = stat.innerText;
         let suffix = "";
@@ -288,7 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Staggered Grid Reveals (GSAP ScrollTrigger)
     const grids = document.querySelectorAll('.services-grid, .project-grid, .why-us-grid');
     grids.forEach(grid => {
-        if (!prefersReducedMotion && grid.children.length > 0) {
+        if (animationsReady && !prefersReducedMotion && grid.children.length > 0) {
             gsap.fromTo(grid.children, 
                 { y: 50, opacity: 0 },
                 {
@@ -311,7 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // General Section Reveals
     const revealElements = document.querySelectorAll('.section-header, .about-section, .service-row');
     revealElements.forEach(el => {
-        if (!prefersReducedMotion) {
+        if (animationsReady && !prefersReducedMotion) {
             gsap.fromTo(el, 
                 { y: 40, opacity: 0 },
                 {
@@ -387,20 +443,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- FIX FOR LAZY LOADED IMAGES SHIFTING LAYOUT ---
     // Ensure GSAP ScrollTrigger recalculates trigger positions after images load
-    window.addEventListener('load', () => {
-        ScrollTrigger.refresh();
-    });
-
-    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-    lazyImages.forEach(img => {
-        if (img.complete) {
+    if (animationsReady) {
+        window.addEventListener('load', () => {
             ScrollTrigger.refresh();
-        } else {
-            img.addEventListener('load', () => {
+        });
+
+        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+        lazyImages.forEach(img => {
+            if (img.complete) {
                 ScrollTrigger.refresh();
-            });
-        }
-    });
+            } else {
+                img.addEventListener('load', () => {
+                    ScrollTrigger.refresh();
+                });
+            }
+        });
+    }
     
     // Email Obfuscation Helper
     const emailPlaceholders = document.querySelectorAll('.email-obfuscated');
