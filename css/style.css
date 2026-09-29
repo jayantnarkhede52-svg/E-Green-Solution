@@ -3151,3 +3151,391 @@ body:not(.home) nav .hamburger span {
     margin-top: 4px;
     padding-top: 10px !important;
 }
+
+
+/* ==========================================================================
+   ENHANCED SPLIT HERO SECTION WITH TOP CONTACT FORM & CRO ACCENTS
+   ========================================================================== */
+
+/* 1. Text Highlighting, Marker & Underline Accents */
+.highlight-mark {
+    background: linear-gradient(120deg, rgba(245, 166, 35, 0.22) 0%, rgba(255, 213, 126, 0.35) 100%);
+    padding: 2px 8px;
+    border-radius: 6px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    font-weight: 700;
+    color: inherit;
+    border-bottom: 2px solid rgba(245, 166, 35, 0.5);
+}
+
+.highlight-green {
+    background: linear-gradient(120deg, rgba(34, 197, 94, 0.16) 0%, rgba(74, 222, 128, 0.28) 100%);
+    padding: 2px 8px;
+    border-radius: 6px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    font-weight: 700;
+    color: #14532d;
+    border-bottom: 2px solid rgba(34, 197, 94, 0.5);
+}
+
+.accent-underline {
+    text-decoration: none;
+    position: relative;
+    background-image: linear-gradient(to right, #F5A623, #22c55e);
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    background-size: 100% 3px;
+    padding-bottom: 3px;
+    font-weight: 700;
+}
+
+.trust-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    padding: 5px 14px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.trust-pill.green {
+    background: rgba(34, 197, 94, 0.2);
+    border-color: rgba(74, 222, 128, 0.4);
+    color: #86efac;
+}
+
+.trust-pill.amber {
+    background: rgba(245, 166, 35, 0.2);
+    border-color: rgba(255, 213, 126, 0.4);
+    color: #fde047;
+}
+
+/* 2. Top Split Hero Layout */
+.hero-split {
+    background: linear-gradient(135deg, #09121d 0%, #0d2137 50%, #081626 100%);
+    position: relative;
+    padding: 140px 0 65px;
+    color: #ffffff;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-split::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(46, 125, 50, 0.22) 0%, rgba(245, 166, 35, 0.08) 50%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-split-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.95fr;
+    gap: 45px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-split-left {
+    padding-right: 10px;
+}
+
+.hero-eyebrow-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(245, 166, 35, 0.16);
+    border: 1px solid rgba(245, 166, 35, 0.35);
+    color: #fbbf24;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+}
+
+.hero-split-title {
+    font-size: clamp(28px, 3.4vw, 44px);
+    font-weight: 800;
+    line-height: 1.2;
+    color: #ffffff;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.hero-split-title span {
+    color: var(--accent);
+}
+
+.hero-split-desc {
+    font-size: clamp(15.5px, 1.2vw, 17.5px);
+    line-height: 1.7;
+    color: #cbd5e1;
+    margin-bottom: 22px;
+}
+
+.hero-feature-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.hero-feature-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #f1f5f9;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+}
+
+.hero-feature-chip i {
+    color: #4ade80;
+}
+
+.hero-trust-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 13.5px;
+    color: #94a3b8;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-trust-row span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* 3. Hero Quick Lead Form Card */
+.hero-form-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 26px 28px 24px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    color: #1e293b;
+    position: relative;
+}
+
+.hero-form-card .form-badge-strip {
+    display: inline-block;
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+}
+
+.hero-form-card h3 {
+    font-size: 21px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 4px;
+    line-height: 1.25;
+}
+
+.hero-form-card .form-subtitle {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 16px;
+}
+
+.hero-quick-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-group-compact {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-group-compact label {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.form-group-compact label i {
+    color: var(--primary);
+    font-size: 11px;
+}
+
+.form-group-compact input,
+.form-group-compact select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #0f172a;
+    background: #f8fafc;
+    transition: all 0.25s ease;
+}
+
+.form-group-compact input:focus,
+.form-group-compact select:focus {
+    border-color: var(--primary);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15);
+    outline: none;
+}
+
+.form-row-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.btn-hero-form {
+    width: 100%;
+    background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+    color: #ffffff;
+    border: none;
+    padding: 13px 20px;
+    border-radius: 12px;
+    font-size: 15.5px;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(46, 125, 50, 0.3);
+    margin-top: 4px;
+}
+
+.btn-hero-form:hover {
+    background: linear-gradient(135deg, #388e3c 0%, #2e7d32 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(46, 125, 50, 0.4);
+}
+
+.btn-hero-form:active {
+    transform: translateY(0);
+}
+
+.form-trust-footer {
+    text-align: center;
+    font-size: 11.5px;
+    color: #64748b;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.form-trust-footer i {
+    color: #10b981;
+}
+
+/* 4. Enhanced Responsive Mobile Layout */
+@media (max-width: 991px) {
+    .hero-split {
+        padding: 110px 0 50px;
+    }
+
+    .hero-split-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .hero-split-left {
+        padding-right: 0;
+        text-align: left;
+    }
+
+    .hero-form-card {
+        padding: 22px 20px 20px;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-split {
+        padding: 95px 0 40px;
+    }
+
+    .hero-split-title {
+        font-size: 26px;
+        line-height: 1.25;
+    }
+
+    .hero-split-desc {
+        font-size: 15px;
+        margin-bottom: 18px;
+    }
+
+    .form-row-2col {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-feature-chips {
+        gap: 6px;
+    }
+
+    .hero-feature-chip {
+        font-size: 12.5px;
+        padding: 5px 10px;
+    }
+
+    .hero-trust-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    /* Universal Card Polish for Mobile */
+    .service-card,
+    .benefit-card,
+    .sector-card,
+    .capacity-card,
+    .feature-box,
+    .step-card {
+        padding: 20px 18px !important;
+        border-radius: 14px !important;
+    }
+
+    /* Prevent awkward overflow on mobile */
+    .container {
+        padding: 0 18px;
+    }
+}
