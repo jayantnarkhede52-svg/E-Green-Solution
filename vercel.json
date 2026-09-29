@@ -1,6 +1,13 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/areas/:slug+",
+      "destination": "/areas",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

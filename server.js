@@ -60,6 +60,14 @@ function resolveFile(pathname) {
 
 const server = http.createServer((req, res) => {
     const parsedUrl = url.parse(req.url);
+
+    // 301 Redirect for legacy /areas/* paths to /areas hub
+    if (parsedUrl.pathname.startsWith('/areas/')) {
+        res.writeHead(301, { 'Location': '/areas' });
+        res.end();
+        return;
+    }
+
     const resolvedPath = resolveFile(parsedUrl.pathname);
 
     if (!resolvedPath) {
