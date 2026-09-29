@@ -29,6 +29,20 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = 'hidden';
         }
 
+        
+        // Mobile Dropdown Accordion Toggle
+        mobileMenu.addEventListener('click', (e) => {
+            const toggleBtn = e.target.closest('.mobile-dropdown-toggle');
+            if (toggleBtn) {
+                e.preventDefault();
+                e.stopPropagation();
+                const dropdownItem = toggleBtn.closest('.mobile-dropdown-item');
+                if (dropdownItem) {
+                    dropdownItem.classList.toggle('open');
+                }
+            }
+        });
+
         hamburger.addEventListener('click', (e) => {
             e.stopPropagation();
             if (mobileMenu.classList.contains('active')) {
