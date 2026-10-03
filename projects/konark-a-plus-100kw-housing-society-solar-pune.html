@@ -258,6 +258,136 @@
             line-height: 1.7;
             display: block;
         }
+
+        /* ── Advanced Media Showcase Hub ── */
+        .media-showcase-container {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 28px;
+            margin: 25px 0 45px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.04);
+        }
+        .media-category-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 22px;
+            margin-bottom: 28px;
+        }
+        .media-category-card:last-child {
+            margin-bottom: 0;
+        }
+        .media-category-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .media-category-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18.5px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0;
+        }
+        .media-category-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .media-category-pill.green {
+            background: #dcfce7;
+            color: #15803d;
+        }
+        .media-category-pill.blue {
+            background: #e0f2fe;
+            color: #0369a1;
+        }
+        .grid-16-9 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+        }
+        .grid-9-16 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 310px));
+            justify-content: center;
+            gap: 24px;
+        }
+        .showcase-item {
+            background: #ffffff;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .showcase-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+        }
+        .showcase-media-box {
+            position: relative;
+            background: #090d16;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .media-16-9 {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            height: auto;
+            max-height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+        .media-9-16 {
+            aspect-ratio: 9 / 16;
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+        .showcase-caption-box {
+            padding: 16px 18px;
+            background: #ffffff;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .showcase-caption-box h4 {
+            font-size: 15px;
+            color: #0f172a;
+            margin: 0 0 6px 0;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .showcase-caption-box p {
+            font-size: 13.5px;
+            color: #64748b;
+            margin: 0;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
@@ -635,40 +765,89 @@
                     </ul>
 
                     <!-- Media Section: Videos & Pictures -->
-                    <h2 style="font-size: 28px; color: #0f172a; margin-top: 40px; margin-bottom: 15px;">3. Project Walkthrough Videos &amp; On-Site Photos</h2>
-                    <p style="color: #475569; font-size: 16px; line-height: 1.8; margin-bottom: 25px;">
-                        Watch the actual high-capacity installation at Konark A Plus Society, demonstrating our hot-dip galvanized elevated mounting, tier-1 panel stringing, and MSEDCL net metering panel:
+                    <h2 style="font-size: 28px; color: #0f172a; margin-top: 40px; margin-bottom: 12px;">3. Project Walkthrough Videos &amp; On-Site Photos</h2>
+                    <p style="color: #475569; font-size: 16px; line-height: 1.8; margin-bottom: 20px;">
+                        Explore our verified on-site video documentation and high-resolution photography captured at Konark A Plus Society in Sopan Baug, Pune. We have categorized the media into the <strong>Rooftop PV Array Layout</strong> (widescreen) and the <strong>Elevated Superstructure Clearance</strong> (vertical walkthrough):
                     </p>
 
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 30px;">
-                        <div>
-                            <div class="video-wrapper">
-                                <video controls playsinline preload="metadata" poster="/assets/projects/konark_society_rooftop_100kw.jpg">
-                                    <source src="/assets/projects/konark_society_walkthrough.mp4" type="video/mp4">
-                                    Your browser does not support HTML5 video.
-                                </video>
+                    <div class="media-showcase-container">
+                        <!-- Part A: 16:9 Widescreen PV Array -->
+                        <div class="media-category-card">
+                            <div class="media-category-header">
+                                <h3 class="media-category-title">
+                                    <i class="fas fa-solar-panel" style="color: var(--primary);"></i>
+                                    100kW Rooftop PV Array &amp; Panel Layout
+                                </h3>
+                                <span class="media-category-pill green">
+                                    <i class="fas fa-video"></i> Widescreen Array
+                                </span>
                             </div>
-                            <p style="font-size: 14px; font-weight: 600; color: #334155; text-align: center;"><i class="fas fa-play-circle" style="color: var(--primary);"></i> Video 1: On-Site Rooftop Array Walkthrough</p>
-                        </div>
-                        <div>
-                            <div class="video-wrapper">
-                                <video controls playsinline preload="metadata" poster="/assets/projects/konark_society_structure_inverter.jpg">
-                                    <source src="/assets/projects/konark_society_drone.mp4" type="video/mp4">
-                                    Your browser does not support HTML5 video.
-                                </video>
+                            <div class="grid-16-9">
+                                <!-- Video 1: 16:9 Widescreen -->
+                                <div class="showcase-item">
+                                    <div class="showcase-media-box">
+                                        <video controls playsinline preload="metadata" poster="/assets/projects/konark_society_rooftop_100kw.jpg" class="media-16-9" aria-label="100kW Rooftop Array Video Walkthrough">
+                                            <source src="/assets/projects/konark_society_walkthrough.mp4" type="video/mp4">
+                                            Your browser does not support HTML5 video.
+                                        </video>
+                                    </div>
+                                    <div class="showcase-caption-box">
+                                        <h4><i class="fas fa-play-circle" style="color: var(--primary);"></i> On-Site Array Walkthrough</h4>
+                                        <p>Sweep across the high-yield Vikram Solar Mono PERC panels installed across the society building roof wings.</p>
+                                    </div>
+                                </div>
+                                <!-- Photo 1: 16:9 Widescreen -->
+                                <div class="showcase-item">
+                                    <div class="showcase-media-box">
+                                        <img src="/assets/projects/konark_society_rooftop_100kw.jpg" alt="100kW Vikram Solar High-Yield PV Array at Konark Society" class="media-16-9" loading="lazy">
+                                    </div>
+                                    <div class="showcase-caption-box">
+                                        <h4><i class="fas fa-camera" style="color: var(--primary);"></i> Panoramic Module Installation</h4>
+                                        <p>Precision south-facing tilt orientation engineered for peak annual kilowatt-hour (kWh) solar yield in Pune.</p>
+                                    </div>
+                                </div>
                             </div>
-                            <p style="font-size: 14px; font-weight: 600; color: #334155; text-align: center;"><i class="fas fa-play-circle" style="color: var(--primary);"></i> Video 2: Elevated Superstructure &amp; Inverter Sync</p>
                         </div>
-                    </div>
 
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 35px;">
-                        <div>
-                            <img src="/assets/projects/konark_society_rooftop_100kw.jpg" alt="Konark A Plus 100kW Rooftop Solar Installation Pune" style="width: 100%; height: 260px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);" loading="lazy">
-                            <span style="font-size: 13px; color: #64748b; display: block; margin-top: 6px; text-align: center;">100kW Vikram Solar High-Yield PV Array</span>
-                        </div>
-                        <div>
-                            <img src="/assets/projects/konark_society_structure_inverter.jpg" alt="Elevated Structure and Inverter Balance of Plant" style="width: 100%; height: 260px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);" loading="lazy">
-                            <span style="font-size: 13px; color: #64748b; display: block; margin-top: 6px; text-align: center;">Heavy-Duty Hot-Dip Galvanized Mounting &amp; Balance of Plant</span>
+                        <!-- Part B: 9:16 Vertical Elevated Structure & Headroom -->
+                        <div class="media-category-card">
+                            <div class="media-category-header">
+                                <h3 class="media-category-title">
+                                    <i class="fas fa-building" style="color: #0288d1;"></i>
+                                    Elevated Structure &amp; Full Terrace Clearance
+                                </h3>
+                                <span class="media-category-pill blue">
+                                    <i class="fas fa-mobile-screen"></i> 8-10 Ft Headroom
+                                </span>
+                            </div>
+                            <p style="color: #64748b; font-size: 14.5px; margin: -6px 0 16px; line-height: 1.6;">
+                                High-clearance hot-dip galvanized steel columns allow residents to walk freely, dry clothes, and carry out routine roof maintenance underneath the array:
+                            </p>
+                            <div class="grid-9-16">
+                                <!-- Video 2: 9:16 Vertical Reel -->
+                                <div class="showcase-item">
+                                    <div class="showcase-media-box">
+                                        <video controls playsinline preload="metadata" poster="/assets/projects/konark_society_structure_inverter.jpg" class="media-9-16" aria-label="Walking Under Elevated Solar Superstructure Video">
+                                            <source src="/assets/projects/konark_society_drone.mp4" type="video/mp4">
+                                            Your browser does not support HTML5 video.
+                                        </video>
+                                    </div>
+                                    <div class="showcase-caption-box">
+                                        <h4><i class="fas fa-play-circle" style="color: #0288d1;"></i> Walking Under The Panels</h4>
+                                        <p>Live on-site video showing comfortable 8-10 ft headroom clearance under the galvanized structural columns.</p>
+                                    </div>
+                                </div>
+                                <!-- Photo 2: 9:16 Vertical Portrait -->
+                                <div class="showcase-item">
+                                    <div class="showcase-media-box">
+                                        <img src="/assets/projects/konark_society_structure_inverter.jpg" alt="Elevated Structure and Inverter Balance of Plant at Konark Society" class="media-9-16" loading="lazy">
+                                    </div>
+                                    <div class="showcase-caption-box">
+                                        <h4><i class="fas fa-camera" style="color: #0288d1;"></i> Structural Pedestal Engineering</h4>
+                                        <p>Heavy-duty column base pedestals engineered with waterproof chemical anchoring—preserving 100% roof slab integrity.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
