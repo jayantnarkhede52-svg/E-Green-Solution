@@ -1,0 +1,547 @@
+import os
+import sys
+import re
+
+sys.path.append(os.path.abspath('scripts'))
+from dark_theme_components import get_dt_head_tags, get_dt_navbar, get_dt_footer
+
+def redesign_services():
+    with open('services.html', 'r', encoding='utf-8') as f:
+        orig = f.read()
+
+    # Extract schemas
+    schemas = re.findall(r'<script type="application/ld\+json">.*?</script>', orig, re.DOTALL)
+    schemas_str = '\n    '.join(schemas)
+
+    gtag = '''    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RB8MHEG1S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6RB8MHEG1S');
+    </script>'''
+
+    html = f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+{gtag}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Services Pune | EPC, AMC & Repair - E Green Solution</title>
+    <meta name="description" content="Comprehensive solar services in Pune including residential rooftop installations, commercial & industrial EPC, solar AMC, inverter repair, and panel cleaning.">
+    <meta name="keywords" content="solar panel services pune, best solar company pune, industrial solar panel installation, residential solar pune, solar subsidy maharashtra, solar rooftop installers, solar panel dealers pune, solar factory installation, solar panel price pune">
+    <link rel="canonical" href="https://egreensolution.in/services">
+    
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://egreensolution.in/services">
+    <meta property="og:title" content="Turnkey Solar Engineering &amp; EPC Services Pune | E Green Solution">
+    <meta property="og:description" content="Comprehensive rooftop solar EPC, residential installations with subsidy up to ₹78k, commercial systems, industrial MIDC projects, solar AMC, and inverter repair across Pune.">
+    <meta property="og:image" content="https://egreensolution.in/assets/logo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/logo.png">
+
+    <!-- Schema.org Data -->
+    {schemas_str}
+
+{get_dt_head_tags()}
+</head>
+<body class="tech-grid-bg">
+{get_dt_navbar('services')}
+
+    <!-- ============================================================
+         SUBPAGE HERO SECTION (Dark Technical Editorial)
+         ============================================================ -->
+    <section class="dt-subpage-hero">
+        <div class="dt-container">
+            <div class="dt-breadcrumbs">
+                <a href="/">Home</a>
+                <span class="sep">/</span>
+                <span class="current">Services</span>
+            </div>
+
+            <div class="dt-subpage-grid">
+                <!-- Left: Headline & Engineering Highlights -->
+                <div>
+                    <div class="dt-tech-label">01 // TURNKEY SOLAR ENGINEERING &amp; EPC</div>
+                    <h1 class="dt-hero-title" style="font-size: clamp(34px, 4.2vw, 52px); margin-bottom: 20px;">
+                        Precision Solar Services in Pune &amp; Maharashtra
+                    </h1>
+                    <p class="dt-section-desc" style="margin-bottom: 28px;">
+                        From residential rooftops eligible for ₹78,000 PM Surya Ghar central subsidy to multi-megawatt industrial EPC across MIDC Chakan, Talegaon, and Bhosari. Engineered with Tier-1 bifacial panels, 150 km/h wind-rated structures, and 25-year linear performance warranties.
+                    </p>
+
+                    <!-- Feature Tags -->
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px;">
+                        <span class="dt-pill"><i class="fas fa-shield-alt" style="color: var(--gold-accent);"></i> MNRE &amp; MSEDCL Approved</span>
+                        <span class="dt-pill"><i class="fas fa-bolt" style="color: var(--gold-accent);"></i> Tier-1 Vikram / Waaree</span>
+                        <span class="dt-pill"><i class="fas fa-file-invoice-dollar" style="color: var(--gold-accent);"></i> Direct ₹78k Subsidy Credit</span>
+                        <span class="dt-pill"><i class="fas fa-chart-line" style="color: var(--gold-accent);"></i> 3–4 Year Commercial ROI</span>
+                    </div>
+
+                    <!-- Telemetry Stats Strip -->
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; background: var(--bg-surface); border: 1px solid var(--border-muted); border-radius: var(--radius-card); padding: 18px;">
+                        <div>
+                            <span style="font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700; color: var(--gold-accent); display: block;">200+</span>
+                            <span style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">Plants Commissioned</span>
+                        </div>
+                        <div>
+                            <span style="font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700; color: var(--text-primary); display: block;">2.0+ MW</span>
+                            <span style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">Installed Capacity</span>
+                        </div>
+                        <div>
+                            <span style="font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700; color: var(--gold-accent); display: block;">100%</span>
+                            <span style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">Net Meter Approval</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: High-Converting Technical Form -->
+                <div>
+                    <div class="dt-form-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                            <span class="dt-tech-label" style="margin: 0;">FREE SITE AUDIT</span>
+                            <span style="font-size: 11px; color: #4ade80; display: inline-flex; align-items: center; gap: 5px;"><i class="fas fa-circle" style="font-size: 8px;"></i> 15-Min Response</span>
+                        </div>
+                        <h3 style="font-size: 20px; color: var(--text-primary); margin-bottom: 6px;">Request Engineering Proposal</h3>
+                        <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 20px;">Consult directly with our solar system designers for customized capacity, cost, and payback estimates.</p>
+
+                        <form action="https://formspree.io/f/xbjnqkyw" method="POST" style="display: flex; flex-direction: column; gap: 14px;">
+                            <input type="hidden" name="_subject" value="Services Page Consultation - E Green Solution">
+                            <input type="hidden" name="_page" value="services">
+
+                            <div class="dt-form-group">
+                                <label class="dt-label">Full Name *</label>
+                                <input type="text" name="name" required placeholder="e.g. Rahul Patil" class="dt-input">
+                            </div>
+
+                            <div class="dt-form-group">
+                                <label class="dt-label">Mobile / WhatsApp Number *</label>
+                                <input type="tel" name="phone" required placeholder="e.g. 98765 43210" class="dt-input">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                                <div class="dt-form-group">
+                                    <label class="dt-label">Pune Location</label>
+                                    <input type="text" name="location" placeholder="e.g. Baner, Chakan" class="dt-input">
+                                </div>
+                                <div class="dt-form-group">
+                                    <label class="dt-label">Required Solution</label>
+                                    <select name="requirement" class="dt-select">
+                                        <option value="Residential Solar">Residential Rooftop</option>
+                                        <option value="Commercial Solar">Commercial Solar</option>
+                                        <option value="Industrial MIDC Solar">Industrial MIDC</option>
+                                        <option value="Solar AMC">Solar AMC</option>
+                                        <option value="Panel Cleaning">Panel Cleaning</option>
+                                        <option value="Inverter Repair">Inverter Repair</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="dt-btn dt-btn-primary" style="width: 100%; margin-top: 6px;">
+                                Submit Consultation Request <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <span style="font-size: 11px; color: var(--text-muted); text-align: center; display: block;">
+                                <i class="fas fa-lock" style="color: var(--gold-accent);"></i> Zero spam • No sales pressure • Direct technical assessment
+                            </span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         CORE SOLAR INSTALLATION SOLUTIONS (Detailed Editorial Rows)
+         ============================================================ -->
+    <section class="dt-section">
+        <div class="dt-container">
+            <div class="dt-section-header center">
+                <div class="dt-tech-label">02 // TURNKEY INSTALLATION PORTFOLIO</div>
+                <h2 class="dt-section-title">Engineering Systems Built for 25+ Years</h2>
+                <p class="dt-section-desc" style="margin: 0 auto;">
+                    Every solar plant designed by E Green Solution adheres to strict MNRE &amp; IEEE electrical guidelines, utilizing hot-dip galvanized mounting structures and certified Tier-1 photovoltaic components.
+                </p>
+            </div>
+
+            <!-- Service Item 1: Residential Rooftop -->
+            <div id="residential-solar" style="background: var(--bg-surface); border: 1px solid var(--border-muted); border-radius: var(--radius-container); padding: 40px; margin-bottom: 40px;">
+                <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center;">
+                    <div>
+                        <span class="dt-tech-label">RESIDENTIAL PHOTOVOLTAICS</span>
+                        <h3 style="font-size: clamp(26px, 3vw, 34px); color: var(--text-primary); margin-bottom: 14px;">Residential Solar Panel Installations in Pune</h3>
+                        <p style="font-size: 15.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">
+                            Transform your bungalow terrace or housing society rooftop into a zero-pollution clean energy plant. E Green Solution provides turnkey rooftop solar systems across Pune (Baner, Wakad, Kothrud, Hadapsar, PCMC) backed by direct PM Surya Ghar central subsidies up to ₹78,000 and net-zero MSEDCL electricity bills.
+                        </p>
+                        <ul class="dt-feature-list">
+                            <li><i class="fas fa-check-circle"></i> <strong>Direct Subsidy Support:</strong> Up to ₹78,000 central subsidy credited directly into bank account under PM Surya Ghar Muft Bijli Yojana.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Tier-1 Vikram Solar:</strong> High-efficiency mono PERC &amp; TOPCon bifacial modules (550W – 590W).</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Hot-Dip Galvanized Structures:</strong> 80-micron zinc coating rated for 150 km/h wind loads with zero roof puncture.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Complete MSEDCL Liaisoning:</strong> Bi-directional net-meter sanctioned and installed with full testing.</li>
+                        </ul>
+                        <div style="display: flex; gap: 14px; margin-top: 24px;">
+                            <a href="/residential-solar" class="dt-btn dt-btn-primary">Explore Residential Solar &rarr;</a>
+                            <a href="/calculator" class="dt-btn dt-btn-secondary">Calculate Your Savings</a>
+                        </div>
+                    </div>
+                    <div style="border-radius: var(--radius-card); overflow: hidden; border: 1px solid var(--border-emp); height: 360px;">
+                        <img src="/assets/services/residential_solar_pune.jpg" alt="Residential Rooftop Solar Installation Pune Maharashtra" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Item 2: Commercial Solar -->
+            <div id="commercial-solar" style="background: var(--bg-surface); border: 1px solid var(--border-muted); border-radius: var(--radius-container); padding: 40px; margin-bottom: 40px;">
+                <div style="display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 40px; align-items: center;">
+                    <div style="border-radius: var(--radius-card); overflow: hidden; border: 1px solid var(--border-emp); height: 360px;">
+                        <img src="/assets/services/commercial_solar_pune.jpg" alt="Commercial Rooftop Solar Power Plant Cyber City Pune" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div>
+                        <span class="dt-tech-label">COMMERCIAL &amp; INSTITUTIONAL</span>
+                        <h3 style="font-size: clamp(26px, 3vw, 34px); color: var(--text-primary); margin-bottom: 14px;">Commercial Solar Installation Pune</h3>
+                        <p style="font-size: 15.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">
+                            Power corporate offices, private hospitals, schools, colleges, and commercial IT complexes at a fraction of standard commercial grid tariffs (₹12–16/unit). Our commercial plants deliver full capital recovery in 3 to 4 years and 40% Section 32 accelerated depreciation tax offsets in Year 1.
+                        </p>
+                        <ul class="dt-feature-list">
+                            <li><i class="fas fa-check-circle"></i> <strong>Fast 3–4 Year Payback:</strong> Levelized Cost of Electricity (LCOE) below ₹2.50/unit for 25 years.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>40% Accelerated Depreciation:</strong> Slash company corporate tax liabilities significantly in the first financial year.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>High-Voltage Grid Synchronization:</strong> Compatible with HT (11kV / 22kV / 33kV) commercial grid supplies.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Cloud Telemetry:</strong> String-level real-time inverter yield tracking and fault alerting dashboard.</li>
+                        </ul>
+                        <div style="display: flex; gap: 14px; margin-top: 24px;">
+                            <a href="/commercial-solar-pune" class="dt-btn dt-btn-primary">Explore Commercial Solutions &rarr;</a>
+                            <a href="/contact" class="dt-btn dt-btn-secondary">Book Commercial Survey</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Item 3: Industrial Solar EPC -->
+            <div id="industrial-solar" style="background: var(--bg-surface); border: 1px solid var(--border-muted); border-radius: var(--radius-container); padding: 40px; margin-bottom: 40px;">
+                <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center;">
+                    <div>
+                        <span class="dt-tech-label">INDUSTRIAL MANUFACTURING &amp; MIDC</span>
+                        <h3 style="font-size: clamp(26px, 3vw, 34px); color: var(--text-primary); margin-bottom: 14px;">Industrial Solar EPC in MIDC Pune</h3>
+                        <p style="font-size: 15.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">
+                            Heavy power consumers across Chakan MIDC, Bhosari, Talegaon, and Ranjangaon industrial corridors rely on E Green Solution for turnkey 100 kW to 5 MW industrial rooftop solar power plants. Featuring customized Trapezoidal sheet clamping, walkway systems, and CEIG electrical safety certifications.
+                        </p>
+                        <ul class="dt-feature-list">
+                            <li><i class="fas fa-check-circle"></i> <strong>Non-Penetrative Metal Roof Clamps:</strong> German-engineered standing seam clamps preserving sheet warranties and preventing rainwater leaks.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Multi-MPPT Inverters:</strong> Sungrow, Growatt, and Solis industrial string inverters with up to 99.0% Euro efficiency.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>CEIG Clearance &amp; Synchronization:</strong> Complete end-to-end liaisoning with Chief Electrical Inspector to Government.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Heavy-Duty Lightning Arrestors:</strong> Early Streamer Emission (ESE) lightning protection safeguarding factory assets.</li>
+                        </ul>
+                        <div style="display: flex; gap: 14px; margin-top: 24px;">
+                            <a href="/industrial-solar" class="dt-btn dt-btn-primary">Explore Industrial EPC &rarr;</a>
+                            <a href="/projects" class="dt-btn dt-btn-secondary">View 200kW Industrial Case Study</a>
+                        </div>
+                    </div>
+                    <div style="border-radius: var(--radius-card); overflow: hidden; border: 1px solid var(--border-emp); height: 360px;">
+                        <img src="/assets/projects/eagle_burgmann.png" alt="Industrial Solar EPC Plant Chakan MIDC Pune - Eagle Burgmann 200kW Project" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Item 4: Solar Thermal & SWH -->
+            <div id="solar-water-heater" style="background: var(--bg-surface); border: 1px solid var(--border-muted); border-radius: var(--radius-container); padding: 40px;">
+                <div style="display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 40px; align-items: center;">
+                    <div style="border-radius: var(--radius-card); overflow: hidden; border: 1px solid var(--border-emp); height: 340px;">
+                        <img src="/assets/Projects_egreen/solar heater.jpeg" alt="Solar Water Heater Installation Pune Maharashtra" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div>
+                        <span class="dt-tech-label">THERMAL ENGINEERING</span>
+                        <h3 style="font-size: clamp(26px, 3vw, 34px); color: var(--text-primary); margin-bottom: 14px;">Solar Water Heating Systems (ETC &amp; FPC)</h3>
+                        <p style="font-size: 15.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">
+                            Cut geyser electricity bills by 80% with high-efficiency evacuated tube collectors (ETC) and flat plate collectors (FPC). Built with food-grade SS304/SS316 inner tanks, high-density PUF insulation, and pressurized plumbing compatible with modern booster pump systems.
+                        </p>
+                        <ul class="dt-feature-list">
+                            <li><i class="fas fa-check-circle"></i> <strong>Triple-Layered Borosilicate ETC Tubes:</strong> Rapid solar thermal absorption even on overcast winter days.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Pressurized &amp; Non-Pressurized:</strong> Tailored capacities from 100 LPD (bungalows) to 5,000+ LPD (hostels, hotels).</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Sacrificial Magnesium Anode:</strong> Active protection against hard water scaling and tank corrosion in Pune ground water.</li>
+                        </ul>
+                        <div style="display: flex; gap: 14px; margin-top: 24px;">
+                            <a href="/solar-water-heater-pune" class="dt-btn dt-btn-primary">Explore Solar Water Heaters &rarr;</a>
+                            <a href="/contact" class="dt-btn dt-btn-secondary">Get Tank Sizing Advice</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         OPERATIONS, MAINTENANCE & LIFECYCLE REPAIR SERVICES (6 Dark Cards)
+         ============================================================ -->
+    <section class="dt-section dt-section-surface">
+        <div class="dt-container">
+            <div class="dt-section-header center">
+                <div class="dt-tech-label">03 // OPERATIONS, AMC &amp; REPOWERING</div>
+                <h2 class="dt-section-title">Lifecycle Asset Protection &amp; Service</h2>
+                <p class="dt-section-desc" style="margin: 0 auto;">
+                    From specialized demineralized water cleaning to emergency component repair, MSEDCL net meter dispute resolution, and multi-megawatt repowering, we guarantee your plant operates at peak yield 365 days a year.
+                </p>
+            </div>
+
+            <div class="dt-services-grid">
+                <!-- Card 1 -->
+                <div class="dt-card">
+                    <div class="dt-card-icon"><i class="fas fa-broom"></i></div>
+                    <span class="dt-card-badge">RESTORE +25% YIELD</span>
+                    <h3 class="dt-card-title">Demineralized Solar Panel Cleaning</h3>
+                    <p class="dt-card-desc">
+                        Dust, cement fallout, and bird droppings cause up to 25% generation loss. We use reverse-osmosis demineralized water (&lt;20 PPM) with anti-scratch rotating brushes, leaving zero mineral residue.
+                    </p>
+                    <a href="/solar-panel-cleaning-pune" class="dt-btn-ghost">Explore Cleaning Plans &rarr;</a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="dt-card">
+                    <div class="dt-card-icon"><i class="fas fa-file-contract"></i></div>
+                    <span class="dt-card-badge">GUARANTEED UPTIME</span>
+                    <h3 class="dt-card-title">Solar AMC Maintenance Contracts</h3>
+                    <p class="dt-card-desc">
+                        Comprehensive and semi-comprehensive Annual Maintenance Contracts for societies and industrial facilities. Includes quarterly thermal scans, string voltage audits, and earthing resistance certification (&lt;5 ohms).
+                    </p>
+                    <a href="/solar-amc-pune" class="dt-btn-ghost">Explore AMC Contracts &rarr;</a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="dt-card">
+                    <div class="dt-card-icon"><i class="fas fa-wrench"></i></div>
+                    <span class="dt-card-badge">EMERGENCY ON-SITE</span>
+                    <h3 class="dt-card-title">Solar Plant Repair &amp; Troubleshooting</h3>
+                    <p class="dt-card-desc">
+                        Rapid fault diagnosis for undergeneration, DC cable burns, Riso low insulation resistance faults, blown surge arrestors, and loose structure joints with same-day emergency dispatch in Pune.
+                    </p>
+                    <a href="/solar-repair-maintenance-pune" class="dt-btn-ghost">Book Rapid Repair &rarr;</a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="dt-card">
+                    <div class="dt-card-icon"><i class="fas fa-bolt"></i></div>
+                    <span class="dt-card-badge">OEM COMPONENT REPAIR</span>
+                    <h3 class="dt-card-title">Solar Inverter Repair &amp; Testing</h3>
+                    <p class="dt-card-desc">
+                        Diagnostic motherboard testing, IGBT replacement, capacitor recalibration, and firmware upgrades for Growatt, Sungrow, Solis, Polycab, Fronius, Delta, and GoodWe grid-tie inverters.
+                    </p>
+                    <a href="/solar-inverter-repair-pune" class="dt-btn-ghost">Diagnose Inverter Error &rarr;</a>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="dt-card">
+                    <div class="dt-card-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <span class="dt-card-badge">DISCOM LIAISONING</span>
+                    <h3 class="dt-card-title">MSEDCL Net Meter Testing &amp; Approval</h3>
+                    <p class="dt-card-desc">
+                        Resolve uncredited exported units, incorrect TOD tariff slabs, meter communication errors, lab test clearances, and retroactive billing credit adjustments with MSEDCL circles across Pune &amp; PCMC.
+                    </p>
+                    <a href="/solar-net-meter-msedcl-pune" class="dt-btn-ghost">Net Meter Assistance &rarr;</a>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="dt-card">
+                    <div class="dt-card-icon"><i class="fas fa-sync-alt"></i></div>
+                    <span class="dt-card-badge">DOUBLE EXISTING YIELD</span>
+                    <h3 class="dt-card-title">Solar Plant Revamping &amp; Repowering</h3>
+                    <p class="dt-card-desc">
+                        Upgrade low-yield 250W–330W polycrystalline panels to modern 580W+ N-Type TOPCon bifacial modules. Double your energy generation on the exact same roof area without rebuilding heavy structures.
+                    </p>
+                    <a href="/solar-plant-revamping-repowering" class="dt-btn-ghost">Explore Repowering &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         ENGINEERING WORKFLOW (5-Step Precision Process)
+         ============================================================ -->
+    <section class="dt-section">
+        <div class="dt-container">
+            <div class="dt-section-header center">
+                <div class="dt-tech-label">04 // EXECUTION PROTOCOL</div>
+                <h2 class="dt-section-title">Our Streamlined 5-Step Process</h2>
+                <p class="dt-section-desc" style="margin: 0 auto;">
+                    From initial roof shadow 3D modeling to grid synchronization and PM Surya Ghar subsidy disbursement.
+                </p>
+            </div>
+
+            <div class="dt-process-grid">
+                <div class="dt-process-step">
+                    <div class="dt-step-num">01</div>
+                    <h4 class="dt-step-title">Detailed Site Survey</h4>
+                    <p class="dt-step-desc">Drone or laser shadow analysis, structural load evaluation, and 12-month electrical billing profile audit.</p>
+                </div>
+                <div class="dt-process-step">
+                    <div class="dt-step-num">02</div>
+                    <h4 class="dt-step-title">Precision Engineering</h4>
+                    <p class="dt-step-desc">String layout design, SLD schematic generation, inverter sizing, and tilt optimization for maximum solar yield.</p>
+                </div>
+                <div class="dt-process-step">
+                    <div class="dt-step-num">03</div>
+                    <h4 class="dt-step-title">DISCOM Liaisoning</h4>
+                    <p class="dt-step-desc">MSEDCL net metering sanction, CEIG approvals, and PM Surya Ghar portal documentation submitted on your behalf.</p>
+                </div>
+                <div class="dt-process-step">
+                    <div class="dt-step-num">04</div>
+                    <h4 class="dt-step-title">Turnkey Installation</h4>
+                    <p class="dt-step-desc">Hot-dip galvanized structure erection, DC cabling, copper chemical earthing, and inverter commissioning in 2 to 4 days.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         WHY CHOOSE US (6 Pillars of Engineering Excellence)
+         ============================================================ -->
+    <section class="dt-section dt-section-surface">
+        <div class="dt-container">
+            <div class="dt-section-header center">
+                <div class="dt-tech-label">05 // THE E GREEN DIFFERENCE</div>
+                <h2 class="dt-section-title">Why Property Owners Trust E Green Solution</h2>
+                <p class="dt-section-desc" style="margin: 0 auto;">
+                    Over a decade of dedicated photovoltaic engineering expertise in Pune with zero structure failures and 100% net meter clearance.
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+                <div class="dt-card">
+                    <div class="dt-card-icon"><i class="fas fa-award"></i></div>
+                    <h4 style="font-size: 18px; color: var(--text-primary); margin-bottom: 8px;">10+ Years Dedicated Experience</h4>
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7;">Deep practical knowledge of Pune weather patterns, monsoonal wind loads, and Maharashtra DISCOM regulatory frameworks.</p>
+                </div>
+                <div class="dt-card">
+                    <div class="dt-card-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4 style="font-size: 18px; color: var(--text-primary); margin-bottom: 8px;">Certified Tier-1 Equipment</h4>
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7;">Exclusively installing Vikram Solar, Waaree, Sungrow, and Growatt hardware with authentic 25-year manufacturer warranties.</p>
+                </div>
+                <div class="dt-card">
+                    <div class="dt-card-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h4 style="font-size: 18px; color: var(--text-primary); margin-bottom: 8px;">End-to-End Subsidy Guarantee</h4>
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7;">We handle the entire National Portal workflow to guarantee your ₹78,000 central subsidy is credited directly to your bank account.</p>
+                </div>
+                <div class="dt-card">
+                    <div class="dt-card-icon"><i class="fas fa-wind"></i></div>
+                    <h4 style="font-size: 18px; color: var(--text-primary); margin-bottom: 8px;">150 km/h Wind-Rated HDG</h4>
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7;">Every installation uses 80-micron hot-dip galvanized steel mounting structures anchored with chemical fasteners to withstand severe storms.</p>
+                </div>
+                <div class="dt-card">
+                    <div class="dt-card-icon"><i class="fas fa-bolt"></i></div>
+                    <h4 style="font-size: 18px; color: var(--text-primary); margin-bottom: 8px;">Pure Copper Chemical Earthing</h4>
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7;">Three dedicated earthing pits (AC, DC, and Lightning) tested to ensure resistance below 5 ohms for total electrical safety.</p>
+                </div>
+                <div class="dt-card">
+                    <div class="dt-card-icon"><i class="fas fa-headset"></i></div>
+                    <h4 style="font-size: 18px; color: var(--text-primary); margin-bottom: 8px;">Lifetime Rapid Technical Support</h4>
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7;">Direct local Pune engineering team with fast on-site breakdown response, remote IoT telemetry monitoring, and preventive AMCs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICES FAQ (Interactive Dark Accordions)
+         ============================================================ -->
+    <section class="dt-section">
+        <div class="dt-container">
+            <div class="dt-section-header center">
+                <div class="dt-tech-label">06 // FREQUENTLY ASKED QUESTIONS</div>
+                <h2 class="dt-section-title">Solar Engineering FAQs</h2>
+                <p class="dt-section-desc" style="margin: 0 auto;">
+                    Clear technical answers to common queries regarding rooftop solar installations, subsidies, net metering, and maintenance in Pune.
+                </p>
+            </div>
+
+            <div class="dt-faq-list">
+                <div class="dt-faq-item active">
+                    <button type="button" class="dt-faq-btn">
+                        <span>How much subsidy can I get for residential solar in Pune under PM Surya Ghar?</span>
+                        <div class="dt-faq-icon"><i class="fas fa-plus"></i></div>
+                    </button>
+                    <div class="dt-faq-content">
+                        Under the PM Surya Ghar Muft Bijli Yojana, residential individual homeowners receive ₹30,000 for 1 kW, ₹60,000 for 2 kW, and a maximum of ₹78,000 for 3 kW and higher systems. Residential housing societies and RWAs can also claim ₹18,000 per kW up to 500 kW for common area lighting and lift power. E Green Solution handles the entire subsidy portal filing on your behalf.
+                    </div>
+                </div>
+
+                <div class="dt-faq-item">
+                    <button type="button" class="dt-faq-btn">
+                        <span>How does the MSEDCL solar net metering system work?</span>
+                        <div class="dt-faq-icon"><i class="fas fa-plus"></i></div>
+                    </button>
+                    <div class="dt-faq-content">
+                        A bi-directional net meter records both the electricity you draw from MSEDCL and the surplus solar electricity your plant exports to the grid. In your monthly bill, units exported are subtracted from units imported. If you export more than you use, the surplus energy credits roll forward every month until the annual billing settlement cycle.
+                    </div>
+                </div>
+
+                <div class="dt-faq-item">
+                    <button type="button" class="dt-faq-btn">
+                        <span>What is the payback period for a commercial or industrial solar plant?</span>
+                        <div class="dt-faq-icon"><i class="fas fa-plus"></i></div>
+                    </button>
+                    <div class="dt-faq-content">
+                        Commercial and industrial electricity tariffs in Pune range from ₹11 to ₹16 per unit. By producing solar power at a levelized cost under ₹2.50/unit and taking advantage of 40% accelerated depreciation tax write-offs in the first year, most commercial and industrial plants recover 100% of their capital investment within 3 to 4 years.
+                    </div>
+                </div>
+
+                <div class="dt-faq-item">
+                    <button type="button" class="dt-faq-btn">
+                        <span>How frequently should solar panels be cleaned in Pune's conditions?</span>
+                        <div class="dt-faq-icon"><i class="fas fa-plus"></i></div>
+                    </button>
+                    <div class="dt-faq-content">
+                        Due to urban dust, vehicle exhaust, and construction particles across Pune, we recommend professional cleaning every 15 to 20 days. Never use hard tap water as high TDS leaves calcified white deposits that bake into the glass. E Green Solution uses demineralized reverse-osmosis water (&lt;20 PPM) to preserve module warranties and maximize generation.
+                    </div>
+                </div>
+
+                <div class="dt-faq-item">
+                    <button type="button" class="dt-faq-btn">
+                        <span>Will my rooftop be damaged or develop water leakage during installation?</span>
+                        <div class="dt-faq-icon"><i class="fas fa-plus"></i></div>
+                    </button>
+                    <div class="dt-faq-content">
+                        No. On flat RCC roofs, we use precast M25 concrete ballast blocks or precision chemical rebar anchor grouting with multi-layer bituminous waterproofing sealants. On industrial trapezoidal metal roofs, we use certified non-penetrating aluminum seam clamps that do not puncture the sheet, keeping your factory roof completely leak-proof.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         GLOBAL CONSULTATION CTA
+         ============================================================ -->
+    <section class="dt-section dt-section-surface">
+        <div class="dt-container">
+            <div style="background: linear-gradient(135deg, rgba(23, 27, 35, 0.95), rgba(39, 45, 55, 0.95)); border: 1px solid var(--border-gold); border-radius: var(--radius-container); padding: 50px; text-align: center; max-width: 900px; margin: 0 auto; box-shadow: var(--shadow-elevated);">
+                <div class="dt-tech-label" style="margin-left: auto; margin-right: auto;">COMMISSION YOUR PLANT</div>
+                <h2 style="font-size: clamp(30px, 3.6vw, 44px); color: var(--text-primary); margin-bottom: 16px;">Ready to Engineer Your Solar System?</h2>
+                <p style="font-size: 16.5px; color: var(--text-secondary); max-width: 650px; margin: 0 auto 30px;">
+                    Schedule a zero-obligation on-site technical inspection with our certified rooftop solar engineers in Pune. We deliver accurate 3D shadow analysis, bill savings models, and exact turnkey pricing within 24 hours.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                    <a href="/contact" class="dt-btn dt-btn-primary" style="padding: 14px 32px; font-size: 15px;">
+                        Book Free Site Survey <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="tel:+917249187969" class="dt-btn dt-btn-secondary" style="padding: 14px 28px; font-size: 15px;">
+                        <i class="fas fa-phone-alt"></i> Call +91 72491 87969
+                    </a>
+                    <a href="https://wa.me/917249187969?text=Hello%20E%20Green%20Solution,%20I%20am%20inquiring%20about%20your%20solar%20services" target="_blank" rel="noopener noreferrer" class="dt-btn dt-btn-secondary" style="padding: 14px 28px; font-size: 15px; color: #4ade80 !important;">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{get_dt_footer()}
+</body>
+</html>'''
+
+    with open('services.html', 'w', encoding='utf-8') as f:
+        f.write(html)
+    print('Redesigned services.html written successfully! Size:', len(html))
+
+if __name__ == '__main__':
+    redesign_services()

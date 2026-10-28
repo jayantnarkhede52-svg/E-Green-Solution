@@ -1,24 +1,25 @@
+@import url('dark-technical.css');
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Bebas+Neue&family=Sora:wght@300;400;600;700&display=swap');
 
 :root {
-    --primary: #2e7d32;
-    --primary-gradient: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
-    --primary-light: #4caf50;
-    --accent: #F5A623; /* Solar Gold */
-    --accent-light: #FFD57E;
-    --accent-dim: #C47D10;
-    --accent-gradient: linear-gradient(135deg, #F5A623 0%, #FFD57E 100%);
-    --bg-dark: #08090D;
-    --surface: #0E1018;
-    --text-dark: #1a1a1a;
-    --text-light: #f0eee8;
-    --muted: #7a7870;
-    --badge-bg: rgba(255,255,255,0.05);
-    --badge-border: rgba(255,255,255,0.1);
-    --glass-bg: rgba(255, 255, 255, 0.08);
-    --glass-border: rgba(255, 255, 255, 0.15);
-    --glass-shadow: 0 12px 32px 0 rgba(0, 0, 0, 0.12);
-    --card-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+    --primary: #E8C65A; /* Solar Gold Accent */
+    --primary-gradient: linear-gradient(135deg, #E8C65A 0%, #F0D375 100%);
+    --primary-light: #F0D375;
+    --accent: #E8C65A; /* Solar Gold */
+    --accent-light: #F0D375;
+    --accent-dim: #C4A13D;
+    --accent-gradient: linear-gradient(135deg, #E8C65A 0%, #F0D375 100%);
+    --bg-dark: #0B0D12;
+    --surface: #171B23;
+    --text-dark: #F1F3F5;
+    --text-light: #F1F3F5;
+    --muted: #A6B0BE;
+    --badge-bg: rgba(232, 198, 90, 0.08);
+    --badge-border: rgba(232, 198, 90, 0.35);
+    --glass-bg: rgba(23, 27, 35, 0.85);
+    --glass-border: rgba(241, 243, 245, 0.12);
+    --glass-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+    --card-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
     --section-pad: clamp(60px, 8vw, 110px);
 }
 
@@ -36,9 +37,9 @@ body {
     font-family: 'Outfit', sans-serif;
     font-size: clamp(16px, 1.2vw, 19px);
     line-height: 1.8;
-    color: var(--text-dark);
+    color: #F1F3F5;
     overflow-x: hidden;
-    background: #f8f9fa;
+    background: #0B0D12 !important; color: #F1F3F5;
     -webkit-text-size-adjust: 100%;
 }
 
@@ -210,7 +211,7 @@ body:not(.home) nav .hamburger span {
 
 .text-center { text-align: center; }
 .text-white { color: #ffffff; }
-.text-dark { color: var(--text-dark); }
+.text-dark { color: #F1F3F5; }
 .display-block { display: block; }
 .flex-footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 50px; }
 .footer-col-1-5 { flex: 1.5; min-width: 260px; }
@@ -343,7 +344,7 @@ body:not(.home) nav .hamburger span {
 .opacity-0-9 { opacity: 0.9; }
 .max-width-680 { max-width: 680px; }
 .bg-light-green { background: rgba(46, 125, 50, 0.05); }
-.bg-white { background: #ffffff; }
+.bg-white { background: #171B23; }
 .bg-dark { background: #111111; }
 .bg-primary { background: var(--primary); }
 .bg-accent { background: var(--accent); }
@@ -353,10 +354,10 @@ body:not(.home) nav .hamburger span {
 
 /* Process Grid */
 .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 40px; }
-.process-card { text-align: center; padding: 40px 24px; background: #f8f9fa; border-radius: 28px; transition: 0.3s; }
+.process-card { text-align: center; padding: 40px 24px; background: #0B0D12 !important; color: #F1F3F5; border-radius: 28px; transition: 0.3s; }
 .process-card:hover { transform: translateY(-5px); box-shadow: var(--card-shadow); }
 .step-number { width: 64px; height: 64px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 800; margin: 0 auto 20px; }
-.step-number.accent { background: var(--accent); color: var(--text-dark); }
+.step-number.accent { background: var(--accent); color: #F1F3F5; }
 
 /* SolarX Hero Section */
 .hero {
@@ -794,7 +795,7 @@ body:not(.home) nav .hamburger span {
 /* === CTA BUTTON === */
 .btn-primary {
     background: var(--accent-gradient);
-    color: var(--text-dark);
+    color: #F1F3F5;
     padding: 12px 32px;
     border-radius: 12px;
     text-decoration: none;
@@ -906,7 +907,7 @@ body:not(.home) nav .hamburger span {
 }
 
 .service-card {
-    background: #ffffff;
+    background: #171B23; border: 1px solid rgba(241,243,245,0.12);
     padding: 44px 32px 36px;
     border-radius: 26px;
     text-align: center;
@@ -1074,7 +1075,7 @@ body:not(.home) nav .hamburger span {
 }
 
 .why-card {
-    background: white;
+    background: #171B23; border: 1px solid rgba(241,243,245,0.12);
     padding: 42px 32px;
     border-radius: 28px;
     box-shadow: var(--card-shadow);
@@ -1154,7 +1155,7 @@ body:not(.home) nav .hamburger span {
     bottom: -24px;
     right: -24px;
     background: var(--accent);
-    color: var(--text-dark);
+    color: #F1F3F5;
     padding: 28px;
     border-radius: 20px;
     font-weight: 700;
@@ -1295,7 +1296,7 @@ body:not(.home) nav .hamburger span {
     font-weight: 700;
     font-family: inherit;
     background: var(--accent);
-    color: var(--text-dark);
+    color: #F1F3F5;
     border: none;
     border-radius: 12px;
     cursor: pointer;
@@ -1428,7 +1429,7 @@ body:not(.home) nav .hamburger span {
 }
 
 .mobile-nav-links a {
-    color: var(--text-dark);
+    color: #F1F3F5;
     text-decoration: none;
     font-size: 18px;
     font-weight: 600;
@@ -1768,7 +1769,7 @@ body:not(.home) nav .hamburger span {
 .wizard-container {
     max-width: 900px;
     margin: 0 auto;
-    background: white;
+    background: #171B23; border: 1px solid rgba(241,243,245,0.12);
     border-radius: 32px;
     overflow: hidden;
 }
@@ -1816,7 +1817,7 @@ body:not(.home) nav .hamburger span {
 .step-text {
     font-size: 14px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: #F1F3F5;
 }
 
 .step-line {
@@ -1870,7 +1871,7 @@ body:not(.home) nav .hamburger span {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: var(--text-dark);
+    color: #F1F3F5;
 }
 
 .box-style label i {
@@ -1939,7 +1940,7 @@ body:not(.home) nav .hamburger span {
 }
 
 .why-card {
-    background: white;
+    background: #171B23; border: 1px solid rgba(241,243,245,0.12);
     padding: 40px;
     border-radius: 16px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
@@ -2054,7 +2055,7 @@ body:not(.home) nav .hamburger span {
 }
 
 .feature-list li h4 {
-    color: var(--text-dark);
+    color: #F1F3F5;
     font-weight: 700;
 }
 
@@ -2580,8 +2581,8 @@ body:not(.home) nav .hamburger span {
         border-radius: 20px !important;
         box-shadow: 0 10px 50px rgba(0,0,0,0.3) !important;
         padding: 25px !important;
-        background: white !important;
-        border: 1px solid #eee !important;
+        background: #171B23 !important;
+        border: 1px solid rgba(241,243,245,0.12) !important; color: #F1F3F5 !important;
     }
     .hotspot:hover .hotspot-content {
         opacity: 1 !important;
@@ -2678,7 +2679,7 @@ body:not(.home) nav .hamburger span {
     transform: translate(-50%, -50%);
     width: 52px; height: 52px;
     background: var(--accent);
-    color: var(--text-dark);
+    color: #F1F3F5;
     border-radius: 50%;
     display: flex;
     align-items: center; justify-content: center;
@@ -2750,7 +2751,7 @@ body:not(.home) nav .hamburger span {
 .hotspot-content {
     position: absolute; bottom: 40px; left: 50%;
     transform: translateX(-50%) translateY(10px);
-    width: 240px; background: white; padding: 20px;
+    width: 240px; background: #171B23; border: 1px solid rgba(241,243,245,0.12); padding: 20px;
     border-radius: 18px; box-shadow: var(--glass-shadow);
     opacity: 0; visibility: hidden; transition: 0.3s;
     z-index: 100; text-align: center;
@@ -2772,7 +2773,7 @@ body:not(.home) nav .hamburger span {
 }
 
 .success-card {
-    background: white; padding: 30px; border-radius: 24px;
+    background: #171B23; border: 1px solid rgba(241,243,245,0.12); padding: 30px; border-radius: 24px;
     border: 1px solid #eee; transition: 0.4s;
     cursor: pointer; text-align: center;
 }
@@ -2780,7 +2781,7 @@ body:not(.home) nav .hamburger span {
 .success-card:hover h4, .success-card:hover p { color: white; }
 .success-card i { font-size: 40px; color: var(--primary); margin-bottom: 20px; }
 .success-card:hover i { color: var(--accent); }
-.success-card h4 { font-size: 20px; margin-bottom: 12px; color: var(--text-dark); }
+.success-card h4 { font-size: 20px; margin-bottom: 12px; color: #F1F3F5; }
 .success-card p { font-size: 15px; opacity: 0.8; }
 
 @keyframes float {
@@ -2849,9 +2850,10 @@ body:not(.home) nav .hamburger span {
     left: 50%;
     transform: translateX(-50%) translateY(14px);
     width: 630px;
-    background: #ffffff;
+    background: #171B23;
+    border: 1px solid rgba(241,243,245,0.12);
     border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.16), 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 4px 15px rgba(0, 0, 0, 0.05);
     padding: 22px 24px 18px;
     opacity: 0;
     visibility: hidden;
@@ -3043,7 +3045,7 @@ body:not(.home) nav .hamburger span {
 }
 
 .mobile-nav-links > li > a {
-    color: var(--text-dark);
+    color: #F1F3F5;
     text-decoration: none;
     font-size: 17px;
     font-weight: 600;
@@ -3077,7 +3079,7 @@ body:not(.home) nav .hamburger span {
 }
 
 .mobile-dropdown-header a {
-    color: var(--text-dark);
+    color: #F1F3F5;
     text-decoration: none;
     font-size: 17px;
     font-weight: 600;
@@ -3586,7 +3588,7 @@ body:not(.home) nav .hamburger span {
 
 /* 3. Hero Quick Lead Form Card */
 .hero-form-card {
-    background: #ffffff;
+    background: #171B23; border: 1px solid rgba(232,198,90,0.35);
     border-radius: 20px;
     padding: 26px 28px 24px;
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
