@@ -2010,3 +2010,6 @@ body:not(.home) nav .hamburger span {
         padding: 25px 15px !important;
     }
 }
+
+/* Clean Text Accents - Highlights & Underlines Removed */
+.highlight-mark,.highlight-green,.accent-underline,.hero .highlight-mark,.hero-split .highlight-mark,.page-header .highlight-mark,.hero .highlight-green,.hero-split .highlight-green,.page-header .highlight-green,.hero .accent-underline,.hero-split .accent-underline,.page-header .accent-underline{background:transparent!important;background-image:none!important;border:none!important;border-bottom:none!important;box-shadow:none!important;text-shadow:none!important;padding:0!important;border-radius:0!important;color:inherit!important;font-weight:600!important;text-decoration:none!important}

@@ -271,7 +271,7 @@
         .pincode-result { margin-top: 20px; font-size: 15px; font-weight: 600; display: none; padding: 12px 24px; border-radius: 12px; background: rgba(255,255,255,0.15); }
 
         /* Anti-Cannibalization Dealership Banner */
-        .dealership-callout { background: #fff8eb; border: 2px dashed #f59e0b; border-radius: 20px; padding: 30px; margin: 60px 0 30px; display: flex; align-items: center; justify-content: space-between; gap: 25px; flex-wrap: wrap; }
+        .dealership-callout { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 20px; padding: 30px; margin: 60px 0 30px; display: flex; align-items: center; justify-content: space-between; gap: 25px; flex-wrap: wrap; }
         .dealership-content h3 { font-size: 22px; color: #92400e; margin-bottom: 8px; }
         .dealership-content p { font-size: 15px; color: #78350f; margin: 0; line-height: 1.6; }
         .dealership-btn { background: #d97706; color: white; padding: 14px 28px; border-radius: 12px; text-decoration: none; font-weight: 700; white-space: nowrap; transition: 0.3s; }
@@ -773,8 +773,8 @@
                     <h3>Looking for Our Central Showroom &amp; Authorized Solar Dealership?</h3>
                     <p>
                         If you are seeking head-office solar system quotes, wholesale module supplies, or authorized Vikram Solar dealerships, visit our certified 
-                        <a href="/" style="font-weight: 700; color: #92400e; text-decoration: underline;">solar panel dealers in Pune</a>. E Green Solution provides turnkey 
-                            <a href="/" style="font-weight: 700; color: #92400e; text-decoration: underline;">solar panel installations in Pune</a> with 200+ completed installations across Maharashtra.
+                        <a href="/" style="font-weight: 600; color: var(--primary); text-decoration: none;">solar panel dealers in Pune</a>. E Green Solution provides turnkey 
+                            <a href="/" style="font-weight: 600; color: var(--primary); text-decoration: none;">solar panel installations in Pune</a> with 200+ completed installations across Maharashtra.
                     </p>
                 </div>
                 <a href="/" class="dealership-btn">Visit Central Dealership <i class="fas fa-arrow-right"></i></a>
@@ -1149,15 +1149,15 @@
             if (punePincodes[input]) {
                 resultDiv.style.background = 'rgba(34, 197, 94, 0.25)';
                 resultDiv.style.color = '#dcfce7';
-                resultDiv.innerHTML = '<i class="fas fa-circle-check"></i> <strong>Service Available in ' + input + ':</strong> ' + punePincodes[input] + ' — Subsidy eligible. <a href="/contact" style="color: #fef08a; text-decoration: underline; margin-left: 8px;">Book Free Survey Now</a>';
+                resultDiv.innerHTML = '<i class="fas fa-circle-check"></i> <strong>Service Available in ' + input + ':</strong> ' + punePincodes[input] + ' — Subsidy eligible. <a href="/contact" style="color: #fef08a; text-decoration: none; margin-left: 8px;">Book Free Survey Now</a>';
             } else if (input.startsWith('411') || input.startsWith('410') || input.startsWith('412')) {
                 resultDiv.style.background = 'rgba(34, 197, 94, 0.25)';
                 resultDiv.style.color = '#dcfce7';
-                resultDiv.innerHTML = '<i class="fas fa-circle-check"></i> <strong>Pune District Coverage Confirmed for ' + input + '!</strong> Turnkey installation, MSEDCL approvals & subsidy supported. <a href="/contact" style="color: #fef08a; text-decoration: underline; margin-left: 8px;">Schedule Survey</a>';
+                resultDiv.innerHTML = '<i class="fas fa-circle-check"></i> <strong>Pune District Coverage Confirmed for ' + input + '!</strong> Turnkey installation, MSEDCL approvals & subsidy supported. <a href="/contact" style="color: #fef08a; text-decoration: none; margin-left: 8px;">Schedule Survey</a>';
             } else {
                 resultDiv.style.background = 'rgba(245, 158, 11, 0.25)';
                 resultDiv.style.color = '#fef3c7';
-                resultDiv.innerHTML = '<i class="fas fa-location-arrow"></i> Pincode ' + input + ' is outside central Pune. We service projects across Maharashtra. <a href="https://wa.me/917249187969" style="color: white; text-decoration: underline; margin-left: 8px;" target="_blank">Contact Our Team on WhatsApp</a>';
+                resultDiv.innerHTML = '<i class="fas fa-location-arrow"></i> Pincode ' + input + ' is outside central Pune. We service projects across Maharashtra. <a href="https://wa.me/917249187969" style="color: white; text-decoration: none; margin-left: 8px;" target="_blank">Contact Our Team on WhatsApp</a>';
             }
         }
 

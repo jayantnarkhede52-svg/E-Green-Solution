@@ -112,11 +112,27 @@ const server = http.createServer((req, res) => {
     });
 });
 
-server.listen(PORT, '0.0.0.0', () => {
+let currentPort = Number(PORT);
+
+server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+        console.log(`⚠️  Port ${currentPort} is already in use. Trying port ${currentPort + 1}...`);
+        currentPort++;
+        server.listen(currentPort);
+    } else {
+        console.error('Server error:', err);
+    }
+});
+
+server.on('listening', () => {
+    const address = server.address();
+    const port = typeof address === 'object' && address ? address.port : currentPort;
     console.log(`====================================================`);
     console.log(`🚀 E Green Solution Local Server is Running!`);
-    console.log(`👉 Local:   http://localhost:${PORT}`);
-    console.log(`👉 Network: http://127.0.0.1:${PORT}`);
+    console.log(`👉 Local:   http://localhost:${port}`);
+    console.log(`👉 Network: http://127.0.0.1:${port}`);
     console.log(`📁 Root:    ${ROOT}`);
     console.log(`====================================================`);
 });
+
+server.listen(currentPort);
