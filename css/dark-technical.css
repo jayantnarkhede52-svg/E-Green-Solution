@@ -1293,7 +1293,8 @@ img {
   position: relative;
   width: 100%;
   max-width: 1100px;
-  height: 480px;
+  aspect-ratio: 2 / 1;
+  height: auto;
   margin: 0 auto;
   border-radius: var(--radius-container);
   overflow: hidden;
@@ -1362,6 +1363,13 @@ img {
 
 .dt-slider-tag.left { left: 20px; }
 .dt-slider-tag.right { right: 20px; color: var(--gold-accent); border-color: var(--border-gold); }
+
+@media (max-width: 640px) {
+  .dt-slider-container { aspect-ratio: 16 / 10; }
+  .dt-slider-tag { bottom: 12px; font-size: 10px; padding: 6px 10px; }
+  .dt-slider-tag.left { left: 12px; }
+  .dt-slider-tag.right { right: 12px; }
+}
 
 /* ==========================================================================
    INTERACTIVE SOLAR CALCULATOR (DARK ENGINEERING COMPONENT)

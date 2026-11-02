@@ -352,17 +352,17 @@ def build_homepage():
             <div class="dt-section-header center">
                 <div class="dt-tech-label">04 // ROOFTOP TRANSFORMATION</div>
                 <h2 id="transformation-title" class="dt-section-title">See the Engineering Difference</h2>
-                <p class="dt-section-desc">Drag the comparison slider to see how E Green Solution converted an unutilized bungalow rooftop in Baner, Pune into a high-yield 5kW monocrystalline power generator.</p>
+                <p class="dt-section-desc">Illustrative AI-generated comparison of an Indian commercial rooftop before and after solar installation. The proposed layout preserves access to rooftop equipment and maintenance paths.</p>
             </div>
 
-            <div class="dt-slider-container" id="project-slider" role="region" aria-label="Before and After Solar Rooftop Installation">
-                <img src="/assets/before-solar.png" alt="Rooftop before solar installation" class="dt-slider-img" loading="lazy">
+            <div class="dt-slider-container" id="project-slider" role="region" aria-label="Illustrative before and after commercial rooftop solar comparison">
+                <img src="/assets/before-solar-commercial.jpg" alt="Bare Indian commercial rooftop before solar installation, illustrative AI-generated image" class="dt-slider-img" width="1774" height="887" loading="lazy" decoding="async">
                 <div class="dt-slider-tag left">BEFORE INSTALLATION</div>
                 
                 <div class="dt-slider-img dt-slider-after">
-                    <img src="/assets/after-solar.png" alt="Rooftop after solar panel installation in Pune" class="dt-slider-img" style="position: static;" loading="lazy">
+                    <img src="/assets/after-solar-commercial.jpg" alt="Same Indian commercial rooftop with a realistic solar array and clear maintenance routes, illustrative AI-generated image" class="dt-slider-img" style="position: static;" width="1774" height="887" loading="lazy" decoding="async">
                 </div>
-                <div class="dt-slider-tag right">AFTER: 5KW COMMISSIONED</div>
+                <div class="dt-slider-tag right">AFTER: SOLAR ARRAY</div>
 
                 <div class="dt-slider-handle" id="slider-handle">
                     <div class="dt-slider-knob">
