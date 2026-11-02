@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /solar-hero.html
 
-Sitemap: https://egreensolution.in/sitemap.xml
+Sitemap: https://www.egreensolution.in/sitemap.xml

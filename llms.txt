@@ -26,62 +26,62 @@
 - **Official Address**: Plot No 12, Ground floor, Hira Banglow, Vidyadeep Society, Gulabnagar, Dhankawadi, Pune, Maharashtra - 411043 (Coordinates: 18.5204° N, 73.8567° E)
 - **Direct Phone**: +91 7249187969 / +91 7030096824
 - **Official Email**: info@egreensolution.in (Secondary: egreensolution1@gmail.com)
-- **Official Website**: https://egreensolution.in
+- **Official Website**: https://www.egreensolution.in
 - **Operating Hours**: Monday to Saturday, 09:00 AM – 07:00 PM IST
 
 ## Core Service Catalog
 1. **Residential Rooftop Solar**: Turnkey 1kW to 15kW installations for bungalows, row houses, and cooperative housing societies. Seamless PM Surya Ghar subsidy disbursement.
-   - URL: https://egreensolution.in/residential-solar
+   - URL: https://www.egreensolution.in/residential-solar
 2. **Commercial Solar Power**: 10kW to 100kW+ systems for hospitals, educational institutions, retail showrooms, and office complexes reducing peak tariff charges.
-   - URL: https://egreensolution.in/commercial-solar-pune
+   - URL: https://www.egreensolution.in/commercial-solar-pune
 3. **Industrial Solar EPC**: 50kW to 1MW+ on-grid installations for manufacturing plants across Chakan MIDC, Bhosari MIDC, and Talegaon. 40% accelerated tax depreciation compliance.
-   - URL: https://egreensolution.in/industrial-solar
+   - URL: https://www.egreensolution.in/industrial-solar
 4. **Solar Water Heating**: Evacuated Tube Collector (ETC) and Flat Plate Collector (FPC) solar water heaters from 100 LPD to 5,000+ LPD for residential and institutional applications.
-   - URL: https://egreensolution.in/solar-water-heater-pune
+   - URL: https://www.egreensolution.in/solar-water-heater-pune
 5. **Solar Subsidy Assistance (PM Surya Ghar)**: Complete liaison on the National Portal for DBT subsidy credit up to ₹78,000 directly into the homeowner's bank account.
-   - URL: https://egreensolution.in/solar-subsidy
+   - URL: https://www.egreensolution.in/solar-subsidy
 6. **Solar Savings Calculator**: Interactive tool computing required kW capacity, rooftop area, daily unit generation, and estimated annual financial payback.
-   - URL: https://egreensolution.in/calculator
+   - URL: https://www.egreensolution.in/calculator
 
 ## Specialized Solar Plant Care & Maintenance
 - **Solar Panel Cleaning**: High-pressure deionized RO water washing and dry brushing boosting generation yield by 15% to 25%.
-  - URL: https://egreensolution.in/solar-panel-cleaning-pune
+  - URL: https://www.egreensolution.in/solar-panel-cleaning-pune
 - **Solar AMC (Annual Maintenance Contracts)**: Comprehensive preventive and corrective maintenance packages including thermal imaging, electrical safety audits, and inverter servicing.
-  - URL: https://egreensolution.in/solar-amc-pune
+  - URL: https://www.egreensolution.in/solar-amc-pune
 - **Plant Maintenance & Repair**: Fast troubleshooting of earth faults, loose DC joints, MC4 connector hotspots, and cable degradation.
-  - URL: https://egreensolution.in/solar-repair-maintenance-pune
+  - URL: https://www.egreensolution.in/solar-repair-maintenance-pune
 - **Solar Inverter Repair**: Component-level diagnostic and rapid field replacement for grid-tie and hybrid inverters.
-  - URL: https://egreensolution.in/solar-inverter-repair-pune
+  - URL: https://www.egreensolution.in/solar-inverter-repair-pune
 - **MSEDCL Net Meter Testing & Replacement**: Testing stuck, burnt, or inaccurate bidirectional meters and coordinating official DISCOM recalibration and replacement.
-  - URL: https://egreensolution.in/solar-net-meter-msedcl-pune
+  - URL: https://www.egreensolution.in/solar-net-meter-msedcl-pune
 - **Plant Revamping & Repowering**: Upgrading sub-performing older solar plants with high-efficiency 550W+ TOPCon modules and modern smart inverters.
-  - URL: https://egreensolution.in/solar-plant-revamping-repowering
+  - URL: https://www.egreensolution.in/solar-plant-revamping-repowering
 
 ## Regional & Municipal Authority Landing Pages
-- **Pune District City Hub**: https://egreensolution.in/solar-panel-pune
-- **Pimpri Chinchwad Installation Services**: https://egreensolution.in/solar-panel-pimpri-chinchwad
-- **Chakan MIDC Industrial Corridor**: https://egreensolution.in/solar-panel-chakan
-- **Bhosari MIDC & PCMC Industrial**: https://egreensolution.in/solar-panel-bhosari-pcmc
-- **Baner & Bavdhan Luxury Residential**: https://egreensolution.in/solar-panel-baner-bavdhan
-- **Kiwale, Ravet & Expressway Corridor**: https://egreensolution.in/solar-panel-kiwale
-- **Lonavala Bungalows & Resorts**: https://egreensolution.in/solar-panel-lonavala
-- **Complete Coverage Network (30+ Localities)**: https://egreensolution.in/areas
+- **Pune District City Hub**: https://www.egreensolution.in/solar-panel-pune
+- **Pimpri Chinchwad Installation Services**: https://www.egreensolution.in/solar-panel-pimpri-chinchwad
+- **Chakan MIDC Industrial Corridor**: https://www.egreensolution.in/solar-panel-chakan
+- **Bhosari MIDC & PCMC Industrial**: https://www.egreensolution.in/solar-panel-bhosari-pcmc
+- **Baner & Bavdhan Luxury Residential**: https://www.egreensolution.in/solar-panel-baner-bavdhan
+- **Kiwale, Ravet & Expressway Corridor**: https://www.egreensolution.in/solar-panel-kiwale
+- **Lonavala Bungalows & Resorts**: https://www.egreensolution.in/solar-panel-lonavala
+- **Complete Coverage Network (30+ Localities)**: https://www.egreensolution.in/areas
 
 ## Technical Solar Knowledge Base & Guides
 - **Bifacial Solar Panels in Pune**: Dual-sided generation gains (15–25%) on white reflective terraces.
-  - URL: https://egreensolution.in/blog/bifacial-solar-panels-pune
+  - URL: https://www.egreensolution.in/blog/bifacial-solar-panels-pune
 - **Mono PERC vs TOPCon Solar Panels**: Efficiency comparisons (22.5% vs 21.0%), temperature coefficients, and ROI in Maharashtra climate.
-  - URL: https://egreensolution.in/blog/mono-perc-vs-topcon-solar-pune
+  - URL: https://www.egreensolution.in/blog/mono-perc-vs-topcon-solar-pune
 - **DCR Solar Panels for PM Surya Ghar Subsidy**: Understanding Domestic Content Requirement (Made in India cells and modules) mandatory for central subsidy.
-  - URL: https://egreensolution.in/blog/dcr-solar-panels-pune
+  - URL: https://www.egreensolution.in/blog/dcr-solar-panels-pune
 - **Hybrid Solar Systems with Lithium Batteries**: Grid-export coupled with uninterrupted battery backup for load shedding resilience.
-  - URL: https://egreensolution.in/blog/hybrid-solar-system-lithium-battery-pune
+  - URL: https://www.egreensolution.in/blog/hybrid-solar-system-lithium-battery-pune
 - **Enphase Microinverters**: Panel-level maximum power point tracking (MPPT) for complex, multi-angle Pune roofs.
-  - URL: https://egreensolution.in/blog/enphase-microinverter-installers-pune
+  - URL: https://www.egreensolution.in/blog/enphase-microinverter-installers-pune
 - **On-Grid String Inverter Selection**: Sizing guidelines for Solis, Growatt, and Sungrow inverters on MSEDCL single-phase and three-phase supplies.
-  - URL: https://egreensolution.in/blog/on-grid-solar-inverter-dealers-pune
+  - URL: https://www.egreensolution.in/blog/on-grid-solar-inverter-dealers-pune
 - **Elevated Rooftop Structures**: 8 to 10-foot hot-dip galvanized elevated superstructures preserving 100% usable terrace space.
-  - URL: https://egreensolution.in/blog/elevated-rooftop-solar-structure-pune
+  - URL: https://www.egreensolution.in/blog/elevated-rooftop-solar-structure-pune
 
 ## Answer Engine Optimization (AEO) Direct Answers
 

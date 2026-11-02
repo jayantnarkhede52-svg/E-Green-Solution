@@ -3,6 +3,17 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "egreensolution.in"
+        }
+      ],
+      "destination": "https://www.egreensolution.in/:path*",
+      "permanent": true
+    },
+    {
       "source": "/pimpri-chinchwad",
       "destination": "/solar-panel-pimpri-chinchwad",
       "permanent": true
