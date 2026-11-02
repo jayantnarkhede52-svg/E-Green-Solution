@@ -4,8 +4,6 @@
    Typography: Manrope, Inter, JetBrains Mono
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
-
 :root {
   /* Primary Surface Tokens */
   --bg-primary: #0B0D12;
@@ -75,7 +73,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   color: var(--text-secondary);
-  font-size: 15.5px;
+  font-size: 16px;
   line-height: 1.7;
   margin: 0 0 16px;
 }
@@ -317,6 +315,10 @@ img {
   object-fit: contain;
   display: block;
   filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+}
+
+.dt-brand .dt-brand-title {
+  display: none;
 }
 
 .dt-brand-title {
@@ -568,31 +570,37 @@ img {
 .dt-mobile-menu {
   position: fixed;
   top: 0;
-  right: -100%;
-  width: 85%;
+  right: 0;
+  width: min(88vw, 400px);
   max-width: 400px;
   height: 100vh;
   height: 100dvh;
+  max-height: 100dvh;
   background-color: var(--bg-surface);
   border-left: 1px solid var(--border-emp);
   z-index: 10001;
-  padding: 70px 24px 30px;
+  padding: max(20px, env(safe-area-inset-top)) 20px max(20px, env(safe-area-inset-bottom));
   overflow-y: auto;
-  transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overscroll-behavior: contain;
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.28s;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .dt-mobile-menu.active {
-  right: 0;
+  transform: translateX(0);
+  visibility: visible;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0s;
 }
 
 .dt-mobile-backdrop {
   position: fixed;
   inset: 0;
   background: rgba(11, 13, 18, 0.85);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(2px);
   z-index: 10000;
   opacity: 0;
   visibility: hidden;
@@ -620,8 +628,17 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 0;
+  min-height: 44px;
+  padding: 10px 0;
   border-bottom: 1px solid var(--border-muted);
+}
+
+#dt-drawer-close {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-ctrl);
 }
 
 .dt-mobile-footer {
@@ -698,6 +715,34 @@ img {
   max-width: 580px;
   margin-bottom: 38px;
   font-weight: 400;
+}
+
+.dt-hero-keywords {
+  margin: 0 0 18px;
+  color: var(--text-secondary);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.dt-incentive-callout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+  padding: clamp(24px, 4vw, 44px);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-container);
+}
+
+.dt-incentive-callout .dt-section-title {
+  max-width: 750px;
+  font-size: clamp(28px, 3.5vw, 42px);
+}
+
+.dt-incentive-callout .dt-section-desc {
+  margin-bottom: 0;
 }
 
 .dt-hero-ctas {
@@ -1690,7 +1735,7 @@ img {
    RESPONSIVE DESIGN BREAKPOINTS
    ========================================================================== */
 
-@media (max-width: 1024px) {
+@media (max-width: 1160px) {
   .dt-nav-links { display: none; }
   .dt-hamburger { display: flex; }
   
@@ -1771,13 +1816,55 @@ img {
 }
 
 @media (max-width: 768px) {
+  #dt-navbar .dt-nav-container {
+    gap: 10px;
+    padding-inline: 16px;
+  }
+
+  .dt-brand { min-width: 0; }
+  .dt-brand .dt-logo { height: 30px; }
+
+  .dt-nav-actions {
+    flex: 0 0 auto;
+    gap: 8px;
+  }
+
+  .dt-phone-link {
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    border: 1px solid var(--border-muted);
+    border-radius: var(--radius-ctrl);
+  }
+
+  .dt-phone-link span { display: none; }
+
+  .dt-nav-actions > .dt-btn {
+    padding: 9px 12px !important;
+    font-size: 12px !important;
+  }
+
+  .dt-hamburger {
+    width: 40px;
+    height: 40px;
+  }
+
   .dt-section {
     padding: 60px 0;
   }
   
   .dt-hero-title {
-    font-size: clamp(38px, 10vw, 56px);
+    font-size: clamp(31px, 8.4vw, 48px);
+    line-height: 1.08;
   }
+
+  .dt-incentive-callout {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .dt-incentive-callout > .dt-btn { width: 100%; }
   
   .dt-hero-specs {
     grid-template-columns: repeat(2, 1fr);
@@ -1820,6 +1907,28 @@ img {
     gap: 16px;
     text-align: center;
   }
+}
+
+@media (max-width: 360px) {
+  .dt-phone-link { display: none; }
+  #dt-navbar .dt-nav-container { padding-inline: 12px; gap: 6px; }
+  .dt-nav-actions > .dt-btn { padding-inline: 9px !important; font-size: 11px !important; }
+  .dt-brand .dt-logo { height: 27px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 3px solid var(--gold-accent);
+  outline-offset: 3px;
 }
 
 /* ==========================================================================
