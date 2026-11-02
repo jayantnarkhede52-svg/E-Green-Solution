@@ -83,7 +83,7 @@ const server = http.createServer((req, res) => {
         res.end(`
             <!DOCTYPE html>
             <html lang="en">
-            <head><title>404 Not Found</title><style>body{font-family:sans-serif;text-align:center;padding:50px;background:#0d1117;color:#fff;}a{color:#49B99E;}</style></head>
+            <head><title>404 Not Found</title><style>body{font-family:sans-serif;text-align:center;padding:50px;background:#0d1117;color:#fff;}a{color:#A8BEA1;}</style></head>
             <body>
                 <h1>404 - Page Not Found</h1>
                 <p>The requested URL <code>${parsedUrl.pathname}</code> was not found on this server.</p>

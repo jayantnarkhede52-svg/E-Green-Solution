@@ -525,7 +525,7 @@ def build_homepage():
                         </div>
                     </div>
 
-                    <div style="background: rgba(73, 185, 158, 0.05); border: 1px solid var(--border-gold); border-radius: var(--radius-ctrl); padding: 18px 20px; margin-top: 24px;">
+                    <div style="background: rgba(168, 190, 161, 0.05); border: 1px solid var(--border-gold); border-radius: var(--radius-ctrl); padding: 18px 20px; margin-top: 24px;">
                         <div style="display: flex; align-items: center; gap: 10px; color: var(--gold-accent); font-weight: 600; font-size: 14px; margin-bottom: 6px;">
                             <i class="fas fa-shield-alt"></i> PM Surya Ghar Direct Subsidy Eligible
                         </div>
@@ -836,7 +836,7 @@ def build_homepage():
 
                     <div style="margin-top: 32px; display: flex; flex-direction: column; gap: 14px;">
                         <div style="display: flex; align-items: center; gap: 12px; color: var(--text-primary);">
-                            <div style="width: 36px; height: 36px; border-radius: 6px; background: rgba(73, 185, 158, 0.1); border: 1px solid var(--border-gold); display: flex; align-items: center; justify-content: center; color: var(--gold-accent);">
+                            <div style="width: 36px; height: 36px; border-radius: 6px; background: rgba(168, 190, 161, 0.1); border: 1px solid var(--border-gold); display: flex; align-items: center; justify-content: center; color: var(--gold-accent);">
                                 <i class="fas fa-phone-alt"></i>
                             </div>
                             <div>

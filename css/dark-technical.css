@@ -1,6 +1,6 @@
 /* ==========================================================================
    E GREEN SOLUTION — DARK TECHNICAL DESIGN SYSTEM
-   Selected Design Theme: 01 — Dark Technical (Charcoal #0B0D12 + Solar Teal #49B99E)
+   Selected Design Theme: 01 — Dark Technical (Charcoal #0B0D12 + Solar Sage #A8BEA1)
    Typography: Manrope, Inter, JetBrains Mono
    ========================================================================== */
 
@@ -16,12 +16,12 @@
   --text-secondary: #A6B0BE;
   --text-muted: #727D8E;
   
-  /* Solar Teal Brand Accent Tokens */
-  --accent-primary: #49B99E;
-  --accent-hover: #61C9AE;
+  /* Solar Sage Brand Accent Tokens */
+  --accent-primary: #A8BEA1;
+  --accent-hover: #B9CFB2;
   --text-on-accent: #071713;
-  --border-accent: rgba(73, 185, 158, 0.32);
-  --accent-glow: rgba(73, 185, 158, 0.1);
+  --border-accent: rgba(168, 190, 161, 0.32);
+  --accent-glow: rgba(168, 190, 161, 0.1);
 
   /* Keep existing component tokens mapped to the new brand accent. */
   --gold-accent: var(--accent-primary);
@@ -45,7 +45,7 @@
   /* Elevation Shadows */
   --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.35);
   --shadow-elevated: 0 16px 40px rgba(0, 0, 0, 0.55);
-  --shadow-gold: 0 4px 14px rgba(73, 185, 158, 0.12);
+  --shadow-gold: 0 4px 14px rgba(168, 190, 161, 0.12);
 }
 
 /* Base Document Reset & Typography */
@@ -494,7 +494,7 @@ img {
 }
 
 .dt-drop-item:hover .dt-drop-icon {
-  background: rgba(73, 185, 158, 0.16);
+  background: rgba(168, 190, 161, 0.16);
   border-color: var(--border-accent);
   color: var(--gold-accent);
 }
@@ -684,7 +684,7 @@ img {
   transform: translate(30%, -50%);
   width: 650px;
   height: 650px;
-  background: radial-gradient(circle, rgba(73, 185, 158, 0.07) 0%, rgba(39, 45, 55, 0.2) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(168, 190, 161, 0.07) 0%, rgba(39, 45, 55, 0.2) 40%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -704,7 +704,7 @@ img {
 }
 
 .dt-hero-title {
-  font-size: clamp(48px, 6vw, 98px);
+  font-size: clamp(42px, 4.5vw, 68px);
   font-weight: 350;
   letter-spacing: -0.06em;
   line-height: 0.98;
@@ -879,7 +879,7 @@ img {
 .dt-panel-sheen {
   position: absolute;
   inset: 0;
-  background: linear-gradient(125deg, rgba(255,255,255,0.14) 0%, rgba(73, 185, 158, 0.06) 35%, transparent 65%);
+  background: linear-gradient(125deg, rgba(255,255,255,0.14) 0%, rgba(168, 190, 161, 0.06) 35%, transparent 65%);
   pointer-events: none;
 }
 
@@ -1013,7 +1013,7 @@ img {
 .dt-services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 22px;
 }
 
 .dt-service-card {
@@ -1023,20 +1023,27 @@ img {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all 0.25s ease;
+  transition: border-color 0.18s ease, background-color 0.18s ease, transform 0.18s ease;
   position: relative;
+  color: var(--text-primary);
+  text-decoration: none;
 }
 
 .dt-service-card:hover {
   border-color: var(--border-gold);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+  transform: translateY(-2px);
+  background-color: var(--bg-elevated);
+}
+
+.dt-service-card:focus-visible {
+  outline: 3px solid var(--gold-accent);
+  outline-offset: 4px;
 }
 
 .dt-service-img-wrap {
   position: relative;
   width: 100%;
-  height: 220px;
+  height: 190px;
   overflow: hidden;
   background-color: #0E121A;
 }
@@ -1045,18 +1052,18 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.28s ease;
 }
 
 .dt-service-card:hover .dt-service-img {
-  transform: scale(1.04);
+  transform: scale(1.02);
 }
 
 .dt-service-img-wrap::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(23, 27, 35, 0.95) 100%);
+  background: linear-gradient(180deg, rgba(11, 13, 18, 0.14), transparent 45%);
   pointer-events: none;
 }
 
@@ -1076,48 +1083,54 @@ img {
 }
 
 .dt-service-body {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+  padding: 18px 20px 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  gap: 5px 12px;
 }
 
 .dt-service-title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 10px;
+  margin: 0;
   line-height: 1.3;
 }
 
 .dt-service-desc {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text-secondary);
   line-height: 1.65;
-  margin-bottom: 20px;
-  flex-grow: 1;
+  margin: 0;
 }
 
-.dt-service-link {
-  font-size: 13px;
-  font-weight: 600;
+.dt-service-arrow {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border-muted);
+  border-radius: 50%;
   color: var(--gold-accent);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: gap 0.2s ease, color 0.2s ease;
+  font-size: 13px;
+  transition: background-color 0.18s ease, border-color 0.18s ease;
 }
 
-.dt-service-link:hover {
-  color: var(--gold-hover);
-  gap: 10px;
+.dt-service-card:hover .dt-service-arrow,
+.dt-service-card:focus-visible .dt-service-arrow {
+  background-color: var(--accent-glow);
+  border-color: var(--border-accent);
 }
 
 /* B. Cinematic Project Case Study Cards */
 .dt-projects-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 28px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
 }
 
 .dt-project-card {
@@ -1128,19 +1141,18 @@ img {
   position: relative;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s ease;
+  transition: border-color 0.18s ease, transform 0.18s ease;
 }
 
 .dt-project-card:hover {
   border-color: var(--border-emp);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-elevated);
+  transform: translateY(-2px);
 }
 
 .dt-project-media {
   position: relative;
   width: 100%;
-  height: 320px;
+  height: 230px;
   overflow: hidden;
 }
 
@@ -1148,30 +1160,30 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  transition: transform 0.28s ease;
 }
 
 .dt-project-card:hover .dt-project-img {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .dt-project-media::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(23, 27, 35, 0.95) 100%);
+  background: linear-gradient(180deg, rgba(11, 13, 18, 0.08), transparent 36%);
 }
 
 .dt-project-content {
-  padding: 26px 28px;
+  padding: 20px 22px 22px;
 }
 
 .dt-project-meta {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
+  font-size: 10px;
   color: var(--gold-accent);
   margin-bottom: 10px;
   text-transform: uppercase;
@@ -1179,10 +1191,39 @@ img {
 }
 
 .dt-project-title {
-  font-size: 22px;
+  font-size: 19px;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 12px;
+  margin: 0 0 6px;
+  line-height: 1.35;
+}
+
+.dt-project-desc {
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0 0 14px;
+}
+
+.dt-project-link,
+.dt-projects-more a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--gold-accent);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.dt-project-link:hover,
+.dt-projects-more a:hover {
+  color: var(--gold-hover);
+}
+
+.dt-projects-more {
+  margin-top: 26px;
+  text-align: center;
 }
 
 .dt-project-specs-row {
@@ -1313,6 +1354,7 @@ img {
   border: 1px solid var(--border-emp);
   box-shadow: var(--shadow-elevated);
   user-select: none;
+  touch-action: pan-y;
 }
 
 .dt-slider-img {
@@ -1641,7 +1683,7 @@ img {
   right: 10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(73, 185, 158, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(168, 190, 161, 0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -1792,7 +1834,7 @@ img {
   }
   
   .dt-hero-stage {
-    min-height: 400px;
+    min-height: 340px;
   }
   
   .dt-panel-card {
@@ -1806,7 +1848,7 @@ img {
   }
   
   .dt-services-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   
   .dt-projects-grid {
@@ -1860,8 +1902,8 @@ img {
   .dt-phone-link span { display: none; }
 
   .dt-nav-actions > .dt-btn {
-    padding: 9px 12px !important;
-    font-size: 12px !important;
+    padding: 8px 10px !important;
+    font-size: 11px !important;
   }
 
   .dt-hamburger {
@@ -1872,11 +1914,25 @@ img {
   .dt-section {
     padding: 60px 0;
   }
+
+  .dt-container { padding-inline: 20px; }
+
+  .dt-section-header { margin-bottom: 32px; }
   
   .dt-hero-title {
     font-size: clamp(31px, 8.4vw, 48px);
     line-height: 1.08;
+    width: 100%;
+    max-width: 100%;
   }
+
+  .dt-hero-content { width: 100%; }
+
+  .dt-hero-eyebrow,
+  .dt-hero-keywords,
+  .dt-hero-desc { width: 100%; max-width: 100%; }
+
+  .dt-hero-eyebrow { justify-content: center; text-align: center; }
 
   .dt-incentive-callout {
     align-items: stretch;
@@ -1892,14 +1948,61 @@ img {
   }
   
   .dt-panel-card {
-    width: 260px;
-    height: 300px;
+    width: 220px;
+    height: 250px;
     transform: none;
   }
+
+  .dt-hero-stage { min-height: 280px; }
+
+  .dt-hero-ctas {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .dt-hero-ctas .dt-btn { width: 100%; min-height: 44px; }
   
   .dt-services-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
+
+  .dt-service-img-wrap { height: 176px; }
+
+  .dt-projects-grid { grid-template-columns: 1fr; gap: 16px; }
+
+  .dt-project-media { height: 210px; }
+
+  .dt-project-content { padding: 18px; }
+
+  .dt-project-meta { flex-wrap: wrap; }
+
+  .dt-project-title { font-size: 18px; }
+
+  .dt-hero-specs { gap: 14px 10px; }
+
+  .dt-spec-label { font-size: 9px; letter-spacing: 0.06em; }
+
+  .dt-section-title { font-size: clamp(28px, 8vw, 38px); }
+
+  .dt-tech-label { max-width: 100%; letter-spacing: 0.12em; }
+
+  .dt-slider-container { border-radius: 12px; }
+
+  .dt-slider-tag { max-width: 46%; text-align: center; }
+
+  .dt-live-telemetry { display: none; }
+
+  .dt-nav-actions > .dt-btn { white-space: nowrap; }
+
+  .dt-service-body { padding: 16px 18px 18px; }
+
+  .dt-service-title { font-size: 17px; }
+
+  .dt-service-desc { font-size: 13px; }
   
   .dt-process-grid {
     grid-template-columns: 1fr;
@@ -1932,7 +2035,7 @@ img {
 @media (max-width: 360px) {
   .dt-phone-link { display: none; }
   #dt-navbar .dt-nav-container { padding-inline: 12px; gap: 6px; }
-  .dt-nav-actions > .dt-btn { padding-inline: 9px !important; font-size: 11px !important; }
+  .dt-nav-actions > .dt-btn { padding-inline: 8px !important; font-size: 10px !important; }
   .dt-brand .dt-logo { height: 27px; }
 }
 

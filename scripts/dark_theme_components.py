@@ -14,7 +14,7 @@ def get_dt_navbar(active_page=""):
         return ' class="active"' if active_page == page else ''
 
     return f"""    <!-- ============================================================
-         GLOBAL DARK TECHNICAL NAVIGATION (#0B0D12 / Solar Teal #49B99E)
+         GLOBAL DARK TECHNICAL NAVIGATION (#0B0D12 / Solar Sage #A8BEA1)
          ============================================================ -->
     <header id="dt-navbar" role="banner">
         <div class="dt-nav-container">
@@ -182,7 +182,7 @@ def get_dt_navbar(active_page=""):
 
 def get_dt_footer():
     return """    <!-- ============================================================
-         GLOBAL DARK TECHNICAL FOOTER (#07080B / Solar Teal #49B99E)
+         GLOBAL DARK TECHNICAL FOOTER (#07080B / Solar Sage #A8BEA1)
          ============================================================ -->
     <footer id="dt-footer" role="contentinfo">
         <div class="dt-container">
@@ -307,7 +307,7 @@ def get_dt_footer():
         window.addEventListener('scroll', function() {
             if (navbar) {
                 if (window.scrollY > 20) {
-                    navbar.style.borderBottomColor = 'rgba(73, 185, 158, 0.25)';
+                    navbar.style.borderBottomColor = 'rgba(168, 190, 161, 0.25)';
                     navbar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.7)';
                 } else {
                     navbar.style.borderBottomColor = 'rgba(241, 243, 245, 0.12)';
