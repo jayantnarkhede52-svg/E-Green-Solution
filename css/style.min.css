@@ -4,8 +4,8 @@
     --primary: #2e7d32;
     --primary-gradient: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
     --primary-light: #4caf50;
-    --accent: #fbc02d;
-    --accent-gradient: linear-gradient(135deg, #fbc02d 0%, #f9a825 100%);
+    --accent: #49B99E;
+    --accent-gradient: linear-gradient(135deg, #49B99E 0%, #61C9AE 100%);
     --text-dark: #1a1a1a;
     --text-light: #ffffff;
     --glass-bg: rgba(255, 255, 255, 0.08);
@@ -401,7 +401,7 @@ section .hero-tagline {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    box-shadow: 0 8px 30px rgba(251, 192, 45, 0.4);
+    box-shadow: 0 8px 30px rgba(73, 185, 158, 0.4);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
@@ -430,7 +430,7 @@ section .hero-tagline {
 
 .btn-primary:hover {
     transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 15px 40px rgba(251, 192, 45, 0.6);
+    box-shadow: 0 15px 40px rgba(73, 185, 158, 0.6);
     background: white;
 }
 

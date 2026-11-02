@@ -101,8 +101,8 @@ def build_homepage():
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/dark-technical.css?v=2.0">
-    <link rel="stylesheet" href="/css/style.css?v=2.0">
+    <link rel="stylesheet" href="/css/dark-technical.css?v=3.0">
+    <link rel="stylesheet" href="/css/style.css?v=3.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Supabase & EmailJS JS -->
@@ -525,7 +525,7 @@ def build_homepage():
                         </div>
                     </div>
 
-                    <div style="background: rgba(232, 198, 90, 0.05); border: 1px solid var(--border-gold); border-radius: var(--radius-ctrl); padding: 18px 20px; margin-top: 24px;">
+                    <div style="background: rgba(73, 185, 158, 0.05); border: 1px solid var(--border-gold); border-radius: var(--radius-ctrl); padding: 18px 20px; margin-top: 24px;">
                         <div style="display: flex; align-items: center; gap: 10px; color: var(--gold-accent); font-weight: 600; font-size: 14px; margin-bottom: 6px;">
                             <i class="fas fa-shield-alt"></i> PM Surya Ghar Direct Subsidy Eligible
                         </div>
@@ -836,7 +836,7 @@ def build_homepage():
 
                     <div style="margin-top: 32px; display: flex; flex-direction: column; gap: 14px;">
                         <div style="display: flex; align-items: center; gap: 12px; color: var(--text-primary);">
-                            <div style="width: 36px; height: 36px; border-radius: 6px; background: rgba(232, 198, 90, 0.1); border: 1px solid var(--border-gold); display: flex; align-items: center; justify-content: center; color: var(--gold-accent);">
+                            <div style="width: 36px; height: 36px; border-radius: 6px; background: rgba(73, 185, 158, 0.1); border: 1px solid var(--border-gold); display: flex; align-items: center; justify-content: center; color: var(--gold-accent);">
                                 <i class="fas fa-phone-alt"></i>
                             </div>
                             <div>

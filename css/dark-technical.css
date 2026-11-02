@@ -1,6 +1,6 @@
 /* ==========================================================================
    E GREEN SOLUTION — DARK TECHNICAL DESIGN SYSTEM
-   Selected Design Theme: 01 — Dark Technical (Charcoal #0B0D12 + Solar Gold #E8C65A)
+   Selected Design Theme: 01 — Dark Technical (Charcoal #0B0D12 + Solar Teal #49B99E)
    Typography: Manrope, Inter, JetBrains Mono
    ========================================================================== */
 
@@ -16,12 +16,19 @@
   --text-secondary: #A6B0BE;
   --text-muted: #727D8E;
   
-  /* Solar Gold Brand Accent Tokens */
-  --gold-accent: #E8C65A;
-  --gold-hover: #F0D375;
-  --text-on-gold: #111317;
-  --border-gold: rgba(232, 198, 90, 0.35);
-  --gold-glow: rgba(232, 198, 90, 0.12);
+  /* Solar Teal Brand Accent Tokens */
+  --accent-primary: #49B99E;
+  --accent-hover: #61C9AE;
+  --text-on-accent: #071713;
+  --border-accent: rgba(73, 185, 158, 0.32);
+  --accent-glow: rgba(73, 185, 158, 0.1);
+
+  /* Keep existing component tokens mapped to the new brand accent. */
+  --gold-accent: var(--accent-primary);
+  --gold-hover: var(--accent-hover);
+  --text-on-gold: var(--text-on-accent);
+  --border-gold: var(--border-accent);
+  --gold-glow: var(--accent-glow);
 
   /* Borders & Grid Overlays */
   --border-muted: rgba(241, 243, 245, 0.12);
@@ -38,7 +45,7 @@
   /* Elevation Shadows */
   --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.35);
   --shadow-elevated: 0 16px 40px rgba(0, 0, 0, 0.55);
-  --shadow-gold: 0 8px 30px rgba(232, 198, 90, 0.25);
+  --shadow-gold: 0 4px 14px rgba(73, 185, 158, 0.12);
 }
 
 /* Base Document Reset & Typography */
@@ -81,7 +88,7 @@ p {
 a {
   color: inherit;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: color 0.14s ease, background-color 0.14s ease, border-color 0.14s ease;
 }
 
 img {
@@ -152,7 +159,7 @@ img {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--gold-accent);
-  background: rgba(232, 198, 90, 0.08);
+  background: var(--accent-glow);
   border: 1px solid var(--border-gold);
   padding: 5px 14px;
   border-radius: var(--radius-ctrl);
@@ -166,7 +173,7 @@ img {
   height: 6px;
   border-radius: 50%;
   background: var(--gold-accent);
-  box-shadow: 0 0 8px var(--gold-accent);
+  box-shadow: none;
 }
 
 .dt-section-title {
@@ -202,7 +209,7 @@ img {
   border-radius: var(--radius-btn);
   cursor: pointer;
   border: 1px solid transparent;
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: color 0.14s ease, background-color 0.14s ease, border-color 0.14s ease;
   white-space: nowrap;
 }
 
@@ -214,16 +221,22 @@ img {
 
 .dt-btn-primary:hover {
   background-color: var(--gold-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(232, 198, 90, 0.35);
+  transform: none;
+  box-shadow: var(--shadow-gold);
+}
+
+#dt-navbar .dt-btn-primary,
+#dt-navbar .dt-btn-primary:hover {
+  box-shadow: none;
+  transform: none;
 }
 
 .dt-btn-primary i {
-  transition: transform 0.22s ease;
+  transition: none;
 }
 
 .dt-btn-primary:hover i {
-  transform: translateX(4px);
+  transform: none;
 }
 
 .dt-btn-secondary {
@@ -235,16 +248,16 @@ img {
 .dt-btn-secondary:hover {
   background-color: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.35);
-  transform: translateY(-2px);
+  transform: none;
 }
 
 .dt-btn-secondary i {
   color: var(--gold-accent);
-  transition: transform 0.22s ease;
+  transition: none;
 }
 
 .dt-btn-secondary:hover i {
-  transform: translateX(3px);
+  transform: none;
 }
 
 .dt-btn-ghost {
@@ -264,7 +277,7 @@ img {
 }
 
 .dt-btn-ghost:hover i {
-  transform: translateX(4px);
+  transform: none;
 }
 
 /* ==========================================================================
@@ -277,14 +290,12 @@ img {
   left: 0;
   width: 100%;
   height: 58px;
-  background-color: rgba(11, 13, 18, 0.94);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background-color: rgba(11, 13, 18, 0.98);
   border-bottom: 1px solid var(--border-muted);
   z-index: 10000;
   display: flex;
   align-items: center;
-  transition: background-color 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.14s ease, border-color 0.14s ease;
 }
 
 .dt-nav-container {
@@ -314,7 +325,7 @@ img {
   width: auto;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+  filter: none;
 }
 
 .dt-brand .dt-brand-title {
@@ -347,7 +358,7 @@ img {
   font-size: 13.5px;
   font-weight: 500;
   padding: 6px 0;
-  transition: color 0.2s ease;
+  transition: color 0.14s ease;
   letter-spacing: 0.01em;
 }
 
@@ -376,11 +387,10 @@ img {
 .dt-dropdown-trigger i {
   font-size: 10px;
   color: var(--text-muted);
-  transition: transform 0.22s ease, color 0.22s ease;
+  transition: color 0.14s ease;
 }
 
 .dt-has-dropdown:hover .dt-dropdown-trigger i {
-  transform: rotate(180deg);
   color: var(--gold-accent);
 }
 
@@ -388,17 +398,17 @@ img {
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translateX(-50%) translateY(12px);
+  transform: translateX(-50%);
   width: 620px;
   background-color: var(--bg-surface);
   border: 1px solid var(--border-emp);
   border-radius: var(--radius-card);
   padding: 18px 20px;
-  box-shadow: var(--shadow-elevated);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.38);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.22s ease, visibility 0.2s;
+  transition: opacity 0.14s ease, visibility 0s linear 0.14s;
   z-index: 10010;
 }
 
@@ -417,7 +427,8 @@ img {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateX(-50%) translateY(4px);
+  transform: translateX(-50%);
+  transition-delay: 0s;
 }
 
 .dt-dropdown-header {
@@ -459,19 +470,19 @@ img {
   gap: 12px;
   padding: 9px 12px;
   border-radius: var(--radius-ctrl);
-  transition: background-color 0.15s ease, transform 0.15s ease;
+  transition: background-color 0.12s ease;
 }
 
 .dt-drop-item:hover {
   background-color: var(--bg-elevated);
-  transform: translateX(2px);
+  transform: none;
 }
 
 .dt-drop-icon {
   width: 32px;
   height: 32px;
   border-radius: 6px;
-  background: rgba(232, 198, 90, 0.1);
+  background: var(--accent-glow);
   border: 1px solid var(--border-gold);
   color: var(--gold-accent);
   display: flex;
@@ -479,12 +490,13 @@ img {
   justify-content: center;
   font-size: 13px;
   flex-shrink: 0;
-  transition: all 0.2s;
+  transition: color 0.12s ease, background-color 0.12s ease, border-color 0.12s ease;
 }
 
 .dt-drop-item:hover .dt-drop-icon {
-  background: var(--gold-accent);
-  color: var(--text-on-gold);
+  background: rgba(73, 185, 158, 0.16);
+  border-color: var(--border-accent);
+  color: var(--gold-accent);
 }
 
 .dt-drop-info strong {
@@ -516,7 +528,7 @@ img {
   display: flex;
   align-items: center;
   gap: 6px;
-  transition: color 0.2s;
+  transition: color 0.14s ease;
 }
 
 .dt-phone-link i {
@@ -542,7 +554,7 @@ img {
   cursor: pointer;
   padding: 0;
   z-index: 10002;
-  transition: border-color 0.2s;
+  transition: border-color 0.14s ease;
 }
 
 .dt-hamburger span {
@@ -550,7 +562,7 @@ img {
   height: 2px;
   background-color: var(--text-primary);
   border-radius: 2px;
-  transition: all 0.25s ease;
+  transition: transform 0.12s ease, opacity 0.12s ease;
   display: block;
 }
 
@@ -672,7 +684,7 @@ img {
   transform: translate(30%, -50%);
   width: 650px;
   height: 650px;
-  background: radial-gradient(circle, rgba(232, 198, 90, 0.08) 0%, rgba(39, 45, 55, 0.2) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(73, 185, 158, 0.07) 0%, rgba(39, 45, 55, 0.2) 40%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -867,7 +879,7 @@ img {
 .dt-panel-sheen {
   position: absolute;
   inset: 0;
-  background: linear-gradient(125deg, rgba(255,255,255,0.14) 0%, rgba(232,198,90,0.06) 35%, transparent 65%);
+  background: linear-gradient(125deg, rgba(255,255,255,0.14) 0%, rgba(73, 185, 158, 0.06) 35%, transparent 65%);
   pointer-events: none;
 }
 
@@ -1602,7 +1614,7 @@ img {
 .dt-select:focus,
 .dt-textarea:focus {
   border-color: var(--gold-accent);
-  box-shadow: 0 0 0 3px rgba(232, 198, 90, 0.15);
+  box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
 .dt-input::placeholder,
@@ -1629,7 +1641,7 @@ img {
   right: 10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(232, 198, 90, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(73, 185, 158, 0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 
