@@ -3034,17 +3034,17 @@ body {
 /* 7. Small Mobile Adjustments (<= 768px) */
 @media (max-width: 768px) {
   .dt-hero-title {
-    font-size: clamp(21px, 6.5vw, 32px) !important;
+    font-size: clamp(25px, 7vw, 34px) !important;
     line-height: 1.15 !important;
     letter-spacing: 0 !important;
-    word-spacing: 0.12em !important;
+    word-spacing: 0.1em !important;
     margin-bottom: 12px !important;
     overflow-wrap: break-word !important;
     word-break: break-word !important;
   }
 
   .dt-section-title {
-    font-size: clamp(20px, 6vw, 28px) !important;
+    font-size: clamp(21.5px, 6vw, 28px) !important;
     line-height: 1.18 !important;
     letter-spacing: 0 !important;
     word-spacing: 0.10em !important;
@@ -3278,7 +3278,7 @@ section.dt-subpage-hero {
   }
 
   .dt-hero-title {
-    font-size: clamp(21px, 6vw, 29px) !important;
+    font-size: clamp(25px, 6.8vw, 32px) !important;
     line-height: 1.18 !important;
     letter-spacing: -0.01em !important;
     word-spacing: 0.08em !important;
@@ -3288,7 +3288,7 @@ section.dt-subpage-hero {
   }
 
   .dt-section-title {
-    font-size: clamp(20px, 5.5vw, 26px) !important;
+    font-size: clamp(21px, 5.8vw, 26px) !important;
     line-height: 1.2 !important;
     letter-spacing: -0.01em !important;
     word-spacing: 0.06em !important;
@@ -3408,11 +3408,11 @@ section.dt-subpage-hero {
   }
 
   .dt-hero-title {
-    font-size: clamp(20px, 5.8vw, 26px) !important;
+    font-size: clamp(24px, 6.6vw, 30px) !important;
   }
 
   .dt-section-title {
-    font-size: clamp(19px, 5.2vw, 24px) !important;
+    font-size: clamp(20px, 5.4vw, 24px) !important;
   }
 
   .dt-form-card {
@@ -4001,10 +4001,13 @@ textarea {
 }
 
 @media (max-width: 600px) {
-  /* Restrict headings to 2 lines max on mobile */
+  /* Sized for punchy mobile readability while staying within 2 lines */
   .dt-hero-title,
-  h1.dt-hero-title {
-    font-size: clamp(21px, 5.8vw, 28px) !important;
+  h1.dt-hero-title,
+  .page-header h1,
+  .hero-copy h1,
+  h1 {
+    font-size: clamp(24px, 6.8vw, 31px) !important;
     line-height: 1.18 !important;
     letter-spacing: -0.01em !important;
     word-spacing: normal !important;
@@ -4014,8 +4017,13 @@ textarea {
   .dt-section-title,
   h2.dt-section-title,
   .dt-cta-box h2,
-  section h2 {
-    font-size: clamp(18px, 5vw, 23px) !important;
+  section h2,
+  .section-header h2,
+  .service-info h2,
+  .about-text h2,
+  .contact-form h2,
+  h2 {
+    font-size: clamp(20.5px, 5.5vw, 25px) !important;
     line-height: 1.22 !important;
     letter-spacing: -0.01em !important;
     word-spacing: normal !important;
@@ -4023,20 +4031,22 @@ textarea {
   }
 
   .dt-calc-step-title {
-    font-size: clamp(18px, 4.8vw, 21px) !important;
+    font-size: clamp(19.5px, 5.2vw, 22.5px) !important;
     line-height: 1.25 !important;
     letter-spacing: -0.01em !important;
     margin: 6px 0 4px !important;
   }
 
-  .dt-qa-service-title {
-    font-size: clamp(15.5px, 4.4vw, 18px) !important;
-    line-height: 1.25 !important;
+  .dt-card-title,
+  .dt-qa-service-title,
+  h3 {
+    font-size: clamp(17px, 4.5vw, 19.5px) !important;
+    line-height: 1.28 !important;
     letter-spacing: -0.01em !important;
   }
 
   .dt-mini-card-title {
-    font-size: 11px !important;
+    font-size: 11.5px !important;
     line-height: 1.25 !important;
   }
 
