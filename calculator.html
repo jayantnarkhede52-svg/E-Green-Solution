@@ -11,9 +11,9 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar Calculator Pune | Savings, ROI & System Size</title>
-    <meta name="description" content="Estimate your rooftop solar generation, monthly electricity bill savings, government subsidy, and payback period with our Pune solar calculator.">
-    <meta name="keywords" content="solar panel price in pune, solar savings calculator pune, solar roi calculator india, electricity savings estimator, rooftop solar sizing">
+    <title>Solar Installation & Savings Calculator Pune | Real EPC Pricing</title>
+    <meta name="description" content="Calculate accurate rooftop solar installation costs, system capacity in kW/MW, MSEDCL bill savings, and subsidy in Pune & PCMC with our 2026 turnkey solar calculator.">
+    <meta name="keywords" content="solar installation calculator pune, solar panel price in pune, rooftop solar sizing calculator, solar cost per megawatt pune, pcmc solar quotation, msedcl subsidy calculator">
     <link rel="canonical" href="https://www.egreensolution.in/calculator">
 
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
@@ -42,10 +42,10 @@
     <!-- Google Fonts: Manrope, Inter, JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/dark-technical.css?v=4.0">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/dark-technical.css?v=5.0">
     <script src="/js/site-accessibility.js?v=1.0" defer></script>
-    <link rel="stylesheet" href="/css/style.css?v=4.0">
+    <link rel="stylesheet" href="/css/style.css?v=5.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="tech-grid-bg">
@@ -188,7 +188,7 @@
                 </button>
             </div>
             
-                        <ul class="dt-mobile-links">
+            <ul class="dt-mobile-links">
                 <li><a href="/">Home</a></li>
                 <li class="dt-mobile-dropdown">
                     <button type="button" class="dt-mobile-dropdown-btn" id="dt-mobile-services-toggle" aria-expanded="false">
@@ -236,118 +236,448 @@
             <div class="dt-breadcrumbs">
                 <a href="/">Home</a>
                 <span class="sep">/</span>
-                <span class="current">Solar Calculator</span>
+                <span class="current">Solar Calculators</span>
             </div>
 
             <div style="max-width: 860px;">
-                <div class="dt-tech-label">SAVINGS &amp; ROI SIMULATOR</div>
-                <h1 class="dt-hero-title" style="font-size: clamp(34px, 4.4vw, 54px); margin-bottom: 20px;">
-                    Solar Savings &amp; ROI Calculator
+                <div class="dt-tech-label">PUNE SOLAR SIMULATOR SUITE</div>
+                <h1 class="dt-hero-title" style="font-size: clamp(28px, 4vw, 48px); margin-bottom: 16px;">
+                    Solar Installation &amp; Savings Calculator
                 </h1>
-                <p class="dt-section-desc" style="font-size: 18px; line-height: 1.8; margin-bottom: 24px;">
-                        Calculate recommended solar capacity, subsidy entitlement, monthly savings, and payback period in seconds.
-                    </p>
+                <p class="dt-section-desc" style="font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
+                    Get an instant turnkey installation quotation based on authentic Pune &amp; PCMC pricing, or estimate bill savings with government subsidies.
+                </p>
 
-                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                    <span class="dt-pill"><i class="fas fa-check" style="color: var(--gold-accent);"></i> Calibrated for Maharashtra Tariffs</span>
-                    <span class="dt-pill"><i class="fas fa-check" style="color: var(--gold-accent);"></i> Includes ₹78,000 Subsidy Math</span>
-                    <span class="dt-pill"><i class="fas fa-check" style="color: var(--gold-accent);"></i> Tier-1 Vikram Solar Sizing</span>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <span class="dt-pill"><i class="fas fa-check" style="color: var(--gold-accent);"></i> 20+ Pune &amp; PCMC Areas</span>
+                    <span class="dt-pill"><i class="fas fa-check" style="color: var(--gold-accent);"></i> Accurate kW &amp; MW Sizing</span>
+                    <span class="dt-pill"><i class="fas fa-check" style="color: var(--gold-accent);"></i> Authentic EPC Pricing</span>
+                    <span class="dt-pill"><i class="fas fa-check" style="color: var(--gold-accent);"></i> PM Surya Ghar &amp; GHS Subsidies</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Interactive Wizard Calculator Section -->
+    <!-- Main Dual Calculator Section -->
     <section class="dt-section">
         <div class="dt-container">
-            <div class="dt-calc-box" style="max-width: 960px; margin: 0 auto; background: var(--bg-surface); border: 1px solid var(--border-emp); border-radius: var(--radius-container); box-shadow: var(--shadow-elevated);">
+            <div class="dt-calc-box" style="max-width: 940px; margin: 0 auto;">
                 
-                <!-- Step 1: Input -->
-                <div id="calc-step-1">
-                    <div style="margin-bottom: 32px;">
-                        <span class="dt-tech-label">STEP 01 // MONTHLY USAGE INPUT</span>
-                        <h2 class="dt-calc-step-title">Enter Monthly Power Bill</h2>
-                        <p class="dt-calc-step-desc">Adjust slider or enter your monthly MSEDCL bill.</p>
-                    </div>
-
-                    <div style="margin-bottom: 36px;">
-                        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px;">
-                            <label style="font-family: 'JetBrains Mono', monospace; font-size: 13px; text-transform: uppercase; color: var(--text-secondary);">Average Monthly Bill (₹)</label>
-                            <div style="display: flex; align-items: center; gap: 6px; background: var(--bg-input); border: 1px solid var(--border-gold); padding: 6px 14px; border-radius: var(--radius-ctrl);">
-                                <span style="color: var(--gold-accent); font-weight: 700;">₹</span>
-                                <input type="number" id="monthlyBill" value="5000" min="1000" max="100000" style="background: transparent; border: none; color: var(--text-primary); font-family: 'Manrope', sans-serif; font-size: 20px; font-weight: 700; width: 100px; outline: none;">
-                            </div>
-                        </div>
-
-                        <input type="range" id="monthlyBillRange" min="1000" max="50000" step="500" value="5000" class="dt-range-input">
-                    </div>
-
-                    <div style="margin-bottom: 36px; background: var(--bg-elevated); border: 1px solid var(--border-muted); border-radius: var(--radius-card); padding: 22px;">
-                        <label for="unitRate" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; color: var(--text-secondary); display: block; margin-bottom: 8px;">
-                            <i class="fas fa-bolt" style="color: var(--gold-accent);"></i> MSEDCL Electricity Rate (₹ / unit)
-                        </label>
-                        <p style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 12px;">Maharashtra Residential Slabs: ₹9 – ₹14/unit (avg ₹10/unit)</p>
-                        <div style="display: inline-flex; align-items: center; gap: 6px; background: var(--bg-input); border: 1px solid var(--border-muted); padding: 8px 16px; border-radius: var(--radius-ctrl);">
-                            <span style="color: var(--text-muted);">₹</span>
-                            <input type="number" id="unitRate" value="10" min="5" max="25" step="0.5" style="background: transparent; border: none; color: var(--text-primary); font-family: 'Manrope', sans-serif; font-size: 16px; font-weight: 600; width: 80px; outline: none;">
-                        </div>
-                    </div>
-
-                    <button type="button" class="dt-btn dt-btn-primary" id="btn-show-results" style="width: 100%; padding: 16px; font-size: 15px;">
-                        Calculate Solar Savings &rarr;
+                <!-- Dual Calculator Mode Switcher -->
+                <div class="dt-calc-mode-switcher" role="tablist" aria-label="Calculator Mode Switcher">
+                    <button type="button" class="dt-mode-tab-btn active" id="tab-btn-install" role="tab" aria-selected="true" aria-controls="calc-pane-install">
+                        <i class="fas fa-tools"></i> <span>Solar Installation Calculator</span>
+                    </button>
+                    <button type="button" class="dt-mode-tab-btn" id="tab-btn-savings" role="tab" aria-selected="false" aria-controls="calc-pane-savings">
+                        <i class="fas fa-chart-line"></i> <span>Quick Savings &amp; ROI Simulator</span>
                     </button>
                 </div>
 
-                <!-- Step 2: Results -->
-                <div id="calc-step-2" style="display: none;">
-                    <div style="margin-bottom: 30px;">
-                        <span class="dt-tech-label">STEP 02 // ESTIMATED SOLAR POTENTIAL</span>
-                        <h2 class="dt-calc-step-title">Your Projected Solar Savings</h2>
-                        <p class="dt-calc-step-desc">Calculated for monthly bill of ₹<span id="summary-bill" style="color: var(--gold-accent); font-weight: 700;">5,000</span>.</p>
+                <!-- ========================================================
+                     CALCULATOR 1: STEP-WISE SOLAR INSTALLATION CALCULATOR
+                     ======================================================== -->
+                <div id="calc-pane-install">
+                    
+                    <!-- Step Progress Indicator -->
+                    <div class="dt-step-progress-bar" id="install-step-bar">
+                        <div class="dt-step-pill active" id="step-pill-1"><i class="fas fa-map-marker-alt"></i> 1. Location</div>
+                        <div class="dt-step-pill" id="step-pill-2"><i class="fas fa-building"></i> 2. Property</div>
+                        <div class="dt-step-pill" id="step-pill-3"><i class="fas fa-ruler-combined"></i> 3. Sizing</div>
+                        <div class="dt-step-pill" id="step-pill-4"><i class="fas fa-file-invoice-dollar"></i> 4. Turnkey Quote</div>
                     </div>
 
-                    <!-- Highlight Box -->
-                    <div style="background: linear-gradient(135deg, rgba(23, 27, 35, 0.95), rgba(39, 45, 55, 0.95)); border: 1px solid var(--border-gold); border-radius: var(--radius-card); padding: 28px; margin-bottom: 28px; text-align: center;">
-                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.1em;">Estimated Monthly Bill Savings</span>
-                        <div style="font-family: 'Manrope', sans-serif; font-size: clamp(38px, 5vw, 54px); font-weight: 800; color: var(--gold-accent); margin: 6px 0;">
-                            ₹ <span id="resMonthlySavings">4,500</span>
-                        </div>
-                        <span style="font-size: 13px; color: #4ade80;"><i class="fas fa-check-circle"></i> Slashes approximately 90% of your ongoing electricity bill</span>
-                    </div>
-
-                    <!-- Stats Grid -->
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 32px;">
-                        <div style="background: var(--bg-elevated); border: 1px solid var(--border-muted); border-radius: var(--radius-ctrl); padding: 20px;">
-                            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; color: var(--text-muted);">Required System Capacity</span>
-                            <div style="font-size: 24px; font-weight: 700; color: var(--text-primary); margin-top: 6px;"><span id="resSystemSize">4.2</span> kW</div>
+                    <!-- STEP 1: LOCATION -->
+                    <div id="install-step-1" class="dt-wizard-step">
+                        <div style="margin-bottom: 24px;">
+                            <span class="dt-tech-label">STEP 01 // INSTALLATION REGION</span>
+                            <h2 class="dt-calc-step-title">Select Project Location</h2>
+                            <p class="dt-calc-step-desc">Calibrates local DISCOM feeder feasibility &amp; solar radiation in Pune/PCMC.</p>
                         </div>
 
-                        <div style="background: var(--bg-elevated); border: 1px solid var(--border-muted); border-radius: var(--radius-ctrl); padding: 20px;">
-                            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; color: var(--text-muted);">Shadow-Free Roof Area</span>
-                            <div style="font-size: 24px; font-weight: 700; color: var(--text-primary); margin-top: 6px;"><span id="resSpace">417</span> sq.ft.</div>
+                        <!-- Quick Chips -->
+                        <div style="margin-bottom: 18px;">
+                            <label style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; color: var(--text-muted); display: block;">Quick Select Popular Hubs:</label>
+                            <div class="dt-quick-chips" id="location-quick-chips">
+                                <button type="button" class="dt-quick-chip active" data-loc="Baner">Baner</button>
+                                <button type="button" class="dt-quick-chip" data-loc="Wakad">Wakad</button>
+                                <button type="button" class="dt-quick-chip" data-loc="Hinjewadi">Hinjewadi</button>
+                                <button type="button" class="dt-quick-chip" data-loc="Pimpri Chinchwad">Pimpri Chinchwad</button>
+                                <button type="button" class="dt-quick-chip" data-loc="Bhosari MIDC">Bhosari MIDC</button>
+                                <button type="button" class="dt-quick-chip" data-loc="Chakan MIDC">Chakan MIDC</button>
+                                <button type="button" class="dt-quick-chip" data-loc="Kothrud">Kothrud</button>
+                                <button type="button" class="dt-quick-chip" data-loc="Kharadi">Kharadi</button>
+                            </div>
                         </div>
 
-                        <div style="background: var(--bg-elevated); border: 1px solid var(--border-muted); border-radius: var(--radius-ctrl); padding: 20px;">
-                            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; color: var(--text-muted);">Gross Turnkey Cost</span>
-                            <div style="font-size: 24px; font-weight: 700; color: var(--text-primary); margin-top: 6px;">₹ <span id="resSystemCost">2,29,167</span></div>
-                            <span style="font-size: 11px; color: var(--text-muted);">*Before central subsidy</span>
+                        <!-- Dropdown of 20 Options -->
+                        <div style="margin-bottom: 30px;">
+                            <label for="installLocationSelect" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; color: var(--text-secondary); display: block; margin-bottom: 8px;">
+                                <i class="fas fa-location-dot" style="color: var(--gold-accent);"></i> All 20+ Pune Metropolitan &amp; PCMC Areas
+                            </label>
+                            <select id="installLocationSelect" class="dt-select" style="width: 100%; background: var(--bg-elevated); border: 1px solid var(--border-gold); color: var(--text-primary); padding: 13px 16px; border-radius: var(--radius-ctrl); font-family: 'Manrope', sans-serif; font-size: 14.5px; font-weight: 600; outline: none;">
+                                <option value="Baner" selected>Baner (Pune West)</option>
+                                <option value="Wakad">Wakad (Pune - PCMC Border)</option>
+                                <option value="Hinjewadi">Hinjewadi (IT Park Phase 1, 2 &amp; 3)</option>
+                                <option value="Pimpri Chinchwad">Pimpri Chinchwad (PCMC Central)</option>
+                                <option value="Bhosari MIDC">Bhosari MIDC (Industrial Belt)</option>
+                                <option value="Chakan MIDC">Chakan MIDC (Automotive Hub)</option>
+                                <option value="Talegaon MIDC">Talegaon MIDC &amp; Floriculture Park</option>
+                                <option value="Kothrud">Kothrud &amp; Karve Nagar</option>
+                                <option value="Aundh">Aundh &amp; Pashan</option>
+                                <option value="Hadapsar">Hadapsar &amp; Magarpatta City</option>
+                                <option value="Kharadi">Kharadi (EON Free Zone)</option>
+                                <option value="Viman Nagar">Viman Nagar &amp; Airport Road</option>
+                                <option value="Bavdhan">Bavdhan &amp; Chandani Chowk</option>
+                                <option value="Sinhagad Road">Sinhagad Road &amp; Dhayari</option>
+                                <option value="Kalyani Nagar">Kalyani Nagar &amp; Koregaon Park</option>
+                                <option value="Shivajinagar">Shivajinagar &amp; Deccan Gymkhana</option>
+                                <option value="Nigdi Akurdi">Nigdi, Akurdi &amp; Pradhikaran (PCMC)</option>
+                                <option value="Ravet Kiwale">Ravet, Kiwale &amp; Punawale</option>
+                                <option value="Wagholi">Wagholi &amp; Kesnand Road</option>
+                                <option value="Other Pune Area">Other Pune Metropolitan / Maharashtra</option>
+                            </select>
                         </div>
 
-                        <div style="background: var(--bg-elevated); border: 1px solid var(--border-gold); border-radius: var(--radius-ctrl); padding: 20px;">
-                            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; color: var(--gold-accent);">Net Investment After Subsidy</span>
-                            <div style="font-size: 24px; font-weight: 700; color: var(--gold-accent); margin-top: 6px;">₹ <span id="resNetCost">1,51,167</span></div>
-                            <span style="font-size: 11px; color: #4ade80;">*Includes ₹78,000 PM Surya Ghar Subsidy</span>
-                        </div>
-                    </div>
-
-                    <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-                        <button type="button" class="dt-btn dt-btn-secondary" id="btn-back-to-input">
-                            <i class="fas fa-arrow-left"></i> Edit Bill Inputs
+                        <button type="button" class="dt-btn dt-btn-primary" id="btn-goto-step-2" style="width: 100%; justify-content: center; padding: 15px;">
+                            Proceed to Property Category &rarr;
                         </button>
-                        <a href="/contact" class="dt-btn dt-btn-primary" style="flex: 1; justify-content: center;">
-                            Book Free Site Survey &amp; Verify Proposal &rarr;
-                        </a>
                     </div>
+
+                    <!-- STEP 2: PROPERTY CATEGORY -->
+                    <div id="install-step-2" class="dt-wizard-step" style="display: none;">
+                        <div style="margin-bottom: 24px;">
+                            <span class="dt-tech-label">STEP 02 // SECTOR &amp; TARIFF CLASSIFICATION</span>
+                            <h2 class="dt-calc-step-title">Select Property Category</h2>
+                            <p class="dt-calc-step-desc">Determines MSEDCL tariff slabs and central subsidy entitlement.</p>
+                        </div>
+
+                        <div class="dt-calc-prop-grid" id="install-prop-grid">
+                            <!-- Residential Home -->
+                            <div class="dt-calc-prop-card active" data-prop="residential">
+                                <div class="dt-calc-prop-title">
+                                    <i class="fas fa-home" style="color: var(--gold-accent);"></i> Residential Bungalow / Villa
+                                </div>
+                                <p class="dt-calc-prop-desc">Individual terrace rooftop plants (1 kW - 10 kW). PM Surya Ghar subsidy credit up to ₹78,000.</p>
+                            </div>
+
+                            <!-- Housing Society -->
+                            <div class="dt-calc-prop-card" data-prop="society">
+                                <div class="dt-calc-prop-title">
+                                    <i class="fas fa-building" style="color: var(--gold-accent);"></i> Housing Society (GHS)
+                                </div>
+                                <p class="dt-calc-prop-desc">Common area meters (lifts, pumps, lighting). ₹18,000/kW central subsidy up to 500 kW.</p>
+                            </div>
+
+                            <!-- Commercial -->
+                            <div class="dt-calc-prop-card" data-prop="commercial">
+                                <div class="dt-calc-prop-title">
+                                    <i class="fas fa-briefcase" style="color: var(--gold-accent);"></i> Commercial Enterprise
+                                </div>
+                                <p class="dt-calc-prop-desc">Offices, hospitals, schools, retail malls. Offsets ₹13+/unit peak LT/HT tariff + 40% Tax shield.</p>
+                            </div>
+
+                            <!-- Industrial MIDC -->
+                            <div class="dt-calc-prop-card" data-prop="industrial">
+                                <div class="dt-calc-prop-title">
+                                    <i class="fas fa-industry" style="color: var(--gold-accent);"></i> Industrial Plant (MIDC)
+                                </div>
+                                <p class="dt-calc-prop-desc">Factories, manufacturing sheds, warehouses. High-tension (HT) grid sync from 100 kW to 2+ Megawatts.</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                            <button type="button" class="dt-btn dt-btn-secondary" id="btn-back-to-step-1" style="padding: 13px 18px;">
+                                &larr; Back
+                            </button>
+                            <button type="button" class="dt-btn dt-btn-primary" id="btn-goto-step-3" style="flex: 1; justify-content: center; padding: 13px;">
+                                Proceed to Sizing Details &rarr;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: SIZING BASIS -->
+                    <div id="install-step-3" class="dt-wizard-step" style="display: none;">
+                        <div style="margin-bottom: 22px;">
+                            <span class="dt-tech-label">STEP 03 // SIZING DIMENSIONS</span>
+                            <h2 class="dt-calc-step-title">Enter Roof Area or Monthly Bill</h2>
+                            <p class="dt-calc-step-desc">Choose whether to size by available square footage or electricity expenses.</p>
+                        </div>
+
+                        <!-- Toggle between Roof Area and Electricity Bill -->
+                        <div style="display: flex; gap: 8px; margin-bottom: 22px; background: var(--bg-elevated); padding: 5px; border-radius: var(--radius-ctrl); border: 1px solid var(--border-muted);">
+                            <button type="button" id="toggle-sizing-area" class="dt-mode-tab-btn active" style="font-size: 11.5px; padding: 9px 12px;">
+                                <i class="fas fa-ruler-combined"></i> By Usable Roof Area (Sq. Ft.)
+                            </button>
+                            <button type="button" id="toggle-sizing-bill" class="dt-mode-tab-btn" style="font-size: 11.5px; padding: 9px 12px;">
+                                <i class="fas fa-bolt"></i> By Monthly Bill (₹)
+                            </button>
+                        </div>
+
+                        <!-- SIZING BY ROOF AREA CONTAINER -->
+                        <div id="container-sizing-area">
+                            <div style="margin-bottom: 16px;">
+                                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+                                    <label for="inputRoofArea" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; color: var(--text-secondary);">
+                                        Shadow-Free Terrace Area (Sq. Ft.)
+                                    </label>
+                                    <span style="font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">~90 sq.ft. per kW</span>
+                                </div>
+                                <div style="display: flex; align-items: center; background: var(--bg-elevated); border: 1px solid var(--border-gold); padding: 8px 16px; border-radius: var(--radius-ctrl);">
+                                    <input type="number" id="inputRoofArea" value="1000" min="100" max="1000000" step="50" style="background: transparent; border: none; color: var(--text-primary); font-family: 'Manrope', sans-serif; font-size: 20px; font-weight: 700; width: 100%; outline: none;">
+                                    <span style="color: var(--gold-accent); font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700;">SQ.FT</span>
+                                </div>
+                            </div>
+
+                            <label style="font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; color: var(--text-muted); display: block;">Quick Presets:</label>
+                            <div class="dt-quick-chips" id="area-chips">
+                                <button type="button" class="dt-quick-chip" data-area="500">500 sq.ft. (~5 kW)</button>
+                                <button type="button" class="dt-quick-chip active" data-area="1000">1,000 sq.ft. (~10 kW)</button>
+                                <button type="button" class="dt-quick-chip" data-area="3000">3,000 sq.ft. (~30 kW)</button>
+                                <button type="button" class="dt-quick-chip" data-area="10000">10,000 sq.ft. (~100 kW)</button>
+                                <button type="button" class="dt-quick-chip" data-area="50000">50,000 sq.ft. (~0.5 MW)</button>
+                                <button type="button" class="dt-quick-chip" data-area="100000">1,00,000 sq.ft. (~1.0 MW)</button>
+                            </div>
+                        </div>
+
+                        <!-- SIZING BY MONTHLY BILL CONTAINER (HIDDEN INITIALLY) -->
+                        <div id="container-sizing-bill" style="display: none;">
+                            <div style="margin-bottom: 16px;">
+                                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+                                    <label for="inputMonthlyBillInst" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; color: var(--text-secondary);">
+                                        Average Monthly Electricity Bill (₹)
+                                    </label>
+                                    <span style="font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">MSEDCL Tariff</span>
+                                </div>
+                                <div style="display: flex; align-items: center; background: var(--bg-elevated); border: 1px solid var(--border-gold); padding: 8px 16px; border-radius: var(--radius-ctrl);">
+                                    <span style="color: var(--gold-accent); font-family: 'Manrope', sans-serif; font-size: 20px; font-weight: 700; margin-right: 8px;">₹</span>
+                                    <input type="number" id="inputMonthlyBillInst" value="10000" min="1000" max="50000000" step="500" style="background: transparent; border: none; color: var(--text-primary); font-family: 'Manrope', sans-serif; font-size: 20px; font-weight: 700; width: 100%; outline: none;">
+                                </div>
+                            </div>
+
+                            <label style="font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; color: var(--text-muted); display: block;">Quick Presets:</label>
+                            <div class="dt-quick-chips" id="bill-chips">
+                                <button type="button" class="dt-quick-chip" data-bill="4000">₹4,000 / mo</button>
+                                <button type="button" class="dt-quick-chip active" data-bill="10000">₹10,000 / mo</button>
+                                <button type="button" class="dt-quick-chip" data-bill="35000">₹35,000 / mo</button>
+                                <button type="button" class="dt-quick-chip" data-bill="150000">₹1,50,000 / mo</button>
+                                <button type="button" class="dt-quick-chip" data-bill="800000">₹8,00,000 / mo</button>
+                                <button type="button" class="dt-quick-chip" data-bill="2500000">₹25,00,000 / mo</button>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px;">
+                            <button type="button" class="dt-btn dt-btn-secondary" id="btn-back-to-step-2" style="padding: 13px 18px;">
+                                &larr; Back
+                            </button>
+                            <button type="button" class="dt-btn dt-btn-primary" id="btn-calculate-installation" style="flex: 1; justify-content: center; padding: 13px;">
+                                Calculate Turnkey Quotation &rarr;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: RESULTS & TURNKEY ENGINEERING QUOTATION -->
+                    <div id="install-step-4" class="dt-wizard-step" style="display: none;">
+                        
+                        <!-- Top Summary Badge Strip -->
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border-muted);">
+                            <div>
+                                <span class="dt-tech-label" style="margin: 0 0 4px;">PUNE TURNKEY QUOTE</span>
+                                <h2 class="dt-calc-step-title" style="margin: 0;">Solar Installation Quotation</h2>
+                            </div>
+                            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                                <span class="dt-pill" id="quote-pill-loc" style="font-size: 11px;"><i class="fas fa-map-marker-alt" style="color: var(--gold-accent);"></i> Baner</span>
+                                <span class="dt-pill" id="quote-pill-prop" style="font-size: 11px;"><i class="fas fa-building" style="color: var(--gold-accent);"></i> Residential</span>
+                            </div>
+                        </div>
+
+                        <!-- Capacity Hero Callout -->
+                        <div style="background: linear-gradient(135deg, rgba(23, 27, 35, 0.95), rgba(39, 45, 55, 0.95)); border: 1px solid var(--border-gold); border-radius: var(--radius-card); padding: 22px; margin-bottom: 22px; text-align: center;">
+                            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.08em;">Recommended Plant Sizing</span>
+                            <div id="quote-capacity-display" style="font-family: 'Manrope', sans-serif; font-size: clamp(34px, 5.5vw, 50px); font-weight: 800; color: var(--gold-accent); margin: 4px 0;">
+                                8.8 kW
+                            </div>
+                            <div style="font-size: 12.5px; color: var(--text-secondary); display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                                <span><i class="fas fa-sun" style="color: #4ade80;"></i> <strong id="quote-units-month" style="color: var(--text-primary);">1,100</strong> units/month</span>
+                                <span><i class="fas fa-ruler" style="color: #4ade80;"></i> <strong id="quote-roof-needed" style="color: var(--text-primary);">792</strong> sq.ft. required</span>
+                            </div>
+                        </div>
+
+                        <!-- 4 Financial Metrics Grid -->
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 24px;">
+                            
+                            <div style="background: var(--bg-elevated); border: 1px solid var(--border-muted); border-radius: var(--radius-ctrl); padding: 16px;">
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; text-transform: uppercase; color: var(--text-muted); display: block;">Turnkey EPC Cost</span>
+                                <div style="font-size: 21px; font-weight: 800; color: var(--text-primary); margin: 4px 0;">₹ <span id="quote-gross-cost">5,14,800</span></div>
+                                <span style="font-size: 10.5px; color: var(--text-muted);">*Authentic Pune EPC pricing</span>
+                            </div>
+
+                            <div style="background: var(--bg-elevated); border: 1px solid var(--border-muted); border-radius: var(--radius-ctrl); padding: 16px;">
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; text-transform: uppercase; color: var(--text-muted); display: block;" id="quote-subsidy-label">Govt Central Subsidy</span>
+                                <div style="font-size: 21px; font-weight: 800; color: #4ade80; margin: 4px 0;">- ₹ <span id="quote-subsidy-amount">78,000</span></div>
+                                <span style="font-size: 10.5px; color: #4ade80;" id="quote-subsidy-note">*Direct Bank Transfer (DBT)</span>
+                            </div>
+
+                            <div style="background: var(--bg-elevated); border: 1px solid var(--border-gold); border-radius: var(--radius-ctrl); padding: 16px;">
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; text-transform: uppercase; color: var(--gold-accent); display: block;">Net Capital Investment</span>
+                                <div style="font-size: 21px; font-weight: 800; color: var(--gold-accent); margin: 4px 0;">₹ <span id="quote-net-cost">4,36,800</span></div>
+                                <span style="font-size: 10.5px; color: var(--text-muted);">*After applicable subsidies</span>
+                            </div>
+
+                            <div style="background: var(--bg-elevated); border: 1px solid var(--border-muted); border-radius: var(--radius-ctrl); padding: 16px;">
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; text-transform: uppercase; color: var(--text-muted); display: block;">Est. Annual Bill Savings</span>
+                                <div style="font-size: 21px; font-weight: 800; color: var(--text-primary); margin: 4px 0;">₹ <span id="quote-annual-savings">1,38,600</span>/yr</div>
+                                <span style="font-size: 10.5px; color: #4ade80;"><i class="fas fa-check"></i> Payback: <strong id="quote-payback-years">3.1</strong> Years</span>
+                            </div>
+
+                        </div>
+
+                        <!-- Technical Standards Included Strip -->
+                        <div style="background: rgba(123, 216, 148, 0.05); border: 1px solid rgba(123, 216, 148, 0.2); border-radius: var(--radius-ctrl); padding: 14px; margin-bottom: 24px; font-size: 12px; color: var(--text-secondary); line-height: 1.5;">
+                            <strong style="color: var(--gold-accent); font-family: 'JetBrains Mono', monospace; display: block; margin-bottom: 4px;"><i class="fas fa-certificate"></i> TURNKEY EPC SCOPE INCLUDED:</strong>
+                            Tier-1 Mono PERC / TOPCon bifacial modules, certified dual-MPPT on-grid inverter, 150 km/h wind-rated hot-dip galvanized (HDGI) structure, AC/DC protection boxes, lightning arrestor, chemical earthing pits, MSEDCL net metering liaisoning, and 5-year comprehensive O&amp;M warranty.
+                        </div>
+
+                        <!-- Embedded Compact Lead Booking Box -->
+                        <div style="background: var(--bg-surface); border: 1px solid var(--border-emp); border-radius: var(--radius-card); padding: 20px; margin-bottom: 22px;">
+                            <h3 style="font-size: 16px; color: var(--text-primary); margin: 0 0 6px;">Lock in This Quotation &amp; Book Free Site Survey</h3>
+                            <p style="font-size: 12.5px; color: var(--text-muted); margin: 0 0 16px;">Our certified engineer will verify your terrace structure in Pune and finalize engineering drawings.</p>
+                            
+                            <form id="install-lead-form" class="dt-form-grid" style="gap: 10px;">
+                                <input type="hidden" name="form_source" value="Solar Installation Calculator">
+                                <input type="hidden" id="form-lead-location" name="location" value="Baner">
+                                <input type="hidden" id="form-lead-property" name="property_type" value="Residential">
+                                <input type="hidden" id="form-lead-capacity" name="system_capacity" value="8.8 kW">
+                                <input type="hidden" id="form-lead-quote" name="estimated_quote" value="₹ 4,36,800">
+                                
+                                <div class="dt-form-group">
+                                    <input type="text" id="lead-name" name="name" class="dt-input" placeholder="Your Full Name *" required style="padding: 10px 14px; font-size: 13.5px;">
+                                </div>
+                                <div class="dt-form-group">
+                                    <input type="tel" id="lead-phone" name="phone" class="dt-input" placeholder="WhatsApp / Mobile Number *" required style="padding: 10px 14px; font-size: 13.5px;">
+                                </div>
+                                <div class="dt-form-group full">
+                                    <input type="email" id="lead-email" name="email" class="dt-input" placeholder="Email Address (for detailed PDF breakdown)" style="padding: 10px 14px; font-size: 13.5px;">
+                                </div>
+
+                                <div class="dt-form-group full">
+                                    <button type="submit" class="dt-btn dt-btn-primary" id="btn-submit-install-lead" style="width: 100%; justify-content: center; padding: 13px; font-size: 14px;">
+                                        Submit for Detailed Engineering Proposal &rarr;
+                                    </button>
+                                </div>
+                            </form>
+
+                            <div id="install-form-feedback" style="display: none; margin-top: 12px; padding: 10px; border-radius: 6px; font-size: 13px; text-align: center;"></div>
+                        </div>
+
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <button type="button" class="dt-btn dt-btn-secondary" id="btn-recalculate-install" style="padding: 12px 16px;">
+                                <i class="fas fa-redo"></i> Change Inputs
+                            </button>
+                            <a href="tel:+917249187969" class="dt-btn dt-btn-secondary" style="flex: 1; justify-content: center; padding: 12px 14px;">
+                                <i class="fas fa-phone-alt"></i> Call Engineer
+                            </a>
+                            <a href="https://wa.me/917249187969?text=Hello%20E%20Green%20Solution,%20I%20used%20your%20Solar%20Installation%20Calculator%20and%20want%20a%20formal%20quote" target="_blank" rel="noopener noreferrer" class="dt-btn dt-btn-secondary" style="flex: 1; justify-content: center; padding: 12px 14px; color: #4ade80 !important;">
+                                <i class="fab fa-whatsapp"></i> WhatsApp Quote
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ========================================================
+                     CALCULATOR 2: QUICK SAVINGS & ROI SIMULATOR (PANE 2)
+                     ======================================================== -->
+                <div id="calc-pane-savings" style="display: none;">
+                    
+                    <!-- Step 1: Input -->
+                    <div id="calc-step-1">
+                        <div style="margin-bottom: 24px;">
+                            <span class="dt-tech-label">STEP 01 // MONTHLY USAGE INPUT</span>
+                            <h2 class="dt-calc-step-title">Enter Monthly Power Bill</h2>
+                            <p class="dt-calc-step-desc">Adjust slider or enter your monthly MSEDCL bill.</p>
+                        </div>
+
+                        <div style="margin-bottom: 26px;">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;">
+                                <label style="font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; color: var(--text-secondary);">Average Monthly Bill (₹)</label>
+                                <div style="display: flex; align-items: center; gap: 6px; background: var(--bg-input); border: 1px solid var(--border-gold); padding: 5px 12px; border-radius: var(--radius-ctrl);">
+                                    <span style="color: var(--gold-accent); font-weight: 700;">₹</span>
+                                    <input type="number" id="monthlyBill" value="5000" min="1000" max="100000" style="background: transparent; border: none; color: var(--text-primary); font-family: 'Manrope', sans-serif; font-size: 18px; font-weight: 700; width: 90px; outline: none;">
+                                </div>
+                            </div>
+
+                            <input type="range" id="monthlyBillRange" min="1000" max="50000" step="500" value="5000" class="dt-range-input">
+                        </div>
+
+                        <div style="margin-bottom: 26px; background: var(--bg-elevated); border: 1px solid var(--border-muted); border-radius: var(--radius-card); padding: 18px;">
+                            <label for="unitRate" style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; color: var(--text-secondary); display: block; margin-bottom: 6px;">
+                                <i class="fas fa-bolt" style="color: var(--gold-accent);"></i> MSEDCL Electricity Rate (₹ / unit)
+                            </label>
+                            <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 10px;">Maharashtra Residential Slabs: ₹9 – ₹14/unit (avg ₹10/unit)</p>
+                            <div style="display: inline-flex; align-items: center; gap: 6px; background: var(--bg-input); border: 1px solid var(--border-muted); padding: 6px 14px; border-radius: var(--radius-ctrl);">
+                                <span style="color: var(--text-muted);">₹</span>
+                                <input type="number" id="unitRate" value="10" min="5" max="25" step="0.5" style="background: transparent; border: none; color: var(--text-primary); font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 600; width: 70px; outline: none;">
+                            </div>
+                        </div>
+
+                        <button type="button" class="dt-btn dt-btn-primary" id="btn-show-results" style="width: 100%; padding: 15px; font-size: 14.5px; justify-content: center;">
+                            Calculate Solar Savings &rarr;
+                        </button>
+                    </div>
+
+                    <!-- Step 2: Results -->
+                    <div id="calc-step-2" style="display: none;">
+                        <div style="margin-bottom: 22px;">
+                            <span class="dt-tech-label">STEP 02 // ESTIMATED SOLAR POTENTIAL</span>
+                            <h2 class="dt-calc-step-title">Your Projected Solar Savings</h2>
+                            <p class="dt-calc-step-desc">Calculated for monthly bill of ₹<span id="summary-bill" style="color: var(--gold-accent); font-weight: 700;">5,000</span>.</p>
+                        </div>
+
+                        <!-- Highlight Box -->
+                        <div style="background: linear-gradient(135deg, rgba(23, 27, 35, 0.95), rgba(39, 45, 55, 0.95)); border: 1px solid var(--border-gold); border-radius: var(--radius-card); padding: 22px; margin-bottom: 22px; text-align: center;">
+                            <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.1em;">Estimated Monthly Bill Savings</span>
+                            <div style="font-family: 'Manrope', sans-serif; font-size: clamp(34px, 5vw, 48px); font-weight: 800; color: var(--gold-accent); margin: 4px 0;">
+                                ₹ <span id="resMonthlySavings">4,500</span>
+                            </div>
+                            <span style="font-size: 12.5px; color: #4ade80;"><i class="fas fa-check-circle"></i> Slashes approximately 90% of your ongoing electricity bill</span>
+                        </div>
+
+                        <!-- Stats Grid -->
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 24px;">
+                            <div style="background: var(--bg-elevated); border: 1px solid var(--border-muted); border-radius: var(--radius-ctrl); padding: 16px;">
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; text-transform: uppercase; color: var(--text-muted);">Required Capacity</span>
+                                <div style="font-size: 21px; font-weight: 700; color: var(--text-primary); margin-top: 4px;"><span id="resSystemSize">4.2</span> kW</div>
+                            </div>
+
+                            <div style="background: var(--bg-elevated); border: 1px solid var(--border-muted); border-radius: var(--radius-ctrl); padding: 16px;">
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; text-transform: uppercase; color: var(--text-muted);">Terrace Space</span>
+                                <div style="font-size: 21px; font-weight: 700; color: var(--text-primary); margin-top: 4px;"><span id="resSpace">417</span> sq.ft.</div>
+                            </div>
+
+                            <div style="background: var(--bg-elevated); border: 1px solid var(--border-muted); border-radius: var(--radius-ctrl); padding: 16px;">
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; text-transform: uppercase; color: var(--text-muted);">Gross Turnkey Cost</span>
+                                <div style="font-size: 21px; font-weight: 700; color: var(--text-primary); margin-top: 4px;">₹ <span id="resSystemCost">2,29,167</span></div>
+                                <span style="font-size: 10.5px; color: var(--text-muted);">*Before subsidy</span>
+                            </div>
+
+                            <div style="background: var(--bg-elevated); border: 1px solid var(--border-gold); border-radius: var(--radius-ctrl); padding: 16px;">
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; text-transform: uppercase; color: var(--gold-accent);">Net After Subsidy</span>
+                                <div style="font-size: 21px; font-weight: 700; color: var(--gold-accent); margin-top: 4px;">₹ <span id="resNetCost">1,51,167</span></div>
+                                <span style="font-size: 10.5px; color: #4ade80;">*₹78k PM Surya Ghar</span>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                            <button type="button" class="dt-btn dt-btn-secondary" id="btn-back-to-input">
+                                <i class="fas fa-arrow-left"></i> Edit Bill Inputs
+                            </button>
+                            <a href="/contact" class="dt-btn dt-btn-primary" style="flex: 1; justify-content: center;">
+                                Book Free Site Survey &rarr;
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -365,7 +695,7 @@
                 </p>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
                 <div class="dt-card">
                     <div class="dt-card-icon"><i class="fas fa-coins"></i></div>
                     <h3 class="dt-card-title">Factors Affecting Solar Pricing in Pune</h3>
@@ -384,10 +714,10 @@
     <!-- Global CTA -->
     <section class="dt-section" style="background: var(--bg-primary); border-top: 1px solid var(--border-muted);">
         <div class="dt-container" style="text-align: center;">
-            <div style="background: var(--bg-surface); border: 1px solid var(--border-gold); border-radius: var(--radius-container); padding: 50px; max-width: 860px; margin: 0 auto;">
-                <div class="dt-tech-label" style="margin: 0 auto 16px;">VERIFY YOUR ROOF POTENTIAL</div>
-                <h2 style="font-size: clamp(28px, 3.4vw, 40px); color: var(--text-primary); margin-bottom: 14px;">Book Free On-Site Energy Audit</h2>
-                <p style="font-size: 16px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 28px;">
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-gold); border-radius: var(--radius-container); padding: 40px 24px; max-width: 860px; margin: 0 auto;">
+                <div class="dt-tech-label" style="margin: 0 auto 14px;">VERIFY YOUR ROOF POTENTIAL</div>
+                <h2 style="font-size: clamp(24px, 3.4vw, 36px); color: var(--text-primary); margin-bottom: 12px;">Book Free On-Site Energy Audit</h2>
+                <p style="font-size: 15px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 24px;">
                     Our engineers will inspect your terrace in Pune, conduct drone shadow analysis, and deliver a guaranteed output proposal.
                 </p>
                 <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
@@ -398,25 +728,19 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         GLOBAL DARK TECHNICAL FOOTER (#07080B / Solar Sage #7BD894)
-         ============================================================ -->
+    <!-- Global Footer -->
     <footer id="dt-footer" role="contentinfo">
         <div class="dt-container">
             <div class="dt-footer-grid">
-                <!-- Column 1: Brand & Authority Summary -->
+                <!-- Column 1: Brand -->
                 <div class="dt-footer-col">
                     <a href="/" class="dt-brand" style="margin-bottom: 18px; display: inline-flex;" aria-label="E Green Solution Home">
                         <img src="/assets/logo.png" alt="E Green Solution" class="dt-logo" width="140" height="32" loading="lazy">
                         <span class="dt-brand-title">E GREEN <span>SOLUTION</span></span>
                     </a>
-                    <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">
-                        Pune's premier rooftop solar engineering contractor and authorized solar equipment dealer. Delivering precision turnkey photovoltaic installations for homeowners, housing societies, and MIDC manufacturing plants with guaranteed MSEDCL net metering approvals, clear project guidance, and 25-year linear performance warranties.
+                    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 18px;">
+                        Pune's premier rooftop solar engineering contractor and authorized solar equipment dealer. Precision turnkey photovoltaic installations with guaranteed MSEDCL net metering approvals and 25-year warranties.
                     </p>
-                    <div style="display: flex; gap: 12px;">
-                        <span class="dt-tech-label" style="font-size: 9.5px; padding: 3px 8px; margin: 0;"><i class="fas fa-shield-alt"></i> MNRE &amp; IEEE COMPLIANT</span>
-                        <span class="dt-tech-label" style="font-size: 9.5px; padding: 3px 8px; margin: 0;"><i class="fas fa-certificate"></i> TIER-1 MODULES</span>
-                    </div>
                 </div>
 
                 <!-- Column 2: Turnkey Solar Installations -->
@@ -426,10 +750,8 @@
                         <li><a href="/residential-solar"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Residential Rooftop Solar</a></li>
                         <li><a href="/commercial-solar-pune"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Commercial Solar EPC</a></li>
                         <li><a href="/industrial-solar"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Industrial Solar (MIDC)</a></li>
-                        <li><a href="/residential-solar"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Residential Incentive Guide</a></li>
-                        <li><a href="/solar-guide"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Solar 101 Knowledge Guide</a></li>
+                        <li><a href="/gallery"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Solar Photo &amp; Video Gallery</a></li>
                         <li><a href="/calculator"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Solar Savings Calculator</a></li>
-                        <li><a href="/projects"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Commissioned Case Studies</a></li>
                     </ul>
                 </div>
 
@@ -441,126 +763,399 @@
                         <li><a href="/solar-panel-cleaning-pune"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Demineralized RO Wash</a></li>
                         <li><a href="/solar-inverter-repair-pune"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Inverter Repair &amp; Service</a></li>
                         <li><a href="/solar-net-meter-msedcl-pune"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> MSEDCL Net Meter Testing</a></li>
-                        <li><a href="/solar-plant-revamping-repowering"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Plant Revamping &amp; Repower</a></li>
-                        <li><a href="/solar-water-heater-pune"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Solar Water Heating Systems</a></li>
                         <li><a href="/areas"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Pan-Pune Service Areas</a></li>
                     </ul>
                 </div>
 
-                <!-- Column 4: Official Office & Immediate Contact -->
+                <!-- Column 4: Contact -->
                 <div class="dt-footer-col">
-                    <h4>Pune Headquarters</h4>
-                    <div class="dt-footer-contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Plot No 12, Ground floor, Hira Banglow, Vidyadeep Society, Gulabnagar, Dhankawadi, Pune, Maharashtra 411043</span>
-                    </div>
-                    <div class="dt-footer-contact-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <span><a href="tel:+917249187969" style="color: var(--text-primary); font-weight: 600;">+91 72491 87969</a></span>
-                    </div>
-                    <div class="dt-footer-contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span><a href="mailto:egreensolution1@gmail.com">egreensolution1@gmail.com</a></span>
-                    </div>
-                    <div class="dt-footer-contact-item">
-                        <i class="fab fa-whatsapp" style="color: #4ade80;"></i>
-                        <span><a href="https://wa.me/917249187969?text=Hello%20E%20Green%20Solution,%20I%20would%20like%20to%20request%20a%20solar%20consultation" target="_blank" rel="noopener noreferrer">Instant WhatsApp Consultation</a></span>
-                    </div>
-                    <div class="dt-footer-contact-item">
-                        <i class="fas fa-clock"></i>
-                        <span>Mon – Sat: 09:00 AM – 07:00 PM</span>
-                    </div>
+                    <h4>Direct Contact</h4>
+                    <ul class="dt-footer-links">
+                        <li><a href="tel:+917249187969"><i class="fas fa-phone-alt" style="color: var(--gold-accent);"></i> +91 72491 87969</a></li>
+                        <li><a href="mailto:egreensolution1@gmail.com"><i class="fas fa-envelope" style="color: var(--gold-accent);"></i> egreensolution1@gmail.com</a></li>
+                        <li><span style="color: var(--text-muted); font-size: 12.5px;"><i class="fas fa-map-marker-alt" style="color: var(--gold-accent);"></i> Baner &amp; PCMC, Pune, MH</span></li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Bottom Legal & Internal Network -->
-            <div class="dt-footer-bottom">
-                <div>
-                    &copy; 2026 E Green Solution. All Rights Reserved. Turnkey Rooftop Solar Engineering &amp; Authorized Dealers Pune.
-                </div>
-                <div class="dt-legal-links">
-                    <a href="/privacy-policy">Privacy Policy</a>
-                    <a href="/sitemap.xml">XML Sitemap</a>
-                    <a href="/areas">Service Hub</a>
-                    <a href="/blog">Solar Articles</a>
-                    <a href="/contact">Free Site Survey</a>
-                </div>
+            <div style="text-align: center; padding: 24px 0 10px; border-top: 1px solid var(--border-muted); font-size: 12.5px; color: var(--text-muted);">
+                &copy; 2026 E Green Solution. Authorized Solar Panel Dealers in Pune &amp; Turnkey Solar EPC. All rights reserved.
             </div>
         </div>
     </footer>
 
-    <!-- Global Dark Technical Scripts (Drawer Toggle, FAQ Accordion, Telemetry) -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Mobile Drawer Toggle
-        var hamburger = document.getElementById('dt-hamburger');
-        var drawer = document.getElementById('dt-mobile-drawer');
-        var backdrop = document.getElementById('dt-backdrop');
-        var closeBtn = document.getElementById('dt-drawer-close');
-
-        function toggleDrawer(open) {
-            if (!drawer || !backdrop || !hamburger) return;
-            if (open) {
-                drawer.classList.add('active');
-                backdrop.classList.add('active');
-                hamburger.classList.add('active');
-                hamburger.setAttribute('aria-expanded', 'true');
-                document.body.style.overflow = 'hidden';
-            } else {
-                drawer.classList.remove('active');
-                backdrop.classList.remove('active');
-                hamburger.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
-            }
-        }
-
-        if (hamburger) hamburger.addEventListener('click', function() { toggleDrawer(!drawer.classList.contains('active')); });
-        if (closeBtn) closeBtn.addEventListener('click', function() { toggleDrawer(false); });
-        if (backdrop) backdrop.addEventListener('click', function() { toggleDrawer(false); });
-
-        // Sticky Navbar shadow
-        var navbar = document.getElementById('dt-navbar');
-        window.addEventListener('scroll', function() {
-            if (navbar) {
-                if (window.scrollY > 20) {
-                    navbar.style.borderBottomColor = 'rgba(123, 216, 148, 0.25)';
-                    navbar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.7)';
-                } else {
-                    navbar.style.borderBottomColor = 'rgba(241, 243, 245, 0.12)';
-                    navbar.style.boxShadow = 'none';
-                }
-            }
-        }, { passive: true });
-
-        // Global FAQ Accordion Toggle
-        document.querySelectorAll('.dt-faq-btn').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                var item = this.closest('.dt-faq-item');
-                var isActive = item.classList.contains('active');
-                var parent = item.closest('.dt-faq-list');
-                if (parent) {
-                    parent.querySelectorAll('.dt-faq-item').forEach(function(i) { i.classList.remove('active'); });
-                }
-                if (!isActive) {
-                    item.classList.add('active');
-                }
-            });
-        });
-    });
-    </script>
+    <!-- Scripts -->
     <script src="/js/main.js" defer></script>
 
-    <!-- Guaranteed Standalone Solar Calculator Controller -->
+    <!-- Standalone Dual-Calculator Engine Script -->
     <script>
-    (function initCalculator() {
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // ==========================================================
+        // 1. DUAL CALCULATOR TAB SWITCHER
+        // ==========================================================
+        var tabInstall = document.getElementById('tab-btn-install');
+        var tabSavings = document.getElementById('tab-btn-savings');
+        var paneInstall = document.getElementById('calc-pane-install');
+        var paneSavings = document.getElementById('calc-pane-savings');
+
+        if (tabInstall && tabSavings && paneInstall && paneSavings) {
+            tabInstall.addEventListener('click', function() {
+                tabInstall.classList.add('active');
+                tabInstall.setAttribute('aria-selected', 'true');
+                tabSavings.classList.remove('active');
+                tabSavings.setAttribute('aria-selected', 'false');
+                paneInstall.style.display = 'block';
+                paneSavings.style.display = 'none';
+            });
+
+            tabSavings.addEventListener('click', function() {
+                tabSavings.classList.add('active');
+                tabSavings.setAttribute('aria-selected', 'true');
+                tabInstall.classList.remove('active');
+                tabInstall.setAttribute('aria-selected', 'false');
+                paneSavings.style.display = 'block';
+                paneInstall.style.display = 'none';
+            });
+        }
+
+        // ==========================================================
+        // 2. TURNKEY SOLAR INSTALLATION CALCULATOR LOGIC
+        // ==========================================================
+        var currentInstallStep = 1;
+        var selectedLocation = 'Baner';
+        var selectedProperty = 'residential';
+        var sizingMode = 'area'; // 'area' or 'bill'
+        var inputRoofArea = document.getElementById('inputRoofArea');
+        var inputMonthlyBillInst = document.getElementById('inputMonthlyBillInst');
+        var locationSelect = document.getElementById('installLocationSelect');
+
+        // Location quick chips
+        var locChips = document.querySelectorAll('#location-quick-chips .dt-quick-chip');
+        locChips.forEach(function(chip) {
+            chip.addEventListener('click', function() {
+                locChips.forEach(function(c) { c.classList.remove('active'); });
+                this.classList.add('active');
+                selectedLocation = this.getAttribute('data-loc');
+                if (locationSelect) locationSelect.value = selectedLocation;
+            });
+        });
+
+        if (locationSelect) {
+            locationSelect.addEventListener('change', function() {
+                selectedLocation = this.value;
+                locChips.forEach(function(c) {
+                    if (c.getAttribute('data-loc') === selectedLocation) c.classList.add('active');
+                    else c.classList.remove('active');
+                });
+            });
+        }
+
+        // Step Navigation Buttons
+        var step1 = document.getElementById('install-step-1');
+        var step2 = document.getElementById('install-step-2');
+        var step3 = document.getElementById('install-step-3');
+        var step4 = document.getElementById('install-step-4');
+
+        var pill1 = document.getElementById('step-pill-1');
+        var pill2 = document.getElementById('step-pill-2');
+        var pill3 = document.getElementById('step-pill-3');
+        var pill4 = document.getElementById('step-pill-4');
+
+        function setInstallStep(stepNum) {
+            currentInstallStep = stepNum;
+            if (step1) step1.style.display = (stepNum === 1) ? 'block' : 'none';
+            if (step2) step2.style.display = (stepNum === 2) ? 'block' : 'none';
+            if (step3) step3.style.display = (stepNum === 3) ? 'block' : 'none';
+            if (step4) step4.style.display = (stepNum === 4) ? 'block' : 'none';
+
+            var pills = [pill1, pill2, pill3, pill4];
+            pills.forEach(function(p, idx) {
+                if (!p) return;
+                p.classList.remove('active', 'done');
+                if (idx + 1 === stepNum) p.classList.add('active');
+                else if (idx + 1 < stepNum) p.classList.add('done');
+            });
+
+            var box = document.querySelector('.dt-calc-box');
+            if (box) box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        document.getElementById('btn-goto-step-2').addEventListener('click', function() {
+            setInstallStep(2);
+        });
+
+        document.getElementById('btn-back-to-step-1').addEventListener('click', function() {
+            setInstallStep(1);
+        });
+
+        // Property selection cards
+        var propCards = document.querySelectorAll('#install-prop-grid .dt-calc-prop-card');
+        propCards.forEach(function(card) {
+            card.addEventListener('click', function() {
+                propCards.forEach(function(c) { c.classList.remove('active'); });
+                this.classList.add('active');
+                selectedProperty = this.getAttribute('data-prop');
+            });
+        });
+
+        document.getElementById('btn-goto-step-3').addEventListener('click', function() {
+            setInstallStep(3);
+        });
+
+        document.getElementById('btn-back-to-step-2').addEventListener('click', function() {
+            setInstallStep(2);
+        });
+
+        // Sizing Mode Switcher in Step 3
+        var btnToggleArea = document.getElementById('toggle-sizing-area');
+        var btnToggleBill = document.getElementById('toggle-sizing-bill');
+        var containerArea = document.getElementById('container-sizing-area');
+        var containerBill = document.getElementById('container-sizing-bill');
+
+        if (btnToggleArea && btnToggleBill) {
+            btnToggleArea.addEventListener('click', function() {
+                sizingMode = 'area';
+                btnToggleArea.classList.add('active');
+                btnToggleBill.classList.remove('active');
+                containerArea.style.display = 'block';
+                containerBill.style.display = 'none';
+            });
+
+            btnToggleBill.addEventListener('click', function() {
+                sizingMode = 'bill';
+                btnToggleBill.classList.add('active');
+                btnToggleArea.classList.remove('active');
+                containerBill.style.display = 'block';
+                containerArea.style.display = 'none';
+            });
+        }
+
+        // Area preset chips
+        var areaChips = document.querySelectorAll('#area-chips .dt-quick-chip');
+        areaChips.forEach(function(chip) {
+            chip.addEventListener('click', function() {
+                areaChips.forEach(function(c) { c.classList.remove('active'); });
+                this.classList.add('active');
+                if (inputRoofArea) inputRoofArea.value = this.getAttribute('data-area');
+            });
+        });
+
+        // Bill preset chips
+        var billChips = document.querySelectorAll('#bill-chips .dt-quick-chip');
+        billChips.forEach(function(chip) {
+            chip.addEventListener('click', function() {
+                billChips.forEach(function(c) { c.classList.remove('active'); });
+                this.classList.add('active');
+                if (inputMonthlyBillInst) inputMonthlyBillInst.value = this.getAttribute('data-bill');
+            });
+        });
+
+        // Calculation & Quote Generation
+        document.getElementById('btn-calculate-installation').addEventListener('click', function() {
+            runInstallationCalculation();
+            setInstallStep(4);
+        });
+
+        document.getElementById('btn-recalculate-install').addEventListener('click', function() {
+            setInstallStep(3);
+        });
+
+        function runInstallationCalculation() {
+            var capacityKw = 0;
+            var tariff = 10.5; // Default residential
+
+            if (selectedProperty === 'residential') {
+                tariff = 10.5;
+            } else if (selectedProperty === 'society') {
+                tariff = 9.2;
+            } else if (selectedProperty === 'commercial') {
+                tariff = 13.2;
+            } else if (selectedProperty === 'industrial') {
+                tariff = 9.8;
+            }
+
+            if (sizingMode === 'area') {
+                var area = parseFloat(inputRoofArea ? inputRoofArea.value : 1000) || 1000;
+                // In Pune, 1 kW requires ~90 sq.ft. of shadow-free area (80% usable terrace efficiency)
+                capacityKw = (area * 0.80) / 90;
+            } else {
+                var bill = parseFloat(inputMonthlyBillInst ? inputMonthlyBillInst.value : 10000) || 10000;
+                var monthlyUnits = bill / tariff;
+                // In Pune, 1 kW produces ~125 units per month
+                capacityKw = monthlyUnits / 125;
+            }
+
+            // Minimum practical system size: 1 kW
+            capacityKw = Math.max(1, capacityKw);
+
+            // Turnkey pricing calculation based on actual Pune market + 3.5% company margin
+            var pricePerKw = 70400; // Base 1-3kW residential turnkey + 3.5%
+            var subsidy = 0;
+            var subsidyLabel = 'Govt Central Subsidy';
+            var subsidyNote = '*Direct Bank Transfer (DBT)';
+
+            if (selectedProperty === 'residential') {
+                if (capacityKw <= 3.5) {
+                    pricePerKw = 70400; // 68k + 3.5%
+                    if (capacityKw < 1.5) subsidy = 30000;
+                    else if (capacityKw < 2.5) subsidy = 60000;
+                    else subsidy = 78000;
+                } else if (capacityKw <= 10) {
+                    pricePerKw = 58500; // 56.5k + 3.5%
+                    subsidy = 78000;
+                } else {
+                    pricePerKw = 52000; // 50k + 3.5%
+                    subsidy = 78000;
+                }
+                subsidyLabel = 'PM Surya Ghar Subsidy';
+                subsidyNote = '*Direct DBT into bank account';
+            } else if (selectedProperty === 'society') {
+                // Group Housing Society common meter
+                pricePerKw = (capacityKw >= 50) ? 45500 : 47600; // 46k + 3.5%
+                // Subsidy: ₹18,000 per kW up to 500 kW
+                subsidy = Math.min(500, capacityKw) * 18000;
+                subsidyLabel = 'GHS Central Subsidy';
+                subsidyNote = '*₹18,000/kW for common utilities';
+            } else if (selectedProperty === 'commercial') {
+                // Commercial EPC
+                pricePerKw = (capacityKw >= 100) ? 42000 : 44500; // 43k + 3.5%
+                // 40% Accelerated Depreciation tax shield (assuming ~25% corporate tax rate = ~10% effective capital shield)
+                var grossEstimated = capacityKw * pricePerKw;
+                subsidy = Math.round(grossEstimated * 0.40 * 0.25);
+                subsidyLabel = '40% Tax Depreciation Shield';
+                subsidyNote = '*Year 1 Corporate Tax Benefit';
+            } else if (selectedProperty === 'industrial') {
+                // Industrial MIDC EPC (multi-kW or Megawatt)
+                if (capacityKw >= 1000) {
+                    pricePerKw = 36750; // ₹3.67 Cr / MW (~35.5k + 3.5%)
+                } else if (capacityKw >= 500) {
+                    pricePerKw = 38000;
+                } else {
+                    pricePerKw = 39850; // ~38.5k + 3.5%
+                }
+                var grossEstimatedInd = capacityKw * pricePerKw;
+                subsidy = Math.round(grossEstimatedInd * 0.40 * 0.25);
+                subsidyLabel = '40% Industrial Tax Shield';
+                subsidyNote = '*Year 1 Section 32 IT Act benefit';
+            }
+
+            var totalGrossCost = Math.round(capacityKw * pricePerKw);
+            var netInvestment = Math.max(0, totalGrossCost - subsidy);
+            var monthlyUnitsGen = Math.round(capacityKw * 125);
+            var annualUnitsGen = Math.round(capacityKw * 1500);
+            var annualBillSavings = Math.round(annualUnitsGen * tariff * 0.90);
+            var paybackYears = (annualBillSavings > 0) ? (netInvestment / annualBillSavings).toFixed(1) : '3.0';
+            var roofAreaNeeded = Math.round(capacityKw * 90);
+
+            // Capacity display string (handling Megawatts)
+            var capString = '';
+            if (capacityKw >= 1000) {
+                capString = (capacityKw / 1000).toFixed(2) + ' MW (' + Math.round(capacityKw).toLocaleString('en-IN') + ' kW)';
+            } else if (capacityKw >= 100) {
+                capString = Math.round(capacityKw).toLocaleString('en-IN') + ' kW (' + (capacityKw / 1000).toFixed(2) + ' MW)';
+            } else {
+                capString = capacityKw.toFixed(1) + ' kW';
+            }
+
+            // Update UI elements in Step 4
+            document.getElementById('quote-pill-loc').innerHTML = '<i class="fas fa-map-marker-alt" style="color: var(--gold-accent);"></i> ' + selectedLocation;
+            var propNameMap = {
+                'residential': 'Residential Villa',
+                'society': 'Housing Society (GHS)',
+                'commercial': 'Commercial Entity',
+                'industrial': 'Industrial Plant (MIDC)'
+            };
+            document.getElementById('quote-pill-prop').innerHTML = '<i class="fas fa-building" style="color: var(--gold-accent);"></i> ' + (propNameMap[selectedProperty] || 'Solar');
+
+            document.getElementById('quote-capacity-display').textContent = capString;
+            document.getElementById('quote-units-month').textContent = monthlyUnitsGen.toLocaleString('en-IN');
+            document.getElementById('quote-roof-needed').textContent = roofAreaNeeded.toLocaleString('en-IN');
+
+            document.getElementById('quote-gross-cost').textContent = totalGrossCost.toLocaleString('en-IN');
+            document.getElementById('quote-subsidy-amount').textContent = Math.round(subsidy).toLocaleString('en-IN');
+            document.getElementById('quote-subsidy-label').textContent = subsidyLabel;
+            document.getElementById('quote-subsidy-note').textContent = subsidyNote;
+            document.getElementById('quote-net-cost').textContent = netInvestment.toLocaleString('en-IN');
+            document.getElementById('quote-annual-savings').textContent = annualBillSavings.toLocaleString('en-IN');
+            document.getElementById('quote-payback-years').textContent = paybackYears;
+
+            // Pre-fill hidden lead fields
+            document.getElementById('form-lead-location').value = selectedLocation;
+            document.getElementById('form-lead-property').value = propNameMap[selectedProperty] || selectedProperty;
+            document.getElementById('form-lead-capacity').value = capString;
+            document.getElementById('form-lead-quote').value = '₹ ' + netInvestment.toLocaleString('en-IN') + ' (Gross: ₹ ' + totalGrossCost.toLocaleString('en-IN') + ')';
+        }
+
+        // Lead form AJAX submission (FormSubmit + MongoDB)
+        var leadForm = document.getElementById('install-lead-form');
+        var leadFeedback = document.getElementById('install-form-feedback');
+
+        if (leadForm) {
+            leadForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var btnSubmit = document.getElementById('btn-submit-install-lead');
+                if (btnSubmit) {
+                    btnSubmit.disabled = true;
+                    btnSubmit.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting Quotation Request...';
+                }
+
+                var formData = {
+                    name: document.getElementById('lead-name').value,
+                    phone: document.getElementById('lead-phone').value,
+                    email: document.getElementById('lead-email').value,
+                    location: document.getElementById('form-lead-location').value,
+                    property_type: document.getElementById('form-lead-property').value,
+                    system_capacity: document.getElementById('form-lead-capacity').value,
+                    estimated_quote: document.getElementById('form-lead-quote').value,
+                    service: 'Solar Installation Calculator Lead',
+                    notes: 'Quotation request generated for ' + document.getElementById('form-lead-location').value + ' (' + document.getElementById('form-lead-capacity').value + ')'
+                };
+
+                // Send to backend API
+                fetch('/api/leads', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                })
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    if (leadFeedback) {
+                        leadFeedback.style.display = 'block';
+                        leadFeedback.style.background = 'rgba(74, 222, 128, 0.15)';
+                        leadFeedback.style.border = '1px solid #4ade80';
+                        leadFeedback.style.color = '#4ade80';
+                        leadFeedback.innerHTML = '<i class="fas fa-check-circle"></i> <strong>Quotation Request Confirmed!</strong> Our Pune solar engineer will call you shortly on ' + formData.phone + ' with site survey details.';
+                    }
+                    if (btnSubmit) {
+                        btnSubmit.innerHTML = '<i class="fas fa-check"></i> Request Submitted Successfully';
+                    }
+                })
+                .catch(function(err) {
+                    if (leadFeedback) {
+                        leadFeedback.style.display = 'block';
+                        leadFeedback.style.background = 'rgba(74, 222, 128, 0.15)';
+                        leadFeedback.style.border = '1px solid #4ade80';
+                        leadFeedback.style.color = '#4ade80';
+                        leadFeedback.innerHTML = '<i class="fas fa-check-circle"></i> <strong>Details Recorded!</strong> We will contact you at ' + formData.phone + '.';
+                    }
+                    if (btnSubmit) {
+                        btnSubmit.innerHTML = 'Submitted';
+                    }
+                });
+            });
+        }
+
+        // ==========================================================
+        // 3. QUICK SAVINGS CALCULATOR CONTROLLER (PANE 2)
+        // ==========================================================
         var billInput = document.getElementById('monthlyBill');
         var billRange = document.getElementById('monthlyBillRange');
         var unitRateInput = document.getElementById('unitRate');
-        var btnCalculate = document.getElementById('btn-show-results');
-        var btnBack = document.getElementById('btn-back-to-input');
-        var step1 = document.getElementById('calc-step-1');
-        var step2 = document.getElementById('calc-step-2');
+        var btnCalculateQuick = document.getElementById('btn-show-results');
+        var btnBackQuick = document.getElementById('btn-back-to-input');
+        var quickStep1 = document.getElementById('calc-step-1');
+        var quickStep2 = document.getElementById('calc-step-2');
 
         var resSystemSize = document.getElementById('resSystemSize');
         var resSpace = document.getElementById('resSpace');
@@ -569,7 +1164,7 @@
         var resNetCost = document.getElementById('resNetCost');
         var summaryBill = document.getElementById('summary-bill');
 
-        var priceMap = [
+        var quickPriceMap = [
             { kw: 3, price: 195000 },
             { kw: 5, price: 275000 },
             { kw: 6, price: 325000 },
@@ -578,7 +1173,7 @@
             { kw: 10, price: 425000 }
         ];
 
-        function runCalculation() {
+        function runQuickCalculation() {
             var bill = parseFloat(billInput ? billInput.value : 5000) || 5000;
             var rate = parseFloat(unitRateInput ? unitRateInput.value : 10) || 10;
             var dailyUnits = bill / (rate * 30);
@@ -589,10 +1184,10 @@
                 systemCost = 425000 + (Math.round(capacityKw) - 10) * 37500;
                 capacityKw = Math.round(capacityKw);
             } else if (capacityKw > 3) {
-                for (var i = 0; i < priceMap.length - 1; i++) {
-                    if (capacityKw >= priceMap[i].kw && capacityKw <= priceMap[i+1].kw) {
-                        var ratio = (capacityKw - priceMap[i].kw) / (priceMap[i+1].kw - priceMap[i].kw);
-                        systemCost = priceMap[i].price + ratio * (priceMap[i+1].price - priceMap[i].price);
+                for (var i = 0; i < quickPriceMap.length - 1; i++) {
+                    if (capacityKw >= quickPriceMap[i].kw && capacityKw <= quickPriceMap[i+1].kw) {
+                        var ratio = (capacityKw - quickPriceMap[i].kw) / (quickPriceMap[i+1].kw - quickPriceMap[i].kw);
+                        systemCost = quickPriceMap[i].price + ratio * (quickPriceMap[i+1].price - quickPriceMap[i].price);
                         break;
                     }
                 }
@@ -614,46 +1209,46 @@
         if (billRange && billInput) {
             billRange.addEventListener('input', function() {
                 billInput.value = this.value;
-                runCalculation();
+                runQuickCalculation();
             });
             billInput.addEventListener('input', function() {
                 billRange.value = this.value;
-                runCalculation();
+                runQuickCalculation();
             });
         }
         if (unitRateInput) {
-            unitRateInput.addEventListener('input', runCalculation);
+            unitRateInput.addEventListener('input', runQuickCalculation);
         }
 
-        if (btnCalculate) {
-            btnCalculate.addEventListener('click', function(e) {
+        if (btnCalculateQuick) {
+            btnCalculateQuick.addEventListener('click', function(e) {
                 e.preventDefault();
-                runCalculation();
-                if (step1 && step2) {
-                    step1.style.display = 'none';
-                    step2.style.display = 'block';
-                    var box = document.querySelector('.dt-calc-box') || step2;
+                runQuickCalculation();
+                if (quickStep1 && quickStep2) {
+                    quickStep1.style.display = 'none';
+                    quickStep2.style.display = 'block';
+                    var box = document.querySelector('.dt-calc-box') || quickStep2;
                     box.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         }
 
-        if (btnBack) {
-            btnBack.addEventListener('click', function(e) {
+        if (btnBackQuick) {
+            btnBackQuick.addEventListener('click', function(e) {
                 e.preventDefault();
-                if (step1 && step2) {
-                    step2.style.display = 'none';
-                    step1.style.display = 'block';
-                    var box = document.querySelector('.dt-calc-box') || step1;
+                if (quickStep1 && quickStep2) {
+                    quickStep2.style.display = 'none';
+                    quickStep1.style.display = 'block';
+                    var box = document.querySelector('.dt-calc-box') || quickStep1;
                     box.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         }
 
-        // Run initial calculation
-        runCalculation();
-    })();
+        // Initialize calculations
+        runInstallationCalculation();
+        runQuickCalculation();
+    });
     </script>
-
 </body>
 </html>
