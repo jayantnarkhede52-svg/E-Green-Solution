@@ -164,7 +164,7 @@ function resolveFile(pathname) {
     return null;
 }
 
-const server = http.createServer(async (req, res) => {
+async function requestHandler(req, res) {
     const parsedUrl = url.parse(req.url, true);
     const pathname = parsedUrl.pathname;
     const method = req.method.toUpperCase();
@@ -747,8 +747,9 @@ const server = http.createServer(async (req, res) => {
         });
         res.end(data);
     });
-});
+}
 
+const server = http.createServer(requestHandler);
 let currentPort = Number(PORT);
 
 server.on('error', (err) => {
@@ -772,12 +773,15 @@ server.on('listening', () => {
     console.log(`====================================================`);
 });
 
-// Connect to MongoDB and start server
-connectDB()
-    .then(() => {
-        server.listen(currentPort);
-    })
-    .catch((err) => {
-        console.error('❌ Failed to connect to MongoDB on startup. Starting offline mode...', err.message);
-        server.listen(currentPort);
-    });
+if (require.main === module) {
+    connectDB()
+        .then(() => {
+            server.listen(currentPort);
+        })
+        .catch((err) => {
+            console.error('❌ Failed to connect to MongoDB on startup. Starting offline mode...', err.message);
+            server.listen(currentPort);
+        });
+}
+
+module.exports = { requestHandler, connectDB, getDB, forwardToFormSubmit };

@@ -1,6 +1,12 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/api/:match*",
+      "destination": "/api/index.js"
+    }
+  ],
   "redirects": [
     {
       "source": "/:path*",
