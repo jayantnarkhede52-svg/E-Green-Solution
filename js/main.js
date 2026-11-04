@@ -191,18 +191,26 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             calculateSolar();
             if (step1 && step2) {
+                step1.style.display = 'none';
+                step2.style.display = 'block';
                 step1.classList.remove('active');
                 step2.classList.add('active');
                 if (dot1 && dot2) { dot1.classList.remove('active'); dot2.classList.add('active'); }
-                window.scrollTo({ top: document.getElementById('calculator-section').offsetTop - 100, behavior: 'smooth' });
+                const target = document.querySelector('.dt-calc-box') || step2;
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
 
         if (btnBackToInput) {
-            btnBackToInput.addEventListener('click', () => {
+            btnBackToInput.addEventListener('click', (e) => {
+                e.preventDefault();
+                step2.style.display = 'none';
+                step1.style.display = 'block';
                 step2.classList.remove('active');
                 step1.classList.add('active');
                 if (dot2 && dot1) { dot2.classList.remove('active'); dot1.classList.add('active'); }
+                const target = document.querySelector('.dt-calc-box') || step1;
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         }
 

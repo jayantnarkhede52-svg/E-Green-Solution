@@ -3980,3 +3980,82 @@ textarea {
     font-size: 13px;
   }
 }
+
+/* ==========================================================================
+   MOBILE SPACE OPTIMIZATION: 2-LINE HEADINGS & COMPACT DESCRIPTIONS
+   ========================================================================== */
+.dt-calc-step-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 8px 0 6px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.dt-calc-step-desc {
+  color: var(--text-secondary);
+  font-size: 14.5px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  /* Restrict headings to 2 lines max on mobile */
+  .dt-hero-title,
+  h1.dt-hero-title {
+    font-size: clamp(21px, 5.8vw, 28px) !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.01em !important;
+    word-spacing: normal !important;
+    margin-bottom: 12px !important;
+  }
+
+  .dt-section-title,
+  h2.dt-section-title,
+  .dt-cta-box h2,
+  section h2 {
+    font-size: clamp(18px, 5vw, 23px) !important;
+    line-height: 1.22 !important;
+    letter-spacing: -0.01em !important;
+    word-spacing: normal !important;
+    margin-bottom: 10px !important;
+  }
+
+  .dt-calc-step-title {
+    font-size: clamp(18px, 4.8vw, 21px) !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.01em !important;
+    margin: 6px 0 4px !important;
+  }
+
+  .dt-qa-service-title {
+    font-size: clamp(15.5px, 4.4vw, 18px) !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  .dt-mini-card-title {
+    font-size: 11px !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Compact descriptions to save vertical screen real estate */
+  .dt-hero-desc,
+  .dt-section-desc,
+  .dt-calc-step-desc {
+    font-size: 12.5px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .dt-tech-label {
+    font-size: 10.5px !important;
+    letter-spacing: 0.08em !important;
+    margin-bottom: 8px !important;
+  }
+
+  .dt-calc-box {
+    padding: 18px 14px !important;
+  }
+}

@@ -266,8 +266,8 @@
                 <div id="calc-step-1">
                     <div style="margin-bottom: 32px;">
                         <span class="dt-tech-label">STEP 01 // MONTHLY USAGE INPUT</span>
-                        <h2 style="font-size: 26px; color: var(--text-primary); margin: 10px 0 6px;">Enter Your Current Electricity Consumption</h2>
-                        <p style="color: var(--text-secondary); font-size: 15px;">Adjust the slider or enter your monthly MSEDCL power bill.</p>
+                        <h2 class="dt-calc-step-title">Enter Monthly Power Bill</h2>
+                        <p class="dt-calc-step-desc">Adjust slider or enter your monthly MSEDCL bill.</p>
                     </div>
 
                     <div style="margin-bottom: 36px;">
@@ -302,8 +302,8 @@
                 <div id="calc-step-2" style="display: none;">
                     <div style="margin-bottom: 30px;">
                         <span class="dt-tech-label">STEP 02 // ESTIMATED SOLAR POTENTIAL</span>
-                        <h2 style="font-size: 26px; color: var(--text-primary); margin: 10px 0 6px;">Your Projected Savings &amp; Capacity</h2>
-                        <p style="color: var(--text-secondary); font-size: 14.5px;">Modeled for a monthly bill of ₹<span id="summary-bill" style="color: var(--gold-accent); font-weight: 700;">5000</span>.</p>
+                        <h2 class="dt-calc-step-title">Your Projected Solar Savings</h2>
+                        <p class="dt-calc-step-desc">Calculated for monthly bill of ₹<span id="summary-bill" style="color: var(--gold-accent); font-weight: 700;">5,000</span>.</p>
                     </div>
 
                     <!-- Highlight Box -->
@@ -386,7 +386,7 @@
         <div class="dt-container" style="text-align: center;">
             <div style="background: var(--bg-surface); border: 1px solid var(--border-gold); border-radius: var(--radius-container); padding: 50px; max-width: 860px; margin: 0 auto;">
                 <div class="dt-tech-label" style="margin: 0 auto 16px;">VERIFY YOUR ROOF POTENTIAL</div>
-                <h2 style="font-size: clamp(28px, 3.4vw, 40px); color: var(--text-primary); margin-bottom: 14px;">Want an Exact On-Site Energy Audit?</h2>
+                <h2 style="font-size: clamp(28px, 3.4vw, 40px); color: var(--text-primary); margin-bottom: 14px;">Book Free On-Site Energy Audit</h2>
                 <p style="font-size: 16px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 28px;">
                     Our engineers will inspect your terrace in Pune, conduct drone shadow analysis, and deliver a guaranteed output proposal.
                 </p>
@@ -550,5 +550,110 @@
     });
     </script>
     <script src="/js/main.js" defer></script>
+
+    <!-- Guaranteed Standalone Solar Calculator Controller -->
+    <script>
+    (function initCalculator() {
+        var billInput = document.getElementById('monthlyBill');
+        var billRange = document.getElementById('monthlyBillRange');
+        var unitRateInput = document.getElementById('unitRate');
+        var btnCalculate = document.getElementById('btn-show-results');
+        var btnBack = document.getElementById('btn-back-to-input');
+        var step1 = document.getElementById('calc-step-1');
+        var step2 = document.getElementById('calc-step-2');
+
+        var resSystemSize = document.getElementById('resSystemSize');
+        var resSpace = document.getElementById('resSpace');
+        var resMonthlySavings = document.getElementById('resMonthlySavings');
+        var resSystemCost = document.getElementById('resSystemCost');
+        var resNetCost = document.getElementById('resNetCost');
+        var summaryBill = document.getElementById('summary-bill');
+
+        var priceMap = [
+            { kw: 3, price: 195000 },
+            { kw: 5, price: 275000 },
+            { kw: 6, price: 325000 },
+            { kw: 7, price: 350000 },
+            { kw: 8, price: 375000 },
+            { kw: 10, price: 425000 }
+        ];
+
+        function runCalculation() {
+            var bill = parseFloat(billInput ? billInput.value : 5000) || 5000;
+            var rate = parseFloat(unitRateInput ? unitRateInput.value : 10) || 10;
+            var dailyUnits = bill / (rate * 30);
+            var capacityKw = Math.max(3, dailyUnits / 4);
+
+            var systemCost = 195000;
+            if (capacityKw >= 10) {
+                systemCost = 425000 + (Math.round(capacityKw) - 10) * 37500;
+                capacityKw = Math.round(capacityKw);
+            } else if (capacityKw > 3) {
+                for (var i = 0; i < priceMap.length - 1; i++) {
+                    if (capacityKw >= priceMap[i].kw && capacityKw <= priceMap[i+1].kw) {
+                        var ratio = (capacityKw - priceMap[i].kw) / (priceMap[i+1].kw - priceMap[i].kw);
+                        systemCost = priceMap[i].price + ratio * (priceMap[i+1].price - priceMap[i].price);
+                        break;
+                    }
+                }
+            }
+
+            var monthlySavings = Math.round(bill * 0.90);
+            var subsidy = 78000;
+            var netInvestment = Math.max(0, systemCost - subsidy);
+            var spaceRequired = Math.round(capacityKw * 95);
+
+            if (resSystemSize) resSystemSize.textContent = capacityKw.toFixed(1);
+            if (resSpace) resSpace.textContent = spaceRequired.toLocaleString('en-IN');
+            if (resMonthlySavings) resMonthlySavings.textContent = monthlySavings.toLocaleString('en-IN');
+            if (resSystemCost) resSystemCost.textContent = Math.round(systemCost).toLocaleString('en-IN');
+            if (resNetCost) resNetCost.textContent = Math.round(netInvestment).toLocaleString('en-IN');
+            if (summaryBill) summaryBill.textContent = Math.round(bill).toLocaleString('en-IN');
+        }
+
+        if (billRange && billInput) {
+            billRange.addEventListener('input', function() {
+                billInput.value = this.value;
+                runCalculation();
+            });
+            billInput.addEventListener('input', function() {
+                billRange.value = this.value;
+                runCalculation();
+            });
+        }
+        if (unitRateInput) {
+            unitRateInput.addEventListener('input', runCalculation);
+        }
+
+        if (btnCalculate) {
+            btnCalculate.addEventListener('click', function(e) {
+                e.preventDefault();
+                runCalculation();
+                if (step1 && step2) {
+                    step1.style.display = 'none';
+                    step2.style.display = 'block';
+                    var box = document.querySelector('.dt-calc-box') || step2;
+                    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        }
+
+        if (btnBack) {
+            btnBack.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (step1 && step2) {
+                    step2.style.display = 'none';
+                    step1.style.display = 'block';
+                    var box = document.querySelector('.dt-calc-box') || step1;
+                    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        }
+
+        // Run initial calculation
+        runCalculation();
+    })();
+    </script>
+
 </body>
 </html>
