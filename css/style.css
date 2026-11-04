@@ -3776,3 +3776,22 @@ body:not(.home) nav .hamburger span {
         padding: 0 18px;
     }
 }
+
+
+@media (max-width: 860px) {
+    table.dt-table, table {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        white-space: nowrap !important;
+    }
+    .floating-badge {
+        position: relative !important;
+        right: auto !important;
+        bottom: auto !important;
+        margin-top: 14px !important;
+        width: 100% !important;
+    }
+}
