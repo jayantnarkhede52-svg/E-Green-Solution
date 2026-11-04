@@ -3766,3 +3766,194 @@ textarea {
     display: none !important;
   }
 }
+
+/* ==========================================================================
+   SERVICES Q&A KNOWLEDGE DIRECTORY & SEO CONTENT
+   ========================================================================== */
+.dt-services-qa-section {
+  padding-top: 10px;
+}
+
+.dt-service-qa-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-container);
+  padding: 30px 32px;
+  margin-bottom: 28px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dt-service-qa-card:hover {
+  border-color: var(--border-emp);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.dt-qa-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-muted);
+}
+
+.dt-qa-service-title {
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 6px;
+  margin-bottom: 0;
+  line-height: 1.25;
+}
+
+.dt-qa-link {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  padding: 8px 16px !important;
+  white-space: nowrap !important;
+  flex-shrink: 0;
+  border: 1px solid var(--border-muted) !important;
+  border-radius: 6px !important;
+  color: var(--gold-accent) !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: all 0.18s ease !important;
+}
+
+.dt-qa-link:hover {
+  background: rgba(163, 230, 53, 0.1) !important;
+  border-color: var(--gold-accent) !important;
+}
+
+.dt-qa-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.dt-qa-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-card);
+  padding: 20px 22px;
+}
+
+.dt-qa-question {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 0;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.dt-qa-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--gold-accent);
+  color: var(--text-on-gold);
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.dt-qa-answer {
+  padding-left: 36px;
+  color: var(--text-secondary);
+  font-size: 14.5px;
+  line-height: 1.65;
+}
+
+.dt-qa-answer p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.dt-qa-answer p:last-child {
+  margin-bottom: 0;
+}
+
+.dt-qa-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dt-qa-bullets li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.dt-qa-bullets li::before {
+  content: "•";
+  position: absolute;
+  left: 4px;
+  color: var(--gold-accent);
+  font-size: 18px;
+  line-height: 1;
+}
+
+.dt-qa-bullets strong {
+  color: var(--text-primary);
+}
+
+/* Center title in mini cards */
+.dt-service-mini-card .dt-mini-card-body {
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.dt-service-mini-card .dt-mini-card-title {
+  text-align: center !important;
+  width: 100% !important;
+}
+
+@media (max-width: 768px) {
+  .dt-service-qa-card {
+    padding: 20px 16px;
+    margin-bottom: 20px;
+  }
+  .dt-qa-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .dt-qa-link {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  .dt-qa-item {
+    padding: 16px 14px;
+  }
+  .dt-qa-question {
+    font-size: 14.5px;
+    gap: 10px;
+  }
+  .dt-qa-answer {
+    padding-left: 0;
+    margin-top: 10px;
+    font-size: 13.5px;
+  }
+  .dt-qa-bullets li {
+    font-size: 13px;
+  }
+}
