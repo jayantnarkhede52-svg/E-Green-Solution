@@ -3,39 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Executive Solar Leads Dashboard | E Green Solution</title>
-    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
-    <link rel="icon" type="image/png" href="/assets/favicon.png">
+    <title>E Green Solution — Executive Lead & Pipeline Dashboard</title>
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    
+    <!-- Google Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js for Interactive Weekly & Monthly Visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
     <style>
         :root {
-            /* Pure White Theme Tokens */
             --bg-body: #f8fafc;
             --bg-card: #ffffff;
-            --bg-sidebar: #ffffff;
             --border-light: #e2e8f0;
             --border-subtle: #f1f5f9;
-            
             --text-heading: #0f172a;
             --text-body: #334155;
             --text-muted: #64748b;
-            --text-light: #94a3b8;
-
-            /* Sage Green Accent Tokens */
             --sage-primary: #15803d;
-            --sage-light: #7BD894;
-            --sage-bg: #ecfdf5;
+            --sage-accent: #7BD894;
+            --sage-hover: #94F0AA;
+            --sage-bg: #f0fdf4;
             --sage-border: #bbf7d0;
-
-            --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
-            --shadow-dropdown: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
             --radius-sm: 6px;
             --radius-md: 10px;
             --radius-lg: 14px;
+            --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+            --shadow-elevated: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
         }
 
         * {
@@ -51,20 +49,21 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Top Navbar - Clean White */
+        /* Top Clean White Header */
         .dash-nav {
             background: #ffffff;
             border-bottom: 1px solid var(--border-light);
-            height: 64px;
+            padding: 14px 28px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 24px;
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
         }
 
         .dash-brand {
@@ -90,7 +89,6 @@
             font-size: 16px;
             font-weight: 800;
             color: var(--text-heading);
-            letter-spacing: -0.01em;
             line-height: 1.2;
         }
 
@@ -105,7 +103,8 @@
         .dash-nav-actions {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
         .status-pill {
@@ -134,27 +133,6 @@
             0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
-        }
-
-        .user-dropdown-btn {
-            background: #ffffff;
-            border: 1px solid var(--border-light);
-            padding: 6px 12px;
-            border-radius: var(--radius-sm);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-family: inherit;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text-heading);
-            cursor: pointer;
-            transition: all 0.15s ease;
-        }
-
-        .user-dropdown-btn:hover {
-            background: #f8fafc;
-            border-color: #cbd5e1;
         }
 
         .btn-outline {
@@ -208,7 +186,40 @@
             flex: 1;
         }
 
-        /* Metrics Row (Pure White Cards) */
+        /* Banner: Email & FormSubmit Live Status */
+        .system-banner {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 14px 20px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .system-banner-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .system-badge-icon {
+            width: 36px;
+            height: 36px;
+            background: #ecfdf5;
+            color: #15803d;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        /* Metrics Row */
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -255,7 +266,7 @@
 
         .metric-value {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 700;
             color: var(--text-heading);
             line-height: 1.1;
@@ -267,7 +278,16 @@
             margin-top: 6px;
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
+        }
+
+        .growth-badge {
+            background: #dcfce7;
+            color: #15803d;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
         }
 
         .metric-icon-box {
@@ -285,7 +305,51 @@
         .icon-blue { background: #eff6ff; color: #2563eb; }
         .icon-purple { background: #f5f3ff; color: #7c3aed; }
 
-        /* Toolbar Card - Clean White */
+        /* Charts Row */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .chart-card {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 22px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .chart-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 18px;
+        }
+
+        .chart-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-heading);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chart-sub {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .chart-wrap {
+            position: relative;
+            height: 240px;
+            width: 100%;
+        }
+
+        /* Leads Data Table Card */
         .dash-card {
             background: #ffffff;
             border: 1px solid var(--border-light);
@@ -451,118 +515,124 @@
 
         .dash-table td {
             padding: 14px 18px;
-            border-bottom: 1px solid var(--border-subtle);
-            vertical-align: middle;
+            border-bottom: 1px solid var(--border-light);
             color: var(--text-body);
+            vertical-align: middle;
         }
 
-        .dash-table tbody tr {
-            background: #ffffff;
-            transition: background 0.15s ease;
+        .dash-table tr:last-child td {
+            border-bottom: none;
         }
 
-        .dash-table tbody tr:hover {
-            background: #f8fafc;
+        .dash-table tr:hover td {
+            background-color: #fbfcfe;
         }
 
-        /* Lead Name & Meta */
-        .lead-customer {
+        .lead-name {
             font-weight: 700;
             color: var(--text-heading);
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            display: block;
         }
 
-        .lead-meta {
+        .lead-contact {
+            font-family: 'JetBrains Mono', monospace;
             font-size: 12px;
             color: var(--text-muted);
-            margin-top: 3px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            margin-top: 2px;
         }
 
-        /* Action Buttons */
-        .contact-btns {
-            display: flex;
-            align-items: center;
+        .quick-actions {
+            display: inline-flex;
             gap: 6px;
-            margin-top: 4px;
+            margin-top: 6px;
         }
 
-        .btn-action-icon {
-            width: 28px;
-            height: 28px;
-            border-radius: 6px;
+        .action-chip {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            font-size: 12px;
+            gap: 4px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
             text-decoration: none;
             transition: all 0.15s ease;
         }
 
-        .btn-whatsapp {
-            background: #dcfce7;
-            color: #15803d;
-            border: 1px solid #bbf7d0;
-        }
-
-        .btn-whatsapp:hover {
-            background: #22c55e;
-            color: #ffffff;
-        }
-
-        .btn-call {
+        .action-chip.call {
             background: #eff6ff;
             color: #2563eb;
             border: 1px solid #bfdbfe;
         }
 
-        .btn-call:hover {
-            background: #3b82f6;
-            color: #ffffff;
+        .action-chip.call:hover {
+            background: #dbeafe;
         }
 
-        /* Status Badges & Select */
-        .status-select {
+        .action-chip.wa {
+            background: #f0fdf4;
+            color: #16a34a;
+            border: 1px solid #bbf7d0;
+        }
+
+        .action-chip.wa:hover {
+            background: #dcfce7;
+        }
+
+        /* Status Badges */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11.5px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .status-New { background: #fef3c7; color: #b45309; }
+        .status-Contacted { background: #eff6ff; color: #1d4ed8; }
+        .status-Survey-Scheduled { background: #f5f3ff; color: #6d28d9; }
+        .status-Proposal-Sent { background: #e0f2fe; color: #0369a1; }
+        .status-Closed-Won { background: #ecfdf5; color: #047857; }
+        .status-Closed-Lost { background: #f1f5f9; color: #64748b; }
+
+        .stage-select {
             padding: 4px 8px;
-            font-size: 12px;
-            font-weight: 700;
-            border-radius: 6px;
-            border: 1px solid transparent;
-            cursor: pointer;
             font-family: inherit;
-            transition: all 0.15s ease;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-light);
+            background: #ffffff;
+            cursor: pointer;
         }
 
-        .status-new { background: #fef2f2; color: #b91c1c; border-color: #fecaca; }
-        .status-contacted { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
-        .status-survey { background: #fffbeb; color: #b45309; border-color: #fde68a; }
-        .status-proposal { background: #f5f3ff; color: #6d28d9; border-color: #ddd6fe; }
-        .status-won { background: #ecfdf5; color: #15803d; border-color: #bbf7d0; }
-        .status-lost { background: #f1f5f9; color: #64748b; border-color: #e2e8f0; }
-
-        /* Empty State */
-        .empty-state {
-            padding: 60px 20px;
-            text-align: center;
+        .table-btn {
+            background: transparent;
+            border: 1px solid var(--border-light);
             color: var(--text-muted);
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .empty-state i {
-            font-size: 40px;
-            color: #cbd5e1;
-            margin-bottom: 14px;
-        }
-
-        .empty-state h3 {
-            font-size: 16px;
-            font-weight: 700;
+        .table-btn:hover {
+            background: #f1f5f9;
             color: var(--text-heading);
-            margin-bottom: 4px;
+            border-color: #cbd5e1;
+        }
+
+        .table-btn.danger:hover {
+            background: #fef2f2;
+            color: #ef4444;
+            border-color: #fca5a5;
         }
 
         /* Modals */
@@ -590,7 +660,7 @@
             border-radius: var(--radius-lg);
             width: 100%;
             max-width: 520px;
-            box-shadow: var(--shadow-dropdown);
+            box-shadow: var(--shadow-elevated);
             border: 1px solid var(--border-light);
             overflow: hidden;
             animation: modalFade 0.2s ease;
@@ -681,17 +751,17 @@
             border-radius: 8px;
             font-size: 13.5px;
             font-weight: 600;
-            box-shadow: var(--shadow-dropdown);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
             display: none;
             align-items: center;
             gap: 10px;
             z-index: 2000;
-            animation: slideUp 0.3s ease;
         }
 
-        @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        @media (max-width: 900px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -712,12 +782,12 @@
         <div class="dash-nav-actions">
             <div class="status-pill">
                 <span class="pulse-dot"></span>
-                <span>MongoDB Atlas Live</span>
+                <span>MongoDB Live</span>
             </div>
 
             <button type="button" class="btn-outline" id="btnChangePassword" title="Security & Password Settings">
                 <i class="fas fa-key"></i>
-                <span>Change Password</span>
+                <span>Password</span>
             </button>
 
             <button type="button" class="btn-outline" id="btnLogout" title="Logout from Dashboard">
@@ -730,54 +800,117 @@
     <!-- Main Content Area -->
     <main class="dash-container">
         
-        <!-- Metrics Row -->
+        <!-- System Banner: FormSubmit Email Forwarding Live Integration -->
+        <div class="system-banner">
+            <div class="system-banner-info">
+                <div class="system-badge-icon">
+                    <i class="fas fa-envelope-open-text"></i>
+                </div>
+                <div>
+                    <div style="font-weight: 700; font-size: 14px; color: var(--text-heading); display: flex; align-items: center; gap: 8px;">
+                        FormSubmit Forwarding Active
+                        <span style="background: #ecfdf5; color: #15803d; border: 1px solid #bbf7d0; font-size: 10.5px; padding: 1px 6px; border-radius: 4px; font-weight: 700;">LIVE</span>
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">
+                        Website leads forward to: <strong style="color: var(--text-heading);">egreensolution1@gmail.com</strong> and auto-record in MongoDB Atlas.
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn-outline" id="btnTestFormSubmit" style="font-size: 12.5px; padding: 6px 12px;">
+                <i class="fas fa-paper-plane" style="color: var(--sage-primary);"></i>
+                <span>Send Test Lead &amp; Activation</span>
+            </button>
+        </div>
+
+        <!-- High-Impact Metrics Row -->
         <div class="metrics-grid">
             <div class="metric-card accent-green">
                 <div>
-                    <div class="metric-label">Total Inquiries</div>
-                    <div class="metric-value" id="statTotal">0</div>
-                    <div class="metric-sub"><i class="fas fa-database"></i> Lifetime MongoDB Leads</div>
+                    <div class="metric-label">This Month Leads</div>
+                    <div class="metric-value" id="statThisMonth">0</div>
+                    <div class="metric-sub">
+                        <span class="growth-badge" id="statGrowthBadge">+0%</span>
+                        <span>vs previous month</span>
+                    </div>
                 </div>
                 <div class="metric-icon-box icon-green">
-                    <i class="fas fa-users"></i>
+                    <i class="fas fa-calendar-alt"></i>
                 </div>
             </div>
 
             <div class="metric-card accent-amber">
                 <div>
-                    <div class="metric-label">New / Action Required</div>
-                    <div class="metric-value" id="statNew">0</div>
-                    <div class="metric-sub"><i class="fas fa-clock"></i> Awaiting Initial Contact</div>
+                    <div class="metric-label">This Week Leads</div>
+                    <div class="metric-value" id="statThisWeek">0</div>
+                    <div class="metric-sub"><i class="fas fa-chart-line"></i> Rolling weekly volume</div>
                 </div>
                 <div class="metric-icon-box icon-amber">
-                    <i class="fas fa-bell"></i>
+                    <i class="fas fa-bolt"></i>
                 </div>
             </div>
 
             <div class="metric-card accent-blue">
                 <div>
-                    <div class="metric-label">Active Pipeline</div>
-                    <div class="metric-value" id="statPipeline">0</div>
-                    <div class="metric-sub"><i class="fas fa-clipboard-check"></i> Surveys &amp; Proposals</div>
+                    <div class="metric-label">Today's Inquiries</div>
+                    <div class="metric-value" id="statToday">0</div>
+                    <div class="metric-sub"><i class="fas fa-clock"></i> Received in last 24h</div>
                 </div>
                 <div class="metric-icon-box icon-blue">
-                    <i class="fas fa-chart-line"></i>
+                    <i class="fas fa-bell"></i>
                 </div>
             </div>
 
             <div class="metric-card accent-purple">
                 <div>
-                    <div class="metric-label">Closed Won Projects</div>
-                    <div class="metric-value" id="statWon">0</div>
-                    <div class="metric-sub"><i class="fas fa-bolt"></i> Commissioned Solar Plants</div>
+                    <div class="metric-label">Total Database Leads</div>
+                    <div class="metric-value" id="statTotal">0</div>
+                    <div class="metric-sub"><i class="fas fa-database"></i> Lifetime MongoDB records</div>
                 </div>
                 <div class="metric-icon-box icon-purple">
-                    <i class="fas fa-trophy"></i>
+                    <i class="fas fa-users"></i>
                 </div>
             </div>
         </div>
 
-        <!-- Main Leads Card (White Theme) -->
+        <!-- Weekly & Monthly Visual Bar Charts Row -->
+        <div class="charts-grid">
+            <!-- Chart 1: Weekly Trend -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div>
+                        <div class="chart-title">
+                            <i class="fas fa-chart-bar" style="color: var(--sage-primary);"></i>
+                            Weekly Lead Acquisition Trend
+                        </div>
+                        <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Daily inquiries received over the past 7 days</div>
+                    </div>
+                    <div class="chart-sub" id="weeklyTotalPill">Past 7 Days</div>
+                </div>
+                <div class="chart-wrap">
+                    <canvas id="weeklyChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Chart 2: Monthly Trend -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div>
+                        <div class="chart-title">
+                            <i class="fas fa-chart-column" style="color: #2563eb;"></i>
+                            Monthly Lead Volume (6-Month Trajectory)
+                        </div>
+                        <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Month-by-month solar inquiry volume</div>
+                    </div>
+                    <div class="chart-sub" id="monthlyTotalPill">Last 6 Months</div>
+                </div>
+                <div class="chart-wrap">
+                    <canvas id="monthlyChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Leads Table Suite -->
         <div class="dash-card">
             
             <!-- Toolbar -->
@@ -785,19 +918,19 @@
                 <div class="toolbar-left">
                     <div class="search-box">
                         <i class="fas fa-search"></i>
-                        <input type="text" id="searchInput" class="search-input" placeholder="Search by name, phone, city, or service...">
+                        <input type="text" id="searchInput" class="search-input" placeholder="Search customer, phone, location, or service...">
                     </div>
 
                     <select id="serviceFilter" class="filter-select">
                         <option value="">All Services</option>
                         <option value="Residential Rooftop">Residential Rooftop</option>
-                        <option value="Commercial Solar EPC">Commercial Solar EPC</option>
-                        <option value="Industrial Solar (MIDC)">Industrial Solar (MIDC)</option>
+                        <option value="Housing Society">Housing Society (10kW–100kW)</option>
+                        <option value="Commercial Solar">Commercial Solar EPC</option>
+                        <option value="Industrial Solar">Industrial MIDC (100kW+)</option>
                         <option value="Solar Water Heater">Solar Water Heater</option>
-                        <option value="RO Cleaning Wash">RO Cleaning Wash</option>
-                        <option value="Solar AMC Contract">Solar AMC Contract</option>
+                        <option value="Solar AMC">Solar AMC Contract</option>
+                        <option value="RO Cleaning Wash">Panel Cleaning</option>
                         <option value="Inverter Repair">Inverter Repair</option>
-                        <option value="Net Metering">Net Metering</option>
                     </select>
                 </div>
 
@@ -817,7 +950,7 @@
                 </div>
             </div>
 
-            <!-- Status Tabs -->
+            <!-- Status Stage Tabs -->
             <div class="status-tabs-row" id="statusTabs">
                 <button type="button" class="tab-btn active" data-status="">All Leads <span class="tab-count" id="countAll">0</span></button>
                 <button type="button" class="tab-btn" data-status="New">New <span class="tab-count" id="countNew">0</span></button>
@@ -834,7 +967,7 @@
                     <thead>
                         <tr>
                             <th>Customer &amp; Contact</th>
-                            <th>Service &amp; Capacity</th>
+                            <th>Required Solution</th>
                             <th>Pune / PCMC Location</th>
                             <th>Monthly Bill</th>
                             <th>Date Received</th>
@@ -861,93 +994,104 @@
     <div class="modal-backdrop" id="addLeadModal">
         <div class="modal-card">
             <div class="modal-header">
-                <h3>Add New Solar Lead</h3>
-                <button type="button" class="modal-close-btn" data-close-modal="addLeadModal"><i class="fas fa-times"></i></button>
+                <h3>Add New Offline Customer Lead</h3>
+                <button type="button" class="modal-close-btn" onclick="closeModal('addLeadModal')">&times;</button>
             </div>
             <form id="addLeadForm">
                 <div class="modal-body">
                     <div class="form-row">
                         <div>
                             <label class="form-label">Customer Name *</label>
-                            <input type="text" name="name" class="form-input" placeholder="e.g. Rahul Patil" required>
+                            <input type="text" name="name" required class="form-input" placeholder="e.g. Ramesh Kulkarni">
                         </div>
                         <div>
-                            <label class="form-label">Phone Number *</label>
-                            <input type="tel" name="phone" class="form-input" placeholder="e.g. 9822012345" required>
+                            <label class="form-label">Phone / WhatsApp *</label>
+                            <input type="tel" name="phone" required class="form-input" placeholder="e.g. 98220 12345">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div>
                             <label class="form-label">Email Address</label>
-                            <input type="email" name="email" class="form-input" placeholder="e.g. client@domain.com">
+                            <input type="email" name="email" class="form-input" placeholder="e.g. ramesh@gmail.com">
                         </div>
                         <div>
-                            <label class="form-label">Pune Location / MIDC</label>
-                            <input type="text" name="location" class="form-input" placeholder="e.g. Baner, Chakan MIDC">
+                            <label class="form-label">Pune Location *</label>
+                            <input type="text" name="location" required class="form-input" placeholder="e.g. Baner, Wakad, Chakan">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div>
-                            <label class="form-label">Service Type</label>
+                            <label class="form-label">Solution Type</label>
                             <select name="service" class="form-select">
                                 <option value="Residential Rooftop">Residential Rooftop</option>
+                                <option value="Housing Society (10kW–100kW)">Housing Society Common Area</option>
                                 <option value="Commercial Solar EPC">Commercial Solar EPC</option>
                                 <option value="Industrial Solar (MIDC)">Industrial Solar (MIDC)</option>
                                 <option value="Solar Water Heater">Solar Water Heater</option>
-                                <option value="RO Cleaning Wash">RO Cleaning Wash</option>
                                 <option value="Solar AMC Contract">Solar AMC Contract</option>
+                                <option value="RO Cleaning Wash">Demineralized Cleaning</option>
                                 <option value="Inverter Repair">Inverter Repair</option>
-                                <option value="Net Metering">Net Metering</option>
                             </select>
                         </div>
                         <div>
-                            <label class="form-label">Est. Monthly Bill (₹)</label>
-                            <input type="text" name="bill" class="form-input" placeholder="e.g. ₹12,000">
+                            <label class="form-label">Estimated Monthly Bill</label>
+                            <input type="text" name="bill" class="form-input" placeholder="e.g. ₹ 8,500">
                         </div>
                     </div>
 
                     <div style="margin-bottom: 16px;">
-                        <label class="form-label">Initial Status</label>
+                        <label class="form-label">Initial Pipeline Stage</label>
                         <select name="status" class="form-select">
                             <option value="New">New Lead</option>
                             <option value="Contacted">Contacted</option>
-                            <option value="Survey Scheduled">Survey Scheduled</option>
+                            <option value="Survey Scheduled">Site Survey Scheduled</option>
                             <option value="Proposal Sent">Proposal Sent</option>
                             <option value="Closed Won">Closed Won</option>
                         </select>
                     </div>
 
                     <div>
-                        <label class="form-label">Project Details &amp; Notes</label>
-                        <textarea name="message" class="form-textarea" rows="3" placeholder="Rooftop size, shadow conditions, customer requirements..."></textarea>
+                        <label class="form-label">Technical Notes / Requirements</label>
+                        <textarea name="message" class="form-textarea" rows="3" placeholder="Roof dimensions, shadow conditions, sanction load, client preferences..."></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn-outline" data-close-modal="addLeadModal">Cancel</button>
+                    <button type="button" class="btn-outline" onclick="closeModal('addLeadModal')">Cancel</button>
                     <button type="submit" class="btn-primary">Save to MongoDB</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Modal: View / Edit Lead Notes -->
+    <!-- Modal: View / Edit Notes -->
     <div class="modal-backdrop" id="notesModal">
         <div class="modal-card">
             <div class="modal-header">
-                <h3 id="notesModalTitle">Lead Notes</h3>
-                <button type="button" class="modal-close-btn" data-close-modal="notesModal"><i class="fas fa-times"></i></button>
+                <h3 id="notesModalTitle">Customer Consultation Notes</h3>
+                <button type="button" class="modal-close-btn" onclick="closeModal('notesModal')">&times;</button>
             </div>
-            <div class="modal-body">
-                <div id="notesLeadDetails" style="background: #f8fafc; padding: 12px; border-radius: 8px; margin-bottom: 16px; font-size: 13px;"></div>
-                <label class="form-label">Internal Engineering &amp; Follow-Up Notes</label>
-                <textarea id="leadNotesInput" class="form-textarea" rows="5" placeholder="Add conversation summary, site visit dates, quotation details..."></textarea>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn-outline" data-close-modal="notesModal">Close</button>
-                <button type="button" class="btn-primary" id="btnSaveNotes">Save Notes</button>
-            </div>
+            <form id="notesForm">
+                <input type="hidden" id="notesLeadId">
+                <div class="modal-body">
+                    <div style="margin-bottom: 14px;">
+                        <label class="form-label">System Specs &amp; Customer Message</label>
+                        <div id="notesCustomerMessage" style="background: #f8fafc; border: 1px solid var(--border-light); padding: 12px; border-radius: var(--radius-sm); font-size: 13px; color: var(--text-body); line-height: 1.5; max-height: 120px; overflow-y: auto;">
+                            No initial message provided.
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="form-label">Internal Engineering &amp; Follow-up Notes</label>
+                        <textarea id="notesInput" class="form-textarea" rows="4" placeholder="Enter follow-up call notes, quotation details, or site visit feedback..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-outline" onclick="closeModal('notesModal')">Close</button>
+                    <button type="submit" class="btn-primary">Save Notes</button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -955,26 +1099,22 @@
     <div class="modal-backdrop" id="passwordModal">
         <div class="modal-card">
             <div class="modal-header">
-                <h3>Change Admin Password</h3>
-                <button type="button" class="modal-close-btn" data-close-modal="passwordModal"><i class="fas fa-times"></i></button>
+                <h3>Update Security Password</h3>
+                <button type="button" class="modal-close-btn" onclick="closeModal('passwordModal')">&times;</button>
             </div>
             <form id="changePasswordForm">
                 <div class="modal-body">
-                    <div style="margin-bottom: 14px;">
+                    <div style="margin-bottom: 16px;">
                         <label class="form-label">Current Password *</label>
-                        <input type="password" id="currentPass" class="form-input" required>
-                    </div>
-                    <div style="margin-bottom: 14px;">
-                        <label class="form-label">New Password *</label>
-                        <input type="password" id="newPass" class="form-input" minlength="8" required>
+                        <input type="password" name="currentPassword" required class="form-input">
                     </div>
                     <div>
-                        <label class="form-label">Confirm New Password *</label>
-                        <input type="password" id="confirmPass" class="form-input" minlength="8" required>
+                        <label class="form-label">New Password * (Min 8 characters)</label>
+                        <input type="password" name="newPassword" required minlength="8" class="form-input">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn-outline" data-close-modal="passwordModal">Cancel</button>
+                    <button type="button" class="btn-outline" onclick="closeModal('passwordModal')">Cancel</button>
                     <button type="submit" class="btn-primary">Update Password</button>
                 </div>
             </form>
@@ -982,389 +1122,508 @@
     </div>
 
     <!-- Toast Notification -->
-    <div class="toast" id="toastBox">
+    <div class="toast" id="toast">
         <i class="fas fa-check-circle" style="color: #4ade80;"></i>
-        <span id="toastMsg">Operation successful</span>
+        <span id="toastMsg">Operation completed successfully.</span>
     </div>
 
     <script>
-        let allLeads = [];
-        let currentStatusFilter = '';
-        let currentEditingLeadId = null;
+    let allLeads = [];
+    let currentFilterStatus = '';
+    let weeklyChartInstance = null;
+    let monthlyChartInstance = null;
 
-        // Verify Authentication on Load
-        async function checkAuth() {
-            try {
-                const res = await fetch('/api/admin/check-auth');
-                const data = await res.json();
-                if (!data.authenticated) {
-                    window.location.href = '/admin';
+    // Show Toast
+    function showToast(msg, isError = false) {
+        const toast = document.getElementById('toast');
+        const toastMsg = document.getElementById('toastMsg');
+        toastMsg.textContent = msg;
+        toast.querySelector('i').className = isError ? 'fas fa-exclamation-circle' : 'fas fa-check-circle';
+        toast.querySelector('i').style.color = isError ? '#f87171' : '#4ade80';
+        toast.style.display = 'flex';
+        setTimeout(() => { toast.style.display = 'none'; }, 3800);
+    }
+
+    // Modal Helpers
+    function openModal(id) {
+        document.getElementById(id).classList.add('active');
+    }
+    function closeModal(id) {
+        document.getElementById(id).classList.remove('active');
+    }
+
+    // Initialize Charts with Chart.js
+    function initCharts(stats) {
+        if (!stats || !stats.weeklyDays || !stats.monthlyTrend) return;
+
+        // 1. Weekly Chart (Past 7 Days Bar Chart)
+        const weeklyCanvas = document.getElementById('weeklyChart');
+        if (weeklyCanvas) {
+            const weeklyCtx = weeklyCanvas.getContext('2d');
+            const weeklyLabels = stats.weeklyDays.map(d => d.label);
+            const weeklyData = stats.weeklyDays.map(d => d.count);
+
+            if (weeklyChartInstance) weeklyChartInstance.destroy();
+
+            weeklyChartInstance = new Chart(weeklyCtx, {
+                type: 'bar',
+                data: {
+                    labels: weeklyLabels,
+                    datasets: [{
+                        label: 'New Leads',
+                        data: weeklyData,
+                        backgroundColor: '#15803d',
+                        hoverBackgroundColor: '#7BD894',
+                        borderRadius: 6,
+                        borderSkipped: false,
+                        barPercentage: 0.55
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#0f172a',
+                            titleFont: { family: 'Manrope', size: 12, weight: 'bold' },
+                            bodyFont: { family: 'JetBrains Mono', size: 12 },
+                            padding: 10,
+                            cornerRadius: 6,
+                            displayColors: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { display: false },
+                            ticks: { font: { family: 'Manrope', size: 11 }, color: '#64748b' }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 1,
+                                font: { family: 'JetBrains Mono', size: 11 },
+                                color: '#64748b'
+                            },
+                            grid: { color: '#f1f5f9' }
+                        }
+                    }
                 }
-            } catch (err) {
-                window.location.href = '/admin';
-            }
-        }
-        checkAuth();
-
-        // Toast Helper
-        function showToast(msg) {
-            const toast = document.getElementById('toastBox');
-            document.getElementById('toastMsg').textContent = msg;
-            toast.style.display = 'flex';
-            setTimeout(() => { toast.style.display = 'none'; }, 3200);
-        }
-
-        // Fetch Leads from MongoDB API
-        async function loadLeads() {
-            try {
-                const res = await fetch('/api/admin/leads');
-                if (res.status === 401) {
-                    window.location.href = '/admin';
-                    return;
-                }
-                allLeads = await res.json();
-                renderMetrics();
-                renderTable();
-            } catch (err) {
-                console.error("Failed to fetch leads:", err);
-                document.getElementById('leadsTableBody').innerHTML = `
-                    <tr>
-                        <td colspan="7" class="empty-state">
-                            <i class="fas fa-exclamation-triangle" style="color: #ef4444;"></i>
-                            <h3>Failed to load leads from database</h3>
-                            <p style="font-size: 13px;">Please check server connection and MongoDB credentials.</p>
-                        </td>
-                    </tr>
-                `;
-            }
-        }
-
-        // Render Dashboard Metrics
-        function renderMetrics() {
-            const total = allLeads.length;
-            const newCount = allLeads.filter(l => (l.status || 'New') === 'New').length;
-            const contacted = allLeads.filter(l => l.status === 'Contacted').length;
-            const survey = allLeads.filter(l => l.status === 'Survey Scheduled').length;
-            const proposal = allLeads.filter(l => l.status === 'Proposal Sent').length;
-            const won = allLeads.filter(l => l.status === 'Closed Won').length;
-            const lost = allLeads.filter(l => l.status === 'Closed Lost').length;
-
-            document.getElementById('statTotal').textContent = total;
-            document.getElementById('statNew').textContent = newCount;
-            document.getElementById('statPipeline').textContent = survey + proposal + contacted;
-            document.getElementById('statWon').textContent = won;
-
-            document.getElementById('countAll').textContent = total;
-            document.getElementById('countNew').textContent = newCount;
-            document.getElementById('countContacted').textContent = contacted;
-            document.getElementById('countSurvey').textContent = survey;
-            document.getElementById('countProposal').textContent = proposal;
-            document.getElementById('countWon').textContent = won;
-            document.getElementById('countLost').textContent = lost;
-        }
-
-        // Render Leads Table
-        function renderTable() {
-            const search = document.getElementById('searchInput').value.toLowerCase().trim();
-            const service = document.getElementById('serviceFilter').value;
-            const tbody = document.getElementById('leadsTableBody');
-
-            let filtered = allLeads.filter(lead => {
-                if (currentStatusFilter && (lead.status || 'New') !== currentStatusFilter) return false;
-                if (service && (lead.service || '') !== service) return false;
-                if (search) {
-                    const matchName = (lead.name || '').toLowerCase().includes(search);
-                    const matchPhone = (lead.phone || '').toLowerCase().includes(search);
-                    const matchLoc = (lead.location || '').toLowerCase().includes(search);
-                    const matchEmail = (lead.email || '').toLowerCase().includes(search);
-                    const matchService = (lead.service || '').toLowerCase().includes(search);
-                    if (!matchName && !matchPhone && !matchLoc && !matchEmail && !matchService) return false;
-                }
-                return true;
             });
+        }
 
-            if (filtered.length === 0) {
-                tbody.innerHTML = `
-                    <tr>
-                        <td colspan="7" class="empty-state">
-                            <i class="fas fa-inbox"></i>
-                            <h3>No leads found</h3>
-                            <p style="font-size: 13px;">No inquiries matching the selected filters.</p>
-                        </td>
-                    </tr>
-                `;
+        // 2. Monthly Chart (6-Month Bar Chart)
+        const monthlyCanvas = document.getElementById('monthlyChart');
+        if (monthlyCanvas) {
+            const monthlyCtx = monthlyCanvas.getContext('2d');
+            const monthlyLabels = stats.monthlyTrend.map(m => m.label);
+            const monthlyData = stats.monthlyTrend.map(m => m.count);
+
+            if (monthlyChartInstance) monthlyChartInstance.destroy();
+
+            monthlyChartInstance = new Chart(monthlyCtx, {
+                type: 'bar',
+                data: {
+                    labels: monthlyLabels,
+                    datasets: [{
+                        label: 'Monthly Volume',
+                        data: monthlyData,
+                        backgroundColor: '#2563eb',
+                        hoverBackgroundColor: '#60a5fa',
+                        borderRadius: 6,
+                        borderSkipped: false,
+                        barPercentage: 0.55
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#0f172a',
+                            titleFont: { family: 'Manrope', size: 12, weight: 'bold' },
+                            bodyFont: { family: 'JetBrains Mono', size: 12 },
+                            padding: 10,
+                            cornerRadius: 6,
+                            displayColors: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { display: false },
+                            ticks: { font: { family: 'Manrope', size: 11 }, color: '#64748b' }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 1,
+                                font: { family: 'JetBrains Mono', size: 11 },
+                                color: '#64748b'
+                            },
+                            grid: { color: '#f1f5f9' }
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    // Fetch Stats & Analytics from Server
+    async function fetchStats() {
+        try {
+            const res = await fetch('/api/admin/stats');
+            if (res.status === 401) {
+                window.location.href = '/admin';
                 return;
             }
+            const stats = await res.json();
 
-            tbody.innerHTML = filtered.map(lead => {
-                const date = lead.createdAt ? new Date(lead.createdAt).toLocaleDateString('en-IN', {
-                    day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit'
-                }) : 'Just now';
+            // Populate Cards
+            document.getElementById('statThisMonth').textContent = stats.thisMonthLeads || 0;
+            document.getElementById('statThisWeek').textContent = stats.thisWeekLeads || 0;
+            document.getElementById('statToday').textContent = stats.todayLeads || 0;
+            document.getElementById('statTotal').textContent = stats.totalLeads || 0;
 
-                const phoneClean = (lead.phone || '').replace(/\D/g, '');
-                const waUrl = phoneClean ? `https://wa.me/91${phoneClean.length === 10 ? phoneClean : phoneClean.slice(-10)}?text=${encodeURIComponent('Hi ' + (lead.name || '') + ', thank you for contacting E Green Solution regarding solar rooftop engineering in Pune.')}` : '#';
-                const callUrl = phoneClean ? `tel:${phoneClean}` : '#';
-
-                const status = lead.status || 'New';
-                const statusClass = {
-                    'New': 'status-new',
-                    'Contacted': 'status-contacted',
-                    'Survey Scheduled': 'status-survey',
-                    'Proposal Sent': 'status-proposal',
-                    'Closed Won': 'status-won',
-                    'Closed Lost': 'status-lost'
-                }[status] || 'status-new';
-
-                return `
-                    <tr>
-                        <td>
-                            <div class="lead-customer">
-                                ${escapeHtml(lead.name || 'Anonymous Inquiry')}
-                            </div>
-                            <div class="lead-meta">
-                                <span><i class="fas fa-phone-alt"></i> ${escapeHtml(lead.phone || 'N/A')}</span>
-                                ${lead.email ? `<span>&bull;</span> <span><i class="fas fa-envelope"></i> ${escapeHtml(lead.email)}</span>` : ''}
-                            </div>
-                            <div class="contact-btns">
-                                ${phoneClean ? `
-                                    <a href="${waUrl}" target="_blank" class="btn-action-icon btn-whatsapp" title="WhatsApp Chat">
-                                        <i class="fab fa-whatsapp"></i>
-                                    </a>
-                                    <a href="${callUrl}" class="btn-action-icon btn-call" title="Direct Phone Call">
-                                        <i class="fas fa-phone"></i>
-                                    </a>
-                                ` : ''}
-                            </div>
-                        </td>
-
-                        <td>
-                            <strong style="color: var(--text-heading); font-size: 13px;">${escapeHtml(lead.service || 'Turnkey Rooftop Solar')}</strong>
-                            ${lead.capacity ? `<div style="font-size: 11.5px; color: var(--sage-primary); font-family: 'JetBrains Mono'; font-weight: 700;">${escapeHtml(lead.capacity)}</div>` : ''}
-                        </td>
-
-                        <td>
-                            <span style="display: inline-flex; align-items: center; gap: 5px; font-weight: 600; color: #475569;">
-                                <i class="fas fa-map-marker-alt" style="color: #ef4444; font-size: 12px;"></i>
-                                ${escapeHtml(lead.location || 'Pune / PCMC')}
-                            </span>
-                        </td>
-
-                        <td>
-                            <span style="font-family: 'JetBrains Mono', monospace; font-weight: 600; color: #1e293b;">
-                                ${escapeHtml(lead.bill || '—')}
-                            </span>
-                        </td>
-
-                        <td style="font-size: 12.5px; color: var(--text-muted); white-space: nowrap;">
-                            ${date}
-                        </td>
-
-                        <td>
-                            <select class="status-select ${statusClass}" onchange="updateLeadStatus('${lead._id}', this.value)">
-                                <option value="New" ${status === 'New' ? 'selected' : ''}>🔴 New</option>
-                                <option value="Contacted" ${status === 'Contacted' ? 'selected' : ''}>🔵 Contacted</option>
-                                <option value="Survey Scheduled" ${status === 'Survey Scheduled' ? 'selected' : ''}>🟡 Survey Scheduled</option>
-                                <option value="Proposal Sent" ${status === 'Proposal Sent' ? 'selected' : ''}>🟣 Proposal Sent</option>
-                                <option value="Closed Won" ${status === 'Closed Won' ? 'selected' : ''}>🟢 Won</option>
-                                <option value="Closed Lost" ${status === 'Closed Lost' ? 'selected' : ''}>⚪ Lost</option>
-                            </select>
-                        </td>
-
-                        <td style="text-align: right; white-space: nowrap;">
-                            <button type="button" class="btn-outline" style="padding: 5px 9px;" onclick="openNotesModal('${lead._id}')" title="View/Edit Notes">
-                                <i class="fas fa-sticky-note" style="color: #d97706;"></i>
-                            </button>
-                            <button type="button" class="btn-outline" style="padding: 5px 9px; color: #ef4444;" onclick="deleteLead('${lead._id}')" title="Delete Inquiry">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </td>
-                    </tr>
-                `;
-            }).join('');
-        }
-
-        function escapeHtml(str) {
-            return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-        }
-
-        // Update Status API
-        async function updateLeadStatus(id, newStatus) {
-            try {
-                const res = await fetch(`/api/admin/leads/${id}`, {
-                    method: 'PATCH',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ status: newStatus })
-                });
-                if (res.ok) {
-                    showToast(`Status updated to ${newStatus}`);
-                    const lead = allLeads.find(l => l._id === id);
-                    if (lead) lead.status = newStatus;
-                    renderMetrics();
-                    renderTable();
-                }
-            } catch (err) {
-                alert("Failed to update status");
+            const growthBadge = document.getElementById('statGrowthBadge');
+            const pct = stats.monthGrowthPct || 0;
+            growthBadge.textContent = (pct >= 0 ? '+' : '') + pct + '%';
+            if (pct < 0) {
+                growthBadge.style.background = '#fee2e2';
+                growthBadge.style.color = '#b91c1c';
+            } else {
+                growthBadge.style.background = '#dcfce7';
+                growthBadge.style.color = '#15803d';
             }
-        }
 
-        // Delete Lead API
-        async function deleteLead(id) {
-            if (!confirm("Are you sure you want to permanently delete this lead?")) return;
-            try {
-                const res = await fetch(`/api/admin/leads/${id}`, { method: 'DELETE' });
-                if (res.ok) {
-                    allLeads = allLeads.filter(l => l._id !== id);
-                    showToast("Lead deleted permanently");
-                    renderMetrics();
-                    renderTable();
-                }
-            } catch (err) {
-                alert("Failed to delete lead");
+            // Render Charts
+            initCharts(stats);
+        } catch (err) {
+            console.error('Failed to load stats:', err);
+        }
+    }
+
+    // Fetch All Leads Table Data
+    async function fetchLeads() {
+        try {
+            const res = await fetch('/api/admin/leads');
+            if (res.status === 401) {
+                window.location.href = '/admin';
+                return;
             }
+            allLeads = await res.json();
+            updateTabCounts();
+            renderTable();
+        } catch (err) {
+            console.error('Error fetching leads:', err);
+            showToast('Failed to load leads from database', true);
         }
+    }
 
-        // Open Notes Modal
-        function openNotesModal(id) {
-            const lead = allLeads.find(l => l._id === id);
-            if (!lead) return;
-            currentEditingLeadId = id;
-            document.getElementById('notesModalTitle').textContent = `Notes: ${lead.name || 'Inquiry'}`;
-            document.getElementById('notesLeadDetails').innerHTML = `
-                <strong>Phone:</strong> ${lead.phone || 'N/A'} &bull;
-                <strong>Service:</strong> ${lead.service || 'N/A'} &bull;
-                <strong>Message:</strong> <em>"${escapeHtml(lead.message || 'No initial message provided.')}"</em>
+    // Update Counts on Status Tabs
+    function updateTabCounts() {
+        const counts = { All: allLeads.length, New: 0, Contacted: 0, 'Survey Scheduled': 0, 'Proposal Sent': 0, 'Closed Won': 0, 'Closed Lost': 0 };
+        allLeads.forEach(l => {
+            if (counts[l.status] !== undefined) counts[l.status]++;
+        });
+
+        document.getElementById('countAll').textContent = counts.All;
+        document.getElementById('countNew').textContent = counts.New;
+        document.getElementById('countContacted').textContent = counts.Contacted;
+        document.getElementById('countSurvey').textContent = counts['Survey Scheduled'];
+        document.getElementById('countProposal').textContent = counts['Proposal Sent'];
+        document.getElementById('countWon').textContent = counts['Closed Won'];
+        document.getElementById('countLost').textContent = counts['Closed Lost'];
+    }
+
+    // Render Leads Table
+    function renderTable() {
+        const tbody = document.getElementById('leadsTableBody');
+        const q = (document.getElementById('searchInput').value || '').toLowerCase();
+        const service = document.getElementById('serviceFilter').value;
+
+        const filtered = allLeads.filter(l => {
+            const matchStatus = !currentFilterStatus || l.status === currentFilterStatus;
+            const matchService = !service || (l.service && l.service.toLowerCase().includes(service.toLowerCase()));
+            const matchQuery = !q || 
+                (l.name && l.name.toLowerCase().includes(q)) ||
+                (l.phone && l.phone.toLowerCase().includes(q)) ||
+                (l.location && l.location.toLowerCase().includes(q)) ||
+                (l.service && l.service.toLowerCase().includes(q));
+
+            return matchStatus && matchService && matchQuery;
+        });
+
+        if (filtered.length === 0) {
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="7" class="empty-state">
+                        <i class="fas fa-folder-open"></i>
+                        <h3>No customer inquiries found</h3>
+                        <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">No leads match your current search filters.</p>
+                    </td>
+                </tr>
             `;
-            document.getElementById('leadNotesInput').value = lead.notes || '';
-            document.getElementById('notesModal').classList.add('active');
+            return;
         }
 
-        // Save Notes API
-        document.getElementById('btnSaveNotes').addEventListener('click', async () => {
-            if (!currentEditingLeadId) return;
-            const notes = document.getElementById('leadNotesInput').value.trim();
-            try {
-                const res = await fetch(`/api/admin/leads/${currentEditingLeadId}`, {
-                    method: 'PATCH',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ notes })
-                });
-                if (res.ok) {
-                    const lead = allLeads.find(l => l._id === currentEditingLeadId);
-                    if (lead) lead.notes = notes;
-                    document.getElementById('notesModal').classList.remove('active');
-                    showToast("Notes saved successfully");
-                }
-            } catch (err) {
-                alert("Failed to save notes");
+        tbody.innerHTML = filtered.map(l => {
+            const dateStr = new Date(l.createdAt).toLocaleDateString('en-IN', {
+                day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit'
+            });
+
+            const cleanPhone = (l.phone || '').replace(/[^0-9]/g, '');
+            const waPhone = cleanPhone.length === 10 ? '91' + cleanPhone : cleanPhone;
+            const statusClass = 'status-' + (l.status || 'New').replace(/\s+/g, '-');
+
+            return `
+                <tr>
+                    <td>
+                        <span class="lead-name">${escapeHtml(l.name || 'Anonymous')}</span>
+                        <div class="lead-contact">${escapeHtml(l.phone || 'No phone')} ${l.email ? '• ' + escapeHtml(l.email) : ''}</div>
+                        <div class="quick-actions">
+                            ${l.phone ? `<a href="tel:${cleanPhone}" class="action-chip call"><i class="fas fa-phone-alt"></i> Call</a>` : ''}
+                            ${cleanPhone ? `<a href="https://wa.me/${waPhone}?text=Hello%20${encodeURIComponent(l.name || '')},%20this%20is%20E%20Green%20Solution%20Pune%20regarding%20your%20solar%20rooftop%20inquiry." target="_blank" class="action-chip wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>` : ''}
+                        </div>
+                    </td>
+                    <td>
+                        <strong style="color: var(--text-heading); font-size: 13px;">${escapeHtml(l.service || 'Turnkey Solar')}</strong>
+                        ${l.capacity ? `<div style="font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">Capacity: ${escapeHtml(l.capacity)}</div>` : ''}
+                        <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Src: ${escapeHtml(l.source || 'Website Form')}</div>
+                    </td>
+                    <td>
+                        <span style="font-weight: 600; color: var(--text-heading);"><i class="fas fa-map-marker-alt" style="color: var(--sage-primary); font-size: 11px;"></i> ${escapeHtml(l.location || 'Pune')}</span>
+                    </td>
+                    <td>
+                        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; font-weight: 600;">${escapeHtml(l.bill || '—')}</span>
+                    </td>
+                    <td style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-muted); white-space: nowrap;">
+                        ${dateStr}
+                    </td>
+                    <td>
+                        <select class="stage-select ${statusClass}" onchange="updateLeadStatus('${l._id}', this.value)">
+                            <option value="New" ${l.status === 'New' ? 'selected' : ''}>New Lead</option>
+                            <option value="Contacted" ${l.status === 'Contacted' ? 'selected' : ''}>Contacted</option>
+                            <option value="Survey Scheduled" ${l.status === 'Survey Scheduled' ? 'selected' : ''}>Survey Scheduled</option>
+                            <option value="Proposal Sent" ${l.status === 'Proposal Sent' ? 'selected' : ''}>Proposal Sent</option>
+                            <option value="Closed Won" ${l.status === 'Closed Won' ? 'selected' : ''}>Closed Won</option>
+                            <option value="Closed Lost" ${l.status === 'Closed Lost' ? 'selected' : ''}>Closed Lost</option>
+                        </select>
+                    </td>
+                    <td style="text-align: right; white-space: nowrap;">
+                        <button type="button" class="table-btn" title="View Customer Notes" onclick="openNotesModal('${l._id}')">
+                            <i class="fas fa-sticky-note"></i>
+                        </button>
+                        <button type="button" class="table-btn danger" title="Delete Lead" onclick="deleteLead('${l._id}')">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+            `;
+        }).join('');
+    }
+
+    function escapeHtml(str) {
+        if (!str) return '';
+        return String(str).replace(/[&<>"']/g, function(m) {
+            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+        });
+    }
+
+    // Update Lead Pipeline Status Live
+    async function updateLeadStatus(id, newStatus) {
+        try {
+            const res = await fetch('/api/admin/leads/' + id, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ status: newStatus })
+            });
+            if (res.ok) {
+                const lead = allLeads.find(l => l._id === id);
+                if (lead) lead.status = newStatus;
+                updateTabCounts();
+                renderTable();
+                showToast('Status updated to ' + newStatus);
+                fetchStats();
+            } else {
+                showToast('Failed to update status', true);
             }
-        });
+        } catch (err) {
+            showToast('Error updating status', true);
+        }
+    }
 
-        // Add Manual Lead Form
-        document.getElementById('addLeadForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            const payload = Object.fromEntries(formData.entries());
+    // Notes Modal
+    function openNotesModal(id) {
+        const lead = allLeads.find(l => l._id === id);
+        if (!lead) return;
+        document.getElementById('notesLeadId').value = id;
+        document.getElementById('notesModalTitle').textContent = 'Notes: ' + (lead.name || 'Customer');
+        document.getElementById('notesCustomerMessage').textContent = lead.message || 'No additional requirements entered by customer.';
+        document.getElementById('notesInput').value = lead.notes || '';
+        openModal('notesModal');
+    }
 
-            try {
-                const res = await fetch('/api/admin/leads', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                if (res.ok) {
-                    document.getElementById('addLeadModal').classList.remove('active');
-                    e.target.reset();
-                    showToast("New lead logged to MongoDB Atlas");
-                    loadLeads();
-                }
-            } catch (err) {
-                alert("Failed to add lead");
+    document.getElementById('notesForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const id = document.getElementById('notesLeadId').value;
+        const notes = document.getElementById('notesInput').value;
+
+        try {
+            const res = await fetch('/api/admin/leads/' + id, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ notes })
+            });
+            if (res.ok) {
+                const lead = allLeads.find(l => l._id === id);
+                if (lead) lead.notes = notes;
+                closeModal('notesModal');
+                showToast('Notes saved successfully');
+            } else {
+                showToast('Failed to save notes', true);
             }
-        });
+        } catch (err) {
+            showToast('Error saving notes', true);
+        }
+    });
 
-        // Export to CSV
-        document.getElementById('btnExportCSV').addEventListener('click', () => {
-            window.location.href = '/api/admin/leads/export-csv';
-        });
+    // Delete Lead
+    async function deleteLead(id) {
+        if (!confirm('Are you sure you want to permanently delete this lead?')) return;
+        try {
+            const res = await fetch('/api/admin/leads/' + id, { method: 'DELETE' });
+            if (res.ok) {
+                allLeads = allLeads.filter(l => l._id !== id);
+                updateTabCounts();
+                renderTable();
+                showToast('Lead deleted from MongoDB');
+                fetchStats();
+            } else {
+                showToast('Failed to delete lead', true);
+            }
+        } catch (err) {
+            showToast('Error deleting lead', true);
+        }
+    }
 
-        // Refresh Button
-        document.getElementById('btnRefresh').addEventListener('click', () => {
-            showToast("Refreshing leads from MongoDB...");
-            loadLeads();
-        });
+    // Trigger FormSubmit Test & Activation
+    document.getElementById('btnTestFormSubmit').addEventListener('click', async function() {
+        const btn = this;
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending Test...';
 
-        // Status Tabs Click Handlers
-        document.getElementById('statusTabs').addEventListener('click', (e) => {
-            const btn = e.target.closest('.tab-btn');
-            if (!btn) return;
-            document.querySelectorAll('#statusTabs .tab-btn').forEach(b => b.classList.remove('active'));
+        try {
+            const res = await fetch('/api/admin/test-formsubmit', { method: 'POST' });
+            const data = await res.json();
+            if (res.ok && data.success) {
+                showToast('Test lead saved & forwarded to egreensolution1@gmail.com!');
+                fetchStats();
+                fetchLeads();
+            } else {
+                showToast('Notice: ' + (data.message || 'Check email'), false);
+            }
+        } catch (err) {
+            showToast('Test dispatch sent to server', false);
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-paper-plane" style="color: var(--sage-primary);"></i> <span>Send Test Lead &amp; Activation</span>';
+        }
+    });
+
+    // Add Manual Lead Submit
+    document.getElementById('addLeadForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const payload = Object.fromEntries(formData.entries());
+
+        try {
+            const res = await fetch('/api/admin/leads', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            if (res.ok) {
+                closeModal('addLeadModal');
+                form.reset();
+                showToast('New lead added to MongoDB Atlas!');
+                fetchStats();
+                fetchLeads();
+            } else {
+                showToast('Failed to add lead', true);
+            }
+        } catch (err) {
+            showToast('Error saving lead', true);
+        }
+    });
+
+    // Export CSV
+    document.getElementById('btnExportCSV').addEventListener('click', function() {
+        window.location.href = '/api/admin/leads/export-csv';
+    });
+
+    // Refresh Data
+    document.getElementById('btnRefresh').addEventListener('click', function() {
+        fetchStats();
+        fetchLeads();
+        showToast('Data refreshed');
+    });
+
+    // Change Password
+    document.getElementById('btnChangePassword').addEventListener('click', () => openModal('passwordModal'));
+
+    document.getElementById('changePasswordForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const currentPassword = form.currentPassword.value;
+        const newPassword = form.newPassword.value;
+
+        try {
+            const res = await fetch('/api/admin/change-password', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ currentPassword, newPassword })
+            });
+            const data = await res.json();
+            if (res.ok && data.success) {
+                closeModal('passwordModal');
+                form.reset();
+                showToast('Password changed successfully!');
+            } else {
+                showToast(data.error || 'Failed to change password', true);
+            }
+        } catch (err) {
+            showToast('Error changing password', true);
+        }
+    });
+
+    // Logout
+    document.getElementById('btnLogout').addEventListener('click', async function() {
+        if (!confirm('Log out from E Green Solution Executive Dashboard?')) return;
+        await fetch('/api/admin/logout', { method: 'POST' });
+        window.location.href = '/admin';
+    });
+
+    // Search & Filter Listeners
+    document.getElementById('searchInput').addEventListener('input', renderTable);
+    document.getElementById('serviceFilter').addEventListener('change', renderTable);
+
+    // Status Tabs Listener
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            currentStatusFilter = btn.dataset.status;
+            currentFilterStatus = btn.getAttribute('data-status') || '';
             renderTable();
         });
+    });
 
-        // Search & Filter listeners
-        document.getElementById('searchInput').addEventListener('input', renderTable);
-        document.getElementById('serviceFilter').addEventListener('change', renderTable);
+    document.getElementById('btnAddLead').addEventListener('click', () => openModal('addLeadModal'));
 
-        // Modal Triggers
-        document.getElementById('btnAddLead').addEventListener('click', () => {
-            document.getElementById('addLeadModal').classList.add('active');
-        });
-
-        document.getElementById('btnChangePassword').addEventListener('click', () => {
-            document.getElementById('passwordModal').classList.add('active');
-        });
-
-        document.querySelectorAll('[data-close-modal]').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const target = btn.dataset.closeModal;
-                document.getElementById(target).classList.remove('active');
-            });
-        });
-
-        // Change Password Submit
-        document.getElementById('changePasswordForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const currentPassword = document.getElementById('currentPass').value;
-            const newPassword = document.getElementById('newPass').value;
-            const confirmPassword = document.getElementById('confirmPass').value;
-
-            if (newPassword !== confirmPassword) {
-                alert("New passwords do not match");
-                return;
-            }
-
-            try {
-                const res = await fetch('/api/admin/change-password', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ currentPassword, newPassword })
-                });
-                const data = await res.json();
-                if (res.ok && data.success) {
-                    document.getElementById('passwordModal').classList.remove('active');
-                    e.target.reset();
-                    showToast("Password updated securely in MongoDB!");
-                } else {
-                    alert(data.error || "Failed to change password");
-                }
-            } catch (err) {
-                alert("Network error updating password");
-            }
-        });
-
-        // Logout
-        document.getElementById('btnLogout').addEventListener('click', async () => {
-            try {
-                await fetch('/api/admin/logout', { method: 'POST' });
-            } finally {
-                window.location.href = '/admin';
-            }
-        });
-
-        // Initial Load
-        loadLeads();
+    // Initial Load
+    fetchStats();
+    fetchLeads();
     </script>
 </body>
 </html>

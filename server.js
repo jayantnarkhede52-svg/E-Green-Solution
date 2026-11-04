@@ -1,5 +1,6 @@
 require('dotenv').config();
 const http = require('http');
+const https = require('https');
 const fs = require('fs');
 const path = require('path');
 const url = require('url');
@@ -31,6 +32,46 @@ const MIME_TYPES = {
     '.ttf': 'font/ttf',
     '.eot': 'application/vnd.ms-fontobject'
 };
+
+
+function forwardToFormSubmit(lead) {
+    return new Promise((resolve) => {
+        const postData = JSON.stringify({
+            name: lead.name || 'Anonymous Lead',
+            phone: lead.phone || '',
+            email: lead.email || 'N/A',
+            location: lead.location || 'Pune / PCMC',
+            service: lead.service || 'Turnkey Rooftop Solar',
+            monthlyBill: lead.bill || 'N/A',
+            message: lead.message || 'Website Lead',
+            sourcePage: lead.source || 'Website Form',
+            _subject: `New Solar Lead: ${lead.name} (${lead.service})`,
+            _template: 'table'
+        });
+
+        const req = https.request('https://formsubmit.co/ajax/egreensolution1@gmail.com', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Content-Length': Buffer.byteLength(postData),
+                'Origin': 'https://www.egreensolution.in',
+                'Referer': 'https://www.egreensolution.in/'
+            },
+            timeout: 8000
+        }, (res) => {
+            let body = '';
+            res.on('data', chunk => body += chunk);
+            res.on('end', () => resolve({ status: res.statusCode, body }));
+        });
+
+        req.on('error', (e) => resolve({ error: e.message }));
+        req.on('timeout', () => { req.destroy(); resolve({ error: 'Timeout' }); });
+        req.write(postData);
+        req.end();
+    });
+}
 
 function parseCookies(cookieHeader) {
     const cookies = {};
@@ -174,6 +215,12 @@ const server = http.createServer(async (req, res) => {
 
             const result = await db.collection('leads').insertOne(leadDoc);
 
+            // Forward asynchronously to FormSubmit (egreensolution1@gmail.com)
+            forwardToFormSubmit(leadDoc).then(res => {
+                if (res.error) console.log('FormSubmit forward note:', res.error);
+                else console.log('FormSubmit forwarded, status:', res.status);
+            }).catch(() => {});
+
             res.writeHead(201, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({
                 success: true,
@@ -314,6 +361,145 @@ const server = http.createServer(async (req, res) => {
         } catch (err) {
             res.writeHead(500, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ error: 'Failed to update password' }));
+            return;
+        }
+    }
+
+    
+    // Admin Analytics Stats: GET /api/admin/stats
+    if (pathname === '/api/admin/stats' && method === 'GET') {
+        const authUser = await getAuthUser(req);
+        if (!authUser) {
+            res.writeHead(401, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Unauthorized' }));
+            return;
+        }
+
+        try {
+            const db = getDB();
+            const now = new Date();
+
+            const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            const startOfWeek = new Date(startOfToday.getTime() - ((startOfToday.getDay() + 6) % 7) * 86400000);
+            const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+            const startOfLastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+
+            const [totalLeads, newLeads, thisMonthLeads, lastMonthLeads, thisWeekLeads, todayLeads] = await Promise.all([
+                db.collection('leads').countDocuments({}),
+                db.collection('leads').countDocuments({ status: 'New' }),
+                db.collection('leads').countDocuments({ createdAt: { $gte: startOfMonth } }),
+                db.collection('leads').countDocuments({ createdAt: { $gte: startOfLastMonth, $lt: startOfMonth } }),
+                db.collection('leads').countDocuments({ createdAt: { $gte: startOfWeek } }),
+                db.collection('leads').countDocuments({ createdAt: { $gte: startOfToday } })
+            ]);
+
+            // Growth percentage vs last month
+            let monthGrowthPct = 0;
+            if (lastMonthLeads > 0) {
+                monthGrowthPct = Math.round(((thisMonthLeads - lastMonthLeads) / lastMonthLeads) * 100);
+            } else if (thisMonthLeads > 0) {
+                monthGrowthPct = 100;
+            }
+
+            // Weekly Trend: Past 7 days
+            const weeklyDays = [];
+            for (let i = 6; i >= 0; i--) {
+                const dayStart = new Date(startOfToday.getTime() - i * 86400000);
+                const dayEnd = new Date(dayStart.getTime() + 86400000);
+                const count = await db.collection('leads').countDocuments({
+                    createdAt: { $gte: dayStart, $lt: dayEnd }
+                });
+                const dayName = dayStart.toLocaleDateString('en-US', { weekday: 'short' });
+                const dateNum = dayStart.getDate();
+                weeklyDays.push({ label: `${dayName} ${dateNum}`, count });
+            }
+
+            // Monthly Trend: Last 6 months
+            const monthlyTrend = [];
+            for (let i = 5; i >= 0; i--) {
+                const mStart = new Date(now.getFullYear(), now.getMonth() - i, 1);
+                const mEnd = new Date(now.getFullYear(), now.getMonth() - i + 1, 1);
+                const count = await db.collection('leads').countDocuments({
+                    createdAt: { $gte: mStart, $lt: mEnd }
+                });
+                const mLabel = mStart.toLocaleDateString('en-US', { month: 'short', year: '2-digit' });
+                monthlyTrend.push({ label: mLabel, count });
+            }
+
+            // Service Breakdown
+            const serviceAggregation = await db.collection('leads').aggregate([
+                { $group: { _id: { $ifNull: ['$service', 'General Inquiry'] }, count: { $sum: 1 } } },
+                { $sort: { count: -1 } }
+            ]).toArray();
+
+            // Status Breakdown
+            const statusAggregation = await db.collection('leads').aggregate([
+                { $group: { _id: { $ifNull: ['$status', 'New'] }, count: { $sum: 1 } } },
+                { $sort: { count: -1 } }
+            ]).toArray();
+
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({
+                totalLeads,
+                newLeads,
+                thisMonthLeads,
+                lastMonthLeads,
+                thisWeekLeads,
+                todayLeads,
+                monthGrowthPct,
+                weeklyDays,
+                monthlyTrend,
+                serviceAggregation,
+                statusAggregation
+            }));
+            return;
+        } catch (err) {
+            console.error('Error computing stats:', err);
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Failed to compute stats' }));
+            return;
+        }
+    }
+
+    // Admin Trigger FormSubmit Test & Activation: POST /api/admin/test-formsubmit
+    if (pathname === '/api/admin/test-formsubmit' && method === 'POST') {
+        const authUser = await getAuthUser(req);
+        if (!authUser) {
+            res.writeHead(401, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Unauthorized' }));
+            return;
+        }
+
+        try {
+            const db = getDB();
+            const testDoc = {
+                name: 'E Green Solution Test Lead',
+                phone: '+91 72491 87969',
+                email: 'egreensolution1@gmail.com',
+                location: 'Pune Headquarters',
+                service: 'System Verification & FormSubmit Activation',
+                bill: '₹ 15,000 / month',
+                message: 'Test dispatch triggered from Admin Dashboard to verify FormSubmit email delivery to egreensolution1@gmail.com',
+                status: 'New',
+                notes: 'Automated test lead from admin dashboard',
+                source: 'Admin Test Dispatch',
+                createdAt: new Date(),
+                updatedAt: new Date()
+            };
+
+            await db.collection('leads').insertOne(testDoc);
+            const fsResult = await forwardToFormSubmit(testDoc);
+
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({
+                success: true,
+                message: 'Test lead saved to MongoDB Atlas & forwarded to FormSubmit (egreensolution1@gmail.com).',
+                formSubmitResult: fsResult
+            }));
+            return;
+        } catch (err) {
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Failed to dispatch test lead' }));
             return;
         }
     }
@@ -504,6 +690,13 @@ const server = http.createServer(async (req, res) => {
     // ============================================================
     // 3. LEGACY 301 REDIRECTS
     // ============================================================
+
+    
+    if (pathname === '/solar-subsidy' || pathname === '/solar-subsidy.html') {
+        res.writeHead(301, { 'Location': '/gallery' });
+        res.end();
+        return;
+    }
 
     if (pathname === '/pimpri-chinchwad' || pathname === '/pimpri-chinchwad.html') {
         res.writeHead(301, { 'Location': '/solar-panel-pimpri-chinchwad' });

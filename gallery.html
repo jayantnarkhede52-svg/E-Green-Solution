@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RB8MHEG1S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6RB8MHEG1S');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Project Gallery | Real Rooftop Photos & Drone Footage Pune - E Green Solution</title>
+    <meta name="description" content="Explore real 4K drone footage, on-site walkthrough videos, and high-resolution photo documentation of over 200+ residential, commercial, and industrial solar rooftop plants across Pune & Maharashtra.">
+    <meta name="keywords" content="solar project gallery pune, solar plant drone video pune, residential solar photos, industrial solar epc photos chakan, commercial solar installation gallery pune">
+    <link rel="canonical" href="https://www.egreensolution.in/gallery">
+    
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.egreensolution.in/gallery">
+    <meta property="og:title" content="Solar Project Gallery & Drone Footage Pune | E Green Solution">
+    <meta property="og:description" content="Browse real verified photographs and drone inspection videos from our 2MW+ commissioned solar rooftop installations across Pune, PCMC, and MIDC manufacturing hubs.">
+    <meta property="og:image" content="https://www.egreensolution.in/assets/projects/eagle_burgmann.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/logo.png">
+
+    <!-- Schema.org Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.egreensolution.in/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Gallery",
+        "item": "https://www.egreensolution.in/gallery"
+      }]
+    }
+    </script>
+
+    <!-- Google Fonts: Manrope, Inter, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/dark-technical.css?v=4.1">
+    <link rel="stylesheet" href="/css/style.css?v=4.1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="/js/site-accessibility.js?v=1.0" defer></script>
+    <style>
+        .gallery-filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 32px 0 24px;
+        }
+        .gallery-filter-btn {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-muted);
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: var(--radius-ctrl);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .gallery-filter-btn:hover {
+            border-color: var(--gold-accent);
+            color: var(--text-primary);
+            background: var(--bg-elevated);
+        }
+        .gallery-filter-btn.active {
+            background: var(--gold-accent);
+            color: #061A0C;
+            border-color: var(--gold-accent);
+            font-weight: 700;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 22px;
+            margin-top: 24px;
+        }
+        .gallery-item {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-muted);
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold-accent);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+        }
+        .gallery-thumb-wrap {
+            position: relative;
+            width: 100%;
+            height: 230px;
+            overflow: hidden;
+            background: #000;
+            cursor: pointer;
+        }
+        .gallery-thumb-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            display: block;
+        }
+        .gallery-item:hover .gallery-thumb-wrap img {
+            transform: scale(1.05);
+        }
+        .gallery-thumb-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(11, 13, 18, 0.85);
+            backdrop-filter: blur(4px);
+            border: 1px solid var(--border-emp);
+            color: var(--gold-accent);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10.5px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            z-index: 2;
+        }
+        .gallery-thumb-zoom {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(11, 13, 18, 0.85);
+            backdrop-filter: blur(4px);
+            border: 1px solid var(--border-emp);
+            color: #ffffff;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            opacity: 0.85;
+            transition: opacity 0.2s ease, background 0.2s ease;
+            z-index: 2;
+        }
+        .gallery-item:hover .gallery-thumb-zoom {
+            opacity: 1;
+            background: var(--gold-accent);
+            color: #061A0C;
+        }
+        .gallery-info {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .gallery-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+        .gallery-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .gallery-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 14px;
+        }
+        .video-card-wrap {
+            position: relative;
+            width: 100%;
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            background: #000;
+            border: 1px solid var(--border-emp);
+        }
+        .video-card-wrap video {
+            width: 100%;
+            height: auto;
+            max-height: 380px;
+            display: block;
+            background: #000;
+        }
+
+        /* Lightbox Modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(5, 7, 10, 0.94);
+            backdrop-filter: blur(8px);
+            z-index: 20000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .lightbox-modal.active {
+            display: flex;
+        }
+        .lightbox-content {
+            max-width: 95vw;
+            max-height: 90vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .lightbox-content img {
+            max-width: 90vw;
+            max-height: 78vh;
+            object-fit: contain;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-emp);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        }
+        .lightbox-caption {
+            margin-top: 14px;
+            text-align: center;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .lightbox-caption span {
+            display: block;
+            font-size: 12px;
+            color: var(--gold-accent);
+            font-family: 'JetBrains Mono', monospace;
+            margin-top: 4px;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 28px;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-filter-bar {
+                gap: 6px;
+            }
+            .gallery-filter-btn {
+                padding: 6px 12px;
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body class="tech-grid-bg">
+    <!-- ============================================================
+         GLOBAL NAVIGATION
+         ============================================================ -->
+    <header id="dt-navbar" role="banner">
+        <div class="dt-nav-container">
+            <a href="/" class="dt-brand" aria-label="E Green Solution Home">
+                <div class="dt-logo-wrap">
+                    <img src="/assets/logo.png" alt="E Green Solution - Solar Panel Dealers Pune" class="dt-logo" width="150" height="34" loading="eager">
+                </div>
+                <span class="dt-brand-title">E GREEN <span>SOLUTION</span></span>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="dt-nav-links" aria-label="Main Navigation">
+                <a href="/">Home</a>
+                
+                <div class="dt-has-dropdown">
+                    <a href="/services" class="dt-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                        Services <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dt-dropdown-menu" role="menu">
+                        <div class="dt-dropdown-header">
+                            <span class="dt-dropdown-eyebrow">ENGINEERING SOLUTIONS</span>
+                            <a href="/services" class="dt-dropdown-viewall">All 10 Services &rarr;</a>
+                        </div>
+                        <div class="dt-dropdown-grid">
+                            <a href="/residential-solar" class="dt-drop-item" role="menuitem">
+                                <div class="dt-drop-icon"><i class="fas fa-home"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Residential Rooftop</strong>
+                                    <span>25-year panel performance warranty</span>
+                                </div>
+                            </a>
+                            <a href="/commercial-solar-pune" class="dt-drop-item" role="menuitem">
+                                <div class="dt-drop-icon"><i class="fas fa-building"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Commercial Solar</strong>
+                                    <span>Offices, schools, malls, hospitals</span>
+                                </div>
+                            </a>
+                            <a href="/industrial-solar" class="dt-drop-item" role="menuitem">
+                                <div class="dt-drop-icon"><i class="fas fa-industry"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Industrial Solar EPC</strong>
+                                    <span>MIDC Chakan, Bhosari, Talegaon</span>
+                                </div>
+                            </a>
+                            <a href="/solar-water-heater-pune" class="dt-drop-item" role="menuitem">
+                                <div class="dt-drop-icon"><i class="fas fa-water"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Solar Water Heaters</strong>
+                                    <span>Pressurized ETC &amp; FPC systems</span>
+                                </div>
+                            </a>
+                            <a href="/solar-panel-cleaning-pune" class="dt-drop-item" role="menuitem">
+                                <div class="dt-drop-icon"><i class="fas fa-broom"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Demineralized RO Wash</strong>
+                                    <span>Restore up to 25% lost generation</span>
+                                </div>
+                            </a>
+                            <a href="/solar-amc-pune" class="dt-drop-item" role="menuitem">
+                                <div class="dt-drop-icon"><i class="fas fa-file-contract"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Solar AMC Contracts</strong>
+                                    <span>Preventive checkups &amp; uptime SLAs</span>
+                                </div>
+                            </a>
+                            <a href="/solar-inverter-repair-pune" class="dt-drop-item" role="menuitem">
+                                <div class="dt-drop-icon"><i class="fas fa-bolt"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Inverter Service &amp; Repair</strong>
+                                    <span>Growatt, Sungrow, Solis, Polycab</span>
+                                </div>
+                            </a>
+                            <a href="/solar-net-meter-msedcl-pune" class="dt-drop-item" role="menuitem">
+                                <div class="dt-drop-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>MSEDCL Net Metering</strong>
+                                    <span>Liaisoning, bi-directional sync</span>
+                                </div>
+                            </a>
+                            <a href="/solar-plant-revamping-repowering" class="dt-drop-item" role="menuitem">
+                                <div class="dt-drop-icon"><i class="fas fa-sync-alt"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Plant Revamping</strong>
+                                    <span>Repower older plants to TOPCon</span>
+                                </div>
+                            </a>
+                            <a href="/solar-repair-maintenance-pune" class="dt-drop-item" role="menuitem">
+                                <div class="dt-drop-icon"><i class="fas fa-wrench"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Plant Repair &amp; Emergency</strong>
+                                    <span>On-site breakdown troubleshooting</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="/projects">Projects</a>
+                <a href="/gallery" class="active">Gallery</a>
+                <a href="/solar-guide">Solar 101</a>
+                <a href="/calculator">Calculator</a>
+                <a href="/areas">Areas</a>
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+            </nav>
+
+            <!-- Actions: Direct Call & Quote CTA -->
+            <div class="dt-nav-actions">
+                <a href="tel:+917249187969" class="dt-phone-link" aria-label="Call E Green Solution">
+                    <i class="fas fa-phone-alt"></i> <span>+91 72491 87969</span>
+                </a>
+                <a href="/contact" class="dt-btn dt-btn-primary" style="padding: 8px 18px; font-size: 13px;">
+                    Get Free Quote <i class="fas fa-arrow-right" style="font-size: 11px;"></i>
+                </a>
+
+                <!-- Mobile Hamburger Toggle -->
+                <button type="button" class="dt-hamburger" id="dt-hamburger" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="dt-mobile-drawer">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="dt-mobile-backdrop" id="dt-backdrop"></div>
+    <div class="dt-mobile-menu" id="dt-mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
+        <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--border-muted);">
+                <span class="dt-brand-title">E GREEN <span>SOLUTION</span></span>
+                <button type="button" id="dt-drawer-close" aria-label="Close Navigation" style="background: transparent; border: none; color: var(--text-primary); font-size: 20px; cursor: pointer;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <ul class="dt-mobile-links">
+                <li><a href="/">Home</a></li>
+                <li class="dt-mobile-dropdown">
+                    <button type="button" class="dt-mobile-dropdown-btn" id="dt-mobile-services-toggle" aria-expanded="false">
+                        <span>Services</span>
+                        <i class="fas fa-chevron-down dt-dropdown-arrow"></i>
+                    </button>
+                    <ul class="dt-mobile-sublinks" id="dt-mobile-services-sub">
+                        <li><a href="/services" class="dt-sublink-all">All 10 Services Overview &rarr;</a></li>
+                        <li><a href="/residential-solar"><i class="fas fa-home"></i> Residential Rooftop</a></li>
+                        <li><a href="/commercial-solar-pune"><i class="fas fa-building"></i> Commercial Solar EPC</a></li>
+                        <li><a href="/industrial-solar"><i class="fas fa-industry"></i> Industrial Solar (MIDC)</a></li>
+                        <li><a href="/solar-water-heater-pune"><i class="fas fa-water"></i> Solar Water Heaters</a></li>
+                        <li><a href="/solar-panel-cleaning-pune"><i class="fas fa-broom"></i> Demineralized RO Wash</a></li>
+                        <li><a href="/solar-amc-pune"><i class="fas fa-file-contract"></i> Solar AMC Contracts</a></li>
+                        <li><a href="/solar-inverter-repair-pune"><i class="fas fa-bolt"></i> Inverter Service &amp; Repair</a></li>
+                        <li><a href="/solar-net-meter-msedcl-pune"><i class="fas fa-tachometer-alt"></i> MSEDCL Net Metering</a></li>
+                        <li><a href="/solar-plant-revamping-repowering"><i class="fas fa-sync-alt"></i> Plant Revamping</a></li>
+                        <li><a href="/solar-repair-maintenance-pune"><i class="fas fa-wrench"></i> Plant Repair &amp; Breakdown</a></li>
+                    </ul>
+                </li>
+                <li><a href="/projects">Projects</a></li>
+                <li><a href="/gallery" class="active">Gallery</a></li>
+                <li><a href="/solar-guide">Solar 101</a></li>
+                <li><a href="/calculator">Calculator</a></li>
+                <li><a href="/areas">Areas</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="dt-mobile-footer">
+            <a href="/contact" class="dt-btn dt-btn-primary" style="width: 100%; text-align: center;">Get Free Solar Quote &rarr;</a>
+            <div style="display: flex; gap: 10px; margin-top: 8px;">
+                <a href="tel:+917249187969" class="dt-btn dt-btn-secondary" style="flex: 1; padding: 10px; font-size: 12px; justify-content: center;"><i class="fas fa-phone-alt"></i> Call</a>
+                <a href="https://wa.me/917249187969?text=Hello%20E%20Green%20Solution,%20I%20am%20interested%20in%20a%20solar%20quote" target="_blank" rel="noopener noreferrer" class="dt-btn dt-btn-secondary" style="flex: 1; padding: 10px; font-size: 12px; justify-content: center; color: #4ade80 !important;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         SUBPAGE HERO SECTION
+         ============================================================ -->
+    <section class="dt-subpage-hero">
+        <div class="dt-container">
+            <div class="dt-breadcrumbs">
+                <a href="/">Home</a>
+                <span class="sep">/</span>
+                <span class="current">Project Gallery</span>
+            </div>
+
+            <div>
+                <div class="dt-tech-label">01 // VERIFIED SITE MEDIA &amp; 4K DRONE FOOTAGE</div>
+                <h1 class="dt-hero-title">
+                    Solar Project Gallery &amp; Video Walkthroughs
+                </h1>
+                <p class="dt-section-desc">
+                    Explore real drone surveys, rooftop walkthroughs, and verified installation photography across our 2MW+ commissioned solar portfolio in Pune, PCMC, and MIDC industrial belts.
+                </p>
+
+                <div class="dt-telemetry-strip" style="max-width: 680px; margin-top: 20px;">
+                    <div>
+                        <span>200+</span>
+                        <span>Projects Built</span>
+                    </div>
+                    <div>
+                        <span>2.0+ MW</span>
+                        <span>Installed Capacity</span>
+                    </div>
+                    <div>
+                        <span>100%</span>
+                        <span>Real On-Site Media</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         GALLERY FILTER & CONTENT SECTION
+         ============================================================ -->
+    <section class="dt-section">
+        <div class="dt-container">
+            <!-- Filter Bar -->
+            <div class="gallery-filter-bar" role="tablist" aria-label="Gallery Categories">
+                <button type="button" class="gallery-filter-btn active" data-filter="all">All Media (30+)</button>
+                <button type="button" class="gallery-filter-btn" data-filter="videos"><i class="fas fa-play-circle" style="color: #4ade80;"></i> Drone &amp; Videos</button>
+                <button type="button" class="gallery-filter-btn" data-filter="industrial">Industrial MIDC (100kW+)</button>
+                <button type="button" class="gallery-filter-btn" data-filter="society">Housing Societies</button>
+                <button type="button" class="gallery-filter-btn" data-filter="commercial">Commercial Plants</button>
+                <button type="button" class="gallery-filter-btn" data-filter="waterheater">Solar Water Heaters</button>
+                <button type="button" class="gallery-filter-btn" data-filter="mounting">Mounting &amp; Electrical</button>
+            </div>
+
+            <!-- SECTION: 4K Drone & Walkthrough Videos -->
+            <div id="videoSection" class="gallery-section-block" style="margin-bottom: 48px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; border-bottom: 1px solid var(--border-muted); padding-bottom: 10px;">
+                    <h3 style="font-size: 20px; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-video" style="color: var(--gold-accent);"></i> 4K Drone Footage &amp; Walkthroughs
+                    </h3>
+                    <span style="font-size: 12px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">4 Commissioned Site Videos</span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+                    <!-- Video 1 -->
+                    <div class="gallery-item" data-category="videos society">
+                        <div class="video-card-wrap">
+                            <video controls preload="metadata" poster="/assets/projects/konark_society_rooftop_100kw.jpg">
+                                <source src="/assets/projects/konark_society_drone.mp4" type="video/mp4">
+                                Your browser does not support HTML5 video.
+                            </video>
+                        </div>
+                        <div class="gallery-info">
+                            <span class="dt-tech-label" style="margin-bottom: 4px;">DRONE SURVEY // 100KW</span>
+                            <div class="gallery-title">Konark A Plus Housing Society, Sopan Baug</div>
+                            <div class="gallery-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Sopan Baug, Pune</span>
+                                <span><i class="fas fa-bolt"></i> 100 kW Rooftop</span>
+                            </div>
+                            <div class="gallery-desc">Full 4K aerial drone survey showing custom high-tensile elevated structures preserving society terrace amenities and lifts.</div>
+                        </div>
+                    </div>
+
+                    <!-- Video 2 -->
+                    <div class="gallery-item" data-category="videos society">
+                        <div class="video-card-wrap">
+                            <video controls preload="metadata" poster="/assets/projects/konark_society_structure_inverter.jpg">
+                                <source src="/assets/projects/konark_society_walkthrough.mp4" type="video/mp4">
+                                Your browser does not support HTML5 video.
+                            </video>
+                        </div>
+                        <div class="gallery-info">
+                            <span class="dt-tech-label" style="margin-bottom: 4px;">ELECTRICAL WALKTHROUGH</span>
+                            <div class="gallery-title">HDG Elevated Structure &amp; Inverter Room</div>
+                            <div class="gallery-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Pune Central</span>
+                                <span><i class="fas fa-shield-alt"></i> 150 km/h Wind Rated</span>
+                            </div>
+                            <div class="gallery-desc">Engineer walkthrough of the 80-micron hot-dip galvanized elevated structure, DC cable trays, and Sungrow string inverter room.</div>
+                        </div>
+                    </div>
+
+                    <!-- Video 3 -->
+                    <div class="gallery-item" data-category="videos industrial">
+                        <div class="video-card-wrap">
+                            <video controls preload="metadata" poster="/assets/projects/eagle_burgmann.png">
+                                <source src="/assets/projects/video1.mp4" type="video/mp4">
+                                Your browser does not support HTML5 video.
+                            </video>
+                        </div>
+                        <div class="gallery-info">
+                            <span class="dt-tech-label" style="margin-bottom: 4px;">INSTALLATION FOOTAGE</span>
+                            <div class="gallery-title">Rooftop Solar Clamping &amp; Alignment</div>
+                            <div class="gallery-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Chakan MIDC, Pune</span>
+                                <span><i class="fas fa-industry"></i> Industrial Shed</span>
+                            </div>
+                            <div class="gallery-desc">Non-penetrating standing seam clamp mounting on industrial metal roof, maintaining 100% waterproof factory integrity.</div>
+                        </div>
+                    </div>
+
+                    <!-- Video 4 -->
+                    <div class="gallery-item" data-category="videos commercial">
+                        <div class="video-card-wrap">
+                            <video controls preload="metadata" poster="/assets/projects/bhagawati_industrial.png">
+                                <source src="/assets/projects/video2.mp4" type="video/mp4">
+                                Your browser does not support HTML5 video.
+                            </video>
+                        </div>
+                        <div class="gallery-info">
+                            <span class="dt-tech-label" style="margin-bottom: 4px;">COMMISSIONING FOOTAGE</span>
+                            <div class="gallery-title">Commercial Solar Grid Synchronization</div>
+                            <div class="gallery-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Pune City</span>
+                                <span><i class="fas fa-tachometer-alt"></i> MSEDCL Bi-Directional</span>
+                            </div>
+                            <div class="gallery-desc">Final HT/LT synchronization testing, net-meter inspection, and live telemetry cloud yield verification.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION: Verified Photographic Portfolio Grid -->
+            <div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; border-bottom: 1px solid var(--border-muted); padding-bottom: 10px;">
+                    <h3 style="font-size: 20px; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-camera" style="color: var(--gold-accent);"></i> Commissioned Installation Photography
+                    </h3>
+                    <span style="font-size: 12px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">Verified On-Site Records</span>
+                </div>
+
+                <div class="gallery-grid" id="photoGrid">
+                    <!-- Photo 1: Eagle Burgmann -->
+                    <div class="gallery-item" data-category="industrial">
+                        <div class="gallery-thumb-wrap" onclick="openLightbox('/assets/projects/eagle_burgmann.png', 'Eagle Burgmann India Pvt. Ltd. — 200kW Industrial EPC', 'Chakan MIDC, Pune • 2.9 Lakh Units/Year')">
+                            <span class="gallery-thumb-badge">200 kW MIDC</span>
+                            <img src="/assets/projects/eagle_burgmann.png" alt="Eagle Burgmann 200kW Industrial Solar Plant Chakan MIDC Pune" loading="lazy">
+                            <div class="gallery-thumb-zoom"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="gallery-info">
+                            <div class="gallery-title">Eagle Burgmann India Pvt. Ltd.</div>
+                            <div class="gallery-meta"><span><i class="fas fa-map-marker-alt"></i> Chakan MIDC</span><span><i class="fas fa-bolt"></i> 200 kW HT Grid</span></div>
+                            <div class="gallery-desc">High-tension 11kV substation synchronized rooftop system across factory sheds with zero roof penetration clamping.</div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 2: Konark A Plus Society -->
+                    <div class="gallery-item" data-category="society">
+                        <div class="gallery-thumb-wrap" onclick="openLightbox('/assets/projects/konark_society_rooftop_100kw.jpg', 'Konark A Plus Housing Society — 100kW Rooftop Solar', 'Sopan Baug, Pune • ₹18 Lakhs Central Subsidy')">
+                            <span class="gallery-thumb-badge">100 kW Society</span>
+                            <img src="/assets/projects/konark_society_rooftop_100kw.jpg" alt="100kW Rooftop Solar Konark A Plus Housing Society Sopan Baug Pune" loading="lazy">
+                            <div class="gallery-thumb-zoom"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="gallery-info">
+                            <div class="gallery-title">Konark A Plus Housing Society</div>
+                            <div class="gallery-meta"><span><i class="fas fa-map-marker-alt"></i> Sopan Baug, Pune</span><span><i class="fas fa-bolt"></i> 100 kW System</span></div>
+                            <div class="gallery-desc">Slashed common area utility bills by 90% for elevators, lighting, and booster pumps with ₹18 Lakhs central subsidy.</div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 3: Inverter & Structure Work -->
+                    <div class="gallery-item" data-category="mounting society">
+                        <div class="gallery-thumb-wrap" onclick="openLightbox('/assets/projects/konark_society_structure_inverter.jpg', 'Hot-Dip Galvanized Elevated Structure & Inverter Station', 'Konark A Plus, Pune • 150 km/h Wind Rated')">
+                            <span class="gallery-thumb-badge">Elevated Structure</span>
+                            <img src="/assets/projects/konark_society_structure_inverter.jpg" alt="Hot-Dip Galvanized Structure and Inverter Station Pune" loading="lazy">
+                            <div class="gallery-thumb-zoom"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="gallery-info">
+                            <div class="gallery-title">Elevated HDG Structure &amp; Station</div>
+                            <div class="gallery-meta"><span><i class="fas fa-map-marker-alt"></i> Sopan Baug</span><span><i class="fas fa-shield-alt"></i> 80-Micron HDG</span></div>
+                            <div class="gallery-desc">Custom-engineered high clearance elevated structure allowing resident access and weather-sealed DC/AC switchgear.</div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 4: Bhagawati Industries -->
+                    <div class="gallery-item" data-category="commercial industrial">
+                        <div class="gallery-thumb-wrap" onclick="openLightbox('/assets/projects/bhagawati_industrial.png', 'Bhagawati Industries — 140kW Commercial Solar Plant', 'Pune Industrial Belt • 18,500 Units/Month')">
+                            <span class="gallery-thumb-badge">140 kW Commercial</span>
+                            <img src="/assets/projects/bhagawati_industrial.png" alt="Bhagawati Industries 140kW Commercial Rooftop Solar Pune" loading="lazy">
+                            <div class="gallery-thumb-zoom"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="gallery-info">
+                            <div class="gallery-title">Bhagawati Industries</div>
+                            <div class="gallery-meta"><span><i class="fas fa-map-marker-alt"></i> Pune</span><span><i class="fas fa-bolt"></i> 140 kW Multi-MPPT</span></div>
+                            <div class="gallery-desc">Multi-MPPT industrial plant generating ~18,500 units monthly with integrated walkway access and ESE lightning protection.</div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 5: Modern Engineering -->
+                    <div class="gallery-item" data-category="industrial">
+                        <div class="gallery-thumb-wrap" onclick="openLightbox('/assets/projects/modern_engineering.png', 'Modern Engineering — 120kW Industrial MIDC Solar', 'Bhosari MIDC, Pune • 40% Accelerated Depreciation')">
+                            <span class="gallery-thumb-badge">120 kW MIDC</span>
+                            <img src="/assets/projects/modern_engineering.png" alt="Modern Engineering 120kW Solar Bhosari MIDC Pune" loading="lazy">
+                            <div class="gallery-thumb-zoom"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="gallery-info">
+                            <div class="gallery-title">Modern Engineering Works</div>
+                            <div class="gallery-meta"><span><i class="fas fa-map-marker-alt"></i> Bhosari MIDC</span><span><i class="fas fa-chart-line"></i> 2.8 Yrs Payback</span></div>
+                            <div class="gallery-desc">Turnkey industrial rooftop EPC slashing factory grid power bills with German standing seam non-penetrative clamps.</div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 6: Manjree Green -->
+                    <div class="gallery-item" data-category="commercial">
+                        <div class="gallery-thumb-wrap" onclick="openLightbox('/assets/projects/manjree_green.png', 'Manjree Green Cold Storage — 85kW Commercial Plant', 'Hadapsar, Pune • 11,200 Units/Month')">
+                            <span class="gallery-thumb-badge">85 kW Commercial</span>
+                            <img src="/assets/projects/manjree_green.png" alt="Manjree Green 85kW Solar Installation Hadapsar Pune" loading="lazy">
+                            <div class="gallery-thumb-zoom"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="gallery-info">
+                            <div class="gallery-title">Manjree Green Facility</div>
+                            <div class="gallery-meta"><span><i class="fas fa-map-marker-alt"></i> Hadapsar, Pune</span><span><i class="fas fa-snowflake"></i> Heavy Refrigeration</span></div>
+                            <div class="gallery-desc">Designed to offset continuous daytime refrigeration power demands, reducing commercial grid tariffs by ₹95,000 monthly.</div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 7: Solar Water Heaters -->
+                    <div class="gallery-item" data-category="waterheater">
+                        <div class="gallery-thumb-wrap" onclick="openLightbox('/assets/Projects_egreen/solar heater.jpeg', 'Pressurized Commercial Solar Water Heating System', 'Pune Housing Society • 2,000 LPD Food-Grade SS Tank')">
+                            <span class="gallery-thumb-badge">2000 LPD Thermal</span>
+                            <img src="/assets/Projects_egreen/solar heater.jpeg" alt="Solar Water Heater Installation Pune Maharashtra" loading="lazy">
+                            <div class="gallery-thumb-zoom"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="gallery-info">
+                            <div class="gallery-title">Pressurized Solar Water Heating</div>
+                            <div class="gallery-meta"><span><i class="fas fa-map-marker-alt"></i> Pune</span><span><i class="fas fa-water"></i> ETC / FPC System</span></div>
+                            <div class="gallery-desc">High-capacity centralized solar hot water plant with sacrificial magnesium anodes resisting hard water scaling.</div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 8: Real Site Work 1 -->
+                    <div class="gallery-item" data-category="mounting">
+                        <div class="gallery-thumb-wrap" onclick="openLightbox('/assets/IMG-20260326-WA0011.jpg', 'Tier-1 Mono PERC Module Mounting & Stringing', 'Residential Terrace Installation Pune')">
+                            <span class="gallery-thumb-badge">Site Montage</span>
+                            <img src="/assets/IMG-20260326-WA0011.jpg" alt="Solar Panel Mounting Pune" loading="lazy">
+                            <div class="gallery-thumb-zoom"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="gallery-info">
+                            <div class="gallery-title">Precision Module Stringing</div>
+                            <div class="gallery-meta"><span><i class="fas fa-map-marker-alt"></i> Pune</span><span><i class="fas fa-tools"></i> Verified Site Photo</span></div>
+                            <div class="gallery-desc">High-efficiency mono PERC modules aligned with precision torque wrenches and stainless steel mid/end clamps.</div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 9: Real Site Work 2 -->
+                    <div class="gallery-item" data-category="mounting">
+                        <div class="gallery-thumb-wrap" onclick="openLightbox('/assets/IMG-20260326-WA0014.jpg', 'Pre-Cast Concrete Ballast & Base Grouting', 'Flat RCC Roof Pune')">
+                            <span class="gallery-thumb-badge">Civil & Mounting</span>
+                            <img src="/assets/IMG-20260326-WA0014.jpg" alt="Solar Roof Civil Work Pune" loading="lazy">
+                            <div class="gallery-thumb-zoom"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="gallery-info">
+                            <div class="gallery-title">M25 Concrete Ballast Foundation</div>
+                            <div class="gallery-meta"><span><i class="fas fa-map-marker-alt"></i> Baner, Pune</span><span><i class="fas fa-shield-alt"></i> Zero Leakage</span></div>
+                            <div class="gallery-desc">Non-destructive roof ballast anchoring with multi-layer bituminous waterproofing sealants preserving roof slabs.</div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 10: Real Site Work 3 -->
+                    <div class="gallery-item" data-category="mounting">
+                        <div class="gallery-thumb-wrap" onclick="openLightbox('/assets/IMG-20260326-WA0017.jpg', 'DC Junction Box & Surge Protection Deployment', 'Electrical Commissioning')">
+                            <span class="gallery-thumb-badge">Electrical Switchgear</span>
+                            <img src="/assets/IMG-20260326-WA0017.jpg" alt="Solar Electrical Switchgear Pune" loading="lazy">
+                            <div class="gallery-thumb-zoom"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="gallery-info">
+                            <div class="gallery-title">DCDB &amp; SPD Protection Array</div>
+                            <div class="gallery-meta"><span><i class="fas fa-map-marker-alt"></i> Wakad, Pune</span><span><i class="fas fa-bolt"></i> Type-II SPD</span></div>
+                            <div class="gallery-desc">Weatherproof IP65 DC distribution box with certified Class-II surge protection devices and DC isolation switches.</div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 11: Real Site Work 4 -->
+                    <div class="gallery-item" data-category="society mounting">
+                        <div class="gallery-thumb-wrap" onclick="openLightbox('/assets/IMG-20260326-WA0024.jpg', 'Elevated Walkway & Railing Access System', 'Housing Society Rooftop Pune')">
+                            <span class="gallery-thumb-badge">Safety Infrastructure</span>
+                            <img src="/assets/IMG-20260326-WA0024.jpg" alt="Solar Safety Walkway Pune" loading="lazy">
+                            <div class="gallery-thumb-zoom"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="gallery-info">
+                            <div class="gallery-title">Elevated Walkway Access</div>
+                            <div class="gallery-meta"><span><i class="fas fa-map-marker-alt"></i> Kothrud, Pune</span><span><i class="fas fa-hard-hat"></i> O&M Safety</span></div>
+                            <div class="gallery-desc">Anti-skid walkway panels and safety railings installed for regular cleaning maintenance and preventive AMC inspections.</div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 12: Real Site Work 5 -->
+                    <div class="gallery-item" data-category="industrial mounting">
+                        <div class="gallery-thumb-wrap" onclick="openLightbox('/assets/IMG-20260326-WA0035.jpg', 'Completed Factory Shed Rooftop Array', 'Chakan Industrial Hub')">
+                            <span class="gallery-thumb-badge">Factory Shed</span>
+                            <img src="/assets/IMG-20260326-WA0035.jpg" alt="Factory Rooftop Solar Array Pune" loading="lazy">
+                            <div class="gallery-thumb-zoom"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="gallery-info">
+                            <div class="gallery-title">Heavy Manufacturing Solar Array</div>
+                            <div class="gallery-meta"><span><i class="fas fa-map-marker-alt"></i> Talegaon MIDC</span><span><i class="fas fa-industry"></i> Industrial Solar</span></div>
+                            <div class="gallery-desc">Trapezoidal metal sheet solar plant delivering daytime power directly to machine tools and compressors.</div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 13: Residential Villa -->
+                    <div class="gallery-item" data-category="society">
+                        <div class="gallery-thumb-wrap" onclick="openLightbox('/assets/services/residential_solar_pune.jpg', '5kW High-Efficiency Residential Rooftop', 'Private Villa Baner, Pune')">
+                            <span class="gallery-thumb-badge">5 kW Villa</span>
+                            <img src="/assets/services/residential_solar_pune.jpg" alt="5kW Residential Rooftop Solar Baner Pune" loading="lazy">
+                            <div class="gallery-thumb-zoom"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="gallery-info">
+                            <div class="gallery-title">Residential Bungalow Rooftop</div>
+                            <div class="gallery-meta"><span><i class="fas fa-map-marker-alt"></i> Baner, Pune</span><span><i class="fas fa-home"></i> Zero Power Bill</span></div>
+                            <div class="gallery-desc">N-Type TOPCon bifacial installation eliminating 100% of residential power bills with ₹78,000 central subsidy credit.</div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 14: Commercial Corporate Hub -->
+                    <div class="gallery-item" data-category="commercial">
+                        <div class="gallery-thumb-wrap" onclick="openLightbox('/assets/services/commercial_solar_pune.jpg', 'Commercial Rooftop Plant Cyber City Pune', 'IT Complex • Levelized Cost < ₹2.50/Unit')">
+                            <span class="gallery-thumb-badge">50 kW IT Hub</span>
+                            <img src="/assets/services/commercial_solar_pune.jpg" alt="Commercial Solar Installation Cyber City Pune" loading="lazy">
+                            <div class="gallery-thumb-zoom"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="gallery-info">
+                            <div class="gallery-title">Commercial IT Complex Solar</div>
+                            <div class="gallery-meta"><span><i class="fas fa-map-marker-alt"></i> Hinjewadi, Pune</span><span><i class="fas fa-building"></i> Commercial ROI</span></div>
+                            <div class="gallery-desc">Commercial solar power reducing grid operating costs from ₹14/unit to ₹2.40/unit with smart inverter cloud monitoring.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         CONSULTATION / FREE PROPOSAL FORM (FormSubmit + MongoDB)
+         ============================================================ -->
+    <section class="dt-section dt-section-surface">
+        <div class="dt-container">
+            <div class="dt-cta-box" style="text-align: left; max-width: 860px; margin: 0 auto;">
+                <div style="text-align: center; margin-bottom: 28px;">
+                    <div class="dt-tech-label" style="display: inline-block;">FREE SITE FEASIBILITY SURVEY</div>
+                    <h2 style="font-size: clamp(24px, 3.2vw, 36px); color: var(--text-primary); margin-top: 8px;">
+                        Want a Solar Plant Like These for Your Roof?
+                    </h2>
+                    <p style="font-size: 14.5px; color: var(--text-secondary); max-width: 600px; margin: 8px auto 0;">
+                        Consult directly with E Green Solution engineers. We provide 3D shadow analysis, generation modeling, and exact turnkey pricing within 24 hours.
+                    </p>
+                </div>
+
+                <form action="https://formsubmit.co/egreensolution1@gmail.com" method="POST" class="dt-form-grid" id="galleryQuoteForm">
+                    <input type="hidden" name="_subject" value="New Gallery Page Lead - E Green Solution">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_page" value="gallery">
+
+                    <div class="dt-form-group">
+                        <label class="dt-label">Full Name *</label>
+                        <input type="text" name="name" required placeholder="e.g. Anand Deshmukh" class="dt-input">
+                    </div>
+
+                    <div class="dt-form-group">
+                        <label class="dt-label">Phone / WhatsApp Number *</label>
+                        <input type="tel" name="phone" required placeholder="e.g. 98765 43210" class="dt-input">
+                    </div>
+
+                    <div class="dt-form-group">
+                        <label class="dt-label">Pune Location *</label>
+                        <input type="text" name="location" required placeholder="e.g. Baner, Chakan, Hadapsar, PCMC" class="dt-input">
+                    </div>
+
+                    <div class="dt-form-group">
+                        <label class="dt-label">Property / System Type</label>
+                        <select name="service" class="dt-select">
+                            <option value="Residential Rooftop">Residential Rooftop (1kW – 10kW)</option>
+                            <option value="Housing Society (10kW–100kW)">Housing Society Common Area</option>
+                            <option value="Commercial Solar">Commercial Building / Office</option>
+                            <option value="Industrial MIDC (100kW–2MW)">Industrial MIDC Factory Shed</option>
+                            <option value="Solar Water Heater">Solar Water Heating System</option>
+                            <option value="Solar AMC & Repair">Solar Maintenance / Repair</option>
+                        </select>
+                    </div>
+
+                    <div class="dt-form-group full">
+                        <label class="dt-label">Approximate Monthly Electricity Bill (Optional)</label>
+                        <input type="text" name="bill" placeholder="e.g. ₹ 8,000 / month" class="dt-input">
+                    </div>
+
+                    <div class="dt-form-group full">
+                        <button type="submit" class="dt-btn dt-btn-primary" style="width: 100%; justify-content: center; padding: 14px; font-size: 15px;">
+                            Request Free Technical Site Audit <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <span style="font-size: 11px; color: var(--text-muted); text-align: center; display: block; margin-top: 10px;">
+                            <i class="fas fa-lock" style="color: var(--gold-accent);"></i> Fast WhatsApp &amp; Call response • Zero spam • Direct engineer consultation
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal Container -->
+    <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
+        <div class="lightbox-content">
+            <button type="button" class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <img id="lightboxImg" src="" alt="Enlarged Solar Photo">
+            <div class="lightbox-caption" id="lightboxCaption">
+                Project Title
+                <span id="lightboxSub">Location &bull; Specs</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         GLOBAL FOOTER
+         ============================================================ -->
+    <footer class="dt-footer" role="contentinfo">
+        <div class="dt-container">
+            <div class="dt-footer-grid">
+                <div>
+                    <span class="dt-brand-title" style="font-size: 18px;">E GREEN <span>SOLUTION</span></span>
+                    <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; margin: 14px 0 20px;">
+                        Authorized Tier-1 Solar Panel Dealers &amp; Turnkey Rooftop Solar Engineering EPC contractor in Pune and PCMC.
+                    </p>
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--gold-accent);">
+                        <i class="fas fa-certificate"></i> MNRE &amp; MSEDCL Registered
+                    </div>
+                </div>
+
+                <div>
+                    <div class="dt-footer-title">Engineering Solutions</div>
+                    <ul class="dt-footer-links">
+                        <li><a href="/residential-solar">Residential Solar Pune</a></li>
+                        <li><a href="/commercial-solar-pune">Commercial Solar EPC</a></li>
+                        <li><a href="/industrial-solar">Industrial Solar (MIDC)</a></li>
+                        <li><a href="/solar-water-heater-pune">Solar Water Heaters</a></li>
+                        <li><a href="/solar-panel-cleaning-pune">Demineralized Panel Wash</a></li>
+                        <li><a href="/solar-amc-pune">Solar AMC Contracts</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="dt-footer-title">Quick Navigation</div>
+                    <ul class="dt-footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/projects">Commissioned Projects</a></li>
+                        <li><a href="/gallery">Project Media Gallery</a></li>
+                        <li><a href="/solar-guide">Solar 101 Knowledge Base</a></li>
+                        <li><a href="/calculator">Savings Calculator</a></li>
+                        <li><a href="/areas">Service Areas</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/contact">Contact Engineers</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="dt-footer-title">Direct Engineering Desk</div>
+                    <ul class="dt-footer-links">
+                        <li><a href="tel:+917249187969"><i class="fas fa-phone-alt" style="color: var(--gold-accent);"></i> +91 72491 87969</a></li>
+                        <li><a href="mailto:egreensolution1@gmail.com"><i class="fas fa-envelope" style="color: var(--gold-accent);"></i> egreensolution1@gmail.com</a></li>
+                        <li style="color: var(--text-secondary); font-size: 13px; line-height: 1.5; margin-top: 8px;">
+                            <i class="fas fa-map-marker-alt" style="color: var(--gold-accent);"></i> Pune &amp; PCMC, Maharashtra, India
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="dt-footer-bottom">
+                <div style="font-size: 12.5px; color: var(--text-muted);">
+                    &copy; 2026 E Green Solution. All Rights Reserved. Engineered for maximum generation.
+                </div>
+                <div style="display: flex; gap: 20px; font-size: 12.5px;">
+                    <a href="/privacy-policy" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+                    <a href="/contact" style="color: var(--text-muted); text-decoration: none;">Site Map</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global Dark Technical Scripts & Gallery Lightbox / Filtering -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mobile Drawer Toggle
+        var hamburger = document.getElementById('dt-hamburger');
+        var drawer = document.getElementById('dt-mobile-drawer');
+        var backdrop = document.getElementById('dt-backdrop');
+        var closeBtn = document.getElementById('dt-drawer-close');
+
+        function toggleDrawer(open) {
+            if (!drawer || !backdrop || !hamburger) return;
+            if (open) {
+                drawer.classList.add('active');
+                backdrop.classList.add('active');
+                hamburger.classList.add('active');
+                hamburger.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            } else {
+                drawer.classList.remove('active');
+                backdrop.classList.remove('active');
+                hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        }
+
+        if (hamburger) hamburger.addEventListener('click', function() { toggleDrawer(!drawer.classList.contains('active')); });
+        if (closeBtn) closeBtn.addEventListener('click', function() { toggleDrawer(false); });
+        if (backdrop) backdrop.addEventListener('click', function() { toggleDrawer(false); });
+
+        // Filter Functionality
+        var filterBtns = document.querySelectorAll('.gallery-filter-btn');
+        var items = document.querySelectorAll('.gallery-item');
+        var videoBlock = document.getElementById('videoSection');
+
+        filterBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                filterBtns.forEach(function(b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+
+                var filter = btn.getAttribute('data-filter');
+
+                if (filter === 'videos') {
+                    if (videoBlock) videoBlock.style.display = 'block';
+                } else if (filter !== 'all') {
+                    if (videoBlock) videoBlock.style.display = 'none';
+                } else {
+                    if (videoBlock) videoBlock.style.display = 'block';
+                }
+
+                items.forEach(function(item) {
+                    var categories = (item.getAttribute('data-category') || '').split(' ');
+                    if (filter === 'all' || categories.indexOf(filter) !== -1) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+
+    // Lightbox Modal Functions
+    function openLightbox(src, title, sub) {
+        var modal = document.getElementById('lightboxModal');
+        var img = document.getElementById('lightboxImg');
+        var cap = document.getElementById('lightboxCaption');
+        
+        img.src = src;
+        cap.innerHTML = title + '<span>' + (sub || '') + '</span>';
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(e) {
+        if (!e || e.target.id === 'lightboxModal' || e.target.classList.contains('lightbox-close')) {
+            var modal = document.getElementById('lightboxModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeLightbox();
+    });
+    </script>
+</body>
+</html>

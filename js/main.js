@@ -686,7 +686,7 @@ document.addEventListener('click', function(e) {
 });
 
 
-// Auto-sync all website inquiries directly to MongoDB Atlas
+// Auto-sync all website inquiries directly to MongoDB Atlas and FormSubmit
 document.addEventListener('submit', function(e) {
   var form = e.target;
   if (!form || form.id === 'loginForm' || form.id === 'addLeadForm' || form.id === 'changePasswordForm') return;
@@ -694,14 +694,14 @@ document.addEventListener('submit', function(e) {
   try {
     var formData = new FormData(form);
     var payload = {
-      name: formData.get('name') || formData.get('fullName') || '',
-      phone: formData.get('phone') || formData.get('mobile') || '',
-      email: formData.get('email') || '',
-      location: formData.get('location') || formData.get('city') || 'Pune',
-      service: formData.get('service') || formData.get('type') || 'Turnkey Rooftop Solar',
+      name: formData.get('name') || formData.get('fullName') || formData.get('clientName') || formData.get('userName') || '',
+      phone: formData.get('phone') || formData.get('mobile') || formData.get('tel') || formData.get('userPhone') || '',
+      email: formData.get('email') || formData.get('userEmail') || '',
+      location: formData.get('location') || formData.get('city') || formData.get('area') || 'Pune / PCMC',
+      service: formData.get('service') || formData.get('requirement') || formData.get('solution') || formData.get('type') || 'Turnkey Rooftop Solar',
       bill: formData.get('bill') || formData.get('monthlyBill') || '',
-      message: formData.get('message') || formData.get('comments') || '',
-      source: window.location.pathname
+      message: formData.get('message') || formData.get('comments') || formData.get('notes') || '',
+      source: window.location.pathname || '/'
     };
 
     if (payload.name || payload.phone) {
@@ -709,7 +709,9 @@ document.addEventListener('submit', function(e) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
-      }).catch(function() {});
+      }).catch(function(err) {
+        console.warn('Sync notice:', err);
+      });
     }
   } catch (err) {}
 });
