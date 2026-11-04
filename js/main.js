@@ -669,3 +669,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+
+
+// Mobile Services Accordion Toggle Delegation
+document.addEventListener('click', function(e) {
+  var toggle = e.target.closest('#dt-mobile-services-toggle');
+  if (toggle) {
+    e.preventDefault();
+    var sub = document.getElementById('dt-mobile-services-sub');
+    if (sub) {
+      var isOpen = sub.classList.toggle('active');
+      toggle.classList.toggle('active', isOpen);
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    }
+  }
+});

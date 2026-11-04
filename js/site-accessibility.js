@@ -84,6 +84,19 @@
     });
 
     syncDrawerState();
+
+    // Setup Mobile Services Accordion Toggle
+    const servicesToggle = document.getElementById('dt-mobile-services-toggle');
+    const servicesSub = document.getElementById('dt-mobile-services-sub');
+    if (servicesToggle && servicesSub && !servicesToggle.dataset.accordionBound) {
+      servicesToggle.dataset.accordionBound = 'true';
+      servicesToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        const isOpen = servicesSub.classList.toggle('active');
+        servicesToggle.classList.toggle('active', isOpen);
+        servicesToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
   }
 
   if (document.readyState === 'loading') {
