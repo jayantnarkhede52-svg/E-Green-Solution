@@ -1,0 +1,16 @@
+{
+  "status": "complete",
+  "renderer": "BeyondSEO editorial v1",
+  "files": {
+    "report.html": {
+      "sha256": "b4836adcdb1a9714174501161950515efa552761191475e4ad81cb8068e03003",
+      "bytes": 461882
+    },
+    "report.pdf": {
+      "sha256": "686207241f081163ae8e95bdc4b61e702053653d5c08b1f332ebf280e083c126",
+      "bytes": 451039
+    }
+  },
+  "privacy": "Local export only; no upload or external asset requests.",
+  "evidence_boundary": "Presentation preserves supplied claims; it does not verify their truth or compute authority metrics."
+}
