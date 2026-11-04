@@ -543,20 +543,20 @@ img {
 
 /* Mobile Hamburger Button */
 .dt-hamburger {
-  width: 36px;
+  width: 34px;
   height: 36px;
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 5px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-muted);
-  border-radius: var(--radius-ctrl);
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
   cursor: pointer;
-  padding: 0;
+  padding: 0 !important;
   z-index: 10002;
-  transition: border-color 0.14s ease;
+  transition: opacity 0.15s ease;
 }
 
 .dt-hamburger span {
@@ -1993,27 +1993,53 @@ img {
 
   .dt-nav-actions {
     flex: 0 0 auto;
-    gap: 8px;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
   }
 
   .dt-phone-link {
-    width: 40px;
-    height: 40px;
-    justify-content: center;
-    border: 1px solid var(--border-muted);
-    border-radius: var(--radius-ctrl);
+    width: 34px !important;
+    height: 36px !important;
+    min-width: 34px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    color: var(--gold-accent) !important;
+    text-decoration: none;
   }
 
-  .dt-phone-link span { display: none; }
+  .dt-phone-link i {
+    font-size: 18px !important;
+    color: var(--gold-accent) !important;
+  }
 
-  .dt-nav-actions > .dt-btn {
-    padding: 8px 10px !important;
-    font-size: 11px !important;
+  .dt-phone-link span { display: none !important; }
+
+  .dt-nav-actions > .dt-btn,
+  .dt-nav-quote-btn {
+    padding: 7px 12px !important;
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    max-width: fit-content !important;
+    flex-shrink: 0 !important;
+    border-radius: 6px !important;
   }
 
   .dt-hamburger {
-    width: 40px;
-    height: 40px;
+    width: 34px !important;
+    height: 36px !important;
+    min-width: 34px !important;
+    display: flex !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
   }
 
   .dt-section {
@@ -2138,7 +2164,7 @@ img {
 }
 
 @media (max-width: 360px) {
-  .dt-phone-link { display: none; }
+  .dt-phone-link { display: inline-flex !important; }
   #dt-navbar .dt-nav-container { padding-inline: 12px; gap: 6px; }
   .dt-nav-actions > .dt-btn { padding-inline: 8px !important; font-size: 10px !important; }
   .dt-brand .dt-logo { height: 27px; }
@@ -3561,3 +3587,182 @@ textarea {
   scroll-margin-top: 96px;
 }
 
+
+/* ==========================================================================
+   SERVICES HERO CTA FOCUS & COMPACT BOX-BASED FORMS
+   ========================================================================== */
+
+/* Hero CTA Action Row */
+.dt-hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 4px;
+  margin-bottom: 24px;
+}
+
+.dt-hero-primary-cta {
+  padding: 12px 22px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  box-shadow: 0 4px 18px rgba(163, 230, 53, 0.22) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.dt-hero-secondary-cta {
+  padding: 12px 20px !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+@media (max-width: 600px) {
+  .dt-hero-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .dt-hero-primary-cta,
+  .dt-hero-secondary-cta {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 12px 16px !important;
+  }
+}
+
+/* Compact Box-Based Form Component */
+.dt-form-compact {
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border-emp) !important;
+  border-radius: var(--radius-card) !important;
+  padding: 22px 22px !important;
+  box-shadow: var(--shadow-elevated) !important;
+}
+
+.dt-form-compact-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-muted);
+}
+
+.dt-form-compact-title {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  margin: 0 !important;
+  letter-spacing: -0.01em;
+}
+
+.dt-status-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  border-radius: 999px;
+  padding: 3px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.dt-compact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dt-compact-field {
+  width: 100%;
+}
+
+.dt-compact-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.dt-compact-input,
+.dt-compact-select {
+  width: 100% !important;
+  height: 40px !important;
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid var(--border-muted) !important;
+  border-radius: 6px !important;
+  padding: 0 12px !important;
+  color: var(--text-primary) !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  outline: none !important;
+  transition: border-color 0.18s ease, background-color 0.18s ease !important;
+  box-sizing: border-box !important;
+}
+
+.dt-compact-input:focus,
+.dt-compact-select:focus {
+  border-color: var(--gold-accent) !important;
+  background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.dt-compact-input::placeholder {
+  color: var(--text-muted);
+  font-size: 12.5px;
+}
+
+.dt-compact-select {
+  cursor: pointer;
+}
+.dt-compact-select option {
+  background: #141820;
+  color: #fff;
+}
+
+.dt-compact-submit {
+  width: 100% !important;
+  height: 42px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  margin-top: 4px !important;
+}
+
+/* Also apply compact treatment to any standard .dt-form-card on mobile */
+@media (max-width: 600px) {
+  .dt-form-compact {
+    padding: 16px 14px !important;
+  }
+  .dt-compact-row {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  .dt-compact-input,
+  .dt-compact-select {
+    height: 38px !important;
+    font-size: 12.5px !important;
+  }
+  .dt-form-compact-title {
+    font-size: 16px !important;
+  }
+  /* Hide all verbose paragraph descriptions inside form cards on mobile */
+  .dt-form-card > p,
+  .dt-form-compact > p {
+    display: none !important;
+  }
+}

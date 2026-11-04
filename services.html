@@ -256,7 +256,7 @@
                 <a href="tel:+917249187969" class="dt-phone-link" aria-label="Call E Green Solution">
                     <i class="fas fa-phone-alt"></i> <span>+91 72491 87969</span>
                 </a>
-                <a href="/contact" class="dt-btn dt-btn-primary" style="padding: 8px 18px; font-size: 13px;">
+                <a href="/contact" class="dt-btn dt-btn-primary dt-nav-quote-btn">
                     Get Free Quote <i class="fas fa-arrow-right" style="font-size: 11px;"></i>
                 </a>
 
@@ -351,7 +351,16 @@
                         <span class="dt-pill"><i class="fas fa-chart-line" style="color: var(--gold-accent);"></i> 3–4 Year Commercial ROI</span>
                     </div>
 
-                    <!-- Telemetry Stats Strip -->
+                    <!-- Strong Hero CTA Action Buttons -->
+                    <div class="dt-hero-cta-group">
+                        <a href="#service-quote-form" class="dt-btn dt-btn-primary dt-hero-primary-cta">
+                            Get Free Solar Quote <i class="fas fa-arrow-down" style="font-size: 11px;"></i>
+                        </a>
+                        <a href="tel:+917249187969" class="dt-btn dt-btn-secondary dt-hero-secondary-cta">
+                            <i class="fas fa-phone-alt"></i> +91 72491 87969
+                        </a>
+                    </div>
+
                     <div class="dt-telemetry-strip" style="background: var(--bg-surface); border: 1px solid var(--border-muted); border-radius: var(--radius-card); padding: 16px;">
                         <div>
                             <span style="font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700; color: var(--gold-accent); display: block;">200+</span>
@@ -370,53 +379,49 @@
 
                 <!-- Right: High-Converting Technical Form -->
                 <div>
-                    <div class="dt-form-card">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-                            <span class="dt-tech-label" style="margin: 0;">FREE SITE AUDIT</span>
-                            <span style="font-size: 11px; color: #4ade80; display: inline-flex; align-items: center; gap: 5px;"><i class="fas fa-circle" style="font-size: 8px;"></i> 15-Min Response</span>
+                    <div class="dt-form-card dt-form-compact" id="service-quote-form">
+                        <div class="dt-form-compact-header">
+                            <h3 class="dt-form-compact-title">Request Solar Proposal</h3>
+                            <span class="dt-status-badge"><i class="fas fa-bolt"></i> 15-Min Callback</span>
                         </div>
-                        <h3 style="font-size: 20px; color: var(--text-primary); margin-bottom: 6px;">Request Engineering Proposal</h3>
-                        <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 20px;">Consult directly with our solar system designers for customized capacity, cost, and payback estimates.</p>
 
-                        <form action="https://formsubmit.co/egreensolution1@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 14px;">
+                        <form action="https://formsubmit.co/egreensolution1@gmail.com" method="POST" class="dt-compact-form">
                             <input type="hidden" name="_template" value="table">
                             <input type="hidden" name="_captcha" value="false">
                             <input type="hidden" name="_subject" value="Services Page Consultation - E Green Solution">
                             <input type="hidden" name="_page" value="services">
 
-                            <div class="dt-form-group">
-                                <label class="dt-label">Full Name *</label>
-                                <input type="text" name="name" required placeholder="e.g. Rahul Patil" class="dt-input">
+                            <div class="dt-compact-field">
+                                <input type="text" name="name" required placeholder="Full Name *" class="dt-compact-input" autocomplete="name">
                             </div>
 
-                            <div class="dt-form-group">
-                                <label class="dt-label">Mobile / WhatsApp Number *</label>
-                                <input type="tel" name="phone" required placeholder="e.g. 98765 43210" class="dt-input">
+                            <div class="dt-compact-field">
+                                <input type="tel" name="phone" required placeholder="Mobile / WhatsApp Number *" class="dt-compact-input" autocomplete="tel">
                             </div>
 
-                            <div class="dt-form-grid-2">
-                                <div class="dt-form-group">
-                                    <label class="dt-label">Pune Location</label>
-                                    <input type="text" name="location" placeholder="e.g. Baner, Chakan" class="dt-input">
+                            <div class="dt-compact-row">
+                                <div class="dt-compact-field">
+                                    <input type="text" name="location" placeholder="Pune Location (e.g. Baner)" class="dt-compact-input">
                                 </div>
-                                <div class="dt-form-group">
-                                    <label class="dt-label">Required Solution</label>
-                                    <select name="requirement" class="dt-select">
+                                <div class="dt-compact-field">
+                                    <select name="requirement" class="dt-compact-select">
+                                        <option value="" disabled selected>Required Solution</option>
                                         <option value="Residential Solar">Residential Rooftop</option>
                                         <option value="Commercial Solar">Commercial Solar</option>
                                         <option value="Industrial MIDC Solar">Industrial MIDC</option>
                                         <option value="Solar AMC">Solar AMC</option>
                                         <option value="Panel Cleaning">Panel Cleaning</option>
                                         <option value="Inverter Repair">Inverter Repair</option>
+                                        <option value="Solar Water Heater">Solar Water Heater</option>
                                     </select>
                                 </div>
                             </div>
 
-                            <button type="submit" class="dt-btn dt-btn-primary" style="width: 100%; margin-top: 6px;">
+                            <button type="submit" class="dt-btn dt-btn-primary dt-compact-submit">
                                 Submit Consultation Request <i class="fas fa-arrow-right"></i>
                             </button>
-                            <span style="font-size: 11px; color: var(--text-muted); text-align: center; display: block;">
-                                <i class="fas fa-lock" style="color: var(--gold-accent);"></i> Zero spam • No sales pressure • Direct technical assessment
+                            <span style="font-size: 10.5px; color: var(--text-muted); text-align: center; display: block; margin-top: 4px;">
+                                <i class="fas fa-lock" style="color: var(--gold-accent);"></i> 100% Confidential • Direct Engineer Callback
                             </span>
                         </form>
                     </div>
