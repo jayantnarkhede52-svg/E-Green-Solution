@@ -14,7 +14,7 @@ def get_dt_navbar(active_page=""):
         return ' class="active"' if active_page == page else ''
 
     return f"""    <!-- ============================================================
-         GLOBAL DARK TECHNICAL NAVIGATION (#0B0D12 / Solar Sage #A8BEA1)
+         GLOBAL DARK TECHNICAL NAVIGATION (#0B0D12 / Solar Sage #7BD894)
          ============================================================ -->
     <header id="dt-navbar" role="banner">
         <div class="dt-nav-container">
@@ -194,7 +194,7 @@ def get_dt_navbar(active_page=""):
 
 def get_dt_footer():
     return """    <!-- ============================================================
-         GLOBAL DARK TECHNICAL FOOTER (#07080B / Solar Sage #A8BEA1)
+         GLOBAL DARK TECHNICAL FOOTER (#07080B / Solar Sage #7BD894)
          ============================================================ -->
     <footer id="dt-footer" role="contentinfo">
         <div class="dt-container">

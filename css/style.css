@@ -1,22 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Bebas+Neue&family=Sora:wght@300;400;600;700&display=swap');
 
 :root {
-    --primary: #A8BEA1; /* Solar Sage Accent */
-    --primary-gradient: linear-gradient(135deg, #A8BEA1 0%, #B9CFB2 100%);
-    --primary-light: #B9CFB2;
-    --accent: #A8BEA1; /* Solar Sage */
-    --accent-light: #B9CFB2;
-    --accent-dim: #879B80;
-    --accent-gradient: linear-gradient(135deg, #A8BEA1 0%, #B9CFB2 100%);
-    --gold: #A8BEA1;
-    --gold-light: #B9CFB2;
+    --primary: #7BD894; /* Solar Sage Accent */
+    --primary-gradient: linear-gradient(135deg, #7BD894 0%, #94F0AA 100%);
+    --primary-light: #94F0AA;
+    --accent: #7BD894; /* Solar Sage */
+    --accent-light: #94F0AA;
+    --accent-dim: #5EBD75;
+    --accent-gradient: linear-gradient(135deg, #7BD894 0%, #94F0AA 100%);
+    --gold: #7BD894;
+    --gold-light: #94F0AA;
     --bg-dark: #0B0D12;
     --surface: #171B23;
     --text-dark: #F1F3F5;
     --text-light: #F1F3F5;
     --muted: #A6B0BE;
-    --badge-bg: rgba(168, 190, 161, 0.08);
-    --badge-border: rgba(168, 190, 161, 0.32);
+    --badge-bg: rgba(123, 216, 148, 0.08);
+    --badge-border: rgba(123, 216, 148, 0.32);
     --glass-bg: rgba(23, 27, 35, 0.85);
     --glass-border: rgba(241, 243, 245, 0.12);
     --glass-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
@@ -431,6 +431,7 @@ body:not(.home) nav .hamburger span {
   font-size: clamp(56px, 6vw, 96px);
   line-height: 0.92;
   letter-spacing: 0.01em;
+  word-spacing: 0.18em;
   color: var(--text);
   margin-bottom: 28px;
   opacity: 0;
@@ -805,7 +806,7 @@ body:not(.home) nav .hamburger span {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    box-shadow: 0 4px 14px rgba(168, 190, 161, 0.12);
+    box-shadow: 0 4px 14px rgba(123, 216, 148, 0.12);
     transition: color 0.14s ease, background-color 0.14s ease, box-shadow 0.14s ease;
     position: relative;
     overflow: hidden;
@@ -813,7 +814,7 @@ body:not(.home) nav .hamburger span {
 
 .btn-primary:hover {
     transform: none;
-    box-shadow: 0 4px 14px rgba(168, 190, 161, 0.16);
+    box-shadow: 0 4px 14px rgba(123, 216, 148, 0.16);
     background: var(--accent-gradient);
 }
 
@@ -2931,7 +2932,7 @@ body:not(.home) nav .hamburger span {
 .dropdown-item .item-icon.green   { background: #e8f5e9; color: #2e7d32; }
 .dropdown-item .item-icon.amber   { background: #fff8e1; color: #f57f17; }
 .dropdown-item .item-icon.blue    { background: #e1f5fe; color: #0288d1; }
-.dropdown-item .item-icon.gold    { background: rgba(168, 190, 161, 0.16); color: #A8BEA1; }
+.dropdown-item .item-icon.gold    { background: rgba(123, 216, 148, 0.16); color: #7BD894; }
 .dropdown-item .item-icon.teal    { background: #e0f2f1; color: #00796b; }
 .dropdown-item .item-icon.emerald { background: #e8f5e9; color: #1b5e20; }
 .dropdown-item .item-icon.red     { background: #ffebee; color: #c62828; }
@@ -3512,6 +3513,7 @@ body:not(.home) nav .hamburger span {
     color: #ffffff;
     margin-bottom: 16px;
     letter-spacing: -0.02em;
+  word-spacing: 0.16em;
 }
 
 .hero-split-title span {
@@ -3568,7 +3570,7 @@ body:not(.home) nav .hamburger span {
 
 /* 3. Hero Quick Lead Form Card */
 .hero-form-card {
-    background: #171B23; border: 1px solid rgba(168, 190, 161, 0.35);
+    background: #171B23; border: 1px solid rgba(123, 216, 148, 0.35);
     border-radius: 20px;
     padding: 26px 28px 24px;
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);

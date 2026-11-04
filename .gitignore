@@ -1,2 +1,5 @@
 .dist/
 scratch/
+.env
+.env.*
+node_modules/

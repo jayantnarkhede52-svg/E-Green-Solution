@@ -684,3 +684,32 @@ document.addEventListener('click', function(e) {
     }
   }
 });
+
+
+// Auto-sync all website inquiries directly to MongoDB Atlas
+document.addEventListener('submit', function(e) {
+  var form = e.target;
+  if (!form || form.id === 'loginForm' || form.id === 'addLeadForm' || form.id === 'changePasswordForm') return;
+
+  try {
+    var formData = new FormData(form);
+    var payload = {
+      name: formData.get('name') || formData.get('fullName') || '',
+      phone: formData.get('phone') || formData.get('mobile') || '',
+      email: formData.get('email') || '',
+      location: formData.get('location') || formData.get('city') || 'Pune',
+      service: formData.get('service') || formData.get('type') || 'Turnkey Rooftop Solar',
+      bill: formData.get('bill') || formData.get('monthlyBill') || '',
+      message: formData.get('message') || formData.get('comments') || '',
+      source: window.location.pathname
+    };
+
+    if (payload.name || payload.phone) {
+      fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).catch(function() {});
+    }
+  } catch (err) {}
+});

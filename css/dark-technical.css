@@ -17,11 +17,11 @@
   --text-muted: #727D8E;
   
   /* Solar Sage Brand Accent Tokens */
-  --accent-primary: #A8BEA1;
-  --accent-hover: #B9CFB2;
-  --text-on-accent: #071713;
-  --border-accent: rgba(168, 190, 161, 0.32);
-  --accent-glow: rgba(168, 190, 161, 0.1);
+  --accent-primary: #7BD894;
+  --accent-hover: #94F0AA;
+  --text-on-accent: #061A0C;
+  --border-accent: rgba(123, 216, 148, 0.32);
+  --accent-glow: rgba(123, 216, 148, 0.1);
 
   /* Keep existing component tokens mapped to the new brand accent. */
   --gold-accent: var(--accent-primary);
@@ -45,7 +45,7 @@
   /* Elevation Shadows */
   --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.35);
   --shadow-elevated: 0 16px 40px rgba(0, 0, 0, 0.55);
-  --shadow-gold: 0 4px 14px rgba(168, 190, 161, 0.12);
+  --shadow-gold: 0 4px 14px rgba(123, 216, 148, 0.12);
 }
 
 /* Base Document Reset & Typography */
@@ -74,7 +74,8 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
   font-family: 'Manrope', sans-serif;
   font-weight: 600;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.01em;
+  word-spacing: 0.10em;
   margin: 0;
 }
 
@@ -179,7 +180,8 @@ img {
 .dt-section-title {
   font-size: clamp(34px, 4.4vw, 54px);
   font-weight: 600;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.01em;
+  word-spacing: 0.14em;
   line-height: 1.1;
   color: var(--text-primary);
   margin-bottom: 18px;
@@ -494,7 +496,7 @@ img {
 }
 
 .dt-drop-item:hover .dt-drop-icon {
-  background: rgba(168, 190, 161, 0.16);
+  background: rgba(123, 216, 148, 0.16);
   border-color: var(--border-accent);
   color: var(--gold-accent);
 }
@@ -732,7 +734,7 @@ img {
 
 .dt-mobile-sublinks a:hover {
   color: var(--text-primary);
-  background: rgba(168, 190, 161, 0.08);
+  background: rgba(123, 216, 148, 0.08);
 }
 
 .dt-mobile-sublinks a.dt-sublink-all {
@@ -783,7 +785,7 @@ img {
   transform: translate(30%, -50%);
   width: 650px;
   height: 650px;
-  background: radial-gradient(circle, rgba(168, 190, 161, 0.07) 0%, rgba(39, 45, 55, 0.2) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(123, 216, 148, 0.07) 0%, rgba(39, 45, 55, 0.2) 40%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -805,7 +807,8 @@ img {
 .dt-hero-title {
   font-size: clamp(42px, 4.5vw, 68px);
   font-weight: 350;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.01em;
+  word-spacing: 0.18em;
   line-height: 0.98;
   color: var(--text-primary);
   margin-bottom: 24px;
@@ -817,6 +820,8 @@ img {
   font-weight: 700;
   color: var(--text-primary);
   display: block;
+  word-spacing: 0.18em;
+  letter-spacing: -0.01em;
 }
 
 .dt-hero-desc {
@@ -978,7 +983,7 @@ img {
 .dt-panel-sheen {
   position: absolute;
   inset: 0;
-  background: linear-gradient(125deg, rgba(255,255,255,0.14) 0%, rgba(168, 190, 161, 0.06) 35%, transparent 65%);
+  background: linear-gradient(125deg, rgba(255,255,255,0.14) 0%, rgba(123, 216, 148, 0.06) 35%, transparent 65%);
   pointer-events: none;
 }
 
@@ -1782,7 +1787,7 @@ img {
   right: 10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(168, 190, 161, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(123, 216, 148, 0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -2748,6 +2753,8 @@ section.dt-subpage-hero {
     line-height: 1.12 !important;
     margin-bottom: 14px !important;
     overflow-wrap: break-word !important;
+    word-spacing: 0.16em !important;
+    letter-spacing: 0 !important;
     word-break: break-word !important;
   }
   .dt-section-title {
@@ -2755,6 +2762,8 @@ section.dt-subpage-hero {
     line-height: 1.15 !important;
     margin-bottom: 12px !important;
     overflow-wrap: break-word !important;
+    word-spacing: 0.14em !important;
+    letter-spacing: 0 !important;
     word-break: break-word !important;
   }
   .dt-card-desc,

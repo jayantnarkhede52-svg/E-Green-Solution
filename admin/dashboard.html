@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Solar Leads Dashboard | E Green Solution</title>
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* Pure White Theme Tokens */
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --bg-sidebar: #ffffff;
+            --border-light: #e2e8f0;
+            --border-subtle: #f1f5f9;
+            
+            --text-heading: #0f172a;
+            --text-body: #334155;
+            --text-muted: #64748b;
+            --text-light: #94a3b8;
+
+            /* Sage Green Accent Tokens */
+            --sage-primary: #15803d;
+            --sage-light: #7BD894;
+            --sage-bg: #ecfdf5;
+            --sage-border: #bbf7d0;
+
+            --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+            --shadow-dropdown: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-body);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Navbar - Clean White */
+        .dash-nav {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border-light);
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .dash-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-icon {
+            width: 38px;
+            height: 38px;
+            background: var(--sage-bg);
+            border: 1px solid var(--sage-border);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--sage-primary);
+            font-size: 18px;
+        }
+
+        .brand-text h1 {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--text-heading);
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+
+        .brand-text span {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .dash-nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--sage-bg);
+            border: 1px solid var(--sage-border);
+            color: var(--sage-primary);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        .user-dropdown-btn {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-heading);
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .user-dropdown-btn:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+
+        .btn-outline {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            padding: 7px 14px;
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-body);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.15s ease;
+        }
+
+        .btn-outline:hover {
+            background: #f8fafc;
+            color: var(--text-heading);
+            border-color: #cbd5e1;
+        }
+
+        .btn-primary {
+            background: var(--sage-primary);
+            color: #ffffff;
+            border: none;
+            padding: 7px 14px;
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.15s ease;
+        }
+
+        .btn-primary:hover {
+            background: #166534;
+        }
+
+        /* Main Container */
+        .dash-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 24px;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* Metrics Row (Pure White Cards) */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .metric-card {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #e2e8f0;
+        }
+
+        .metric-card.accent-green::after { background: var(--sage-primary); }
+        .metric-card.accent-amber::after { background: #f59e0b; }
+        .metric-card.accent-blue::after { background: #3b82f6; }
+        .metric-card.accent-purple::after { background: #8b5cf6; }
+
+        .metric-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+        }
+
+        .metric-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-heading);
+            line-height: 1.1;
+        }
+
+        .metric-sub {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .metric-icon-box {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .icon-green { background: #ecfdf5; color: #15803d; }
+        .icon-amber { background: #fffbeb; color: #d97706; }
+        .icon-blue { background: #eff6ff; color: #2563eb; }
+        .icon-purple { background: #f5f3ff; color: #7c3aed; }
+
+        /* Toolbar Card - Clean White */
+        .dash-card {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
+        }
+
+        .dash-card-header {
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            justify-content: space-between;
+            background: #ffffff;
+        }
+
+        .toolbar-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            flex: 1;
+        }
+
+        .search-box {
+            position: relative;
+            min-width: 280px;
+            max-width: 400px;
+            flex: 1;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 8px 12px 8px 34px;
+            font-family: inherit;
+            font-size: 13.5px;
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            color: var(--text-heading);
+            transition: all 0.15s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--sage-primary);
+            box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.1);
+        }
+
+        .filter-select {
+            padding: 8px 12px;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 500;
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            color: var(--text-heading);
+            cursor: pointer;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--sage-primary);
+        }
+
+        .toolbar-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Status Tabs */
+        .status-tabs-row {
+            padding: 12px 24px;
+            background: #fafafa;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            align-items: center;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: 1px solid transparent;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-family: inherit;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+            transition: all 0.15s ease;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-heading);
+            background: #f1f5f9;
+        }
+
+        .tab-btn.active {
+            background: #ffffff;
+            border-color: var(--border-light);
+            color: var(--sage-primary);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .tab-count {
+            background: #e2e8f0;
+            color: #475569;
+            padding: 1px 6px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .tab-btn.active .tab-count {
+            background: var(--sage-bg);
+            color: var(--sage-primary);
+        }
+
+        /* Table Styling */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .dash-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 13.5px;
+        }
+
+        .dash-table th {
+            background: #f8fafc;
+            padding: 12px 18px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border-light);
+            white-space: nowrap;
+        }
+
+        .dash-table td {
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border-subtle);
+            vertical-align: middle;
+            color: var(--text-body);
+        }
+
+        .dash-table tbody tr {
+            background: #ffffff;
+            transition: background 0.15s ease;
+        }
+
+        .dash-table tbody tr:hover {
+            background: #f8fafc;
+        }
+
+        /* Lead Name & Meta */
+        .lead-customer {
+            font-weight: 700;
+            color: var(--text-heading);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .lead-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 3px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Action Buttons */
+        .contact-btns {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .btn-action-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            text-decoration: none;
+            transition: all 0.15s ease;
+        }
+
+        .btn-whatsapp {
+            background: #dcfce7;
+            color: #15803d;
+            border: 1px solid #bbf7d0;
+        }
+
+        .btn-whatsapp:hover {
+            background: #22c55e;
+            color: #ffffff;
+        }
+
+        .btn-call {
+            background: #eff6ff;
+            color: #2563eb;
+            border: 1px solid #bfdbfe;
+        }
+
+        .btn-call:hover {
+            background: #3b82f6;
+            color: #ffffff;
+        }
+
+        /* Status Badges & Select */
+        .status-select {
+            padding: 4px 8px;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 6px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.15s ease;
+        }
+
+        .status-new { background: #fef2f2; color: #b91c1c; border-color: #fecaca; }
+        .status-contacted { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+        .status-survey { background: #fffbeb; color: #b45309; border-color: #fde68a; }
+        .status-proposal { background: #f5f3ff; color: #6d28d9; border-color: #ddd6fe; }
+        .status-won { background: #ecfdf5; color: #15803d; border-color: #bbf7d0; }
+        .status-lost { background: #f1f5f9; color: #64748b; border-color: #e2e8f0; }
+
+        /* Empty State */
+        .empty-state {
+            padding: 60px 20px;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .empty-state i {
+            font-size: 40px;
+            color: #cbd5e1;
+            margin-bottom: 14px;
+        }
+
+        .empty-state h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 4px;
+        }
+
+        /* Modals */
+        .modal-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-backdrop.active {
+            display: flex;
+        }
+
+        .modal-card {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 520px;
+            box-shadow: var(--shadow-dropdown);
+            border: 1px solid var(--border-light);
+            overflow: hidden;
+            animation: modalFade 0.2s ease;
+        }
+
+        @keyframes modalFade {
+            from { transform: scale(0.96); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-header {
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #ffffff;
+        }
+
+        .modal-header h3 {
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--text-heading);
+        }
+
+        .modal-close-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 16px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--text-heading);
+            margin-bottom: 6px;
+        }
+
+        .form-input, .form-textarea, .form-select {
+            width: 100%;
+            padding: 9px 12px;
+            font-family: inherit;
+            font-size: 13.5px;
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            color: var(--text-heading);
+        }
+
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--sage-primary);
+            box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.1);
+        }
+
+        .modal-footer {
+            padding: 14px 24px;
+            background: #f8fafc;
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        /* Toast Notifications */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 13.5px;
+            font-weight: 600;
+            box-shadow: var(--shadow-dropdown);
+            display: none;
+            align-items: center;
+            gap: 10px;
+            z-index: 2000;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Clean White Navbar -->
+    <header class="dash-nav">
+        <div class="dash-brand">
+            <div class="brand-icon">
+                <i class="fas fa-solar-panel"></i>
+            </div>
+            <div class="brand-text">
+                <h1>E GREEN <span>SOLUTION</span></h1>
+                <span>Executive Management Portal</span>
+            </div>
+        </div>
+
+        <div class="dash-nav-actions">
+            <div class="status-pill">
+                <span class="pulse-dot"></span>
+                <span>MongoDB Atlas Live</span>
+            </div>
+
+            <button type="button" class="btn-outline" id="btnChangePassword" title="Security & Password Settings">
+                <i class="fas fa-key"></i>
+                <span>Change Password</span>
+            </button>
+
+            <button type="button" class="btn-outline" id="btnLogout" title="Logout from Dashboard">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="dash-container">
+        
+        <!-- Metrics Row -->
+        <div class="metrics-grid">
+            <div class="metric-card accent-green">
+                <div>
+                    <div class="metric-label">Total Inquiries</div>
+                    <div class="metric-value" id="statTotal">0</div>
+                    <div class="metric-sub"><i class="fas fa-database"></i> Lifetime MongoDB Leads</div>
+                </div>
+                <div class="metric-icon-box icon-green">
+                    <i class="fas fa-users"></i>
+                </div>
+            </div>
+
+            <div class="metric-card accent-amber">
+                <div>
+                    <div class="metric-label">New / Action Required</div>
+                    <div class="metric-value" id="statNew">0</div>
+                    <div class="metric-sub"><i class="fas fa-clock"></i> Awaiting Initial Contact</div>
+                </div>
+                <div class="metric-icon-box icon-amber">
+                    <i class="fas fa-bell"></i>
+                </div>
+            </div>
+
+            <div class="metric-card accent-blue">
+                <div>
+                    <div class="metric-label">Active Pipeline</div>
+                    <div class="metric-value" id="statPipeline">0</div>
+                    <div class="metric-sub"><i class="fas fa-clipboard-check"></i> Surveys &amp; Proposals</div>
+                </div>
+                <div class="metric-icon-box icon-blue">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+            </div>
+
+            <div class="metric-card accent-purple">
+                <div>
+                    <div class="metric-label">Closed Won Projects</div>
+                    <div class="metric-value" id="statWon">0</div>
+                    <div class="metric-sub"><i class="fas fa-bolt"></i> Commissioned Solar Plants</div>
+                </div>
+                <div class="metric-icon-box icon-purple">
+                    <i class="fas fa-trophy"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Leads Card (White Theme) -->
+        <div class="dash-card">
+            
+            <!-- Toolbar -->
+            <div class="dash-card-header">
+                <div class="toolbar-left">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" class="search-input" placeholder="Search by name, phone, city, or service...">
+                    </div>
+
+                    <select id="serviceFilter" class="filter-select">
+                        <option value="">All Services</option>
+                        <option value="Residential Rooftop">Residential Rooftop</option>
+                        <option value="Commercial Solar EPC">Commercial Solar EPC</option>
+                        <option value="Industrial Solar (MIDC)">Industrial Solar (MIDC)</option>
+                        <option value="Solar Water Heater">Solar Water Heater</option>
+                        <option value="RO Cleaning Wash">RO Cleaning Wash</option>
+                        <option value="Solar AMC Contract">Solar AMC Contract</option>
+                        <option value="Inverter Repair">Inverter Repair</option>
+                        <option value="Net Metering">Net Metering</option>
+                    </select>
+                </div>
+
+                <div class="toolbar-right">
+                    <button type="button" class="btn-outline" id="btnExportCSV">
+                        <i class="fas fa-file-excel"></i>
+                        <span>Export CSV</span>
+                    </button>
+                    <button type="button" class="btn-outline" id="btnRefresh">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>Refresh</span>
+                    </button>
+                    <button type="button" class="btn-primary" id="btnAddLead">
+                        <i class="fas fa-plus"></i>
+                        <span>+ Add Manual Lead</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Status Tabs -->
+            <div class="status-tabs-row" id="statusTabs">
+                <button type="button" class="tab-btn active" data-status="">All Leads <span class="tab-count" id="countAll">0</span></button>
+                <button type="button" class="tab-btn" data-status="New">New <span class="tab-count" id="countNew">0</span></button>
+                <button type="button" class="tab-btn" data-status="Contacted">Contacted <span class="tab-count" id="countContacted">0</span></button>
+                <button type="button" class="tab-btn" data-status="Survey Scheduled">Survey Scheduled <span class="tab-count" id="countSurvey">0</span></button>
+                <button type="button" class="tab-btn" data-status="Proposal Sent">Proposal Sent <span class="tab-count" id="countProposal">0</span></button>
+                <button type="button" class="tab-btn" data-status="Closed Won">Won <span class="tab-count" id="countWon">0</span></button>
+                <button type="button" class="tab-btn" data-status="Closed Lost">Lost <span class="tab-count" id="countLost">0</span></button>
+            </div>
+
+            <!-- Leads Table -->
+            <div class="table-responsive">
+                <table class="dash-table">
+                    <thead>
+                        <tr>
+                            <th>Customer &amp; Contact</th>
+                            <th>Service &amp; Capacity</th>
+                            <th>Pune / PCMC Location</th>
+                            <th>Monthly Bill</th>
+                            <th>Date Received</th>
+                            <th>Status Stage</th>
+                            <th style="text-align: right;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leadsTableBody">
+                        <tr>
+                            <td colspan="7" class="empty-state">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <h3>Loading leads from MongoDB...</h3>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Modal: Add Manual Lead -->
+    <div class="modal-backdrop" id="addLeadModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Add New Solar Lead</h3>
+                <button type="button" class="modal-close-btn" data-close-modal="addLeadModal"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="addLeadForm">
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div>
+                            <label class="form-label">Customer Name *</label>
+                            <input type="text" name="name" class="form-input" placeholder="e.g. Rahul Patil" required>
+                        </div>
+                        <div>
+                            <label class="form-label">Phone Number *</label>
+                            <input type="tel" name="phone" class="form-input" placeholder="e.g. 9822012345" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div>
+                            <label class="form-label">Email Address</label>
+                            <input type="email" name="email" class="form-input" placeholder="e.g. client@domain.com">
+                        </div>
+                        <div>
+                            <label class="form-label">Pune Location / MIDC</label>
+                            <input type="text" name="location" class="form-input" placeholder="e.g. Baner, Chakan MIDC">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div>
+                            <label class="form-label">Service Type</label>
+                            <select name="service" class="form-select">
+                                <option value="Residential Rooftop">Residential Rooftop</option>
+                                <option value="Commercial Solar EPC">Commercial Solar EPC</option>
+                                <option value="Industrial Solar (MIDC)">Industrial Solar (MIDC)</option>
+                                <option value="Solar Water Heater">Solar Water Heater</option>
+                                <option value="RO Cleaning Wash">RO Cleaning Wash</option>
+                                <option value="Solar AMC Contract">Solar AMC Contract</option>
+                                <option value="Inverter Repair">Inverter Repair</option>
+                                <option value="Net Metering">Net Metering</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="form-label">Est. Monthly Bill (₹)</label>
+                            <input type="text" name="bill" class="form-input" placeholder="e.g. ₹12,000">
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 16px;">
+                        <label class="form-label">Initial Status</label>
+                        <select name="status" class="form-select">
+                            <option value="New">New Lead</option>
+                            <option value="Contacted">Contacted</option>
+                            <option value="Survey Scheduled">Survey Scheduled</option>
+                            <option value="Proposal Sent">Proposal Sent</option>
+                            <option value="Closed Won">Closed Won</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="form-label">Project Details &amp; Notes</label>
+                        <textarea name="message" class="form-textarea" rows="3" placeholder="Rooftop size, shadow conditions, customer requirements..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-outline" data-close-modal="addLeadModal">Cancel</button>
+                    <button type="submit" class="btn-primary">Save to MongoDB</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: View / Edit Lead Notes -->
+    <div class="modal-backdrop" id="notesModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="notesModalTitle">Lead Notes</h3>
+                <button type="button" class="modal-close-btn" data-close-modal="notesModal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div id="notesLeadDetails" style="background: #f8fafc; padding: 12px; border-radius: 8px; margin-bottom: 16px; font-size: 13px;"></div>
+                <label class="form-label">Internal Engineering &amp; Follow-Up Notes</label>
+                <textarea id="leadNotesInput" class="form-textarea" rows="5" placeholder="Add conversation summary, site visit dates, quotation details..."></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-outline" data-close-modal="notesModal">Close</button>
+                <button type="button" class="btn-primary" id="btnSaveNotes">Save Notes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Change Password -->
+    <div class="modal-backdrop" id="passwordModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Change Admin Password</h3>
+                <button type="button" class="modal-close-btn" data-close-modal="passwordModal"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="changePasswordForm">
+                <div class="modal-body">
+                    <div style="margin-bottom: 14px;">
+                        <label class="form-label">Current Password *</label>
+                        <input type="password" id="currentPass" class="form-input" required>
+                    </div>
+                    <div style="margin-bottom: 14px;">
+                        <label class="form-label">New Password *</label>
+                        <input type="password" id="newPass" class="form-input" minlength="8" required>
+                    </div>
+                    <div>
+                        <label class="form-label">Confirm New Password *</label>
+                        <input type="password" id="confirmPass" class="form-input" minlength="8" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-outline" data-close-modal="passwordModal">Cancel</button>
+                    <button type="submit" class="btn-primary">Update Password</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toastBox">
+        <i class="fas fa-check-circle" style="color: #4ade80;"></i>
+        <span id="toastMsg">Operation successful</span>
+    </div>
+
+    <script>
+        let allLeads = [];
+        let currentStatusFilter = '';
+        let currentEditingLeadId = null;
+
+        // Verify Authentication on Load
+        async function checkAuth() {
+            try {
+                const res = await fetch('/api/admin/check-auth');
+                const data = await res.json();
+                if (!data.authenticated) {
+                    window.location.href = '/admin';
+                }
+            } catch (err) {
+                window.location.href = '/admin';
+            }
+        }
+        checkAuth();
+
+        // Toast Helper
+        function showToast(msg) {
+            const toast = document.getElementById('toastBox');
+            document.getElementById('toastMsg').textContent = msg;
+            toast.style.display = 'flex';
+            setTimeout(() => { toast.style.display = 'none'; }, 3200);
+        }
+
+        // Fetch Leads from MongoDB API
+        async function loadLeads() {
+            try {
+                const res = await fetch('/api/admin/leads');
+                if (res.status === 401) {
+                    window.location.href = '/admin';
+                    return;
+                }
+                allLeads = await res.json();
+                renderMetrics();
+                renderTable();
+            } catch (err) {
+                console.error("Failed to fetch leads:", err);
+                document.getElementById('leadsTableBody').innerHTML = `
+                    <tr>
+                        <td colspan="7" class="empty-state">
+                            <i class="fas fa-exclamation-triangle" style="color: #ef4444;"></i>
+                            <h3>Failed to load leads from database</h3>
+                            <p style="font-size: 13px;">Please check server connection and MongoDB credentials.</p>
+                        </td>
+                    </tr>
+                `;
+            }
+        }
+
+        // Render Dashboard Metrics
+        function renderMetrics() {
+            const total = allLeads.length;
+            const newCount = allLeads.filter(l => (l.status || 'New') === 'New').length;
+            const contacted = allLeads.filter(l => l.status === 'Contacted').length;
+            const survey = allLeads.filter(l => l.status === 'Survey Scheduled').length;
+            const proposal = allLeads.filter(l => l.status === 'Proposal Sent').length;
+            const won = allLeads.filter(l => l.status === 'Closed Won').length;
+            const lost = allLeads.filter(l => l.status === 'Closed Lost').length;
+
+            document.getElementById('statTotal').textContent = total;
+            document.getElementById('statNew').textContent = newCount;
+            document.getElementById('statPipeline').textContent = survey + proposal + contacted;
+            document.getElementById('statWon').textContent = won;
+
+            document.getElementById('countAll').textContent = total;
+            document.getElementById('countNew').textContent = newCount;
+            document.getElementById('countContacted').textContent = contacted;
+            document.getElementById('countSurvey').textContent = survey;
+            document.getElementById('countProposal').textContent = proposal;
+            document.getElementById('countWon').textContent = won;
+            document.getElementById('countLost').textContent = lost;
+        }
+
+        // Render Leads Table
+        function renderTable() {
+            const search = document.getElementById('searchInput').value.toLowerCase().trim();
+            const service = document.getElementById('serviceFilter').value;
+            const tbody = document.getElementById('leadsTableBody');
+
+            let filtered = allLeads.filter(lead => {
+                if (currentStatusFilter && (lead.status || 'New') !== currentStatusFilter) return false;
+                if (service && (lead.service || '') !== service) return false;
+                if (search) {
+                    const matchName = (lead.name || '').toLowerCase().includes(search);
+                    const matchPhone = (lead.phone || '').toLowerCase().includes(search);
+                    const matchLoc = (lead.location || '').toLowerCase().includes(search);
+                    const matchEmail = (lead.email || '').toLowerCase().includes(search);
+                    const matchService = (lead.service || '').toLowerCase().includes(search);
+                    if (!matchName && !matchPhone && !matchLoc && !matchEmail && !matchService) return false;
+                }
+                return true;
+            });
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="empty-state">
+                            <i class="fas fa-inbox"></i>
+                            <h3>No leads found</h3>
+                            <p style="font-size: 13px;">No inquiries matching the selected filters.</p>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = filtered.map(lead => {
+                const date = lead.createdAt ? new Date(lead.createdAt).toLocaleDateString('en-IN', {
+                    day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit'
+                }) : 'Just now';
+
+                const phoneClean = (lead.phone || '').replace(/\D/g, '');
+                const waUrl = phoneClean ? `https://wa.me/91${phoneClean.length === 10 ? phoneClean : phoneClean.slice(-10)}?text=${encodeURIComponent('Hi ' + (lead.name || '') + ', thank you for contacting E Green Solution regarding solar rooftop engineering in Pune.')}` : '#';
+                const callUrl = phoneClean ? `tel:${phoneClean}` : '#';
+
+                const status = lead.status || 'New';
+                const statusClass = {
+                    'New': 'status-new',
+                    'Contacted': 'status-contacted',
+                    'Survey Scheduled': 'status-survey',
+                    'Proposal Sent': 'status-proposal',
+                    'Closed Won': 'status-won',
+                    'Closed Lost': 'status-lost'
+                }[status] || 'status-new';
+
+                return `
+                    <tr>
+                        <td>
+                            <div class="lead-customer">
+                                ${escapeHtml(lead.name || 'Anonymous Inquiry')}
+                            </div>
+                            <div class="lead-meta">
+                                <span><i class="fas fa-phone-alt"></i> ${escapeHtml(lead.phone || 'N/A')}</span>
+                                ${lead.email ? `<span>&bull;</span> <span><i class="fas fa-envelope"></i> ${escapeHtml(lead.email)}</span>` : ''}
+                            </div>
+                            <div class="contact-btns">
+                                ${phoneClean ? `
+                                    <a href="${waUrl}" target="_blank" class="btn-action-icon btn-whatsapp" title="WhatsApp Chat">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+                                    <a href="${callUrl}" class="btn-action-icon btn-call" title="Direct Phone Call">
+                                        <i class="fas fa-phone"></i>
+                                    </a>
+                                ` : ''}
+                            </div>
+                        </td>
+
+                        <td>
+                            <strong style="color: var(--text-heading); font-size: 13px;">${escapeHtml(lead.service || 'Turnkey Rooftop Solar')}</strong>
+                            ${lead.capacity ? `<div style="font-size: 11.5px; color: var(--sage-primary); font-family: 'JetBrains Mono'; font-weight: 700;">${escapeHtml(lead.capacity)}</div>` : ''}
+                        </td>
+
+                        <td>
+                            <span style="display: inline-flex; align-items: center; gap: 5px; font-weight: 600; color: #475569;">
+                                <i class="fas fa-map-marker-alt" style="color: #ef4444; font-size: 12px;"></i>
+                                ${escapeHtml(lead.location || 'Pune / PCMC')}
+                            </span>
+                        </td>
+
+                        <td>
+                            <span style="font-family: 'JetBrains Mono', monospace; font-weight: 600; color: #1e293b;">
+                                ${escapeHtml(lead.bill || '—')}
+                            </span>
+                        </td>
+
+                        <td style="font-size: 12.5px; color: var(--text-muted); white-space: nowrap;">
+                            ${date}
+                        </td>
+
+                        <td>
+                            <select class="status-select ${statusClass}" onchange="updateLeadStatus('${lead._id}', this.value)">
+                                <option value="New" ${status === 'New' ? 'selected' : ''}>🔴 New</option>
+                                <option value="Contacted" ${status === 'Contacted' ? 'selected' : ''}>🔵 Contacted</option>
+                                <option value="Survey Scheduled" ${status === 'Survey Scheduled' ? 'selected' : ''}>🟡 Survey Scheduled</option>
+                                <option value="Proposal Sent" ${status === 'Proposal Sent' ? 'selected' : ''}>🟣 Proposal Sent</option>
+                                <option value="Closed Won" ${status === 'Closed Won' ? 'selected' : ''}>🟢 Won</option>
+                                <option value="Closed Lost" ${status === 'Closed Lost' ? 'selected' : ''}>⚪ Lost</option>
+                            </select>
+                        </td>
+
+                        <td style="text-align: right; white-space: nowrap;">
+                            <button type="button" class="btn-outline" style="padding: 5px 9px;" onclick="openNotesModal('${lead._id}')" title="View/Edit Notes">
+                                <i class="fas fa-sticky-note" style="color: #d97706;"></i>
+                            </button>
+                            <button type="button" class="btn-outline" style="padding: 5px 9px; color: #ef4444;" onclick="deleteLead('${lead._id}')" title="Delete Inquiry">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function escapeHtml(str) {
+            return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        // Update Status API
+        async function updateLeadStatus(id, newStatus) {
+            try {
+                const res = await fetch(`/api/admin/leads/${id}`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ status: newStatus })
+                });
+                if (res.ok) {
+                    showToast(`Status updated to ${newStatus}`);
+                    const lead = allLeads.find(l => l._id === id);
+                    if (lead) lead.status = newStatus;
+                    renderMetrics();
+                    renderTable();
+                }
+            } catch (err) {
+                alert("Failed to update status");
+            }
+        }
+
+        // Delete Lead API
+        async function deleteLead(id) {
+            if (!confirm("Are you sure you want to permanently delete this lead?")) return;
+            try {
+                const res = await fetch(`/api/admin/leads/${id}`, { method: 'DELETE' });
+                if (res.ok) {
+                    allLeads = allLeads.filter(l => l._id !== id);
+                    showToast("Lead deleted permanently");
+                    renderMetrics();
+                    renderTable();
+                }
+            } catch (err) {
+                alert("Failed to delete lead");
+            }
+        }
+
+        // Open Notes Modal
+        function openNotesModal(id) {
+            const lead = allLeads.find(l => l._id === id);
+            if (!lead) return;
+            currentEditingLeadId = id;
+            document.getElementById('notesModalTitle').textContent = `Notes: ${lead.name || 'Inquiry'}`;
+            document.getElementById('notesLeadDetails').innerHTML = `
+                <strong>Phone:</strong> ${lead.phone || 'N/A'} &bull;
+                <strong>Service:</strong> ${lead.service || 'N/A'} &bull;
+                <strong>Message:</strong> <em>"${escapeHtml(lead.message || 'No initial message provided.')}"</em>
+            `;
+            document.getElementById('leadNotesInput').value = lead.notes || '';
+            document.getElementById('notesModal').classList.add('active');
+        }
+
+        // Save Notes API
+        document.getElementById('btnSaveNotes').addEventListener('click', async () => {
+            if (!currentEditingLeadId) return;
+            const notes = document.getElementById('leadNotesInput').value.trim();
+            try {
+                const res = await fetch(`/api/admin/leads/${currentEditingLeadId}`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ notes })
+                });
+                if (res.ok) {
+                    const lead = allLeads.find(l => l._id === currentEditingLeadId);
+                    if (lead) lead.notes = notes;
+                    document.getElementById('notesModal').classList.remove('active');
+                    showToast("Notes saved successfully");
+                }
+            } catch (err) {
+                alert("Failed to save notes");
+            }
+        });
+
+        // Add Manual Lead Form
+        document.getElementById('addLeadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const payload = Object.fromEntries(formData.entries());
+
+            try {
+                const res = await fetch('/api/admin/leads', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (res.ok) {
+                    document.getElementById('addLeadModal').classList.remove('active');
+                    e.target.reset();
+                    showToast("New lead logged to MongoDB Atlas");
+                    loadLeads();
+                }
+            } catch (err) {
+                alert("Failed to add lead");
+            }
+        });
+
+        // Export to CSV
+        document.getElementById('btnExportCSV').addEventListener('click', () => {
+            window.location.href = '/api/admin/leads/export-csv';
+        });
+
+        // Refresh Button
+        document.getElementById('btnRefresh').addEventListener('click', () => {
+            showToast("Refreshing leads from MongoDB...");
+            loadLeads();
+        });
+
+        // Status Tabs Click Handlers
+        document.getElementById('statusTabs').addEventListener('click', (e) => {
+            const btn = e.target.closest('.tab-btn');
+            if (!btn) return;
+            document.querySelectorAll('#statusTabs .tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentStatusFilter = btn.dataset.status;
+            renderTable();
+        });
+
+        // Search & Filter listeners
+        document.getElementById('searchInput').addEventListener('input', renderTable);
+        document.getElementById('serviceFilter').addEventListener('change', renderTable);
+
+        // Modal Triggers
+        document.getElementById('btnAddLead').addEventListener('click', () => {
+            document.getElementById('addLeadModal').classList.add('active');
+        });
+
+        document.getElementById('btnChangePassword').addEventListener('click', () => {
+            document.getElementById('passwordModal').classList.add('active');
+        });
+
+        document.querySelectorAll('[data-close-modal]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.dataset.closeModal;
+                document.getElementById(target).classList.remove('active');
+            });
+        });
+
+        // Change Password Submit
+        document.getElementById('changePasswordForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const currentPassword = document.getElementById('currentPass').value;
+            const newPassword = document.getElementById('newPass').value;
+            const confirmPassword = document.getElementById('confirmPass').value;
+
+            if (newPassword !== confirmPassword) {
+                alert("New passwords do not match");
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/admin/change-password', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ currentPassword, newPassword })
+                });
+                const data = await res.json();
+                if (res.ok && data.success) {
+                    document.getElementById('passwordModal').classList.remove('active');
+                    e.target.reset();
+                    showToast("Password updated securely in MongoDB!");
+                } else {
+                    alert(data.error || "Failed to change password");
+                }
+            } catch (err) {
+                alert("Network error updating password");
+            }
+        });
+
+        // Logout
+        document.getElementById('btnLogout').addEventListener('click', async () => {
+            try {
+                await fetch('/api/admin/logout', { method: 'POST' });
+            } finally {
+                window.location.href = '/admin';
+            }
+        });
+
+        // Initial Load
+        loadLeads();
+    </script>
+</body>
+</html>
