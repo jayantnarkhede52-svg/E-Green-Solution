@@ -1482,7 +1482,7 @@ img {
   left: 50%;
   width: 2px;
   background: var(--gold-accent);
-  box-shadow: 0 0 14px var(--gold-accent);
+  box-shadow: none;
   cursor: ew-resize;
   z-index: 10;
 }
@@ -1576,17 +1576,40 @@ img {
 
 .dt-range-input::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 24px;
-  height: 24px;
+  appearance: none;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  background: var(--gold-accent);
+  background: #7bd894;
+  border: 2px solid #141820;
   cursor: pointer;
-  box-shadow: 0 0 14px var(--gold-accent);
+  box-shadow: none !important;
+  filter: none !important;
+  transition: transform 0.15s ease;
+}
+
+.dt-range-input::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #7bd894;
+  border: 2px solid #141820;
+  cursor: pointer;
+  box-shadow: none !important;
+  filter: none !important;
   transition: transform 0.15s ease;
 }
 
 .dt-range-input::-webkit-slider-thumb:hover {
-  transform: scale(1.15);
+  transform: scale(1.08);
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.dt-range-input::-moz-range-thumb:hover {
+  transform: scale(1.08);
+  box-shadow: none !important;
+  filter: none !important;
 }
 
 .dt-calc-results-panel {
