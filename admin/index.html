@@ -252,6 +252,13 @@
             <p class="brand-subtitle">Executive Lead &amp; Operations Portal</p>
         </div>
 
+        <div id="envWarning" style="display:none; background:#fffbeb; border:1px solid #fde68a; color:#92400e; padding:12px 14px; border-radius:8px; font-size:13px; margin-bottom:20px; line-height:1.4;">
+            <i class="fas fa-exclamation-triangle" style="margin-right:6px; color:#d97706;"></i>
+            <strong>Server Port Mismatch / File Mode:</strong>
+            <p id="envWarningMsg" style="margin:6px 0;"></p>
+            <a id="envWarningLink" href="http://localhost:3000/admin" style="display:inline-block; margin-top:4px; font-weight:700; color:#15803d; text-decoration:underline;">👉 Click here to open on http://localhost:3000/admin</a>
+        </div>
+
         <div id="alertBox" class="alert-box alert-error">
             <i class="fas fa-exclamation-circle"></i>
             <span id="alertMessage">Invalid credentials. Please try again.</span>
@@ -292,6 +299,17 @@
     </div>
 
     <script>
+        // Check environment (Live Server vs file:// vs Node server)
+        const envWarning = document.getElementById('envWarning');
+        const envWarningMsg = document.getElementById('envWarningMsg');
+        if (window.location.protocol === 'file:') {
+            envWarningMsg.textContent = 'You opened this file directly from disk (file://). Browsers cannot connect to the backend database in file mode.';
+            envWarning.style.display = 'block';
+        } else if (window.location.port && window.location.port !== '3000') {
+            envWarningMsg.textContent = 'You are viewing this on port ' + window.location.port + ' (e.g. VS Code Live Server). The Node.js server and database run on port 3000.';
+            envWarning.style.display = 'block';
+        }
+
         // Check if already authenticated
         fetch('/api/admin/check-auth')
             .then(res => res.json())
@@ -339,20 +357,45 @@
                     body: JSON.stringify({ username, password })
                 });
 
-                const data = await res.json();
+                let data = null;
+                const contentType = res.headers.get('content-type') || '';
+                if (contentType.includes('application/json')) {
+                    try {
+                        data = await res.json();
+                    } catch (parseErr) {}
+                }
 
-                if (res.ok && data.success) {
+                if (res.ok && data && data.success) {
                     btnText.textContent = 'Redirecting...';
                     window.location.href = data.redirect || '/admin/dashboard';
                 } else {
-                    alertMessage.textContent = data.error || 'Authentication failed. Please verify username and password.';
+                    let errMsg = (data && data.error) ? data.error : null;
+                    if (!errMsg) {
+                        if (res.status === 404) {
+                            errMsg = 'API route not found (404). Serverless endpoint is missing or not configured on Vercel.';
+                        } else if (res.status === 500) {
+                            errMsg = 'Server error (500). Please check MongoDB Atlas connection and server logs.';
+                        } else {
+                            errMsg = 'Authentication failed (Status ' + res.status + '). Please verify credentials.';
+                        }
+                    }
+                    alertMessage.textContent = errMsg;
                     alertBox.style.display = 'flex';
                     submitBtn.disabled = false;
                     btnSpinner.style.display = 'none';
                     btnText.textContent = 'Sign In to Dashboard →';
                 }
             } catch (err) {
-                alertMessage.textContent = 'Network error. Could not connect to server.';
+                console.error('Login request failed:', err);
+                let errorMsg = 'Network error. Could not connect to server.';
+                if (window.location.protocol === 'file:') {
+                    errorMsg = 'Cannot login from file://. Please open http://localhost:3000/admin in your browser.';
+                } else if (window.location.port && window.location.port !== '3000') {
+                    errorMsg = 'You are on port ' + window.location.port + ' (Live Server). Please open http://localhost:3000/admin to connect to the Node backend.';
+                } else {
+                    errorMsg = 'Could not connect to backend server. Make sure "node server.js" is running on port 3000.';
+                }
+                alertMessage.textContent = errorMsg;
                 alertBox.style.display = 'flex';
                 submitBtn.disabled = false;
                 btnSpinner.style.display = 'none';

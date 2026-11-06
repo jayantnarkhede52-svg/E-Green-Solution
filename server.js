@@ -86,6 +86,19 @@ function parseCookies(cookieHeader) {
 }
 
 function parseBody(req) {
+    // 1. If running under Vercel Serverless / body-parser, req.body is already pre-parsed
+    if (req.body && typeof req.body === 'object') {
+        return Promise.resolve(req.body);
+    }
+    if (typeof req.body === 'string' && req.body.trim()) {
+        try {
+            return Promise.resolve(JSON.parse(req.body));
+        } catch (e) {
+            return Promise.resolve({ raw: req.body });
+        }
+    }
+
+    // 2. Fallback to stream consumption for native Node.js HTTP server
     return new Promise((resolve, reject) => {
         let body = '';
         req.on('data', chunk => {
@@ -117,7 +130,7 @@ function parseBody(req) {
 }
 
 async function getAuthUser(req) {
-    const cookies = parseCookies(req.headers.cookie);
+    const cookies = req.cookies || parseCookies(req.headers.cookie);
     const token = cookies['egreen_auth_token'];
     if (!token) return null;
 
@@ -776,11 +789,11 @@ server.on('listening', () => {
 if (require.main === module) {
     connectDB()
         .then(() => {
-            server.listen(currentPort);
+            server.listen(currentPort, '0.0.0.0');
         })
         .catch((err) => {
             console.error('❌ Failed to connect to MongoDB on startup. Starting offline mode...', err.message);
-            server.listen(currentPort);
+            server.listen(currentPort, '0.0.0.0');
         });
 }
 
