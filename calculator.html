@@ -79,7 +79,7 @@
                                 <div class="dt-drop-icon"><i class="fas fa-home"></i></div>
                                 <div class="dt-drop-info">
                                     <strong>Residential Rooftop</strong>
-                                    <span>25-year panel performance warranty</span>
+                                    <span>Manufacturer warranty terms vary by model</span>
                                 </div>
                             </a>
                             <a href="/commercial-solar-pune" class="dt-drop-item" role="menuitem">
@@ -348,7 +348,7 @@
                         <div style="margin-bottom: 24px;">
                             <span class="dt-tech-label">STEP 02 // SECTOR &amp; TARIFF CLASSIFICATION</span>
                             <h2 class="dt-calc-step-title">Select Property Category</h2>
-                            <p class="dt-calc-step-desc">Determines MSEDCL tariff slabs and central subsidy entitlement.</p>
+                            <p class="dt-calc-step-desc">Helps shape an indicative estimate. Scheme support depends on eligibility and approval.</p>
                         </div>
 
                         <div class="dt-calc-prop-grid" id="install-prop-grid">
@@ -365,7 +365,7 @@
                                 <div class="dt-calc-prop-title">
                                     <i class="fas fa-building" style="color: var(--gold-accent);"></i> Housing Society (GHS)
                                 </div>
-                                <p class="dt-calc-prop-desc">Common area meters (lifts, pumps, lighting). ₹18,000/kW central subsidy up to 500 kW.</p>
+                                <p class="dt-calc-prop-desc">Common area meters (lifts, pumps, lighting). GHS/RWA support depends on eligible dwelling count, capacity and approval.</p>
                             </div>
 
                             <!-- Commercial -->
@@ -373,7 +373,7 @@
                                 <div class="dt-calc-prop-title">
                                     <i class="fas fa-briefcase" style="color: var(--gold-accent);"></i> Commercial Enterprise
                                 </div>
-                                <p class="dt-calc-prop-desc">Offices, hospitals, schools, retail malls. Offsets ₹13+/unit peak LT/HT tariff + 40% Tax shield.</p>
+                                <p class="dt-calc-prop-desc">Offices, hospitals, schools and retail premises. Savings depend on site generation, use and tariff.</p>
                             </div>
 
                             <!-- Industrial MIDC -->
@@ -470,7 +470,7 @@
                                 &larr; Back
                             </button>
                             <button type="button" class="dt-btn dt-btn-primary" id="btn-calculate-installation" style="flex: 1; justify-content: center; padding: 13px;">
-                                Calculate Turnkey Quotation &rarr;
+                                Calculate Indicative Estimate &rarr;
                             </button>
                         </div>
                     </div>
@@ -506,41 +506,43 @@
                         <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 24px;">
                             
                             <div style="background: var(--bg-elevated); border: 1px solid var(--border-muted); border-radius: var(--radius-ctrl); padding: 16px;">
-                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; text-transform: uppercase; color: var(--text-muted); display: block;">Turnkey EPC Cost</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; text-transform: uppercase; color: var(--text-muted); display: block;">Indicative Project Cost</span>
                                 <div style="font-size: 21px; font-weight: 800; color: var(--text-primary); margin: 4px 0;">₹ <span id="quote-gross-cost">5,14,800</span></div>
-                                <span style="font-size: 10.5px; color: var(--text-muted);">*Authentic Pune EPC pricing</span>
+                                <span style="font-size: 10.5px; color: var(--text-muted);">*Indicative estimate; confirm after site survey</span>
                             </div>
 
                             <div style="background: var(--bg-elevated); border: 1px solid var(--border-muted); border-radius: var(--radius-ctrl); padding: 16px;">
-                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; text-transform: uppercase; color: var(--text-muted); display: block;" id="quote-subsidy-label">Govt Central Subsidy</span>
-                                <div style="font-size: 21px; font-weight: 800; color: #4ade80; margin: 4px 0;">- ₹ <span id="quote-subsidy-amount">78,000</span></div>
-                                <span style="font-size: 10.5px; color: #4ade80;" id="quote-subsidy-note">*Direct Bank Transfer (DBT)</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; text-transform: uppercase; color: var(--text-muted); display: block;" id="quote-subsidy-label">Illustrative PM Surya Ghar support</span>
+                                <div style="font-size: 21px; font-weight: 800; color: #4ade80; margin: 4px 0;"><span id="quote-subsidy-prefix">- ₹</span> <span id="quote-subsidy-amount">78,000</span></div>
+                                <span style="font-size: 10.5px; color: #4ade80;" id="quote-subsidy-note">*Only if eligible and approved</span>
                             </div>
 
                             <div style="background: var(--bg-elevated); border: 1px solid var(--border-gold); border-radius: var(--radius-ctrl); padding: 16px;">
-                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; text-transform: uppercase; color: var(--gold-accent); display: block;">Net Capital Investment</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; text-transform: uppercase; color: var(--gold-accent); display: block;">Estimated Cost After Support</span>
                                 <div style="font-size: 21px; font-weight: 800; color: var(--gold-accent); margin: 4px 0;">₹ <span id="quote-net-cost">4,36,800</span></div>
-                                <span style="font-size: 10.5px; color: var(--text-muted);">*After applicable subsidies</span>
+                                <span style="font-size: 10.5px; color: var(--text-muted);">*Support is not guaranteed; see estimate note</span>
                             </div>
 
                             <div style="background: var(--bg-elevated); border: 1px solid var(--border-muted); border-radius: var(--radius-ctrl); padding: 16px;">
                                 <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; text-transform: uppercase; color: var(--text-muted); display: block;">Est. Annual Bill Savings</span>
                                 <div style="font-size: 21px; font-weight: 800; color: var(--text-primary); margin: 4px 0;">₹ <span id="quote-annual-savings">1,38,600</span>/yr</div>
-                                <span style="font-size: 10.5px; color: #4ade80;"><i class="fas fa-check"></i> Payback: <strong id="quote-payback-years">3.1</strong> Years</span>
+                                <span style="font-size: 10.5px; color: #4ade80;"><i class="fas fa-check"></i> Illustrative payback: <strong id="quote-payback-years">3.1</strong> Years</span>
                             </div>
 
                         </div>
 
+                        <p style="font-size: 11px; color: var(--text-muted); margin: -8px 0 22px;">Indicative calculator only, not a quotation. Generation assumes 1,500 units per kW per year and savings assume a 90% bill offset. Actual results depend on the site, consumption, tariff and settlement rules. PM Surya Ghar support is a possible amount for eligible household applications and requires approval. Society support and business tax benefits are not included.</p>
+
                         <!-- Technical Standards Included Strip -->
                         <div style="background: rgba(123, 216, 148, 0.05); border: 1px solid rgba(123, 216, 148, 0.2); border-radius: var(--radius-ctrl); padding: 14px; margin-bottom: 24px; font-size: 12px; color: var(--text-secondary); line-height: 1.5;">
-                            <strong style="color: var(--gold-accent); font-family: 'JetBrains Mono', monospace; display: block; margin-bottom: 4px;"><i class="fas fa-certificate"></i> TURNKEY EPC SCOPE INCLUDED:</strong>
-                            Tier-1 Mono PERC / TOPCon bifacial modules, certified dual-MPPT on-grid inverter, 150 km/h wind-rated hot-dip galvanized (HDGI) structure, AC/DC protection boxes, lightning arrestor, chemical earthing pits, MSEDCL net metering liaisoning, and 5-year comprehensive O&amp;M warranty.
+                            <strong style="color: var(--gold-accent); font-family: 'JetBrains Mono', monospace; display: block; margin-bottom: 4px;"><i class="fas fa-certificate"></i> SCOPE CONFIRMED IN WRITTEN QUOTE:</strong>
+                            Proposed modules and inverter, mounting, electrical protection, utility application support, and any operation and maintenance terms are specified for each project after a site survey.
                         </div>
 
                         <!-- Embedded Compact Lead Booking Box -->
                         <div style="background: var(--bg-surface); border: 1px solid var(--border-emp); border-radius: var(--radius-card); padding: 20px; margin-bottom: 22px;">
-                            <h3 style="font-size: 16px; color: var(--text-primary); margin: 0 0 6px;">Lock in This Quotation &amp; Book Free Site Survey</h3>
-                            <p style="font-size: 12.5px; color: var(--text-muted); margin: 0 0 16px;">Our certified engineer will verify your terrace structure in Pune and finalize engineering drawings.</p>
+                            <h3 style="font-size: 16px; color: var(--text-primary); margin: 0 0 6px;">Request a Site Survey and Written Quote</h3>
+                            <p style="font-size: 12.5px; color: var(--text-muted); margin: 0 0 16px;">A site survey helps confirm roof conditions, equipment, project scope and final pricing.</p>
                             
                             <form id="install-lead-form" class="dt-form-grid" style="gap: 10px;">
                                 <input type="hidden" name="form_source" value="Solar Installation Calculator">
@@ -640,7 +642,7 @@
                             <div style="font-family: 'Manrope', sans-serif; font-size: clamp(34px, 5vw, 48px); font-weight: 800; color: var(--gold-accent); margin: 4px 0;">
                                 ₹ <span id="resMonthlySavings">4,500</span>
                             </div>
-                            <span style="font-size: 12.5px; color: #4ade80;"><i class="fas fa-check-circle"></i> Slashes approximately 90% of your ongoing electricity bill</span>
+                            <span style="font-size: 12.5px; color: #4ade80;"><i class="fas fa-circle-info"></i> Indicative estimate; actual savings depend on generation, usage and tariff</span>
                         </div>
 
                         <!-- Stats Grid -->
@@ -664,7 +666,7 @@
                             <div style="background: var(--bg-elevated); border: 1px solid var(--border-gold); border-radius: var(--radius-ctrl); padding: 16px;">
                                 <span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; text-transform: uppercase; color: var(--gold-accent);">Net After Subsidy</span>
                                 <div style="font-size: 21px; font-weight: 700; color: var(--gold-accent); margin-top: 4px;">₹ <span id="resNetCost">1,51,167</span></div>
-                                <span style="font-size: 10.5px; color: #4ade80;">*₹78k PM Surya Ghar</span>
+                            <span style="font-size: 10.5px; color: #4ade80;">Possible subsidy: ₹<span id="resSubsidy">78,000</span>, subject to eligibility and approval</span>
                             </div>
                         </div>
 
@@ -691,7 +693,7 @@
                 <div class="dt-tech-label">FINANCIAL METRICS</div>
                 <h2 class="dt-section-title">Understanding Your Solar ROI in Pune</h2>
                 <p class="dt-section-desc" style="margin: 0 auto;">
-                    Investing in a rooftop solar plant is one of the highest-yielding, risk-free investments available in Maharashtra.
+                    Project returns depend on the installed cost, site conditions, generation, electricity use and applicable tariff.
                 </p>
             </div>
 
@@ -705,7 +707,7 @@
                 <div class="dt-card">
                     <div class="dt-card-icon"><i class="fas fa-piggy-bank"></i></div>
                     <h3 class="dt-card-title">Maximize Savings with PM Surya Ghar</h3>
-                    <p class="dt-card-desc">By leveraging the central ₹78,000 DBT subsidy, your effective capital recovery drops to just 2.8 to 3.2 years. For the remaining 22+ years of the system's operational life, all power generated is 100% free of utility charges.</p>
+                    <p class="dt-card-desc">Eligible household applicants may receive up to ₹78,000 under PM Surya Ghar after installation and approval. Generation, bill credits, fixed charges and payback vary by property; confirm the current scheme rules and ask for a site-specific estimate.</p>
                 </div>
             </div>
         </div>
@@ -718,7 +720,7 @@
                 <div class="dt-tech-label" style="margin: 0 auto 14px;">VERIFY YOUR ROOF POTENTIAL</div>
                 <h2 style="font-size: clamp(24px, 3.4vw, 36px); color: var(--text-primary); margin-bottom: 12px;">Book Free On-Site Energy Audit</h2>
                 <p style="font-size: 15px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 24px;">
-                    Our engineers will inspect your terrace in Pune, conduct drone shadow analysis, and deliver a guaranteed output proposal.
+                    Our engineers can inspect your terrace in Pune and prepare a projected generation estimate based on site conditions.
                 </p>
                 <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
                     <a href="/contact" class="dt-btn dt-btn-primary">Book Free Site Survey &rarr;</a>
@@ -739,7 +741,7 @@
                         <span class="dt-brand-title">E GREEN <span>SOLUTION</span></span>
                     </a>
                     <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 18px;">
-                        Pune's premier rooftop solar engineering contractor and authorized solar equipment dealer. Precision turnkey photovoltaic installations with guaranteed MSEDCL net metering approvals and 25-year warranties.
+                        E Green Solution designs and installs rooftop solar in Pune for homes, housing societies, businesses and factories. We help prepare MSEDCL net metering applications.
                     </p>
                 </div>
 
@@ -989,11 +991,12 @@
             // Minimum practical system size: 1 kW
             capacityKw = Math.max(1, capacityKw);
 
-            // Turnkey pricing calculation based on actual Pune market + 3.5% company margin
+            // Indicative price assumptions; confirm current supplier, site and project costs before quoting.
             var pricePerKw = 70400; // Base 1-3kW residential turnkey + 3.5%
             var subsidy = 0;
-            var subsidyLabel = 'Govt Central Subsidy';
-            var subsidyNote = '*Direct Bank Transfer (DBT)';
+            var subsidyLabel = 'Support not estimated';
+            var subsidyNote = '*Check scheme and project eligibility';
+            var subsidyEstimateAvailable = false;
 
             if (selectedProperty === 'residential') {
                 if (capacityKw <= 3.5) {
@@ -1008,25 +1011,18 @@
                     pricePerKw = 52000; // 50k + 3.5%
                     subsidy = 78000;
                 }
-                subsidyLabel = 'PM Surya Ghar Subsidy';
-                subsidyNote = '*Direct DBT into bank account';
+                subsidyLabel = 'Illustrative PM Surya Ghar support';
+                subsidyNote = '*Only if eligible and approved';
+                subsidyEstimateAvailable = true;
             } else if (selectedProperty === 'society') {
-                // Group Housing Society common meter
                 pricePerKw = (capacityKw >= 50) ? 45500 : 47600; // 46k + 3.5%
-                // Subsidy: ₹18,000 per kW up to 500 kW
-                subsidy = Math.min(500, capacityKw) * 18000;
-                subsidyLabel = 'GHS Central Subsidy';
-                subsidyNote = '*₹18,000/kW for common utilities';
+                subsidyLabel = 'GHS/RWA support not estimated';
+                subsidyNote = '*Depends on eligible dwellings and approval';
             } else if (selectedProperty === 'commercial') {
-                // Commercial EPC
                 pricePerKw = (capacityKw >= 100) ? 42000 : 44500; // 43k + 3.5%
-                // 40% Accelerated Depreciation tax shield (assuming ~25% corporate tax rate = ~10% effective capital shield)
-                var grossEstimated = capacityKw * pricePerKw;
-                subsidy = Math.round(grossEstimated * 0.40 * 0.25);
-                subsidyLabel = '40% Tax Depreciation Shield';
-                subsidyNote = '*Year 1 Corporate Tax Benefit';
+                subsidyLabel = 'Tax benefit not estimated';
+                subsidyNote = '*Depends on your tax position; excluded';
             } else if (selectedProperty === 'industrial') {
-                // Industrial MIDC EPC (multi-kW or Megawatt)
                 if (capacityKw >= 1000) {
                     pricePerKw = 36750; // ₹3.67 Cr / MW (~35.5k + 3.5%)
                 } else if (capacityKw >= 500) {
@@ -1034,10 +1030,8 @@
                 } else {
                     pricePerKw = 39850; // ~38.5k + 3.5%
                 }
-                var grossEstimatedInd = capacityKw * pricePerKw;
-                subsidy = Math.round(grossEstimatedInd * 0.40 * 0.25);
-                subsidyLabel = '40% Industrial Tax Shield';
-                subsidyNote = '*Year 1 Section 32 IT Act benefit';
+                subsidyLabel = 'Tax benefit not estimated';
+                subsidyNote = '*Depends on your tax position; excluded';
             }
 
             var totalGrossCost = Math.round(capacityKw * pricePerKw);
@@ -1073,7 +1067,8 @@
             document.getElementById('quote-roof-needed').textContent = roofAreaNeeded.toLocaleString('en-IN');
 
             document.getElementById('quote-gross-cost').textContent = totalGrossCost.toLocaleString('en-IN');
-            document.getElementById('quote-subsidy-amount').textContent = Math.round(subsidy).toLocaleString('en-IN');
+            document.getElementById('quote-subsidy-prefix').textContent = subsidyEstimateAvailable ? '- ₹' : '';
+            document.getElementById('quote-subsidy-amount').textContent = subsidyEstimateAvailable ? Math.round(subsidy).toLocaleString('en-IN') : '—';
             document.getElementById('quote-subsidy-label').textContent = subsidyLabel;
             document.getElementById('quote-subsidy-note').textContent = subsidyNote;
             document.getElementById('quote-net-cost').textContent = netInvestment.toLocaleString('en-IN');
@@ -1162,6 +1157,7 @@
         var resMonthlySavings = document.getElementById('resMonthlySavings');
         var resSystemCost = document.getElementById('resSystemCost');
         var resNetCost = document.getElementById('resNetCost');
+        var resSubsidy = document.getElementById('resSubsidy');
         var summaryBill = document.getElementById('summary-bill');
 
         var quickPriceMap = [
@@ -1194,7 +1190,7 @@
             }
 
             var monthlySavings = Math.round(bill * 0.90);
-            var subsidy = 78000;
+            var subsidy = capacityKw <= 1.5 ? 30000 : (capacityKw <= 2.5 ? 60000 : 78000);
             var netInvestment = Math.max(0, systemCost - subsidy);
             var spaceRequired = Math.round(capacityKw * 95);
 
@@ -1203,6 +1199,7 @@
             if (resMonthlySavings) resMonthlySavings.textContent = monthlySavings.toLocaleString('en-IN');
             if (resSystemCost) resSystemCost.textContent = Math.round(systemCost).toLocaleString('en-IN');
             if (resNetCost) resNetCost.textContent = Math.round(netInvestment).toLocaleString('en-IN');
+            if (resSubsidy) resSubsidy.textContent = subsidy.toLocaleString('en-IN');
             if (summaryBill) summaryBill.textContent = Math.round(bill).toLocaleString('en-IN');
         }
 

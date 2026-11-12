@@ -36,11 +36,6 @@
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.egreensolution.in/solar-subsidy</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://www.egreensolution.in/calculator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
@@ -64,6 +59,9 @@
     <loc>https://www.egreensolution.in/areas</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.egreensolution.in/gallery</loc>
   </url>
   <url>
     <loc>https://www.egreensolution.in/about</loc>
@@ -194,5 +192,11 @@
     <loc>https://www.egreensolution.in/blog/3kw-vs-5kw-solar-price-pune-subsidy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.egreensolution.in/blog/msedcl-solar-net-metering-pune-delays-process</loc>
+  </url>
+  <url>
+    <loc>https://www.egreensolution.in/blog/solar-generation-dropping-reasons-solutions-pune</loc>
   </url>
 </urlset>

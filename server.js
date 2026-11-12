@@ -706,7 +706,13 @@ async function requestHandler(req, res) {
 
     
     if (pathname === '/solar-subsidy' || pathname === '/solar-subsidy.html') {
-        res.writeHead(301, { 'Location': '/gallery' });
+        res.writeHead(301, { 'Location': '/residential-solar' + (parsedUrl.search || '') });
+        res.end();
+        return;
+    }
+
+    if (pathname === '/sitemp.xml') {
+        res.writeHead(301, { 'Location': '/sitemap.xml' + (parsedUrl.search || '') });
         res.end();
         return;
     }

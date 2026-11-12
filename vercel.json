@@ -25,6 +25,16 @@
       "permanent": true
     },
     {
+      "source": "/solar-subsidy",
+      "destination": "/residential-solar",
+      "permanent": true
+    },
+    {
+      "source": "/sitemp.xml",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
       "source": "/areas/:slug+",
       "destination": "/areas",
       "permanent": true
