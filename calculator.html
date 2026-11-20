@@ -11,8 +11,8 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar Savings Calculator in Pune | Cost &amp; Savings</title>
-    <meta name="description" content="Use the solar savings calculator in Pune to estimate system size, cost and bill impact. Confirm your final design and incentives with a site survey.">
+    <title>Solar ROI &amp; Savings Calculator Pune | E Green Solution</title>
+    <meta name="description" content="Estimate rooftop solar cost, bill savings and payback in Pune with our solar ROI calculator. Review assumptions and request a site-specific quote.">
     <meta name="keywords" content="solar installation calculator pune, solar panel price in pune, rooftop solar sizing calculator, solar cost per megawatt pune, pcmc solar quotation, msedcl subsidy calculator">
     <link rel="canonical" href="https://www.egreensolution.in/calculator">
 
@@ -244,9 +244,9 @@
 
             <div style="max-width: 860px;">
                 <div class="dt-tech-label">PUNE SOLAR SIMULATOR SUITE</div>
-                <h1 class="dt-hero-title" style="font-size: clamp(28px, 4vw, 48px); margin-bottom: 16px;">Solar Savings Calculator in Pune</h1>
+                <h1 class="dt-hero-title" style="font-size: clamp(28px, 4vw, 48px); margin-bottom: 16px;">Solar ROI and Savings Calculator in Pune</h1>
                 <p class="dt-section-desc" style="font-size: 15px; line-height: 1.6; margin-bottom: 20px;">
-                    Get an instant turnkey installation quotation based on authentic Pune &amp; PCMC pricing, or estimate bill savings with government subsidies.
+                    Estimate system size, installation cost and potential solar savings for a Pune or PCMC property. Results are illustrative; equipment, roof conditions, tariffs and eligibility affect the final quote and payback.
                 </p>
 
                 <div style="display: flex; gap: 8px; flex-wrap: wrap;">
@@ -292,7 +292,7 @@
                         <div style="margin-bottom: 24px;">
                             <span class="dt-tech-label">STEP 01 // INSTALLATION REGION</span>
                             <h2 class="dt-calc-step-title">Select Project Location</h2>
-                            <p class="dt-calc-step-desc">Calibrates local DISCOM feeder feasibility &amp; solar radiation in Pune/PCMC.</p>
+                            <p class="dt-calc-step-desc">Choose your area for the estimate and survey request. MSEDCL separately determines connection feasibility.</p>
                         </div>
 
                         <!-- Quick Chips -->
@@ -483,7 +483,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border-muted);">
                             <div>
                                 <span class="dt-tech-label" style="margin: 0 0 4px;">PUNE TURNKEY QUOTE</span>
-                                <h2 class="dt-calc-step-title" style="margin: 0;">Solar Installation Quotation</h2>
+                                <h2 class="dt-calc-step-title" style="margin: 0;">Indicative Solar Installation Estimate</h2>
                             </div>
                             <div style="display: flex; gap: 6px; flex-wrap: wrap;">
                                 <span class="dt-pill" id="quote-pill-loc" style="font-size: 11px;"><i class="fas fa-map-marker-alt" style="color: var(--gold-accent);"></i> Baner</span>
@@ -694,15 +694,17 @@
                 <div class="dt-tech-label">FINANCIAL METRICS</div>
                 <h2 class="dt-section-title">Understanding Your Solar ROI in Pune</h2>
                 <p class="dt-section-desc" style="margin: 0 auto;">
-                    Project returns depend on the installed cost, site conditions, generation, electricity use and applicable tariff.
+                    Use this solar ROI calculator to compare an indicative installation cost with potential bill savings. Simple payback divides the estimated net investment by estimated annual savings; it does not account for future tariff changes, financing, maintenance or degradation.
                 </p>
             </div>
+
+            <p class="dt-section-desc" style="max-width: 850px; margin: 0 auto 24px;">The installation estimate assumes 1,500 units generated per kW each year and values 90% of that output at an assumed property tariff. The quick savings mode instead assumes a 90% reduction in the entered monthly bill. These are simplified assumptions, not a forecast or guaranteed saving. Compare a recent bill and roof details with our <a href="/solar-panel-pune">Pune solar installation team</a> before deciding.</p>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
                 <div class="dt-card">
                     <div class="dt-card-icon"><i class="fas fa-coins"></i></div>
                     <h3 class="dt-card-title">Factors Affecting Solar Pricing in Pune</h3>
-                    <p class="dt-card-desc">Turnkey project cost depends on module technology (Mono PERC vs N-Type TOPCon bifacial), structure elevation (flush mount vs raised pergola), and inverter phase configuration. Our estimates use authentic Tier-1 equipment with 25-year performance warranties.</p>
+                    <p class="dt-card-desc">Installed cost depends on system size, module and inverter selection, roof access, mounting height and electrical work. The calculator uses fixed indicative prices; ask for an itemised quote and equipment-specific warranty terms.</p>
                 </div>
 
                 <div class="dt-card">
@@ -1114,8 +1116,12 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData)
                 })
-                .then(function(res) { return res.json(); })
+                .then(function(res) {
+                    if (!res.ok) throw new Error('Lead request failed');
+                    return res.json();
+                })
                 .then(function(data) {
+                    if (!data.success) throw new Error('Lead request not confirmed');
                     if (leadFeedback) {
                         leadFeedback.style.display = 'block';
                         leadFeedback.style.background = 'rgba(74, 222, 128, 0.15)';
@@ -1130,13 +1136,14 @@
                 .catch(function(err) {
                     if (leadFeedback) {
                         leadFeedback.style.display = 'block';
-                        leadFeedback.style.background = 'rgba(74, 222, 128, 0.15)';
-                        leadFeedback.style.border = '1px solid #4ade80';
-                        leadFeedback.style.color = '#4ade80';
-                        leadFeedback.innerHTML = '<i class="fas fa-check-circle"></i> <strong>Details Recorded!</strong> We will contact you at ' + formData.phone + '.';
+                        leadFeedback.style.background = 'rgba(248, 113, 113, 0.15)';
+                        leadFeedback.style.border = '1px solid #f87171';
+                        leadFeedback.style.color = '#f87171';
+                        leadFeedback.textContent = 'We could not submit your request. Please try again or call +91 72491 87969.';
                     }
                     if (btnSubmit) {
-                        btnSubmit.innerHTML = 'Submitted';
+                        btnSubmit.disabled = false;
+                        btnSubmit.textContent = 'Try again';
                     }
                 });
             });
