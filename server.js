@@ -8,7 +8,7 @@ const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
 const { connectDB, getDB, ObjectId } = require('./lib/db');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 const ROOT = path.resolve(__dirname);
 
 const MIME_TYPES = {
@@ -172,6 +172,12 @@ function resolveFile(pathname) {
     const htmlPath = fullPath + '.html';
     if (fs.existsSync(htmlPath) && fs.statSync(htmlPath).isFile()) {
         return htmlPath;
+    }
+
+    // 4. Fallback matching underscore to hyphen (e.g. /solar_guide -> solar-guide.html)
+    const hyphenPath = path.join(ROOT, safePath.replace(/_/g, '-') + '.html');
+    if (fs.existsSync(hyphenPath) && fs.statSync(hyphenPath).isFile()) {
+        return hyphenPath;
     }
 
     return null;
@@ -736,6 +742,20 @@ async function requestHandler(req, res) {
     const resolvedPath = resolveFile(pathname);
 
     if (!resolvedPath) {
+        const notFoundPath = path.join(ROOT, '404.html');
+        if (fs.existsSync(notFoundPath)) {
+            fs.readFile(notFoundPath, (err, data) => {
+                if (err) {
+                    res.writeHead(404, { 'Content-Type': 'text/plain' });
+                    res.end('404 Page Not Found');
+                } else {
+                    res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+                    res.end(data);
+                }
+            });
+            return;
+        }
+
         res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
         res.end(`
             <!DOCTYPE html>

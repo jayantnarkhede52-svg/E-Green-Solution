@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RB8MHEG1S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6RB8MHEG1S');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooftop Solar Journey in Pune | E Green Solution</title>
+    <meta name="description" content="Explore the rooftop solar journey in Pune, from reviewing your electricity bill to planning a system and connecting with the grid.">
+    <link rel="canonical" href="https://www.egreensolution.in/journey">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/logo.png">
+
+    <!-- Fonts & Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/dark-technical.css?v=20261124c">
+    <link rel="stylesheet" href="/css/style.css?v=4.0">
+    <link rel="stylesheet" href="/css/layout-polish.css?v=20261124b">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* ============================================================
+           JOURNEY 3D SCROLL EXPERIENCE STYLES
+           ============================================================ */
+        :root {
+            --journey-track-height: 400vh;
+        }
+
+        body.tech-grid-bg {
+            background-color: #07080B;
+            color: #f1f3f5;
+            overflow-x: hidden;
+        }
+
+        .journey-scroll-wrapper {
+            position: relative;
+            width: 100%;
+            height: var(--journey-track-height);
+        }
+
+        .journey-sticky-viewport {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #07080B;
+        }
+
+        #journeyCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            z-index: 1;
+        }
+
+        /* Ambient Cinematic Vignettes */
+        .journey-vignette {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+            background: radial-gradient(circle at 50% 50%, rgba(7, 8, 11, 0.15) 0%, rgba(7, 8, 11, 0.75) 80%, #07080B 100%),
+                        linear-gradient(180deg, rgba(7, 8, 11, 0.85) 0%, transparent 20%, transparent 80%, #07080B 100%);
+        }
+
+        /* Top HUD Telemetry */
+        .journey-hud {
+            position: absolute;
+            top: 85px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(92%, 1200px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .journey-hud-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(18, 21, 28, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(123, 216, 148, 0.3);
+            border-radius: 999px;
+            padding: 6px 16px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11.5px;
+            color: #7BD894;
+            letter-spacing: 0.5px;
+        }
+
+        .journey-progress-counter {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            font-weight: 700;
+            color: #f1f3f5;
+            background: rgba(18, 21, 28, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(241, 243, 245, 0.15);
+            border-radius: 999px;
+            padding: 6px 14px;
+        }
+
+        /* Floating Chapter Overlays */
+        .journey-chapters-layer {
+            position: absolute;
+            inset: 0;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .journey-chapter-card {
+            position: absolute;
+            top: auto;
+            bottom: clamp(86px, 14vh, 140px);
+            left: clamp(20px, 8vw, 120px);
+            max-width: 390px;
+            background: rgba(14, 18, 26, 0.92);
+            border: 1px solid rgba(123, 216, 148, 0.28);
+            border-radius: 18px;
+            padding: clamp(20px, 2.2vw, 26px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: auto;
+            transition: opacity 0.25s ease, visibility 0.25s ease, border-color 0.3s ease;
+        }
+
+        .journey-chapter-card.pos-right {
+            left: auto;
+            right: clamp(20px, 8vw, 120px);
+        }
+
+        .journey-chapter-card.is-active { opacity: 1; visibility: visible; }
+
+        .journey-chapter-card.pos-center {
+            left: clamp(20px, 8vw, 120px);
+            text-align: left;
+            max-width: 410px;
+        }
+
+        .journey-step-tag {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #7BD894;
+            background: rgba(123, 216, 148, 0.14);
+            border: 1px solid rgba(123, 216, 148, 0.3);
+            border-radius: 6px;
+            padding: 4px 10px;
+            margin-bottom: 12px;
+        }
+
+        .journey-chapter-title {
+            font-size: clamp(24px, 3.2vw, 36px);
+            font-weight: 800;
+            color: #f1f3f5;
+            line-height: 1.25;
+            margin: 0 0 14px;
+        }
+
+        .journey-chapter-title span {
+            color: #7BD894;
+        }
+
+        .journey-chapter-desc {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #94a3b8;
+            margin: 0;
+        }
+
+        .journey-metrics-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            border-top: 1px solid rgba(241, 243, 245, 0.1);
+            padding-top: 16px;
+            margin-bottom: 20px;
+        }
+
+        .journey-metric-val {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 18px;
+            font-weight: 700;
+            color: #7BD894;
+            display: block;
+        }
+
+        .journey-metric-lbl {
+            font-size: 11px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Scroll Cue Indicator */
+        .journey-scroll-cue {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: #94a3b8;
+            pointer-events: none;
+            opacity: 0.85;
+            transition: opacity 0.3s;
+        }
+
+        .journey-mouse-icon {
+            width: 22px;
+            height: 36px;
+            border: 2px solid rgba(123, 216, 148, 0.5);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .journey-mouse-wheel {
+            width: 4px;
+            height: 8px;
+            background: #7BD894;
+            border-radius: 2px;
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scrollWheel 1.8s infinite ease-in-out;
+        }
+
+        @keyframes scrollWheel {
+            0% { transform: translate(-50%, 0); opacity: 1; }
+            80% { transform: translate(-50%, 14px); opacity: 0; }
+            100% { transform: translate(-50%, 0); opacity: 0; }
+        }
+
+        /* Frame Loader Overlay */
+        .journey-loader-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 20;
+            background: #07080B;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            transition: opacity 0.5s ease, visibility 0.5s;
+        }
+
+        .journey-loader-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .journey-spinner {
+            width: 44px;
+            height: 44px;
+            border: 3px solid rgba(123, 216, 148, 0.15);
+            border-top-color: #7BD894;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Post-Scroll Conversion Section */
+        .journey-conversion-section {
+            position: relative;
+            z-index: 10;
+            background: #07080B;
+            border-top: 1px solid rgba(241, 243, 245, 0.1);
+            padding: 80px 0 100px;
+        }
+
+        @media (max-width: 768px) {
+            .journey-chapter-card {
+                left: 16px !important;
+                right: 16px !important;
+                bottom: 124px;
+                width: min(360px, calc(100% - 32px));
+                max-width: none !important;
+                padding: 18px;
+            }
+            .journey-chapter-title {
+                font-size: 24px;
+            }
+            .journey-hud {
+                top: 70px;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .journey-chapter-card { transition: none; }
+            .journey-mouse-wheel { animation: none; }
+        }
+    </style>
+    <script src="/js/site-accessibility.js?v=1.2" defer></script>
+    <script src="/js/mobile-nav-fallback.js?v=1.0" defer></script>
+</head>
+<body class="tech-grid-bg">
+
+    <!-- Global Dark Technical Header -->
+    <header id="dt-navbar" role="banner">
+        <div class="dt-nav-container">
+            <a href="/" class="dt-brand" aria-label="E Green Solution Home">
+                <div class="dt-logo-wrap">
+                    <img src="/assets/logo.png" alt="E Green Solution" class="dt-logo" width="150" height="34" loading="eager">
+                </div>
+                <span class="dt-brand-title">E GREEN <span>SOLUTION</span></span>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="dt-nav-links" aria-label="Main Navigation">
+                <a href="/">Home</a>
+                
+                <div class="dt-has-dropdown">
+                    <a href="/services" class="dt-dropdown-trigger">
+                        Services <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dt-dropdown-menu">
+                        <div class="dt-dropdown-header">
+                            <span class="dt-dropdown-eyebrow">ENGINEERING SOLUTIONS</span>
+                            <a href="/services" class="dt-dropdown-viewall">All 10 Services &rarr;</a>
+                        </div>
+                        <div class="dt-dropdown-grid">
+                            <a href="/residential-solar" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-home"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Residential Rooftop</strong>
+                                    <span>Manufacturer warranty terms vary by model</span>
+                                </div>
+                            </a>
+                            <a href="/commercial-solar-pune" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-building"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Commercial Solar</strong>
+                                    <span>Offices, schools, malls, hospitals</span>
+                                </div>
+                            </a>
+                            <a href="/industrial-solar" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-industry"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Industrial Solar EPC</strong>
+                                    <span>MIDC Chakan, Bhosari, Talegaon</span>
+                                </div>
+                            </a>
+                            <a href="/solar-water-heater-pune" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-water"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Solar Water Heaters</strong>
+                                    <span>Pressurized ETC &amp; FPC systems</span>
+                                </div>
+                            </a>
+                            <a href="/solar-panel-cleaning-pune" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-broom"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Demineralized RO Wash</strong>
+                                    <span>Panel cleaning and performance checks</span>
+                                </div>
+                            </a>
+                            <a href="/solar-amc-pune" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-file-contract"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Solar AMC Contracts</strong>
+                                    <span>Preventive checkups &amp; uptime SLAs</span>
+                                </div>
+                            </a>
+                            <a href="/solar-inverter-repair-pune" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-bolt"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Inverter Service &amp; Repair</strong>
+                                    <span>Growatt, Sungrow, Solis, Polycab</span>
+                                </div>
+                            </a>
+                            <a href="/solar-net-meter-msedcl-pune" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>MSEDCL Net Metering</strong>
+                                    <span>Liaisoning, bi-directional sync</span>
+                                </div>
+                            </a>
+                            <a href="/solar-plant-revamping-repowering" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-sync-alt"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Plant Revamping</strong>
+                                    <span>Repower older plants to TOPCon</span>
+                                </div>
+                            </a>
+                            <a href="/solar-repair-maintenance-pune" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-wrench"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Plant Repair &amp; Emergency</strong>
+                                    <span>On-site breakdown troubleshooting</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="/projects">Projects</a>
+                <a href="/gallery">Gallery</a>
+                <a href="/journey" class="active" aria-current="page">Journey</a>
+                <a href="/solar-guide">Solar 101</a>
+                <a href="/calculator">Calculator</a>
+                <a href="/areas">Areas</a>
+                <a href="/blog">Blog</a>
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+            </nav>
+
+            <!-- Actions: Direct Call & Gold Quote CTA -->
+            <div class="dt-nav-actions">
+                <a href="tel:+917249187969" class="dt-phone-link" aria-label="Call E Green Solution">
+                    <i class="fas fa-phone-alt"></i> <span>+91 72491 87969</span>
+                </a>
+                <a href="/contact" class="dt-btn dt-btn-primary dt-nav-quote-btn">
+                    Get Free Quote <i class="fas fa-arrow-right" style="font-size: 11px;"></i>
+                </a>
+
+                <!-- Mobile Hamburger Toggle -->
+                <button type="button" class="dt-hamburger" id="dt-hamburger" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="dt-mobile-drawer">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div class="dt-mobile-backdrop" id="dt-backdrop"></div>
+    <div class="dt-mobile-menu" id="dt-mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
+        <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--border-muted);">
+                <span class="dt-brand-title">E GREEN <span>SOLUTION</span></span>
+                <button type="button" id="dt-drawer-close" aria-label="Close Navigation" style="background: transparent; border: none; color: var(--text-primary); font-size: 20px; cursor: pointer;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+                        <ul class="dt-mobile-links">
+                <li><a href="/">Home</a></li>
+                <li class="dt-mobile-dropdown">
+                    <button type="button" class="dt-mobile-dropdown-btn" id="dt-mobile-services-toggle" aria-expanded="false">
+                        <span>Services</span>
+                        <i class="fas fa-chevron-down dt-dropdown-arrow"></i>
+                    </button>
+                    <ul class="dt-mobile-sublinks" id="dt-mobile-services-sub">
+                        <li><a href="/services" class="dt-sublink-all">All 10 Services Overview &rarr;</a></li>
+                        <li><a href="/residential-solar"><i class="fas fa-home"></i> Residential Rooftop</a></li>
+                        <li><a href="/commercial-solar-pune"><i class="fas fa-building"></i> Commercial Solar EPC</a></li>
+                        <li><a href="/industrial-solar"><i class="fas fa-industry"></i> Industrial Solar (MIDC)</a></li>
+                        <li><a href="/solar-water-heater-pune"><i class="fas fa-water"></i> Solar Water Heaters</a></li>
+                        <li><a href="/solar-panel-cleaning-pune"><i class="fas fa-broom"></i> Demineralized RO Wash</a></li>
+                        <li><a href="/solar-amc-pune"><i class="fas fa-file-contract"></i> Solar AMC Contracts</a></li>
+                        <li><a href="/solar-inverter-repair-pune"><i class="fas fa-bolt"></i> Inverter Service &amp; Repair</a></li>
+                        <li><a href="/solar-net-meter-msedcl-pune"><i class="fas fa-tachometer-alt"></i> MSEDCL Net Metering</a></li>
+                        <li><a href="/solar-plant-revamping-repowering"><i class="fas fa-sync-alt"></i> Plant Revamping</a></li>
+                        <li><a href="/solar-repair-maintenance-pune"><i class="fas fa-wrench"></i> Plant Repair &amp; Breakdown</a></li>
+                    </ul>
+                </li>
+                <li><a href="/projects">Projects</a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/journey">The Solar Journey (3D)</a></li>
+                <li><a href="/solar-guide">Solar 101</a></li>
+                <li><a href="/calculator">Calculator</a></li>
+                <li><a href="/areas">Areas</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="dt-mobile-footer">
+            <a href="/contact" class="dt-btn dt-btn-primary" style="width: 100%; text-align: center;">Get Free Solar Quote &rarr;</a>
+            <div style="display: flex; gap: 10px; margin-top: 8px;">
+                <a href="tel:+917249187969" class="dt-btn dt-btn-secondary" style="flex: 1; padding: 10px; font-size: 12px; justify-content: center;"><i class="fas fa-phone-alt"></i> Call</a>
+                <a href="https://wa.me/917249187969?text=Hello%20E%20Green%20Solution,%20I%20am%20interested%20in%20a%20solar%20quote" target="_blank" rel="noopener noreferrer" class="dt-btn dt-btn-secondary" style="flex: 1; padding: 10px; font-size: 12px; justify-content: center; color: #4ade80 !important;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         JOURNEY 3D FRAME-BY-FRAME SCROLL CONTAINER
+         ============================================================ -->
+    <div class="journey-scroll-wrapper" id="journeyScrollTrack">
+        <div class="journey-sticky-viewport" id="journeyViewport">
+            
+            <!-- Canvas where frames render smoothly -->
+            <canvas id="journeyCanvas"></canvas>
+            <div class="journey-vignette"></div>
+
+            <!-- Loader / Preload Progress -->
+            <div class="journey-loader-overlay" id="journeyLoader">
+                <div class="journey-spinner"></div>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #7BD894;" id="journeyLoaderText">
+                    INITIALIZING 3D SOLAR JOURNEY...
+                </div>
+            </div>
+
+            <!-- Top Telemetry HUD -->
+            <div class="journey-hud">
+                <div class="journey-hud-pill">
+                    <i class="fas fa-bolt"></i>
+                    <span>PUNE // SOLAR JOURNEY</span>
+                </div>
+                <div class="journey-progress-counter" id="journeyProgressCounter">
+                    00%
+                </div>
+            </div>
+
+            <!-- Floating Cinematic Chapters Overlay -->
+            <div class="journey-chapters-layer">
+
+                <!-- Chapter 1: The Bill Shock & Summer Heat -->
+                <div class="journey-chapter-card is-active" id="chapter1">
+                    <span class="journey-step-tag">01 // YOUR ROOF</span>
+                    <h1 class="journey-chapter-title">Rooftop Solar Journey <span>in Pune</span></h1>
+                    <p class="journey-chapter-desc">Start with your roof and electricity bill.</p>
+                </div>
+
+                <!-- Chapter 2: The Engineering & Elevated Pergola -->
+                <div class="journey-chapter-card pos-right" id="chapter2">
+                    <span class="journey-step-tag">02 // SITE DESIGN</span>
+                    <h2 class="journey-chapter-title">Designed around <span>your roof</span></h2>
+                    <p class="journey-chapter-desc">Shade, access and structure shape the plan.</p>
+                </div>
+
+                <!-- Chapter 3: The Grid Synchronization & Net Metering -->
+                <div class="journey-chapter-card" id="chapter3">
+                    <span class="journey-step-tag">03 // GRID CONNECTION</span>
+                    <h2 class="journey-chapter-title">Connect with <span>MSEDCL</span></h2>
+                    <p class="journey-chapter-desc">Get support with your net-metering application.</p>
+                </div>
+
+                <!-- Chapter 4: Zero Bill Independence -->
+                <div class="journey-chapter-card pos-center" id="chapter4">
+                    <span class="journey-step-tag">04 // NEXT STEP</span>
+                    <h2 class="journey-chapter-title">Plan for <span>Solar Savings</span></h2>
+                    <p class="journey-chapter-desc">
+                        Estimate your system, then request a survey.
+                    </p>
+                    <div style="display: flex; justify-content: flex-start; gap: 10px; flex-wrap: wrap; margin-top: 16px;">
+                        <a href="#calculator" class="dt-btn dt-btn-primary">Estimate savings &rarr;</a>
+                        <a href="/contact" class="dt-btn dt-btn-secondary">Book a survey</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Scroll Cue -->
+            <div class="journey-scroll-cue" id="journeyScrollCue">
+                <div class="journey-mouse-icon">
+                    <div class="journey-mouse-wheel"></div>
+                </div>
+                <span>SCROLL TO EXPLORE JOURNEY</span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ============================================================
+         POST-SCROLL CONVERSION & CALCULATOR SECTION
+         ============================================================ -->
+    <section class="journey-conversion-section" id="calculator">
+        <div class="dt-container">
+            
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 50px;">
+                <span class="dt-tech-label" style="margin: 0 auto 12px;">YOUR NEXT STEP</span>
+                <h2 class="dt-section-title">Plan your rooftop solar</h2>
+                <p class="dt-section-desc" style="margin: 0 auto;">
+                    Get an initial estimate and request a site survey.
+                </p>
+            </div>
+
+            <!-- Dual-Column Interactive Calculator & Fast-Track Lead Form -->
+            <div class="dt-subpage-grid">
+                
+                <!-- Left: Interactive Estimator -->
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-muted); border-radius: var(--radius-container); padding: clamp(24px, 4vw, 36px);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                        <h3 style="font-size: 20px; font-weight: 700; color: var(--text-primary); margin: 0;">Instant Savings Estimator</h3>
+                        <span class="dt-tech-label" style="margin: 0;"><i class="fas fa-calculator"></i> PM SURYA GHAR 2026</span>
+                    </div>
+
+                    <div style="margin-bottom: 30px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <label style="font-size: 14px; color: var(--text-secondary); font-weight: 600;">Average Monthly Electricity Bill:</label>
+                            <span id="billDisplay" style="font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: #7BD894;">₹ 4,500</span>
+                        </div>
+                        <input type="range" id="billRange" min="1500" max="25000" step="500" value="4500" style="width: 100%; accent-color: #7BD894; cursor: pointer; height: 6px; border-radius: 4px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted); margin-top: 6px; font-family: 'JetBrains Mono', monospace;">
+                            <span>₹1,500</span>
+                            <span>₹10,000</span>
+                            <span>₹25,000+</span>
+                        </div>
+                    </div>
+
+                    <!-- Calculated Output Tiles -->
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 24px;">
+                        <div style="background: var(--bg-elevated); border: 1px solid var(--border-muted); border-radius: 12px; padding: 18px;">
+                            <span style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 4px;">Recommended System</span>
+                            <span id="systemCap" style="font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 800; color: #f1f3f5;">3.0 kW</span>
+                            <span style="font-size: 11px; color: #7BD894; display: block; margin-top: 4px;">Confirm after survey</span>
+                        </div>
+                        <div style="background: var(--bg-elevated); border: 1px solid var(--border-muted); border-radius: 12px; padding: 18px;">
+                            <span style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 4px;">Possible home subsidy</span>
+                            <span id="subsidyVal" style="font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 800; color: #7BD894;">₹ 78,000</span>
+                            <span style="font-size: 11px; color: #94a3b8; display: block; margin-top: 4px;">Subject to eligibility and approval</span>
+                        </div>
+                        <div style="background: var(--bg-elevated); border: 1px solid var(--border-muted); border-radius: 12px; padding: 18px;">
+                            <span style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 4px;">Annual Power Savings</span>
+                            <span id="annualSave" style="font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 800; color: #f1f3f5;">₹ 51,300</span>
+                            <span style="font-size: 11px; color: #7BD894; display: block; margin-top: 4px;">Illustrative estimate</span>
+                        </div>
+                        <div style="background: var(--bg-elevated); border: 1px solid var(--border-muted); border-radius: 12px; padding: 18px;">
+                            <span style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 4px;">Final proposal</span>
+                            <span style="font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 800; color: #7BD894;">After survey</span>
+                            <span style="font-size: 11px; color: #94a3b8; display: block; margin-top: 4px;">Based on your roof and usage</span>
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(123, 216, 148, 0.08); border: 1px solid rgba(123, 216, 148, 0.25); border-radius: 10px; padding: 12px 16px; display: flex; align-items: center; gap: 12px;">
+                        <i class="fas fa-shield-halved" style="color: #7BD894; font-size: 18px; flex-shrink: 0;"></i>
+                        <span style="font-size: 12.5px; color: #94a3b8; line-height: 1.5;">
+                            Illustrative figures only. Actual savings and subsidy depend on your site, usage and approval.
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Right: Fast-Track Lead Form -->
+                <div>
+                    <div class="dt-form-card">
+                        <span class="dt-tech-label" style="margin-bottom: 12px;">SOLAR FAST-TRACK</span>
+                        <h3 style="font-size: 22px; color: var(--text-primary); margin-bottom: 6px;">Book Your Free Terrace Survey</h3>
+                        <p style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 20px;">
+                            Share your details and our team will get in touch.
+                        </p>
+
+                        <form id="journeyLeadForm" action="/api/leads" method="POST" style="display: flex; flex-direction: column; gap: 12px;">
+                            <input type="hidden" name="source" value="Journey 3D Page Lead">
+                            <input type="hidden" name="service" value="Turnkey Rooftop Solar Pergola">
+                            <input type="hidden" id="formBillValue" name="bill" value="₹ 4,500">
+                            
+                            <div class="dt-form-group">
+                                <label><i class="fas fa-user"></i> Full Name *</label>
+                                <input type="text" name="name" required placeholder="Enter full name" class="dt-input">
+                            </div>
+
+                            <div class="dt-form-group">
+                                <label><i class="fas fa-phone-alt"></i> Mobile / WhatsApp *</label>
+                                <input type="tel" name="phone" required placeholder="Enter 10-digit mobile number" class="dt-input">
+                            </div>
+
+                            <div class="dt-form-grid-2">
+                                <div class="dt-form-group">
+                                    <label><i class="fas fa-location-dot"></i> Pune Area</label>
+                                    <input type="text" name="location" placeholder="e.g. Baner, Wakad, Chakan" class="dt-input">
+                                </div>
+                                <div class="dt-form-group">
+                                    <label><i class="fas fa-home"></i> Property Type</label>
+                                    <select name="propertyStyle" class="dt-input">
+                                        <option value="Independent Villa / Bungalow">Villa / Bungalow</option>
+                                        <option value="Penthouse (Elevated Pergola)">Penthouse Pergola</option>
+                                        <option value="Housing Society Common Roof">Society Common Meter</option>
+                                        <option value="Commercial / Factory Shed">Commercial / Factory</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="dt-btn dt-btn-primary" style="width: 100%; margin-top: 8px; justify-content: center; font-size: 15px;">
+                                <span>Confirm Free On-Site Inspection</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+
+                            <div id="formFeedback" style="display: none; padding: 12px; border-radius: 8px; font-size: 13px; text-align: center; margin-top: 6px;"></div>
+
+                            <div style="font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 4px;">
+                                <i class="fas fa-lock" style="color: #7BD894;"></i> 100% Privacy • No Spam Guarantee • Direct Technical Evaluation
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Global Dark Technical Footer -->
+    <footer id="dt-footer" role="contentinfo">
+        <div class="dt-container">
+            <div class="dt-footer-grid">
+                <div class="dt-footer-col">
+                    <a href="/" class="dt-brand" style="margin-bottom: 18px; display: inline-flex;" aria-label="E Green Solution Home">
+                        <img src="/assets/logo.png" alt="E Green Solution" class="dt-logo" width="140" height="32" loading="lazy">
+                        <span class="dt-brand-title">E GREEN <span>SOLUTION</span></span>
+                    </a>
+                    <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">
+                        Engineering turnkey rooftop solar installations, elevated pergolas, and MSEDCL net metering sync across Pune, PCMC, and Maharashtra.
+                    </p>
+                </div>
+                <div class="dt-footer-col">
+                    <h2 data-original-heading="4">Quick Links</h2>
+                    <ul class="dt-footer-links">
+                        <li><a href="/residential-solar"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Residential Solar</a></li>
+                        <li><a href="/commercial-solar-pune"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Commercial EPC</a></li>
+                        <li><a href="/industrial-solar"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Industrial Solar MIDC</a></li>
+                        <li><a href="/calculator"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Solar Calculator</a></li>
+                        <li><a href="/areas"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Service Areas</a></li>
+                    </ul>
+                </div>
+                <div class="dt-footer-col">
+                    <h2 data-original-heading="4">Direct Contact</h2>
+                    <div class="dt-footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Dhankawadi, Pune, Maharashtra 411043</span>
+                    </div>
+                    <div class="dt-footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span><a href="tel:+917249187969" style="color: var(--text-primary); font-weight: 600;">+91 72491 87969</a></span>
+                    </div>
+                    <div class="dt-footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span><a href="mailto:egreensolution1@gmail.com">egreensolution1@gmail.com</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="dt-footer-bottom">
+                <div>&copy; 2026 E Green Solution. All Rights Reserved.</div>
+                <div class="dt-legal-links">
+                    <a href="/privacy-policy">Privacy Policy</a>
+                    <a href="/sitemap.xml">XML Sitemap</a>
+                    <a href="/contact">Free Consultation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+         GSAP SCROLLTRIGGER 3D ENGINE & CALCULATOR SCRIPT
+         ============================================================ -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const canvas = document.getElementById('journeyCanvas');
+        const ctx = canvas.getContext('2d');
+        const progressCounter = document.getElementById('journeyProgressCounter');
+        const loader = document.getElementById('journeyLoader');
+        const loaderText = document.getElementById('journeyLoaderText');
+        const scrollCue = document.getElementById('journeyScrollCue');
+
+        let frames = [];
+        let totalFrames = 180;
+        let imagesLoaded = 0;
+        let isUsingVideoFrames = false;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth * (window.devicePixelRatio || 1);
+            canvas.height = window.innerHeight * (window.devicePixelRatio || 1);
+            if (isUsingVideoFrames && frames && frames.length > 0) {
+                const frameIdx = Math.min(totalFrames - 1, Math.floor(scrollObj.progress * (totalFrames - 1)));
+                const targetFrame = getNearestFrame(frameIdx);
+                if (targetFrame) renderVideoFrame(targetFrame);
+            }
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // 1. Procedural 3D Canvas Fallback (Used if video frames are pending)
+        function renderProcedural3D(progress) {
+            const w = canvas.width;
+            const h = canvas.height;
+            ctx.clearRect(0, 0, w, h);
+
+            // Dynamic sky gradient: Dawn ➔ Sunlight ➔ Golden Sunset
+            const r = Math.round(10 + progress * 25);
+            const g = Math.round(14 + progress * 20);
+            const b = Math.round(22 - progress * 5);
+            const bgGrad = ctx.createLinearGradient(0, 0, 0, h);
+            bgGrad.addColorStop(0, `rgb(${r}, ${g}, ${b})`);
+            bgGrad.addColorStop(1, '#050608');
+            ctx.fillStyle = bgGrad;
+            ctx.fillRect(0, 0, w, h);
+
+            // Central 3D Perspective Grid / Solar Array Plane
+            const horizonY = h * 0.42;
+            ctx.save();
+            ctx.strokeStyle = `rgba(123, 216, 148, ${0.15 + progress * 0.25})`;
+            ctx.lineWidth = 1.5;
+
+            // Perspective grid lines
+            const cx = w * 0.5;
+            for (let angle = -60; angle <= 60; angle += 8) {
+                const rad = (angle * Math.PI) / 180;
+                const endX = cx + Math.tan(rad) * h;
+                ctx.beginPath();
+                ctx.moveTo(cx, horizonY);
+                ctx.lineTo(endX, h);
+                ctx.stroke();
+            }
+
+            // Horizontal perspective rungs
+            for (let i = 1; i <= 14; i++) {
+                const py = horizonY + Math.pow(i / 14, 2.2) * (h - horizonY);
+                ctx.beginPath();
+                ctx.moveTo(0, py);
+                ctx.lineTo(w, py);
+                ctx.stroke();
+            }
+
+            // Radiant Sunflare (Traveling across the horizon)
+            const sunX = w * (0.3 + progress * 0.4);
+            const sunY = horizonY - h * 0.15;
+            const sunGrad = ctx.createRadialGradient(sunX, sunY, 10, sunX, sunY, w * 0.35);
+            sunGrad.addColorStop(0, 'rgba(255, 230, 160, 0.95)');
+            sunGrad.addColorStop(0.2, 'rgba(123, 216, 148, 0.45)');
+            sunGrad.addColorStop(0.6, 'rgba(123, 216, 148, 0.08)');
+            sunGrad.addColorStop(1, 'transparent');
+            ctx.fillStyle = sunGrad;
+            ctx.beginPath();
+            ctx.arc(sunX, sunY, w * 0.35, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Energy Particles
+            const particleCount = 35;
+            for (let i = 0; i < particleCount; i++) {
+                const pSeed = (i * 137.5 + progress * 300) % h;
+                const px = (w * (0.2 + (i % 7) * 0.1)) + Math.sin(progress * 5 + i) * 30;
+                const py = horizonY + pSeed * 0.6;
+                const pAlpha = (1 - (py - horizonY) / (h - horizonY)) * 0.8;
+                ctx.fillStyle = `rgba(123, 216, 148, ${Math.max(0, pAlpha)})`;
+                ctx.beginPath();
+                ctx.arc(px, py, 2.5, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            ctx.restore();
+        }
+
+        // 2. Render Frame with Aspect-Ratio-Preserving Cover Math
+        function renderVideoFrame(img) {
+            if (!img || !img.complete || img.naturalWidth === 0) return;
+            const w = canvas.width;
+            const h = canvas.height;
+            const imgRatio = img.naturalWidth / img.naturalHeight;
+            const canvasRatio = w / h;
+
+            let renderW, renderH, offsetX, offsetY;
+            if (canvasRatio > imgRatio) {
+                renderW = w;
+                renderH = w / imgRatio;
+                offsetX = 0;
+                offsetY = (h - renderH) / 2;
+            } else {
+                renderW = h * imgRatio;
+                renderH = h;
+                offsetX = (w - renderW) / 2;
+                offsetY = 0;
+            }
+
+            ctx.clearRect(0, 0, w, h);
+            ctx.drawImage(img, offsetX, offsetY, renderW, renderH);
+        }
+
+        function getNearestFrame(targetIdx) {
+            if (frames[targetIdx]) return frames[targetIdx];
+            for (let offset = 1; offset < totalFrames; offset++) {
+                if (targetIdx - offset >= 0 && frames[targetIdx - offset]) return frames[targetIdx - offset];
+                if (targetIdx + offset < totalFrames && frames[targetIdx + offset]) return frames[targetIdx + offset];
+            }
+            return frames[0] || null;
+        }
+
+        // Fetch the initial frame and frames near the current scroll position.
+        let frameSources = [];
+        const requestedFrames = new Set();
+
+        function requestFrame(index) {
+            if (index < 0 || index >= frameSources.length || requestedFrames.has(index)) return;
+            requestedFrames.add(index);
+            const img = new Image();
+            img.onload = () => {
+                isUsingVideoFrames = true;
+                frames[index] = img;
+                loader.classList.add('hidden');
+                const current = Math.min(totalFrames - 1, Math.floor(scrollObj.progress * (totalFrames - 1)));
+                if (Math.abs(index - current) <= 1) renderVideoFrame(img);
+            };
+            img.onerror = () => {
+                if (!frames.some(Boolean)) {
+                    isUsingVideoFrames = false;
+                    loader.classList.add('hidden');
+                    renderProcedural3D(scrollObj.progress);
+                }
+            };
+            img.src = frameSources[index];
+        }
+
+        fetch('/assets/journey-frames/manifest.json')
+            .then(res => res.ok ? res.json() : Promise.reject())
+            .then(manifest => {
+                isUsingVideoFrames = true;
+                frameSources = manifest.frames || [];
+                if (!frameSources.length) throw new Error('No journey frames available');
+                totalFrames = frameSources.length;
+                frames = new Array(totalFrames);
+                loaderText.textContent = 'LOADING SOLAR JOURNEY...';
+                const current = Math.min(totalFrames - 1, Math.floor(scrollObj.progress * (totalFrames - 1)));
+                requestFrame(current);
+                requestFrame(current + 1);
+            })
+            .catch(() => {
+                // If video frames not extracted yet, proceed immediately with smooth 3D visualizer
+                isUsingVideoFrames = false;
+                loader.classList.add('hidden');
+                renderProcedural3D(0);
+            });
+
+        // 4. GSAP ScrollTrigger Sequence Scrubber
+        const scrollObj = { frame: 0, progress: 0 };
+
+        ScrollTrigger.create({
+            trigger: "#journeyScrollTrack",
+            start: "top top",
+            end: "bottom bottom",
+            pin: "#journeyViewport",
+            pinSpacing: false,
+            scrub: 0.1,
+            onUpdate: (self) => {
+                scrollObj.progress = self.progress;
+                const pct = Math.round(self.progress * 100);
+                progressCounter.textContent = `${String(pct).padStart(2, '0')}%`;
+                const chapter = Math.min(3, Math.floor(self.progress * 4));
+                document.querySelectorAll('.journey-chapter-card').forEach((card, index) => {
+                    card.classList.toggle('is-active', index === chapter);
+                });
+
+                if (pct > 5) {
+                    scrollCue.style.opacity = '0';
+                } else {
+                    scrollCue.style.opacity = '0.85';
+                }
+
+                if (isUsingVideoFrames && frames.length > 0) {
+                    const frameIdx = Math.min(totalFrames - 1, Math.floor(self.progress * (totalFrames - 1)));
+                    requestFrame(frameIdx);
+                    requestFrame(frameIdx + 1);
+                    requestFrame(frameIdx - 1);
+                    const targetFrame = getNearestFrame(frameIdx);
+                    if (targetFrame) renderVideoFrame(targetFrame);
+                } else {
+                    renderProcedural3D(self.progress);
+                }
+            }
+        });
+
+        // Instant deep-link scroll position jump (e.g. ?p=0.5 for 50%)
+        const urlParams = new URLSearchParams(window.location.search);
+        const jumpProgress = parseFloat(urlParams.get('p'));
+        if (!isNaN(jumpProgress) && jumpProgress >= 0 && jumpProgress <= 1) {
+            setTimeout(() => {
+                const track = document.getElementById('journeyScrollTrack');
+                if (track) {
+                    const totalScroll = track.offsetHeight - window.innerHeight;
+                    window.scrollTo({ top: totalScroll * jumpProgress, behavior: 'instant' });
+                    ScrollTrigger.update();
+                    const frameIdx = Math.min(totalFrames - 1, Math.floor(jumpProgress * (totalFrames - 1)));
+                    const targetFrame = getNearestFrame(frameIdx);
+                    if (targetFrame) renderVideoFrame(targetFrame);
+                }
+            }, 350);
+        }
+
+        // 5. Interactive Calculator Logic
+        const billSlider = document.getElementById('billRange');
+        const billDisplay = document.getElementById('billDisplay');
+        const formBillValue = document.getElementById('formBillValue');
+        const systemCap = document.getElementById('systemCap');
+        const subsidyVal = document.getElementById('subsidyVal');
+        const annualSave = document.getElementById('annualSave');
+
+        function updateCalculator(bill) {
+            billDisplay.textContent = `₹ ${Number(bill).toLocaleString('en-IN')}`;
+            formBillValue.value = `₹ ${Number(bill).toLocaleString('en-IN')}`;
+
+            // Sizing: ~₹1500 bill ~ 1kW
+            let kw = Math.round((bill / 1500) * 10) / 10;
+            if (kw < 1) kw = 1.0;
+            if (kw > 15) kw = 15.0;
+
+            // Subsidy (PM Surya Ghar: ₹30k for 1kW, ₹60k for 2kW, ₹78k for 3kW+)
+            let subsidy = Math.round(30000 * Math.min(kw, 2) + 18000 * Math.min(Math.max(kw - 2, 0), 1));
+
+            // Annual savings (~92% of bill)
+            const annual = Math.round(bill * 12 * 0.92);
+
+            systemCap.textContent = `${kw.toFixed(1)} kW`;
+            subsidyVal.textContent = `₹ ${subsidy.toLocaleString('en-IN')}`;
+            annualSave.textContent = `₹ ${annual.toLocaleString('en-IN')}`;
+        }
+
+        billSlider.addEventListener('input', (e) => updateCalculator(e.target.value));
+        updateCalculator(4500);
+
+        // 7. Lead Form AJAX Submission
+        const leadForm = document.getElementById('journeyLeadForm');
+        const feedback = document.getElementById('formFeedback');
+
+        leadForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const submitBtn = leadForm.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
+            const formData = new FormData(leadForm);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const res = await fetch('/api/leads', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const json = await res.json();
+
+                feedback.style.display = 'block';
+                if (res.ok && json.success) {
+                    feedback.style.background = 'rgba(123, 216, 148, 0.15)';
+                    feedback.style.border = '1px solid rgba(123, 216, 148, 0.35)';
+                    feedback.style.color = '#7BD894';
+                    feedback.innerHTML = '<i class="fas fa-circle-check"></i> Thank you! Your solar site audit request has been registered. An engineer will call you within 15 minutes.';
+                    leadForm.reset();
+                } else {
+                    feedback.style.background = 'rgba(239, 68, 68, 0.15)';
+                    feedback.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+                    feedback.style.color = '#fca5a5';
+                    feedback.innerHTML = `<i class="fas fa-triangle-exclamation"></i> ${json.error || 'Submission failed. Please call us directly.'}`;
+                }
+            } catch (err) {
+                feedback.style.display = 'block';
+                feedback.style.background = 'rgba(239, 68, 68, 0.15)';
+                feedback.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+                feedback.style.color = '#fca5a5';
+                feedback.innerHTML = '<i class="fas fa-triangle-exclamation"></i> Connection error. Please call +91 72491 87969 directly.';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Confirm Free On-Site Inspection</span> <i class="fas fa-arrow-right"></i>';
+            }
+        });
+
+    });
+    </script>
+</body>
+</html>

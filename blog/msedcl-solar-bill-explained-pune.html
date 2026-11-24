@@ -108,10 +108,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/css/dark-technical.css?v=6.0">
+    <link rel="stylesheet" href="/css/dark-technical.css?v=20261124c">
 
-    <link rel="stylesheet" href="/css/layout-polish.css?v=1.0">
+    <link rel="stylesheet" href="/css/layout-polish.css?v=20261124b">
     <script src="/js/layout-polish.js?v=1.0" defer></script>
+    <script src="/js/site-accessibility.js?v=1.2" defer></script>
+    <script src="/js/mobile-nav-fallback.js?v=1.0" defer></script>
 </head>
 <body class="tech-grid-bg">
 
@@ -125,40 +127,119 @@
                 <span class="dt-brand-title">E GREEN <span>SOLUTION</span></span>
             </a>
 
-            <!-- Desktop Links -->
+            <!-- Desktop Navigation Links -->
             <nav class="dt-nav-links" aria-label="Main Navigation">
                 <a href="/">Home</a>
+
                 <div class="dt-has-dropdown">
-                    <a href="/services" class="dt-dropdown-trigger">Services <i class="fas fa-chevron-down"></i></a>
+                    <a href="/services" class="dt-dropdown-trigger">
+                        Services <i class="fas fa-chevron-down"></i>
+                    </a>
                     <div class="dt-dropdown-menu">
                         <div class="dt-dropdown-header">
                             <span class="dt-dropdown-eyebrow">ENGINEERING SOLUTIONS</span>
                             <a href="/services" class="dt-dropdown-viewall">All 10 Services &rarr;</a>
                         </div>
                         <div class="dt-dropdown-grid">
-                            <a href="/residential-solar" class="dt-drop-item"><strong>Residential Rooftop</strong><span>Manufacturer warranty terms vary by model</span></a>
-                            <a href="/commercial-solar-pune" class="dt-drop-item"><strong>Commercial Solar</strong><span>Offices, schools, malls, hospitals</span></a>
-                            <a href="/industrial-solar" class="dt-drop-item"><strong>Industrial Solar EPC</strong><span>MIDC Chakan, Bhosari, Talegaon</span></a>
-                            <a href="/solar-panel-cleaning-pune" class="dt-drop-item"><strong>Demineralized RO Wash</strong><span>Restore up to 25% lost generation</span></a>
-                            <a href="/solar-amc-pune" class="dt-drop-item"><strong>Solar AMC Contracts</strong><span>Preventive checkups &amp; uptime SLAs</span></a>
-                            <a href="/solar-inverter-repair-pune" class="dt-drop-item"><strong>Inverter Repair</strong><span>Growatt, Sungrow, Solis, Polycab</span></a>
+                            <a href="/residential-solar" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-home"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Residential Rooftop</strong>
+                                    <span>Manufacturer warranty terms vary by model</span>
+                                </div>
+                            </a>
+                            <a href="/commercial-solar-pune" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-building"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Commercial Solar</strong>
+                                    <span>Offices, schools, malls, hospitals</span>
+                                </div>
+                            </a>
+                            <a href="/industrial-solar" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-industry"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Industrial Solar EPC</strong>
+                                    <span>MIDC Chakan, Bhosari, Talegaon</span>
+                                </div>
+                            </a>
+                            <a href="/solar-water-heater-pune" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-water"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Solar Water Heaters</strong>
+                                    <span>Pressurized ETC &amp; FPC systems</span>
+                                </div>
+                            </a>
+                            <a href="/solar-panel-cleaning-pune" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-broom"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Demineralized RO Wash</strong>
+                                    <span>Panel cleaning and performance checks</span>
+                                </div>
+                            </a>
+                            <a href="/solar-amc-pune" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-file-contract"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Solar AMC Contracts</strong>
+                                    <span>Preventive checkups &amp; uptime SLAs</span>
+                                </div>
+                            </a>
+                            <a href="/solar-inverter-repair-pune" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-bolt"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Inverter Service &amp; Repair</strong>
+                                    <span>Growatt, Sungrow, Solis, Polycab</span>
+                                </div>
+                            </a>
+                            <a href="/solar-net-meter-msedcl-pune" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>MSEDCL Net Metering</strong>
+                                    <span>Liaisoning, bi-directional sync</span>
+                                </div>
+                            </a>
+                            <a href="/solar-plant-revamping-repowering" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-sync-alt"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Plant Revamping</strong>
+                                    <span>Repower older plants to TOPCon</span>
+                                </div>
+                            </a>
+                            <a href="/solar-repair-maintenance-pune" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-wrench"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Plant Repair &amp; Emergency</strong>
+                                    <span>On-site breakdown troubleshooting</span>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
+
                 <a href="/projects">Projects</a>
                 <a href="/gallery">Gallery</a>
+                <a href="/journey">Journey</a>
                 <a href="/solar-guide">Solar 101</a>
                 <a href="/calculator">Calculator</a>
                 <a href="/areas">Areas</a>
+                <a href="/blog" class="active" aria-current="page">Blog</a>
                 <a href="/about">About</a>
                 <a href="/contact">Contact</a>
             </nav>
 
+            <!-- Actions: Direct Call & Gold Quote CTA -->
             <div class="dt-nav-actions">
-                <a href="tel:+917249187969" class="dt-phone-link"><i class="fas fa-phone-alt"></i> <span>+91 72491 87969</span></a>
-                <a href="/contact" class="dt-btn dt-btn-primary dt-nav-quote-btn">Get Free Quote &rarr;</a>
-                <button type="button" class="dt-hamburger" id="dt-hamburger" aria-label="Toggle Navigation Menu">
-                    <span></span><span></span><span></span>
+                <a href="tel:+917249187969" class="dt-phone-link" aria-label="Call E Green Solution">
+                    <i class="fas fa-phone-alt"></i> <span>+91 72491 87969</span>
+                </a>
+                <a href="/contact" class="dt-btn dt-btn-primary dt-nav-quote-btn">
+                    Get Free Quote <i class="fas fa-arrow-right" style="font-size: 11px;"></i>
+                </a>
+
+                <!-- Mobile Hamburger Toggle -->
+                <button type="button" class="dt-hamburger" id="dt-hamburger" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="dt-mobile-drawer">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
             </div>
         </div>
@@ -166,39 +247,54 @@
 
     <!-- Mobile Navigation Drawer -->
     <div class="dt-mobile-backdrop" id="dt-backdrop"></div>
-    <div class="dt-mobile-menu" id="dt-mobile-drawer">
+    <div class="dt-mobile-menu" id="dt-mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
         <div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--border-muted);">
                 <span class="dt-brand-title">E GREEN <span>SOLUTION</span></span>
-                <button type="button" id="dt-drawer-close" style="background: transparent; border: none; color: var(--text-primary); font-size: 20px;"><i class="fas fa-times"></i></button>
+                <button type="button" id="dt-drawer-close" aria-label="Close Navigation" style="background: transparent; border: none; color: var(--text-primary); font-size: 20px; cursor: pointer;">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <ul class="dt-mobile-links">
+
+                        <ul class="dt-mobile-links">
                 <li><a href="/">Home</a></li>
                 <li class="dt-mobile-dropdown">
-                    <button type="button" class="dt-mobile-dropdown-btn" id="dt-mobile-services-toggle">
-                        <span>Services</span><i class="fas fa-chevron-down dt-dropdown-arrow"></i>
+                    <button type="button" class="dt-mobile-dropdown-btn" id="dt-mobile-services-toggle" aria-expanded="false">
+                        <span>Services</span>
+                        <i class="fas fa-chevron-down dt-dropdown-arrow"></i>
                     </button>
                     <ul class="dt-mobile-sublinks" id="dt-mobile-services-sub">
-                        <li><a href="/services">All 10 Services Overview &rarr;</a></li>
-                        <li><a href="/residential-solar">Residential Rooftop</a></li>
-                        <li><a href="/commercial-solar-pune">Commercial Solar EPC</a></li>
-                        <li><a href="/industrial-solar">Industrial Solar (MIDC)</a></li>
-                        <li><a href="/solar-panel-cleaning-pune">Demineralized RO Wash</a></li>
-                        <li><a href="/solar-amc-pune">Solar AMC Contracts</a></li>
-                        <li><a href="/solar-inverter-repair-pune">Inverter Repair &amp; Service</a></li>
+                        <li><a href="/services" class="dt-sublink-all">All 10 Services Overview &rarr;</a></li>
+                        <li><a href="/residential-solar"><i class="fas fa-home"></i> Residential Rooftop</a></li>
+                        <li><a href="/commercial-solar-pune"><i class="fas fa-building"></i> Commercial Solar EPC</a></li>
+                        <li><a href="/industrial-solar"><i class="fas fa-industry"></i> Industrial Solar (MIDC)</a></li>
+                        <li><a href="/solar-water-heater-pune"><i class="fas fa-water"></i> Solar Water Heaters</a></li>
+                        <li><a href="/solar-panel-cleaning-pune"><i class="fas fa-broom"></i> Demineralized RO Wash</a></li>
+                        <li><a href="/solar-amc-pune"><i class="fas fa-file-contract"></i> Solar AMC Contracts</a></li>
+                        <li><a href="/solar-inverter-repair-pune"><i class="fas fa-bolt"></i> Inverter Service &amp; Repair</a></li>
+                        <li><a href="/solar-net-meter-msedcl-pune"><i class="fas fa-tachometer-alt"></i> MSEDCL Net Metering</a></li>
+                        <li><a href="/solar-plant-revamping-repowering"><i class="fas fa-sync-alt"></i> Plant Revamping</a></li>
+                        <li><a href="/solar-repair-maintenance-pune"><i class="fas fa-wrench"></i> Plant Repair &amp; Breakdown</a></li>
                     </ul>
                 </li>
                 <li><a href="/projects">Projects</a></li>
                 <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/journey">The Solar Journey (3D)</a></li>
                 <li><a href="/solar-guide">Solar 101</a></li>
                 <li><a href="/calculator">Calculator</a></li>
                 <li><a href="/areas">Areas</a></li>
+                <li><a href="/blog">Blog</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
             </ul>
         </div>
+
         <div class="dt-mobile-footer">
             <a href="/contact" class="dt-btn dt-btn-primary" style="width: 100%; text-align: center;">Get Free Solar Quote &rarr;</a>
+            <div style="display: flex; gap: 10px; margin-top: 8px;">
+                <a href="tel:+917249187969" class="dt-btn dt-btn-secondary" style="flex: 1; padding: 10px; font-size: 12px; justify-content: center;"><i class="fas fa-phone-alt"></i> Call</a>
+                <a href="https://wa.me/917249187969?text=Hello%20E%20Green%20Solution,%20I%20am%20interested%20in%20a%20solar%20quote" target="_blank" rel="noopener noreferrer" class="dt-btn dt-btn-secondary" style="flex: 1; padding: 10px; font-size: 12px; justify-content: center; color: #4ade80 !important;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
         </div>
     </div>
 

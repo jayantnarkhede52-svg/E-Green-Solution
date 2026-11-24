@@ -411,7 +411,8 @@ img {
   background: transparent;
 }
 
-.dt-has-dropdown:hover .dt-dropdown-menu {
+.dt-has-dropdown:hover .dt-dropdown-menu,
+.dt-has-dropdown:focus-within .dt-dropdown-menu {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -1842,7 +1843,9 @@ img {
   margin-bottom: 60px;
 }
 
-.dt-footer-col h4 {
+.dt-footer-col h2[data-original-heading="4"],
+.dt-footer-col h4,
+.dt-footer-col h3[data-original-heading="4"] {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11.5px;
   font-weight: 600;

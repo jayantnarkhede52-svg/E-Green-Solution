@@ -27,6 +27,7 @@
       wasOpen = isOpen;
 
       drawer.inert = !isOpen;
+      trigger.setAttribute('aria-expanded', String(isOpen));
       drawer.setAttribute('aria-hidden', String(!isOpen));
       if (isOpen) {
         drawer.setAttribute('aria-modal', 'true');

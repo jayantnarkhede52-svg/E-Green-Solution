@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | E Green Solution Solar Pune</title>
+    <meta name="description" content="The solar resource or page you requested could not be located. Explore our rooftop solar services, savings calculator, or pan-Pune installation directory.">
+    <meta name="robots" content="noindex, follow">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/logo.png">
+
+    <!-- Google Fonts: Manrope, Inter, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/dark-technical.css?v=20261124c">
+    <link rel="stylesheet" href="/css/style.css?v=4.1">
+    <link rel="stylesheet" href="/css/layout-polish.css?v=2.6">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="/js/site-accessibility.js?v=1.2" defer></script>
+    <script src="/js/layout-polish.js?v=1.0" defer></script>
+
+    <style>
+        .error-hero {
+            padding: clamp(60px, 9vw, 110px) 0 clamp(40px, 6vw, 80px);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .error-orb-glow {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 440px;
+            height: 440px;
+            background: radial-gradient(circle, rgba(123, 216, 148, 0.15) 0%, rgba(11, 13, 18, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(40px);
+        }
+        .error-code-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(84px, 16vw, 170px);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.05em;
+            background: linear-gradient(180deg, #F1F3F5 20%, rgba(241, 243, 245, 0.25) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            text-shadow: 0 0 60px rgba(123, 216, 148, 0.3);
+        }
+        .error-code-badge span {
+            color: var(--gold-accent, #7BD894);
+            -webkit-text-fill-color: var(--gold-accent, #7BD894);
+        }
+        .error-title {
+            font-size: clamp(26px, 3.8vw, 42px);
+            font-weight: 800;
+            color: var(--text-primary, #F1F3F5);
+            margin-bottom: 14px;
+            position: relative;
+            z-index: 1;
+            text-wrap: balance;
+        }
+        .error-desc {
+            font-size: clamp(15px, 2vw, 17px);
+            color: var(--text-secondary, #94A3B8);
+            max-width: 620px;
+            margin: 0 auto 32px;
+            line-height: 1.65;
+            position: relative;
+            z-index: 1;
+        }
+        .error-actions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+        .error-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: left;
+            position: relative;
+            z-index: 1;
+        }
+        .error-card {
+            background: var(--bg-surface, #12151C);
+            border: 1px solid var(--border-muted, rgba(241, 243, 245, 0.12));
+            border-radius: var(--radius-card, 14px);
+            padding: 24px;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+        .error-card:hover {
+            border-color: var(--gold-accent, #7BD894);
+            transform: translateY(-4px);
+            background: var(--bg-elevated, #1A1F2B);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+        }
+        .error-card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: rgba(123, 216, 148, 0.12);
+            color: var(--gold-accent, #7BD894);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(123, 216, 148, 0.2);
+            transition: all 0.2s ease;
+        }
+        .error-card:hover .error-card-icon {
+            background: var(--gold-accent, #7BD894);
+            color: #061A0C;
+        }
+        .error-card h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text-primary, #F1F3F5);
+            margin: 0 0 6px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .error-card h3 i {
+            font-size: 12px;
+            color: var(--gold-accent, #7BD894);
+            transition: transform 0.2s ease;
+        }
+        .error-card:hover h3 i {
+            transform: translateX(4px);
+        }
+        .error-card p {
+            font-size: 13.5px;
+            color: var(--text-secondary, #94A3B8);
+            margin: 0;
+            line-height: 1.55;
+        }
+        @media (max-width: 900px) {
+            .error-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .error-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="tech-grid-bg">
+    <!-- ============================================================
+         GLOBAL NAVIGATION
+         ============================================================ -->
+    <header id="dt-navbar" role="banner">
+        <div class="dt-nav-container">
+            <a href="/" class="dt-brand" aria-label="E Green Solution Home">
+                <div class="dt-logo-wrap">
+                    <img src="/assets/logo.png" alt="E Green Solution" class="dt-logo" width="150" height="34" loading="eager">
+                </div>
+                <span class="dt-brand-title">E GREEN <span>SOLUTION</span></span>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="dt-nav-links" aria-label="Main Navigation">
+                <a href="/">Home</a>
+                
+                <div class="dt-has-dropdown">
+                    <a href="/services" class="dt-dropdown-trigger">
+                        Services <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dt-dropdown-menu">
+                        <div class="dt-dropdown-header">
+                            <span class="dt-dropdown-eyebrow">ENGINEERING SOLUTIONS</span>
+                            <a href="/services" class="dt-dropdown-viewall">All 10 Services &rarr;</a>
+                        </div>
+                        <div class="dt-dropdown-grid">
+                            <a href="/residential-solar" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-home"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Residential Rooftop</strong>
+                                    <span>Manufacturer warranty terms vary by model</span>
+                                </div>
+                            </a>
+                            <a href="/commercial-solar-pune" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-building"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Commercial Solar</strong>
+                                    <span>Offices, schools, malls, hospitals</span>
+                                </div>
+                            </a>
+                            <a href="/industrial-solar" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-industry"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Industrial Solar EPC</strong>
+                                    <span>MIDC Chakan, Bhosari, Talegaon</span>
+                                </div>
+                            </a>
+                            <a href="/solar-water-heater-pune" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-water"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Solar Water Heaters</strong>
+                                    <span>Pressurized ETC &amp; FPC systems</span>
+                                </div>
+                            </a>
+                            <a href="/solar-panel-cleaning-pune" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-broom"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Demineralized RO Wash</strong>
+                                    <span>Panel cleaning and performance checks</span>
+                                </div>
+                            </a>
+                            <a href="/solar-amc-pune" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-file-contract"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Solar AMC Contracts</strong>
+                                    <span>Preventive checkups &amp; uptime SLAs</span>
+                                </div>
+                            </a>
+                            <a href="/solar-inverter-repair-pune" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-bolt"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Inverter Service &amp; Repair</strong>
+                                    <span>Growatt, Sungrow, Solis, Polycab</span>
+                                </div>
+                            </a>
+                            <a href="/solar-net-meter-msedcl-pune" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>MSEDCL Net Metering</strong>
+                                    <span>Liaisoning, bi-directional sync</span>
+                                </div>
+                            </a>
+                            <a href="/solar-plant-revamping-repowering" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-sync-alt"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Plant Revamping</strong>
+                                    <span>Repower older plants to TOPCon</span>
+                                </div>
+                            </a>
+                            <a href="/solar-repair-maintenance-pune" class="dt-drop-item">
+                                <div class="dt-drop-icon"><i class="fas fa-wrench"></i></div>
+                                <div class="dt-drop-info">
+                                    <strong>Plant Repair &amp; Emergency</strong>
+                                    <span>On-site breakdown troubleshooting</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="/projects">Projects</a>
+                <a href="/gallery">Gallery</a>
+                <a href="/journey">Journey</a>
+                <a href="/solar-guide">Solar 101</a>
+                <a href="/calculator">Calculator</a>
+                <a href="/areas">Areas</a>
+                <a href="/blog">Blog</a>
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+            </nav>
+
+            <!-- Actions: Direct Call & Gold Quote CTA -->
+            <div class="dt-nav-actions">
+                <a href="tel:+917249187969" class="dt-phone-link" aria-label="Call E Green Solution">
+                    <i class="fas fa-phone-alt"></i> <span>+91 72491 87969</span>
+                </a>
+                <a href="/contact" class="dt-btn dt-btn-primary dt-nav-quote-btn">
+                    Get Free Quote <i class="fas fa-arrow-right" style="font-size: 11px;"></i>
+                </a>
+
+                <!-- Mobile Hamburger Toggle -->
+                <button type="button" class="dt-hamburger" id="dt-hamburger" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="dt-mobile-drawer">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="dt-mobile-backdrop" id="dt-backdrop"></div>
+    <div class="dt-mobile-menu" id="dt-mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
+        <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--border-muted);">
+                <span class="dt-brand-title">E GREEN <span>SOLUTION</span></span>
+                <button type="button" id="dt-drawer-close" aria-label="Close Navigation" style="background: transparent; border: none; color: var(--text-primary); font-size: 20px; cursor: pointer;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+                        <ul class="dt-mobile-links">
+                <li><a href="/">Home</a></li>
+                <li class="dt-mobile-dropdown">
+                    <button type="button" class="dt-mobile-dropdown-btn" id="dt-mobile-services-toggle" aria-expanded="false">
+                        <span>Services</span>
+                        <i class="fas fa-chevron-down dt-dropdown-arrow"></i>
+                    </button>
+                    <ul class="dt-mobile-sublinks" id="dt-mobile-services-sub">
+                        <li><a href="/services" class="dt-sublink-all">All 10 Services Overview &rarr;</a></li>
+                        <li><a href="/residential-solar"><i class="fas fa-home"></i> Residential Rooftop</a></li>
+                        <li><a href="/commercial-solar-pune"><i class="fas fa-building"></i> Commercial Solar EPC</a></li>
+                        <li><a href="/industrial-solar"><i class="fas fa-industry"></i> Industrial Solar (MIDC)</a></li>
+                        <li><a href="/solar-water-heater-pune"><i class="fas fa-water"></i> Solar Water Heaters</a></li>
+                        <li><a href="/solar-panel-cleaning-pune"><i class="fas fa-broom"></i> Demineralized RO Wash</a></li>
+                        <li><a href="/solar-amc-pune"><i class="fas fa-file-contract"></i> Solar AMC Contracts</a></li>
+                        <li><a href="/solar-inverter-repair-pune"><i class="fas fa-bolt"></i> Inverter Service &amp; Repair</a></li>
+                        <li><a href="/solar-net-meter-msedcl-pune"><i class="fas fa-tachometer-alt"></i> MSEDCL Net Metering</a></li>
+                        <li><a href="/solar-plant-revamping-repowering"><i class="fas fa-sync-alt"></i> Plant Revamping</a></li>
+                        <li><a href="/solar-repair-maintenance-pune"><i class="fas fa-wrench"></i> Plant Repair &amp; Breakdown</a></li>
+                    </ul>
+                </li>
+                <li><a href="/projects">Projects</a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/journey">The Solar Journey (3D)</a></li>
+                <li><a href="/solar-guide">Solar 101</a></li>
+                <li><a href="/calculator">Calculator</a></li>
+                <li><a href="/areas">Areas</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="dt-mobile-footer">
+            <a href="/contact" class="dt-btn dt-btn-primary" style="width: 100%; text-align: center;">Get Free Solar Quote &rarr;</a>
+            <div style="display: flex; gap: 10px; margin-top: 8px;">
+                <a href="tel:+917249187969" class="dt-btn dt-btn-secondary" style="flex: 1; padding: 10px; font-size: 12px; justify-content: center;"><i class="fas fa-phone-alt"></i> Call</a>
+                <a href="https://wa.me/917249187969?text=Hello%20E%20Green%20Solution,%20I%20am%20interested%20in%20a%20solar%20quote" target="_blank" rel="noopener noreferrer" class="dt-btn dt-btn-secondary" style="flex: 1; padding: 10px; font-size: 12px; justify-content: center; color: #4ade80 !important;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         CUSTOM 404 TECHNICAL SHOWCASE SECTION
+         ============================================================ -->
+    <main class="error-hero">
+        <div class="error-orb-glow"></div>
+        <div class="dt-container">
+            <div class="dt-tech-label" style="margin: 0 auto 16px;">
+                <i class="fas fa-satellite-dish" style="color: var(--gold-accent);"></i> COORDINATE NOT FOUND // ERROR 404
+            </div>
+
+            <div class="error-code-badge">
+                4<span>0</span>4
+            </div>
+
+            <h1 class="error-title">This Solar Coordinate is Off the Grid</h1>
+            <p class="error-desc">
+                The technical documentation, engineering page, or solar directory coordinate you requested could not be resolved. It may have been repowered, migrated, or never commissioned.
+            </p>
+
+            <div class="error-actions">
+                <a href="/" class="dt-btn dt-btn-primary">
+                    <i class="fas fa-home"></i> Return to Homepage
+                </a>
+                <a href="/calculator" class="dt-btn dt-btn-secondary">
+                    <i class="fas fa-calculator"></i> Solar Savings Calculator
+                </a>
+                <a href="https://wa.me/917249187969?text=Hello%20E%20Green%20Solution,%20I%20hit%20a%20404%20page%20and%20need%20assistance" target="_blank" rel="noopener noreferrer" class="dt-btn dt-btn-secondary" style="color: #4ade80 !important;">
+                    <i class="fab fa-whatsapp"></i> Instant WhatsApp Help
+                </a>
+            </div>
+
+            <!-- Directory Grid of Available Sections -->
+            <div style="margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--border-muted);">
+                <div style="text-align: left; margin-bottom: 24px;">
+                    <span class="dt-tech-label">RECALIBRATE YOUR SOLAR JOURNEY</span>
+                    <h2 style="font-size: 20px; color: var(--text-primary); margin: 6px 0 0;">Explore Active Solar Engineering Hubs</h2>
+                </div>
+
+                <div class="error-grid">
+                    <a href="/services" class="error-card">
+                        <div>
+                            <div class="error-card-icon"><i class="fas fa-bolt"></i></div>
+                            <h3>10 Turnkey Services <i class="fas fa-arrow-right"></i></h3>
+                            <p>Residential rooftop, commercial EPC, MIDC industrial power plants, and solar AMC.</p>
+                        </div>
+                    </a>
+
+                    <a href="/calculator" class="error-card">
+                        <div>
+                            <div class="error-card-icon"><i class="fas fa-calculator"></i></div>
+                            <h3>Solar Savings Calculator <i class="fas fa-arrow-right"></i></h3>
+                            <p>Instant bill cut projections, system sizing, payback period, and 25-year financial ROI.</p>
+                        </div>
+                    </a>
+
+                    <a href="/areas" class="error-card">
+                        <div>
+                            <div class="error-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <h3>Service Areas in Pune <i class="fas fa-arrow-right"></i></h3>
+                            <p>Check pincode eligibility across Pune City, Chakan, Bhosari, PCMC, Baner, and Lonavala.</p>
+                        </div>
+                    </a>
+
+                    <a href="/projects" class="error-card">
+                        <div>
+                            <div class="error-card-icon"><i class="fas fa-solar-panel"></i></div>
+                            <h3>Commissioned Projects <i class="fas fa-arrow-right"></i></h3>
+                            <p>Eagle Burgmann 200kW, Konark A Plus 100kW, and verified site case studies.</p>
+                        </div>
+                    </a>
+
+                    <a href="/solar-guide" class="error-card">
+                        <div>
+                            <div class="error-card-icon"><i class="fas fa-book-open"></i></div>
+                            <h3>Solar 101 Knowledge Guide <i class="fas fa-arrow-right"></i></h3>
+                            <p>Understand net metering, MSEDCL tariffs, PM Surya Ghar subsidy, and equipment selection.</p>
+                        </div>
+                    </a>
+
+                    <a href="/journey" class="error-card">
+                        <div>
+                            <div class="error-card-icon"><i class="fas fa-cube"></i></div>
+                            <h3>3D Interactive Journey <i class="fas fa-arrow-right"></i></h3>
+                            <p>Interactive 3D scroll-scrub experience tracking rooftop sunlight conversion to clean savings.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ============================================================
+         GLOBAL FOOTER
+         ============================================================ -->
+    <footer id="dt-footer" role="contentinfo">
+        <div class="dt-container">
+            <div class="dt-footer-grid">
+                <!-- Column 1: Brand & Authority Summary -->
+                <div class="dt-footer-col">
+                    <a href="/" class="dt-brand" style="margin-bottom: 18px; display: inline-flex;" aria-label="E Green Solution Home">
+                        <img src="/assets/logo.png" alt="E Green Solution" class="dt-logo" width="140" height="32" loading="lazy">
+                        <span class="dt-brand-title">E GREEN <span>SOLUTION</span></span>
+                    </a>
+                    <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px;">
+                        E Green Solution designs and installs rooftop solar in Pune for homes, housing societies, businesses and factories. We help prepare MSEDCL net metering applications.
+                    </p>
+                    <div style="display: flex; gap: 12px;">
+                        <span class="dt-tech-label" style="font-size: 9.5px; padding: 3px 8px; margin: 0;"><i class="fas fa-shield-alt"></i> PROJECT SCOPE IN WRITING</span>
+                        <span class="dt-tech-label" style="font-size: 9.5px; padding: 3px 8px; margin: 0;"><i class="fas fa-certificate"></i> EQUIPMENT BY PROJECT</span>
+                    </div>
+                </div>
+
+                <!-- Column 2: Turnkey Solar Installations -->
+                <div class="dt-footer-col">
+                    <h4>Solar Engineering</h4>
+                    <ul class="dt-footer-links">
+                        <li><a href="/residential-solar"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Residential Rooftop Solar</a></li>
+                        <li><a href="/commercial-solar-pune"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Commercial Solar EPC</a></li>
+                        <li><a href="/industrial-solar"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Industrial Solar (MIDC)</a></li>
+                        <li><a href="/residential-solar"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Residential Incentive Guide</a></li>
+                        <li><a href="/solar-guide"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Solar 101 Knowledge Guide</a></li>
+                        <li><a href="/calculator"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Solar Savings Calculator</a></li>
+                        <li><a href="/projects"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Commissioned Case Studies</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Operation, Maintenance & AMC -->
+                <div class="dt-footer-col">
+                    <h4>Maintenance &amp; Service</h4>
+                    <ul class="dt-footer-links">
+                        <li><a href="/solar-amc-pune"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Solar AMC Contracts</a></li>
+                        <li><a href="/solar-panel-cleaning-pune"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Demineralized RO Wash</a></li>
+                        <li><a href="/solar-inverter-repair-pune"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Inverter Repair &amp; Service</a></li>
+                        <li><a href="/solar-net-meter-msedcl-pune"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> MSEDCL Net Meter Testing</a></li>
+                        <li><a href="/solar-plant-revamping-repowering"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Plant Revamping &amp; Repower</a></li>
+                        <li><a href="/solar-water-heater-pune"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Solar Water Heating Systems</a></li>
+                        <li><a href="/areas"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Pan-Pune Service Areas</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Official Office & Immediate Contact -->
+                <div class="dt-footer-col">
+                    <h4>Pune Headquarters</h4>
+                    <div class="dt-footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Plot No. 12, Ground floor, Hira Banglow, Vidyadeep Society, Gulabnagar, Dhankawadi, Pune, Maharashtra 411043</span>
+                    </div>
+                    <div class="dt-footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span><a href="tel:+917249187969" style="color: var(--text-primary); font-weight: 600;">+91 72491 87969</a></span>
+                    </div>
+                    <div class="dt-footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span><a href="mailto:egreensolution1@gmail.com">egreensolution1@gmail.com</a></span>
+                    </div>
+                    <div class="dt-footer-contact-item">
+                        <i class="fab fa-whatsapp" style="color: #4ade80;"></i>
+                        <span><a href="https://wa.me/917249187969?text=Hello%20E%20Green%20Solution,%20I%20would%20like%20to%20request%20a%20solar%20consultation" target="_blank" rel="noopener noreferrer">Instant WhatsApp Consultation</a></span>
+                    </div>
+                    <div class="dt-footer-contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Mon – Sat: 09:00 AM – 07:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Legal & Internal Network -->
+            <div class="dt-footer-bottom">
+                <div>
+                    &copy; 2026 E Green Solution. All Rights Reserved. Rooftop Solar Installation &amp; Support in Pune.
+                </div>
+                <div class="dt-legal-links">
+                    <a href="/privacy-policy">Privacy Policy</a>
+                    <a href="/sitemap.xml">XML Sitemap</a>
+                    <a href="/areas">Service Hub</a>
+                    <a href="/blog">Solar Articles</a>
+                    <a href="/contact">Free Site Survey</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global Dark Technical Scripts (Drawer Toggle, Sticky Navbar) -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var hamburger = document.getElementById('dt-hamburger');
+        var drawer = document.getElementById('dt-mobile-drawer');
+        var backdrop = document.getElementById('dt-backdrop');
+        var closeBtn = document.getElementById('dt-drawer-close');
+
+        function toggleDrawer(open) {
+            if (!drawer || !backdrop || !hamburger) return;
+            if (open) {
+                drawer.classList.add('active');
+                backdrop.classList.add('active');
+                hamburger.classList.add('active');
+                hamburger.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            } else {
+                drawer.classList.remove('active');
+                backdrop.classList.remove('active');
+                hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        }
+
+        if (hamburger) hamburger.addEventListener('click', function() { toggleDrawer(!drawer.classList.contains('active')); });
+        if (closeBtn) closeBtn.addEventListener('click', function() { toggleDrawer(false); });
+        if (backdrop) backdrop.addEventListener('click', function() { toggleDrawer(false); });
+
+        // Sticky Navbar shadow
+        var navbar = document.getElementById('dt-navbar');
+        window.addEventListener('scroll', function() {
+            if (navbar) {
+                if (window.scrollY > 20) {
+                    navbar.style.borderBottomColor = 'rgba(123, 216, 148, 0.25)';
+                    navbar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.7)';
+                } else {
+                    navbar.style.borderBottomColor = 'rgba(241, 243, 245, 0.12)';
+                    navbar.style.boxShadow = 'none';
+                }
+            }
+        }, { passive: true });
+    });
+    </script>
+</body>
+</html>

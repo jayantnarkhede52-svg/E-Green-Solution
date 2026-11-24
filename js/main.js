@@ -682,7 +682,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Mobile Services Accordion Toggle Delegation
 document.addEventListener('click', function(e) {
   var toggle = e.target.closest('#dt-mobile-services-toggle');
-  if (toggle) {
+  if (toggle && !toggle.dataset.accordionBound) {
     e.preventDefault();
     var sub = document.getElementById('dt-mobile-services-sub');
     if (sub) {

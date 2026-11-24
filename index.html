@@ -47,15 +47,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/dark-technical.css?v=6.0">
-    <script src="/js/site-accessibility.js?v=1.0" defer></script>
+    <link rel="stylesheet" href="/css/dark-technical.css?v=20261124c">
+    <script src="/js/site-accessibility.js?v=1.2" defer></script>
     <link rel="stylesheet" href="/css/style.css?v=4.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Supabase & EmailJS JS -->
+    <!-- Supabase client for the contact form -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
     <script src="/js/supabase-config.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
 
     <!-- Schema.org business and service data -->
     <script type="application/ld+json">
@@ -316,8 +315,9 @@
     }
     </script>
 
-    <link rel="stylesheet" href="/css/layout-polish.css?v=1.0">
+    <link rel="stylesheet" href="/css/layout-polish.css?v=20261124b">
     <script src="/js/layout-polish.js?v=1.0" defer></script>
+    <script src="/js/lead-events.js?v=1.0" defer></script>
 </head>
 
 <body class="home tech-grid-bg">
@@ -336,82 +336,82 @@
 
             <!-- Desktop Navigation Links -->
             <nav class="dt-nav-links" aria-label="Main Navigation">
-                <a href="/" class="active">Home</a>
+                <a href="/" class="active" aria-current="page">Home</a>
                 
                 <div class="dt-has-dropdown">
-                    <a href="/services" class="dt-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                    <a href="/services" class="dt-dropdown-trigger">
                         Services <i class="fas fa-chevron-down"></i>
                     </a>
-                    <div class="dt-dropdown-menu" role="menu">
+                    <div class="dt-dropdown-menu">
                         <div class="dt-dropdown-header">
                             <span class="dt-dropdown-eyebrow">ENGINEERING SOLUTIONS</span>
                             <a href="/services" class="dt-dropdown-viewall">All 10 Services &rarr;</a>
                         </div>
                         <div class="dt-dropdown-grid">
-                            <a href="/residential-solar" class="dt-drop-item" role="menuitem">
+                            <a href="/residential-solar" class="dt-drop-item">
                                 <div class="dt-drop-icon"><i class="fas fa-home"></i></div>
                                 <div class="dt-drop-info">
                                     <strong>Residential Rooftop</strong>
                                     <span>Manufacturer warranty terms vary by model</span>
                                 </div>
                             </a>
-                            <a href="/commercial-solar-pune" class="dt-drop-item" role="menuitem">
+                            <a href="/commercial-solar-pune" class="dt-drop-item">
                                 <div class="dt-drop-icon"><i class="fas fa-building"></i></div>
                                 <div class="dt-drop-info">
                                     <strong>Commercial Solar</strong>
                                     <span>Offices, schools, malls, hospitals</span>
                                 </div>
                             </a>
-                            <a href="/industrial-solar" class="dt-drop-item" role="menuitem">
+                            <a href="/industrial-solar" class="dt-drop-item">
                                 <div class="dt-drop-icon"><i class="fas fa-industry"></i></div>
                                 <div class="dt-drop-info">
                                     <strong>Industrial Solar EPC</strong>
                                     <span>MIDC Chakan, Bhosari, Talegaon</span>
                                 </div>
                             </a>
-                            <a href="/solar-water-heater-pune" class="dt-drop-item" role="menuitem">
+                            <a href="/solar-water-heater-pune" class="dt-drop-item">
                                 <div class="dt-drop-icon"><i class="fas fa-water"></i></div>
                                 <div class="dt-drop-info">
                                     <strong>Solar Water Heaters</strong>
                                     <span>Pressurized ETC &amp; FPC systems</span>
                                 </div>
                             </a>
-                            <a href="/solar-panel-cleaning-pune" class="dt-drop-item" role="menuitem">
+                            <a href="/solar-panel-cleaning-pune" class="dt-drop-item">
                                 <div class="dt-drop-icon"><i class="fas fa-broom"></i></div>
                                 <div class="dt-drop-info">
                                     <strong>Demineralized RO Wash</strong>
-                                    <span>Restore up to 25% lost generation</span>
+                                    <span>Panel cleaning and performance checks</span>
                                 </div>
                             </a>
-                            <a href="/solar-amc-pune" class="dt-drop-item" role="menuitem">
+                            <a href="/solar-amc-pune" class="dt-drop-item">
                                 <div class="dt-drop-icon"><i class="fas fa-file-contract"></i></div>
                                 <div class="dt-drop-info">
                                     <strong>Solar AMC Contracts</strong>
                                     <span>Preventive checkups &amp; uptime SLAs</span>
                                 </div>
                             </a>
-                            <a href="/solar-inverter-repair-pune" class="dt-drop-item" role="menuitem">
+                            <a href="/solar-inverter-repair-pune" class="dt-drop-item">
                                 <div class="dt-drop-icon"><i class="fas fa-bolt"></i></div>
                                 <div class="dt-drop-info">
                                     <strong>Inverter Service &amp; Repair</strong>
                                     <span>Growatt, Sungrow, Solis, Polycab</span>
                                 </div>
                             </a>
-                            <a href="/solar-net-meter-msedcl-pune" class="dt-drop-item" role="menuitem">
+                            <a href="/solar-net-meter-msedcl-pune" class="dt-drop-item">
                                 <div class="dt-drop-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 <div class="dt-drop-info">
                                     <strong>MSEDCL Net Metering</strong>
                                     <span>Liaisoning, bi-directional sync</span>
                                 </div>
                             </a>
-                            <a href="/solar-plant-revamping-repowering" class="dt-drop-item" role="menuitem">
+                            <a href="/solar-plant-revamping-repowering" class="dt-drop-item">
                                 <div class="dt-drop-icon"><i class="fas fa-sync-alt"></i></div>
                                 <div class="dt-drop-info">
                                     <strong>Plant Revamping</strong>
                                     <span>Repower older plants to TOPCon</span>
                                 </div>
                             </a>
-                            <a href="/solar-repair-maintenance-pune" class="dt-drop-item" role="menuitem">
+                            <a href="/solar-repair-maintenance-pune" class="dt-drop-item">
                                 <div class="dt-drop-icon"><i class="fas fa-wrench"></i></div>
                                 <div class="dt-drop-info">
                                     <strong>Plant Repair &amp; Emergency</strong>
@@ -424,9 +424,11 @@
 
                 <a href="/projects">Projects</a>
                 <a href="/gallery">Gallery</a>
+                <a href="/journey">Journey</a>
                 <a href="/solar-guide">Solar 101</a>
                 <a href="/calculator">Calculator</a>
                 <a href="/areas">Areas</a>
+                <a href="/blog">Blog</a>
                 <a href="/about">About</a>
                 <a href="/contact">Contact</a>
             </nav>
@@ -484,9 +486,11 @@
                 </li>
                 <li><a href="/projects">Projects</a></li>
                 <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/journey">The Solar Journey (3D)</a></li>
                 <li><a href="/solar-guide">Solar 101</a></li>
                 <li><a href="/calculator">Calculator</a></li>
                 <li><a href="/areas">Areas</a></li>
+                <li><a href="/blog">Blog</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
             </ul>
@@ -527,8 +531,11 @@
                         <a href="/contact" class="dt-btn dt-btn-primary">
                             Get Free Solar Quote <i class="fas fa-arrow-right"></i>
                         </a>
+                        <a href="/journey" class="dt-btn dt-btn-secondary" style="border-color: rgba(123, 216, 148, 0.4); color: #7BD894 !important;">
+                            <i class="fas fa-play-circle" style="color: #7BD894;"></i> 3D Solar Journey
+                        </a>
                         <a href="#savings-calculator" class="dt-btn dt-btn-secondary">
-                            <i class="fas fa-calculator"></i> Calculate Savings
+                            <i class="fas fa-calculator"></i> Calculator
                         </a>
                     </div>
 
@@ -615,7 +622,7 @@
                 <a href="/residential-solar" class="dt-service-card" aria-label="Residential solar: reliable rooftop systems designed for your home">
                     <div class="dt-service-img-wrap">
                         <span class="dt-service-num">01 / RESIDENTIAL</span>
-                        <img src="/assets/residential_solar.png" alt="Rooftop solar company in Pune: residential installation by E Green Solution" class="dt-service-img" loading="lazy">
+                        <img src="/assets/Projects_egreen/IMG-20260331-WA0015.jpg" alt="Solar panels on a housing society rooftop in Wadgaon Budruk" class="dt-service-img" loading="lazy" width="1152" height="864">
                     </div>
                     <div class="dt-service-body">
                         <h3 class="dt-service-title">Residential Solar</h3>
@@ -627,7 +634,7 @@
                 <a href="/commercial-solar-pune" class="dt-service-card" aria-label="Commercial solar: practical systems for offices, schools and retail spaces">
                     <div class="dt-service-img-wrap">
                         <span class="dt-service-num">02 / COMMERCIAL</span>
-                        <img src="/assets/commercial_solar.png" alt="Commercial rooftop solar engineering in Pune" class="dt-service-img" loading="lazy">
+                        <img src="/assets/Projects_egreen/IMG-20260331-WA0013.jpg" alt="Rooftop solar panels at the Bhagawati Industries project" class="dt-service-img" loading="lazy" width="1600" height="1200">
                     </div>
                     <div class="dt-service-body">
                         <h3 class="dt-service-title">Commercial Solar</h3>
@@ -639,7 +646,7 @@
                 <a href="/industrial-solar" class="dt-service-card" aria-label="Industrial solar: high-capacity rooftop plants for factories and MIDC facilities">
                     <div class="dt-service-img-wrap">
                         <span class="dt-service-num">03 / INDUSTRIAL</span>
-                        <img src="/assets/industrial_solar.png" alt="Industrial solar power plant in MIDC Chakan" class="dt-service-img" loading="lazy">
+                        <img src="/assets/Projects_egreen/IMG-20260331-WA0017.jpg" alt="Industrial rooftop solar installation at Kotling Enterprises" class="dt-service-img" loading="lazy" width="1152" height="864">
                     </div>
                     <div class="dt-service-body">
                         <h3 class="dt-service-title">Industrial Solar</h3>
@@ -663,11 +670,11 @@
             </div>
 
             <div class="dt-slider-container" id="project-slider" role="region" aria-label="Illustrative before and after commercial rooftop solar comparison">
-                <img src="/assets/before-solar-commercial.jpg" alt="Bare Indian commercial rooftop before solar installation, illustrative AI-generated image" class="dt-slider-img" width="1774" height="887" loading="lazy" decoding="async">
+                <img src="/assets/before-solar-commercial-web.webp" alt="Bare Indian commercial rooftop before solar installation, illustrative AI-generated image" class="dt-slider-img" width="1774" height="887" loading="lazy" decoding="async">
                 <div class="dt-slider-tag left">BEFORE INSTALLATION</div>
                 
                 <div class="dt-slider-img dt-slider-after">
-                    <img src="/assets/after-solar-commercial.jpg" alt="Same Indian commercial rooftop with a realistic solar array and clear maintenance routes, illustrative AI-generated image" class="dt-slider-img" style="position: static;" width="1774" height="887" loading="lazy" decoding="async">
+                    <img src="/assets/after-solar-commercial-web.webp" alt="Same Indian commercial rooftop with a realistic solar array and clear maintenance routes, illustrative AI-generated image" class="dt-slider-img" style="position: static;" width="1774" height="887" loading="lazy" decoding="async">
                 </div>
                 <div class="dt-slider-tag right">AFTER: SOLAR ARRAY</div>
 
@@ -694,7 +701,7 @@
                 <!-- Eagle Burgmann industrial rooftop -->
                 <div class="dt-project-card">
                     <div class="dt-project-media">
-                        <img src="/assets/eagle_burgmann.png" alt="Eagle Burgmann 200kW solar plant MIDC Chakan" class="dt-project-img" loading="lazy">
+                        <img src="/assets/projects/eagle_burgmann.png" alt="Eagle Burgmann rooftop solar installation in Chakan" class="dt-project-img" loading="lazy" width="1280" height="720">
                     </div>
                     <div class="dt-project-content">
                         <div class="dt-project-meta">
@@ -706,18 +713,18 @@
                     </div>
                 </div>
 
-                <!-- Konark A Plus housing society rooftop -->
+                <!-- Wadgaon Budruk housing society rooftop -->
                 <div class="dt-project-card">
                     <div class="dt-project-media">
-                        <img src="/assets/projects/konark_society_rooftop_100kw.jpg" alt="Konark A Plus 100kW housing society rooftop solar" class="dt-project-img" loading="lazy">
+                        <img src="/assets/Projects_egreen/IMG-20260331-WA0015.jpg" alt="Solar panels on the Wadgaon Budruk society rooftop" class="dt-project-img" loading="lazy" width="1152" height="864">
                     </div>
                     <div class="dt-project-content">
                         <div class="dt-project-meta">
                             <span><i class="fas fa-building" aria-hidden="true"></i> HOUSING SOCIETY</span><span>PUNE</span>
                         </div>
-                        <h3 class="dt-project-title">Konark A Plus Society</h3>
-                        <p class="dt-project-desc">A rooftop installation serving shared society facilities in Sopan Baug.</p>
-                        <a href="/projects/konark-a-plus-100kw-housing-society-solar-pune" class="dt-project-link">View project <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        <h3 class="dt-project-title">Wadgaon Budruk Society</h3>
+                        <p class="dt-project-desc">A 35 kW rooftop installation for a society common meter.</p>
+                        <a href="/projects#wadgaon-society" class="dt-project-link">View project <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -1020,7 +1027,7 @@
             <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
                 <a href="/solar-panel-pune" class="dt-card" style="padding: 20px; display: block;">
                     <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--gold-accent); margin-bottom: 6px;">ZONE 01</div>
-                    <h4 style="font-size: 16px; color: var(--text-primary); margin-bottom: 4px;">Pune Central</h4>
+                    <h3 style="font-size: 16px; color: var(--text-primary); margin-bottom: 4px;" data-original-heading="4">Pune Central</h3>
                     <p style="font-size: 12.5px; color: var(--text-secondary); margin: 0;">Kothrud, Shivaji Nagar, Deccan, Camp</p>
                 </a>
                 <a href="/solar-panel-baner-bavdhan" class="dt-card" style="padding: 20px; display: block;">
@@ -1174,7 +1181,7 @@
 
                 <!-- Column 2: Turnkey Solar Installations -->
                 <div class="dt-footer-col">
-                    <h4>Solar Engineering</h4>
+                    <h2 data-original-heading="4">Solar Engineering</h2>
                     <ul class="dt-footer-links">
                         <li><a href="/residential-solar"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Residential Rooftop Solar</a></li>
                         <li><a href="/commercial-solar-pune"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Commercial Solar EPC</a></li>
@@ -1188,7 +1195,7 @@
 
                 <!-- Column 3: Operation, Maintenance & AMC -->
                 <div class="dt-footer-col">
-                    <h4>Maintenance &amp; Service</h4>
+                    <h2 data-original-heading="4">Maintenance &amp; Service</h2>
                     <ul class="dt-footer-links">
                         <li><a href="/solar-amc-pune"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Solar AMC Contracts</a></li>
                         <li><a href="/solar-panel-cleaning-pune"><i class="fas fa-chevron-right" style="font-size: 10px; color: var(--gold-accent);"></i> Demineralized RO Wash</a></li>
@@ -1202,7 +1209,7 @@
 
                 <!-- Column 4: Official Office & Immediate Contact -->
                 <div class="dt-footer-col">
-                    <h4>Pune Headquarters</h4>
+                    <h2 data-original-heading="4">Pune Headquarters</h2>
                     <div class="dt-footer-contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Plot No. 12, Ground floor, Hira Banglow, Vidyadeep Society, Gulabnagar, Dhankawadi, Pune, Maharashtra 411043</span>
@@ -1353,10 +1360,7 @@
             
             var kw = Math.max(1, (bill / 1300)).toFixed(1);
             var monthlySavings = Math.round(bill * 0.90);
-            var subsidy = 0;
-            if (kw <= 1.5) subsidy = 30000;
-            else if (kw <= 2.5) subsidy = 60000;
-            else subsidy = 78000;
+            var subsidy = Math.round(30000 * Math.min(Number(kw), 2) + 18000 * Math.min(Math.max(Number(kw) - 2, 0), 1));
 
             if (calcKw) calcKw.textContent = kw + ' kW';
             if (calcSavings) calcSavings.textContent = '₹ ' + monthlySavings.toLocaleString('en-IN');
@@ -1398,6 +1402,8 @@
                     };
                     var result = await _supabase.from('leads').insert([leadData]);
                     if (result.error) throw result.error;
+
+                    if (typeof window.gtag === 'function') window.gtag('event', 'lead_form_success', { form_name: 'homepage_contact' });
 
                     if (feedback) {
                         feedback.style.display = 'block';

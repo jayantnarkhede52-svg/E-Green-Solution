@@ -1,0 +1,86 @@
+/* Service area directory: images lead, details align, actions stay at the foot. */
+.area-filters {
+  justify-content: flex-start;
+  max-width: none;
+  margin: 24px 0 12px;
+}
+
+.area-results-count {
+  margin: 0 0 18px;
+  color: var(--text-secondary, #a7b4c4);
+  font-size: 13px;
+}
+
+.areas-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+  scroll-margin-top: 90px;
+}
+
+.areas-grid .area-card {
+  height: auto;
+  min-width: 0;
+  box-shadow: none;
+}
+
+.areas-grid .area-card > div:first-child {
+  padding: 0;
+  min-width: 0;
+}
+
+.areas-grid .area-card-thumb {
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+.areas-grid .area-card-header {
+  margin: 20px 20px 12px;
+}
+
+.areas-grid .area-card-header > div:last-child {
+  min-width: 0;
+}
+
+.areas-grid .area-card h3 {
+  overflow-wrap: anywhere;
+}
+
+.areas-grid .area-card p {
+  margin: 0 20px 16px;
+  min-height: 0;
+}
+
+.areas-grid .area-meta-list {
+  margin: auto 20px 0;
+}
+
+.areas-grid .area-meta-list li {
+  flex-wrap: wrap;
+}
+
+.areas-grid .area-link {
+  min-height: 48px;
+  gap: 12px;
+}
+
+.area-filters .filter-btn:focus-visible,
+.areas-grid .area-link:focus-visible {
+  outline: 2px solid #a4eab5;
+  outline-offset: 3px;
+}
+
+@media (max-width: 1100px) {
+  .areas-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 768px) {
+  .area-filters {
+    margin: 16px 0 4px;
+    padding: 6px 2px 12px;
+  }
+  .areas-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .areas-grid .area-card-header { margin: 18px 18px 12px; }
+  .areas-grid .area-card p { margin-inline: 18px; }
+  .areas-grid .area-meta-list { margin-inline: 18px; }
+}
